@@ -1,0 +1,72 @@
+[submodule "vendor/BMAD-METHOD"]
+	path = vendor/BMAD-METHOD
+	url = git@github.com:bmad-code-org/BMAD-METHOD.git
+[submodule "vendor/CaludeSkills-Web-Gstack"]
+	path = vendor/CaludeSkills-Web-Gstack
+	url = git@github.com:HruthikKommuru/CaludeSkills-Web-Gstack.git
+[submodule "vendor/cc-sdd"]
+	path = vendor/cc-sdd
+	url = git@github.com:gotalab/cc-sdd.git
+[submodule "vendor/ccg-workflow"]
+	path = vendor/ccg-workflow
+	url = git@github.com:fengshao1227/ccg-workflow.git
+[submodule "vendor/claude-code-quickstart"]
+	path = vendor/claude-code-quickstart
+	url = git@github.com:MrNine-666/claude-code-quickstart.git
+[submodule "vendor/claude-code-spec-workflow"]
+	path = vendor/claude-code-spec-workflow
+	url = git@github.com:Pimzino/claude-code-spec-workflow.git
+[submodule "vendor/claude-code-specs-generator"]
+	path = vendor/claude-code-specs-generator
+	url = git@github.com:kellemar/claude-code-specs-generator.git
+[submodule "vendor/Claude-Code-Workflow"]
+	path = vendor/Claude-Code-Workflow
+	url = git@github.com:catlog22/Claude-Code-Workflow.git
+[submodule "vendor/claude-reflect"]
+	path = vendor/claude-reflect
+	url = git@github.com:BayramAnnakov/claude-reflect.git
+[submodule "vendor/get-shit-done"]
+	path = vendor/get-shit-done
+	url = git@github.com:gsd-build/get-shit-done.git
+[submodule "vendor/gstack"]
+	path = vendor/gstack
+	url = git@github.com:garrytan/gstack.git
+[submodule "vendor/happy-skills"]
+	path = vendor/happy-skills
+	url = git@github.com:notedit/happy-skills.git
+[submodule "vendor/lean-spec"]
+	path = vendor/lean-spec
+	url = git@github.com:codervisor/lean-spec.git
+[submodule "vendor/oh-my-claudecode"]
+	path = vendor/oh-my-claudecode
+	url = git@github.com:Yeachan-Heo/oh-my-claudecode.git
+[submodule "vendor/OpenSpec"]
+	path = vendor/OpenSpec
+	url = git@github.com:Fission-AI/OpenSpec.git
+[submodule "vendor/ouroboros"]
+	path = vendor/ouroboros
+	url = git@github.com:Q00/ouroboros.git
+[submodule "vendor/paul"]
+	path = vendor/paul
+	url = git@github.com:ChristopherKahler/paul.git
+[submodule "vendor/planning-with-files"]
+	path = vendor/planning-with-files
+	url = git@github.com:OthmanAdi/planning-with-files.git
+[submodule "vendor/skill-router"]
+	path = vendor/skill-router
+	url = git@github.com:Yuzc-001/skill-router.git
+[submodule "vendor/spec-based-claude-code"]
+	path = vendor/spec-based-claude-code
+	url = git@github.com:papaoloba/spec-based-claude-code.git
+[submodule "vendor/spec-kit"]
+	path = vendor/spec-kit
+	url = git@github.com:github/spec-kit.git
+[submodule "vendor/spec-workflow-mcp"]
+	path = vendor/spec-workflow-mcp
+	url = git@github.com:Pimzino/spec-workflow-mcp.git
+[submodule "vendor/Trellis"]
+	path = vendor/Trellis
+	url = git@github.com:mindfold-ai/Trellis.git
+[submodule "1st-cc-plugin"]
+	path = 1st-cc-plugin
+	url = git@github.com:est7/1st-cc-plugin.git
