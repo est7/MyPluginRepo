@@ -76,3 +76,6 @@
 [submodule "vendor/compound-engineering-plugin"]
 	path = vendor/compound-engineering-plugin
 	url = git@github.com:EveryInc/compound-engineering-plugin.git
+[submodule "vendor/everything-claude-code"]
+	path = vendor/everything-claude-code
+	url = git@github.com:affaan-m/everything-claude-code.git
