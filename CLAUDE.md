@@ -60,3 +60,41 @@ git submodule update --remote vendor/<name>
 ```
 
 The `vendor/` submodules are intentionally pinned and should only be updated deliberately for research purposes.
+
+## Adding a New Vendor Reference (SOP)
+
+This is the standard preparation workflow before updating `1st-cc-plugin/`. Every time a new vendor repo is added, follow these steps in order:
+
+1. **Add the git submodule:**
+   ```bash
+   git submodule add <repo-url> vendor/<name>
+   ```
+
+2. **Read the new repo's README:** Understand what it does, its core workflow, and key traits.
+
+3. **Update `vendor/README.md`:** Add the new project to:
+   - The "At a Glance" table under the appropriate category
+   - The "Detailed Summaries" section with `Focus`, `Traits`, and `Flow`
+   - The "Patterns Across the Collection" classification
+   - The "Suggested Reading Order" list
+
+4. **Commit the changes** (submodule addition + vendor README update) as a single commit.
+
+## Removing a Vendor Reference (SOP)
+
+When a vendor repo is no longer needed, follow these steps in order:
+
+1. **Remove the git submodule:**
+   ```bash
+   git submodule deinit -f vendor/<name>
+   git rm -f vendor/<name>
+   rm -rf .git/modules/vendor/<name>
+   ```
+
+2. **Update `vendor/README.md`:** Remove the project from:
+   - The "At a Glance" table
+   - The "Detailed Summaries" section
+   - The "Patterns Across the Collection" classification
+   - The "Suggested Reading Order" list
+
+3. **Commit the changes** (submodule removal + vendor README update) as a single commit.

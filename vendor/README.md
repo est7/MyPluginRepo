@@ -52,6 +52,7 @@ The summary below focuses on three things for each project:
 | `CaludeSkills-Web-Gstack` | Web-app adaptation of gstack skills for claude.ai, no terminal required. |
 | `happy-skills` | Skills bundle covering feature work, issue-to-PR pipelines, screenshot analysis, and media generation. |
 | `BMAD-METHOD` | Large AI-agile framework with domain specialists, structured workflows, and scale-adaptive planning. |
+| `claude-code-cookbook` | Multilingual plugin collection with slash commands, expert roles, and automation hooks for Claude Code. |
 
 ## Detailed Summaries
 
@@ -201,6 +202,12 @@ The summary below focuses on three things for each project:
 - `Traits`: Scale-adaptive planning, many domain experts, modular ecosystem, party mode, and a full lifecycle orientation.
 - `Flow`: `npx bmad-method install` -> choose modules -> use guided workflows and expert agents, with `bmad-help` as the next-step navigator.
 
+#### `claude-code-cookbook`
+
+- `Focus`: Extend Claude Code with a curated set of slash commands, expert roles, and automation hooks across multiple languages.
+- `Traits`: Multilingual plugin system (JA/EN/KO/ZH-CN/ZH-TW/ES/FR/PT), role-based expertise switching, PR management and code quality commands, safety hooks, and Apache 2.0 licensed.
+- `Flow`: `/plugin marketplace add wasabeef/claude-code-cookbook` -> `/plugin install cook-zh-cn@claude-code-cookbook` -> use `/pr-create`, `/refactor`, `/role security`, etc.
+
 ## Patterns Across the Collection
 
 ### Most common workflow shapes
@@ -208,7 +215,7 @@ The summary below focuses on three things for each project:
 - `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`
 - `Role-orchestration first`: `gstack`, `oh-my-claudecode`, `Claude-Code-Workflow`, `ccg-workflow`, `BMAD-METHOD`
 - `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`
-- `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`
+- `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`
 
 ### Key differentiators worth watching
 
@@ -227,6 +234,6 @@ If the goal is to compare approaches quickly, read in this order:
 1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`
 2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`
 3. `planning-with-files`, `Trellis`, `claude-reflect`
-4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`
+4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`
 
 That sequence moves from execution systems, to specification systems, to memory systems, to setup and distribution layers.
