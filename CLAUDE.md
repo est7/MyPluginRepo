@@ -21,7 +21,7 @@ The `1st-cc-plugin/` submodule contains its own detailed `CLAUDE.md` — read it
 
 - **Branch strategy:** `develop` → `main` (merge commits)
 
-- **Commit scopes:** `git`, `gitflow`, `github`, `refactor`, `review`, `doc-gen`, `swiftui`, `po`, `project-init`, `sp`, `nd`, `issue-flow`, `simple-task`, `complex-task`, `code-context`, `shadcn`, `acpx`, `docs`, `ci`
+- **Commit scopes:** `git`, `gitflow`, `github`, `refactor`, `review`, `doc-gen`, `swiftui`, `po`, `project-init`, `sp`, `nd`, `issue-flow`, `simple-task`, `complex-task`, `code-context`, `shadcn`, `acpx`, `docs`, `ci`, `release`, `testing`, `ai-hygiene`, `spec`, `android`, `plan`, `catchup`, `skill-dev`
 
 ## Architecture
 
@@ -109,11 +109,12 @@ Read the skill's content and understand its domain. Then check existing plugin g
 
 ```
 vcs/          — git, gitflow, github
-workflow/     — issue-driven-dev, superpower, simple-task, complex-task
-quality/      — review, refactor
+workflow/     — issue-driven-dev, superpower, simple-task, complex-task, catchup, plan
+quality/      — review, refactor, testing, ai-hygiene, spec
 tools/        — project-init, code-context, doc-gen
-framework/    — swiftui, shadcn, next-devtools
-meta/         — plugin-optimizer, acpx
+framework/    — swiftui, shadcn, next-devtools, android
+meta/         — plugin-optimizer, acpx, skill-dev
+ops/          — release
 ```
 
 - If the skill fits an existing plugin's domain, add it there.
