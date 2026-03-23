@@ -98,3 +98,43 @@ When a vendor repo is no longer needed, follow these steps in order:
    - The "Suggested Reading Order" list
 
 3. **Commit the changes** (submodule removal + vendor README update) as a single commit.
+
+## Porting a Skill to 1st-cc-plugin (SOP)
+
+When the user identifies a good skill from a vendor repo and wants it added to `1st-cc-plugin/`, follow these steps:
+
+### 1. Decide where it belongs
+
+Read the skill's content and understand its domain. Then check existing plugins in `1st-cc-plugin/`:
+
+```
+git, gitflow, github, refactor, review, office, swiftui, claude-config,
+code-context, shadcn, superpowers, next-devtools, acpx,
+todo-issue-workflow, todo-sdd-workflow, 1st-simple-task, 1st-complex-task
+```
+
+- If the skill fits an existing plugin's domain, add it there.
+- If it opens a new domain with no good fit, create a new plugin directory with `plugin.json` and `SKILL.md`.
+
+### 2. Adapt the skill
+
+- Do NOT copy vendor content verbatim. Rewrite to match `1st-cc-plugin/` conventions.
+- Follow the 3-tier token budget: metadata (~100 tokens), instructions (<5k tokens), resources (unlimited `references/*.md`).
+- Register in `plugin.json` under `"commands"` (user-invocable) or `"skills"` (auto-triggered).
+- Respect tool invocation conventions (no bare `Bash`, scoped permissions).
+
+### 3. Validate
+
+```bash
+python3 1st-cc-plugin/plugin-optimizer/scripts/validate-plugin.py 1st-cc-plugin/<plugin-name>
+```
+
+### 4. Update documentation
+
+- Update the plugin's own `README.md` (or create one if new plugin).
+- Update `1st-cc-plugin/README.md` if the plugin list or marketplace description changed.
+
+### 5. Bump version and commit
+
+- Bump the version in the plugin's `plugin.json`.
+- Commit with an appropriate scope: `feat(<scope>): add <skill-name> skill`.
