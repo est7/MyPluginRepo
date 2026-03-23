@@ -15,13 +15,13 @@ The `1st-cc-plugin/` submodule contains its own detailed `CLAUDE.md` — read it
 
 - **Plugin validation:** Run before committing:
   ```bash
-  python3 1st-cc-plugin/plugin-optimizer/scripts/validate-plugin.py <plugin-path>
+  python3 1st-cc-plugin/meta/plugin-optimizer/scripts/validate-plugin.py <plugin-path>
   ```
   Exit codes: 0 = pass, 1 = MUST violations, 2 = token budget critical.
 
 - **Branch strategy:** `develop` → `main` (merge commits)
 
-- **Commit scopes:** `git`, `gitflow`, `github`, `refactor`, `review`, `office`, `swiftui`, `po`, `cc`, `sp`, `nd`, `docs`, `ci`
+- **Commit scopes:** `git`, `gitflow`, `github`, `refactor`, `review`, `doc-gen`, `swiftui`, `po`, `project-init`, `sp`, `nd`, `issue-flow`, `simple-task`, `complex-task`, `code-context`, `shadcn`, `acpx`, `docs`, `ci`
 
 ## Architecture
 
@@ -105,12 +105,15 @@ When the user identifies a good skill from a vendor repo and wants it added to `
 
 ### 1. Decide where it belongs
 
-Read the skill's content and understand its domain. Then check existing plugins in `1st-cc-plugin/`:
+Read the skill's content and understand its domain. Then check existing plugin groups in `1st-cc-plugin/`:
 
 ```
-git, gitflow, github, refactor, review, office, swiftui, claude-config,
-code-context, shadcn, superpowers, next-devtools, acpx,
-todo-issue-workflow, todo-sdd-workflow, 1st-simple-task, 1st-complex-task
+vcs/          — git, gitflow, github
+workflow/     — issue-driven-dev, superpower, simple-task, complex-task
+quality/      — review, refactor
+tools/        — project-init, code-context, doc-gen
+framework/    — swiftui, shadcn, next-devtools
+meta/         — plugin-optimizer, acpx
 ```
 
 - If the skill fits an existing plugin's domain, add it there.
@@ -126,7 +129,7 @@ todo-issue-workflow, todo-sdd-workflow, 1st-simple-task, 1st-complex-task
 ### 3. Validate
 
 ```bash
-python3 1st-cc-plugin/plugin-optimizer/scripts/validate-plugin.py 1st-cc-plugin/<plugin-name>
+python3 1st-cc-plugin/meta/plugin-optimizer/scripts/validate-plugin.py 1st-cc-plugin/<group>/<plugin-name>
 ```
 
 ### 4. Update documentation
