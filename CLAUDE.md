@@ -52,14 +52,14 @@ Never use bare `Bash` in `allowed-tools`; always scope it (e.g., `Bash(git:*)`).
 ## Submodule Management
 
 ```bash
-# Update all submodules to tracked commits
-git submodule update --init --recursive
+# Update all submodules to tracked commits (shallow)
+git submodule update --init --depth 1
 
 # Pull latest from a specific submodule remote
 git submodule update --remote vendor/<name>
 ```
 
-The `vendor/` submodules are intentionally pinned and should only be updated deliberately for research purposes.
+All vendor submodules use `shallow = true` in `.gitmodules` to avoid pulling full history. The `vendor/` submodules are intentionally pinned and should only be updated deliberately for research purposes.
 
 ## Adding a New Vendor Reference (SOP)
 
