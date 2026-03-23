@@ -73,3 +73,6 @@
 [submodule "vendor/claude-code-cookbook"]
 	path = vendor/claude-code-cookbook
 	url = git@github.com:wasabeef/claude-code-cookbook.git
+[submodule "vendor/compound-engineering-plugin"]
+	path = vendor/compound-engineering-plugin
+	url = git@github.com:EveryInc/compound-engineering-plugin.git
