@@ -1,81 +1,107 @@
 [submodule "vendor/BMAD-METHOD"]
 	path = vendor/BMAD-METHOD
 	url = git@github.com:bmad-code-org/BMAD-METHOD.git
+	shallow = true
 [submodule "vendor/CaludeSkills-Web-Gstack"]
 	path = vendor/CaludeSkills-Web-Gstack
 	url = git@github.com:HruthikKommuru/CaludeSkills-Web-Gstack.git
+	shallow = true
 [submodule "vendor/cc-sdd"]
 	path = vendor/cc-sdd
 	url = git@github.com:gotalab/cc-sdd.git
+	shallow = true
 [submodule "vendor/ccg-workflow"]
 	path = vendor/ccg-workflow
 	url = git@github.com:fengshao1227/ccg-workflow.git
+	shallow = true
 [submodule "vendor/claude-code-quickstart"]
 	path = vendor/claude-code-quickstart
 	url = git@github.com:MrNine-666/claude-code-quickstart.git
+	shallow = true
 [submodule "vendor/claude-code-spec-workflow"]
 	path = vendor/claude-code-spec-workflow
 	url = git@github.com:Pimzino/claude-code-spec-workflow.git
+	shallow = true
 [submodule "vendor/claude-code-specs-generator"]
 	path = vendor/claude-code-specs-generator
 	url = git@github.com:kellemar/claude-code-specs-generator.git
+	shallow = true
 [submodule "vendor/Claude-Code-Workflow"]
 	path = vendor/Claude-Code-Workflow
 	url = git@github.com:catlog22/Claude-Code-Workflow.git
+	shallow = true
 [submodule "vendor/claude-reflect"]
 	path = vendor/claude-reflect
 	url = git@github.com:BayramAnnakov/claude-reflect.git
+	shallow = true
 [submodule "vendor/get-shit-done"]
 	path = vendor/get-shit-done
 	url = git@github.com:gsd-build/get-shit-done.git
+	shallow = true
 [submodule "vendor/gstack"]
 	path = vendor/gstack
 	url = git@github.com:garrytan/gstack.git
+	shallow = true
 [submodule "vendor/happy-skills"]
 	path = vendor/happy-skills
 	url = git@github.com:notedit/happy-skills.git
+	shallow = true
 [submodule "vendor/lean-spec"]
 	path = vendor/lean-spec
 	url = git@github.com:codervisor/lean-spec.git
+	shallow = true
 [submodule "vendor/oh-my-claudecode"]
 	path = vendor/oh-my-claudecode
 	url = git@github.com:Yeachan-Heo/oh-my-claudecode.git
+	shallow = true
 [submodule "vendor/OpenSpec"]
 	path = vendor/OpenSpec
 	url = git@github.com:Fission-AI/OpenSpec.git
+	shallow = true
 [submodule "vendor/ouroboros"]
 	path = vendor/ouroboros
 	url = git@github.com:Q00/ouroboros.git
+	shallow = true
 [submodule "vendor/paul"]
 	path = vendor/paul
 	url = git@github.com:ChristopherKahler/paul.git
+	shallow = true
 [submodule "vendor/planning-with-files"]
 	path = vendor/planning-with-files
 	url = git@github.com:OthmanAdi/planning-with-files.git
+	shallow = true
 [submodule "vendor/skill-router"]
 	path = vendor/skill-router
 	url = git@github.com:Yuzc-001/skill-router.git
+	shallow = true
 [submodule "vendor/spec-based-claude-code"]
 	path = vendor/spec-based-claude-code
 	url = git@github.com:papaoloba/spec-based-claude-code.git
+	shallow = true
 [submodule "vendor/spec-kit"]
 	path = vendor/spec-kit
 	url = git@github.com:github/spec-kit.git
+	shallow = true
 [submodule "vendor/spec-workflow-mcp"]
 	path = vendor/spec-workflow-mcp
 	url = git@github.com:Pimzino/spec-workflow-mcp.git
+	shallow = true
 [submodule "vendor/Trellis"]
 	path = vendor/Trellis
 	url = git@github.com:mindfold-ai/Trellis.git
+	shallow = true
 [submodule "1st-cc-plugin"]
 	path = 1st-cc-plugin
 	url = git@github.com:est7/1st-cc-plugin.git
 [submodule "vendor/claude-code-cookbook"]
 	path = vendor/claude-code-cookbook
 	url = git@github.com:wasabeef/claude-code-cookbook.git
+	shallow = true
 [submodule "vendor/compound-engineering-plugin"]
 	path = vendor/compound-engineering-plugin
 	url = git@github.com:EveryInc/compound-engineering-plugin.git
+	shallow = true
 [submodule "vendor/everything-claude-code"]
 	path = vendor/everything-claude-code
 	url = git@github.com:affaan-m/everything-claude-code.git
+	shallow = true
