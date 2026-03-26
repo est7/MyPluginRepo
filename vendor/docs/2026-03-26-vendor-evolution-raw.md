@@ -1,0 +1,4709 @@
+# Vendor Evolution Report
+
+- Base: `HEAD^`
+- Head: `HEAD`
+- Updated vendors: `15`
+
+## `vendor/BMAD-METHOD`
+
+- Range: `76fb7e067b5e..819d373e2ecd`
+- Commit count: `22`
+
+### Commits
+
+- 980d290 fix(quick-dev): add self-check gate for task completion tracking (#2104)
+- ac5cb9d refactor(quick-dev): replace unconditional artifact scan with intent cascade (#2105)
+- fc2b253 fix(quick-dev): preserve tracking identifiers in spec slug derivation (#2108)
+- b3cf338 refactor(quick-dev): rename tech-spec prefix to spec (#2109)
+- 4815250 fix(quick-dev): remove redundant H1 title from spec template (#2111)
+- 303e7ae fix: issue 55 config paths (#2113)
+- 0c24547 fix: use execFileSync to preserve spaces in CLI arguments (#2088)
+- 90d9d88 docs(zh-cn): refine story 2.5 and 2.6 how-to guides (#2097)
+- 8b07541 docs(zh-cn): refine Epic3 story 3.1 and 3.2 explanations (#2098)
+- 94831cb docs(zh-cn): refine Epic3 story 3.3 and 3.4 explanations (#2099)
+- a04635e fix: agent-manifest.csv empty after install — type mismatch + scan path bug (#2115)
+- 0d7d7da docs(zh-cn-reference): refresh workflow and skill references (#2100)
+- c350e5b docs(zh-cn): refresh reference and roadmap docs (#2101)
+- 0cdfd75 docs: add v6.2.1 changelog
+- 8cac7f9 Merge branch 'main' into release
+- 3acd1a7 Merge pull request #2116 from bmad-code-org/release
+- fce9d6c chore(release): v6.2.1 [skip ci]
+- 090bfea docs(zh-cn): close explanation gap relinks (#2102)
+- cfe40fc refactor: modernize module-help CSV format and rewrite bmad-help as outcome-based skill (#2120)
+- 6dd0a97 fix: update bmb module-definition path for skills/ restructure (#2126)
+- a5640c8 chore: add v6.2.2 changelog and use CHANGELOG.md for GH release notes (#2127)
+- 819d373 chore(release): v6.2.2 [skip ci]
+
+### Workflow Signals
+
+- `.github/workflows/publish.yaml`
+- `src/core-skills/bmad-help/SKILL.md`
+
+### All Changed Files
+
+- `.github/workflows/publish.yaml`
+- `CHANGELOG.md`
+- `docs/_STYLE_GUIDE.md`
+- `docs/explanation/established-projects-faq.md`
+- `docs/explanation/project-context.md`
+- `docs/fr/reference/workflow-map.md`
+- `docs/fr/tutorials/getting-started.md`
+- `docs/reference/workflow-map.md`
+- `docs/tutorials/getting-started.md`
+- `docs/zh-cn/_STYLE_GUIDE.md`
+- `docs/zh-cn/explanation/advanced-elicitation.md`
+- `docs/zh-cn/explanation/adversarial-review.md`
+- `docs/zh-cn/explanation/brainstorming.md`
+- `docs/zh-cn/explanation/established-projects-faq.md`
+- `docs/zh-cn/explanation/party-mode.md`
+- `docs/zh-cn/explanation/preventing-agent-conflicts.md`
+- `docs/zh-cn/explanation/project-context.md`
+- `docs/zh-cn/explanation/quick-dev.md`
+- `docs/zh-cn/explanation/why-solutioning-matters.md`
+- `docs/zh-cn/how-to/customize-bmad.md`
+- `docs/zh-cn/how-to/shard-large-documents.md`
+- `docs/zh-cn/how-to/upgrade-to-v6.md`
+- `docs/zh-cn/reference/agents.md`
+- `docs/zh-cn/reference/commands.md`
+- `docs/zh-cn/reference/core-tools.md`
+- `docs/zh-cn/reference/modules.md`
+- `docs/zh-cn/reference/testing.md`
+- `docs/zh-cn/reference/workflow-map.md`
+- `docs/zh-cn/roadmap.mdx`
+- `eslint.config.mjs`
+- `package-lock.json`
+- `package.json`
+- `src/bmm-skills/1-analysis/bmad-agent-analyst/bmad-skill-manifest.yaml`
+- `src/bmm-skills/1-analysis/bmad-agent-tech-writer/bmad-skill-manifest.yaml`
+- `src/bmm-skills/2-plan-workflows/bmad-agent-pm/bmad-skill-manifest.yaml`
+- `src/bmm-skills/2-plan-workflows/bmad-agent-ux-designer/bmad-skill-manifest.yaml`
+- `src/bmm-skills/3-solutioning/bmad-agent-architect/bmad-skill-manifest.yaml`
+- `src/bmm-skills/4-implementation/bmad-agent-dev/bmad-skill-manifest.yaml`
+- `src/bmm-skills/4-implementation/bmad-agent-qa/bmad-skill-manifest.yaml`
+- `src/bmm-skills/4-implementation/bmad-agent-quick-flow-solo-dev/bmad-skill-manifest.yaml`
+- ... and 16 more files
+
+## `vendor/Claude-Code-Workflow`
+
+- Range: `fcd0b9a2c49a..a45c672d3069`
+- Commit count: `30`
+
+### Commits
+
+- 97ed2ef refactor: update agent usage description and streamline planning strategy references
+- b502ebc feat: add workflow-research-agent for targeted external research and update analyze-with-file documentation
+- 94e44ca refactor: remove redundant schema instructions from lite-plan and consolidate analyze-with-file schemas
+- f2d9d55 refactor: enhance analyze-with-file documentation and streamline workflow-lite-plan execution steps
+- d2409f0 fix: add ambiguity detection for proposed technical solutions in analyze-with-file
+- bfad1d5 feat: add links section with LINUX DO badge to README and README_CN
+- ccb5f1e feat: update LINUX DO badge text in README and README_CN for clarity
+- fe7945e feat: standardize request_user_input schema across all codex skills and add config reminder
+- bab3719 chore: bump version to 7.2.15
+- 54283e5 Refactor user interaction tools from AskUserQuestion to request_user_input across multiple skills for consistency and improved user experience. Update documentation to reflect necessary Codex configuration for interactive confirmations and multi-agent coordination. Ensure mandatory confirmation gates are clearly defined in workflow processes to prevent unintended execution.
+- 1e560ab feat: migrate all codex team skills from spawn_agents_on_csv to spawn_agent + wait_agent architecture
+- 45756aa feat: add universal team-tasks-schema.json for all codex team skills
+- f112d4b refactor: redesign cli settings export/import API with endpoint-based schema
+- a525db1 chore: bump version to 7.2.16
+- d693f05 feat: convert all codex agent definitions from .md to .toml format
+- 2a6df97 chore: bump version to 7.2.17
+- 9043a0d feat: add agent definitions API for managing Codex and Claude agent configurations
+- c882eee fix: correct description formatting in team-review skill
+- c744a80 fix: resolve TOML escape errors and SKILL.md YAML parsing issue
+- e293195 feat: add advanced frontmatter config for Claude agent definitions
+- 22c7d90 chore: bump version to 7.2.19
+- 4c03a92 feat: add type filter and claude-only fields to batch controls
+- 8cfc711 feat: expand batch controls with full claude-only advanced settings
+- 017fd9e feat: add findings-to-recommendations traceability in analyze-with-file
+- c1268cb chore: bump version to 7.2.20
+- aeaf545 feat: add findings-to-recommendations traceability in codex analyze-with-file
+- 36672ba fix: resolve multi-perspective parallel search design ambiguity in analyze-with-file
+- 3111bd2 feat: add Delegation Lock and Scope Lock to all 18 team skill coordinators
+- b104cd9 refactor: optimize analyze-with-file SKILL.md structure, merge duplicates
+- a45c672 delete: remove unified-execute-with-file skill documentation and implementation details
+
+### Workflow Signals
+
+- `.ccw/workflows/cli-templates/schemas/team-tasks-schema.json`
+- `.claude/agents/workflow-research-agent.md`
+- `.claude/commands/workflow/analyze-with-file.md`
+- `.claude/skills/workflow-lite-plan/SKILL.md`
+- `.codex/agents/action-planning-agent.toml`
+- `.codex/agents/cli-discuss-agent.toml`
+- `.codex/agents/cli-execution-agent.toml`
+- `.codex/agents/cli-explore-agent.toml`
+- `.codex/agents/cli-lite-planning-agent.toml`
+- `.codex/agents/cli-planning-agent.toml`
+- `.codex/agents/code-developer.toml`
+- `.codex/agents/conceptual-planning-agent.toml`
+- `.codex/agents/context-search-agent.toml`
+- `.codex/agents/debug-explore-agent.toml`
+- `.codex/agents/doc-generator.toml`
+- `.codex/agents/issue-plan-agent.toml`
+- `.codex/agents/issue-queue-agent.toml`
+- `.codex/agents/memory-bridge.toml`
+- `.codex/agents/tdd-developer.toml`
+- `.codex/agents/team-supervisor.toml`
+
+### All Changed Files
+
+- `.ccw/workflows/cli-templates/schemas/team-tasks-schema.json`
+- `.claude/agents/workflow-research-agent.md`
+- `.claude/commands/workflow/analyze-with-file.md`
+- `.claude/skills/workflow-lite-plan/SKILL.md`
+- `.codex/agents/action-planning-agent.toml`
+- `.codex/agents/cli-discuss-agent.toml`
+- `.codex/agents/cli-execution-agent.toml`
+- `.codex/agents/cli-explore-agent.toml`
+- `.codex/agents/cli-lite-planning-agent.toml`
+- `.codex/agents/cli-planning-agent.toml`
+- `.codex/agents/code-developer.toml`
+- `.codex/agents/conceptual-planning-agent.toml`
+- `.codex/agents/context-search-agent.toml`
+- `.codex/agents/debug-explore-agent.toml`
+- `.codex/agents/doc-generator.toml`
+- `.codex/agents/issue-plan-agent.toml`
+- `.codex/agents/issue-queue-agent.toml`
+- `.codex/agents/memory-bridge.toml`
+- `.codex/agents/tdd-developer.toml`
+- `.codex/agents/team-supervisor.toml`
+- `.codex/agents/team-worker.toml`
+- `.codex/agents/test-action-planning-agent.toml`
+- `.codex/agents/test-context-search-agent.toml`
+- `.codex/agents/test-fix-agent.toml`
+- `.codex/agents/ui-design-agent.toml`
+- `.codex/agents/universal-executor.toml`
+- `.codex/skills/analyze-with-file/SKILL.md`
+- `.codex/skills/brainstorm-with-file/SKILL.md`
+- `.codex/skills/brainstorm/SKILL.md`
+- `.codex/skills/clean/SKILL.md`
+- `.codex/skills/collaborative-plan-with-file/SKILL.md`
+- `.codex/skills/csv-wave-pipeline/SKILL.md`
+- `.codex/skills/issue-discover/SKILL.md`
+- `.codex/skills/issue-discover/phases/01-issue-new.md`
+- `.codex/skills/issue-discover/phases/02-discover.md`
+- `.codex/skills/issue-discover/phases/03-discover-by-prompt.md`
+- `.codex/skills/issue-discover/phases/04-quick-execute.md`
+- `.codex/skills/parallel-dev-cycle/SKILL.md`
+- `.codex/skills/parallel-dev-cycle/phases/02-agent-execution.md`
+- `.codex/skills/project-documentation-workflow/SKILL.md`
+- ... and 371 more files
+
+## `vendor/Trellis`
+
+- Range: `f62b4f640f5a..7658ba6bc8c5`
+- Commit count: `8`
+
+### Commits
+
+- cc8a408 feat(cli): add branch context to .trellis session and journal records (#106) (#108)
+- a360d70 chore: update WeChat group QR code (expired)
+- f8471f9 feat: v0.4.0-beta.8 — Shared Agent Skills layer + Codex .codex/ support (#115)
+- 9750744 feat: v0.4.0-beta — CodeBuddy, Codex overhaul, trellis-meta update (#116)
+- 5672950 Feat/v0.4.0 beta (#121)
+- ca509b7 docs: update WeChat group QR code to group 4 (#125)
+- 6ae111f feat: v0.4.0-beta — statusLine integration + docs fixes (#127)
+- 7658ba6 feat: v0.4.0-beta — StatusLine, CodeBuddy, Codex agents, docs fixes (#128)
+
+### Workflow Signals
+
+- `.agents/skills/before-dev/SKILL.md`
+- `.agents/skills/brainstorm/SKILL.md`
+- `.agents/skills/break-loop/SKILL.md`
+- `.agents/skills/check-cross-layer/SKILL.md`
+- `.agents/skills/check/SKILL.md`
+- `.agents/skills/create-command/SKILL.md`
+- `.agents/skills/finish-work/SKILL.md`
+- `.agents/skills/integrate-skill/SKILL.md`
+- `.agents/skills/onboard/SKILL.md`
+- `.agents/skills/record-session/SKILL.md`
+- `.agents/skills/start/SKILL.md`
+- `.agents/skills/update-spec/SKILL.md`
+- `.claude/agents/check.md`
+- `.claude/agents/research.md`
+- `.claude/hooks/session-start.py`
+- `.claude/hooks/statusline.py`
+- `.codex/agents/check.toml`
+- `.codex/agents/implement.toml`
+- `.codex/agents/research.toml`
+- `.codex/hooks/session-start.py`
+
+### All Changed Files
+
+- `.agents/skills/before-dev/SKILL.md`
+- `.agents/skills/brainstorm/SKILL.md`
+- `.agents/skills/break-loop/SKILL.md`
+- `.agents/skills/check-cross-layer/SKILL.md`
+- `.agents/skills/check/SKILL.md`
+- `.agents/skills/create-command/SKILL.md`
+- `.agents/skills/finish-work/SKILL.md`
+- `.agents/skills/integrate-skill/SKILL.md`
+- `.agents/skills/onboard/SKILL.md`
+- `.agents/skills/record-session/SKILL.md`
+- `.agents/skills/start/SKILL.md`
+- `.agents/skills/update-spec/SKILL.md`
+- `.claude/agents/check.md`
+- `.claude/agents/research.md`
+- `.claude/hooks/session-start.py`
+- `.claude/hooks/statusline.py`
+- `.claude/settings.json`
+- `.codex/agents/check.toml`
+- `.codex/agents/implement.toml`
+- `.codex/agents/research.toml`
+- `.codex/config.toml`
+- `.codex/hooks.json`
+- `.codex/hooks/session-start.py`
+- `.codex/skills/parallel/SKILL.md`
+- `.trellis/.template-hashes.json`
+- `.trellis/.version`
+- `.trellis/config.yaml`
+- `.trellis/scripts/add_session.py`
+- `.trellis/scripts/common/cli_adapter.py`
+- `.trellis/scripts/common/developer.py`
+- `.trellis/scripts/create_bootstrap.py`
+- `.trellis/scripts/multi_agent/plan.py`
+- `.trellis/scripts/multi_agent/start.py`
+- `.trellis/spec/cli/backend/platform-integration.md`
+- `.trellis/tasks/03-24-py39-compat/prd.md`
+- `.trellis/tasks/03-24-py39-compat/task.json`
+- `.trellis/tasks/archive/2026-03/03-24-agents-dir-ownership/check.jsonl`
+- `.trellis/tasks/archive/2026-03/03-24-agents-dir-ownership/debug.jsonl`
+- `.trellis/tasks/archive/2026-03/03-24-agents-dir-ownership/implement.jsonl`
+- `.trellis/tasks/archive/2026-03/03-24-agents-dir-ownership/prd.md`
+- ... and 91 more files
+
+## `vendor/ccg-workflow`
+
+- Range: `e9ba77a2c5ae..6988f6421a2c`
+- Commit count: `20`
+
+### Commits
+
+- e816091 feat: add --progress flag for codeagent-wrapper stderr progress output
+- a9cadd4 fix: add missing --progress flag to debug, spec-review, codex-exec templates
+- 3abb80c chore: bump version to 1.7.90
+- fb03bb3 fix: pass task text directly via -p for Gemini CLI instead of stdin marker
+- 7822a5f chore: bump version to 1.7.91
+- fc964a3 chore: bump version to 1.7.92
+- 1f1637a fix: clarify skill names have no ccg: prefix in rules template
+- 550a932 chore: bump version to 1.7.93
+- aa689e8 fix: binary version check on update — force re-download when outdated
+- 4ad80e2 docs: add binary version sync reminder to release checklist
+- 9072ebb docs: add CI-only binary upload rule to release checklist
+- 420cc2f fix: R2 priority download + binary version check in update flow
+- 64a0c15 fix: add --remote flag to wrangler R2 upload in CI
+- 88ac6a9 fix: CDN download + curl proxy + binary version check + install count fix
+- 32a5043 fix: early Session-ID output + Gemini -p display correction
+- 8244463 fix: Gemini templates use resume latest instead of SESSION_ID
+- c3508bf fix: execute.md Gemini resume latest for parallel route
+- fc89a63 fix: spec-impl resume sessions between prototype and review phases
+- d1fa209 chore: bump version to 1.7.99
+- 6988f64 fix: Gemini session_id parsing + restore resume <SESSION_ID>
+
+### Workflow Signals
+
+- `.github/workflows/build-binaries.yml`
+- `src/commands/init.ts`
+- `src/commands/menu.ts`
+- `src/commands/update.ts`
+- `templates/commands/analyze.md`
+- `templates/commands/backend.md`
+- `templates/commands/codex-exec.md`
+- `templates/commands/debug.md`
+- `templates/commands/execute.md`
+- `templates/commands/feat.md`
+- `templates/commands/frontend.md`
+- `templates/commands/optimize.md`
+- `templates/commands/plan.md`
+- `templates/commands/review.md`
+- `templates/commands/spec-impl.md`
+- `templates/commands/spec-plan.md`
+- `templates/commands/spec-research.md`
+- `templates/commands/spec-review.md`
+- `templates/commands/team-plan.md`
+- `templates/commands/team-research.md`
+
+### All Changed Files
+
+- `.github/workflows/build-binaries.yml`
+- `CHANGELOG.md`
+- `CLAUDE.md`
+- `codeagent-wrapper/backend_test.go`
+- `codeagent-wrapper/config.go`
+- `codeagent-wrapper/executor.go`
+- `codeagent-wrapper/main.go`
+- `codeagent-wrapper/main_test.go`
+- `codeagent-wrapper/parser.go`
+- `codeagent-wrapper/parser_unknown_event_test.go`
+- `package.json`
+- `src/commands/init.ts`
+- `src/commands/menu.ts`
+- `src/commands/update.ts`
+- `src/i18n/index.ts`
+- `src/utils/installer-prompt.ts`
+- `src/utils/installer.ts`
+- `templates/commands/analyze.md`
+- `templates/commands/backend.md`
+- `templates/commands/codex-exec.md`
+- `templates/commands/debug.md`
+- `templates/commands/execute.md`
+- `templates/commands/feat.md`
+- `templates/commands/frontend.md`
+- `templates/commands/optimize.md`
+- `templates/commands/plan.md`
+- `templates/commands/review.md`
+- `templates/commands/spec-impl.md`
+- `templates/commands/spec-plan.md`
+- `templates/commands/spec-research.md`
+- `templates/commands/spec-review.md`
+- `templates/commands/team-plan.md`
+- `templates/commands/team-research.md`
+- `templates/commands/team-review.md`
+- `templates/commands/test.md`
+- `templates/commands/workflow.md`
+- `templates/rules/ccg-skills.md`
+
+## `vendor/claude-code-quickstart`
+
+- Range: `5ad6f6b62023..ab712904655a`
+- Commit count: `2`
+
+### Commits
+
+- 3f5e4d8 feat(NodeJS): 绿色版 Node.js 检测支持——portable provider 全链路接入
+- ab71290 fix(NodeJS,Bootstrap): 自动补齐依赖时去重迁移提示
+
+### Workflow Signals
+
+- No skill/workflow signal files detected.
+
+### All Changed Files
+
+- `installer/Install-ClaudeEnv.ps1`
+- `installer/core/Bootstrap.ps1`
+- `installer/core/Registry.ps1`
+- `installer/steps/NodeJS-Common.ps1`
+- `installer/steps/NodeJS-Detect.ps1`
+- `installer/steps/NodeJS.ps1`
+
+## `vendor/compound-engineering-plugin`
+
+- Range: `423e69272619..78c42fcb4787`
+- Commit count: `26`
+
+### Commits
+
+- 4aa50e1 feat: improve `feature-video` skill with GitHub native video upload (#344)
+- 86342db fix: quote frontend-design skill description (#353)
+- 0fdc25a chore: release main (#340)
+- e932276 feat: add `ce:review-beta` with structured persona pipeline (#348)
+- 18d22af feat: redesign `document-review` skill with persona-based review (#359)
+- 65e5621 refactor: consolidate todo storage under .context/compound-engineering/todos/ (#361)
+- 169996a feat: promote ce:plan-beta and deepen-plan-beta to stable (#355)
+- 54bea26 chore: release main (#360)
+- 2612ed6 feat: rationalize todo skill names and optimize skills (#368)
+- 4e3af07 feat: optimize `ce:compound` speed and effectiveness (#370)
+- 7c5ff44 feat: promote `ce:review-beta` to stable `ce:review` (#371)
+- fe27f85 feat: add consolidation support and overlap detection to `ce:compound` and `ce:compound-refresh` skills (#372)
+- aad31ad feat: minimal config for conductor support (#373)
+- 207774f chore: release main (#369)
+- ce9016f feat: integrate orphaned stack-specific reviewers into ce:review (#375)
+- 8ebc77b fix: guard CONTEXTUAL_RISK_FLAGS lookup against prototype pollution (#377)
+- fe08af2 feat: add git commit and branch helper skills (#378)
+- efa798c feat: improve commit-push-pr skill with net-result focus and badging (#380)
+- 2ba4f3f feat: improve `resolve-pr-feedback` skill (#379)
+- 6b27b38 chore: release main (#376)
+- fed9fd6 feat: replace manual review agent config with ce:review delegation (#381)
+- 355e739 fix: scope commit-push-pr descriptions to full branch diff (#385)
+- 27b9831 feat: add new `onboarding` skill to create onboarding guide for repo (#384)
+- f819e43 fix: one-step codex installs by preferring bundled plugins (#383)
+- 31f07c0 fix: add default-branch guard to commit skills (#386)
+- 78c42fc chore: release main (#382)
+
+### Workflow Signals
+
+- `docs/solutions/workflow/todo-status-lifecycle.md`
+- `plugins/compound-engineering/.claude-plugin/plugin.json`
+- `plugins/compound-engineering/.cursor-plugin/plugin.json`
+- `plugins/compound-engineering/AGENTS.md`
+- `plugins/compound-engineering/CHANGELOG.md`
+- `plugins/compound-engineering/README.md`
+- `plugins/compound-engineering/agents/document-review/coherence-reviewer.md`
+- `plugins/compound-engineering/agents/document-review/design-lens-reviewer.md`
+- `plugins/compound-engineering/agents/document-review/feasibility-reviewer.md`
+- `plugins/compound-engineering/agents/document-review/product-lens-reviewer.md`
+- `plugins/compound-engineering/agents/document-review/scope-guardian-reviewer.md`
+- `plugins/compound-engineering/agents/document-review/security-lens-reviewer.md`
+- `plugins/compound-engineering/agents/research/learnings-researcher.md`
+- `plugins/compound-engineering/agents/review/api-contract-reviewer.md`
+- `plugins/compound-engineering/agents/review/correctness-reviewer.md`
+- `plugins/compound-engineering/agents/review/data-migrations-reviewer.md`
+- `plugins/compound-engineering/agents/review/dhh-rails-reviewer.md`
+- `plugins/compound-engineering/agents/review/julik-frontend-races-reviewer.md`
+- `plugins/compound-engineering/agents/review/kieran-python-reviewer.md`
+- `plugins/compound-engineering/agents/review/kieran-rails-reviewer.md`
+
+### All Changed Files
+
+- `.github/.release-please-manifest.json`
+- `AGENTS.md`
+- `CHANGELOG.md`
+- `README.md`
+- `docs/brainstorms/2026-03-23-plan-review-personas-requirements.md`
+- `docs/brainstorms/2026-03-24-todo-path-consolidation-requirements.md`
+- `docs/brainstorms/2026-03-25-vonboarding-skill-requirements.md`
+- `docs/plans/2026-03-01-feat-ce-command-aliases-backwards-compatible-deprecation-plan.md`
+- `docs/plans/2026-03-16-001-feat-issue-grounded-ideation-plan.md`
+- `docs/plans/2026-03-23-001-feat-ce-review-beta-pipeline-mode-beta-plan.md`
+- `docs/plans/2026-03-23-001-feat-plan-review-personas-beta-plan.md`
+- `docs/plans/2026-03-23-001-feat-promote-plan-beta-skills-to-stable-plan.md`
+- `docs/plans/2026-03-24-001-refactor-todo-path-consolidation-plan.md`
+- `docs/plans/2026-03-25-001-feat-onboarding-skill-plan.md`
+- `docs/solutions/integrations/agent-browser-chrome-authentication-patterns.md`
+- `docs/solutions/integrations/github-native-video-upload-pr-automation.md`
+- `docs/solutions/skill-design/beta-promotion-orchestration-contract.md`
+- `docs/solutions/skill-design/beta-skills-framework.md`
+- `docs/solutions/workflow/todo-status-lifecycle.md`
+- `favicon.png`
+- `package.json`
+- `plugins/compound-engineering/.claude-plugin/plugin.json`
+- `plugins/compound-engineering/.cursor-plugin/plugin.json`
+- `plugins/compound-engineering/AGENTS.md`
+- `plugins/compound-engineering/CHANGELOG.md`
+- `plugins/compound-engineering/README.md`
+- `plugins/compound-engineering/agents/document-review/coherence-reviewer.md`
+- `plugins/compound-engineering/agents/document-review/design-lens-reviewer.md`
+- `plugins/compound-engineering/agents/document-review/feasibility-reviewer.md`
+- `plugins/compound-engineering/agents/document-review/product-lens-reviewer.md`
+- `plugins/compound-engineering/agents/document-review/scope-guardian-reviewer.md`
+- `plugins/compound-engineering/agents/document-review/security-lens-reviewer.md`
+- `plugins/compound-engineering/agents/research/learnings-researcher.md`
+- `plugins/compound-engineering/agents/review/api-contract-reviewer.md`
+- `plugins/compound-engineering/agents/review/correctness-reviewer.md`
+- `plugins/compound-engineering/agents/review/data-migrations-reviewer.md`
+- `plugins/compound-engineering/agents/review/dhh-rails-reviewer.md`
+- `plugins/compound-engineering/agents/review/julik-frontend-races-reviewer.md`
+- `plugins/compound-engineering/agents/review/kieran-python-reviewer.md`
+- `plugins/compound-engineering/agents/review/kieran-rails-reviewer.md`
+- ... and 67 more files
+
+## `vendor/everything-claude-code`
+
+- Range: `0f22cb445008..678fb6f0d37e`
+- Commit count: `46`
+
+### Commits
+
+- a2e465c feat(skills): add skill-comply — automated behavioral compliance measurement (#724)
+- 264396a fix: add antigravity to platform-configs targets
+- a411da9 fix(commands): replace py_compile with compileall in build-fix (#804)
+- 2c23ff5 Add Kiro base structure, install script, and docs (#809)
+- bf4a22f Add Kiro agents (16 JSON + 16 MD) (#810)
+- 535120d Add Kiro skills (18 SKILL.md files) (#811)
+- bacc585 Add Kiro steering files, hooks, and scripts (#812)
+- df4f2df feat: add 6 gap-closing skills — browser QA, design system, product lens, canary watch, benchmark, safety guard
+- 7726c25 fix(ci): restore validation and antigravity target safety
+- 00dce30 feat: scaffold ECC 2.0 Rust TUI — agentic IDE control plane
+- b2407ab fix(ecc2): sync catalog counts for scaffold CI
+- 67306c2 test: align antigravity manifest expectations
+- 2166d80 Merge pull request #762 from affaan-m/feat/ecc2-tui-scaffold
+- 2787b8e feat(ecc2): implement session create/destroy lifecycle (#764)
+- e7d8275 Merge pull request #881 from affaan-m/feat/ecc2-session-lifecycle
+- e883385 chore(deps): bump git2 in /ecc2 in the cargo group across 1 directory
+- d7bcc92 feat(ecc2): add token/cost meter widget (#775)
+- 7f7e319 Merge pull request #884 from affaan-m/feat/ecc2-token-meter
+- 1d0aa5a fix: fold session manager blockers into one candidate
+- 00bc7f3 fix: resolve blocker PR validation regressions
+- 445ae50 feat: add macOS desktop notification Stop hook
+- d3699f9 fix: use AppleScript-safe escaping and reduce spawnSync timeout
+- f6b1048 fix: add spawnSync error logging and restore 5s timeout
+- 3f02fa4 feat(ecc2): implement agent status panel with Table widget (#773)
+- c1b47ac Merge pull request #883 from affaan-m/feat/ecc2-status-panel
+- 7b510c8 fix: harden session hook guards and session ID handling
+- 9c5ca92 fix: finish hook fallback and canonical session follow-ups
+- 2d1e384 test: isolate suggest-compact counter fixtures
+- b5157f4 test: relax sync-ecc shell parsing
+- b19b4c6 fix: finish blocker lane hook and install regressions
+- 776ac43 test: cover canonical session duplicate precedence
+- 61f70de Merge pull request #903 from affaan-m/fix/session-manager-843-supersede-853
+- e78c092 fix(ci): restore validation and antigravity target safety
+- 44c2bf6 feat(ecc2): implement live output streaming per agent (#774)
+- 9903ae5 fix: restore antigravity install target metadata
+- cf439dd Merge pull request #882 from affaan-m/feat/ecc2-live-streaming
+- 0166231 feat(ecc2): add crash resume session recovery
+- 4105a2f Merge pull request #885 from affaan-m/feat/ecc2-crash-resume
+- 8981dd6 feat(ecc2): add split-pane dashboard resizing
+- adaeab9 Merge pull request #886 from affaan-m/feat/ecc2-split-pane
+- 6c2a3a2 feat(ecc2): add tool call logging and history
+- 319f9ef Merge pull request #887 from affaan-m/feat/ecc2-tool-logging
+- 8303970 feat(ecc2): add tool risk scoring and actions
+- eb934af Merge pull request #888 from affaan-m/feat/ecc2-risk-scoring
+- 401e26a Merge pull request #880 from affaan-m/dependabot/cargo/ecc2/cargo-3169503097
+- 678fb6f Merge pull request #846 from pythonstrup/feat/desktop-notify-hook
+
+### Workflow Signals
+
+- `.github/workflows/ci.yml`
+- `.github/workflows/reusable-validate.yml`
+- `.kiro/agents/architect.json`
+- `.kiro/agents/architect.md`
+- `.kiro/agents/build-error-resolver.json`
+- `.kiro/agents/build-error-resolver.md`
+- `.kiro/agents/chief-of-staff.json`
+- `.kiro/agents/chief-of-staff.md`
+- `.kiro/agents/code-reviewer.json`
+- `.kiro/agents/code-reviewer.md`
+- `.kiro/agents/database-reviewer.json`
+- `.kiro/agents/database-reviewer.md`
+- `.kiro/agents/doc-updater.json`
+- `.kiro/agents/doc-updater.md`
+- `.kiro/agents/e2e-runner.json`
+- `.kiro/agents/e2e-runner.md`
+- `.kiro/agents/go-build-resolver.json`
+- `.kiro/agents/go-build-resolver.md`
+- `.kiro/agents/go-reviewer.json`
+- `.kiro/agents/go-reviewer.md`
+
+### All Changed Files
+
+- `.github/workflows/ci.yml`
+- `.github/workflows/reusable-validate.yml`
+- `.gitignore`
+- `.kiro/README.md`
+- `.kiro/agents/architect.json`
+- `.kiro/agents/architect.md`
+- `.kiro/agents/build-error-resolver.json`
+- `.kiro/agents/build-error-resolver.md`
+- `.kiro/agents/chief-of-staff.json`
+- `.kiro/agents/chief-of-staff.md`
+- `.kiro/agents/code-reviewer.json`
+- `.kiro/agents/code-reviewer.md`
+- `.kiro/agents/database-reviewer.json`
+- `.kiro/agents/database-reviewer.md`
+- `.kiro/agents/doc-updater.json`
+- `.kiro/agents/doc-updater.md`
+- `.kiro/agents/e2e-runner.json`
+- `.kiro/agents/e2e-runner.md`
+- `.kiro/agents/go-build-resolver.json`
+- `.kiro/agents/go-build-resolver.md`
+- `.kiro/agents/go-reviewer.json`
+- `.kiro/agents/go-reviewer.md`
+- `.kiro/agents/harness-optimizer.json`
+- `.kiro/agents/harness-optimizer.md`
+- `.kiro/agents/loop-operator.json`
+- `.kiro/agents/loop-operator.md`
+- `.kiro/agents/planner.json`
+- `.kiro/agents/planner.md`
+- `.kiro/agents/python-reviewer.json`
+- `.kiro/agents/python-reviewer.md`
+- `.kiro/agents/refactor-cleaner.json`
+- `.kiro/agents/refactor-cleaner.md`
+- `.kiro/agents/security-reviewer.json`
+- `.kiro/agents/security-reviewer.md`
+- `.kiro/agents/tdd-guide.json`
+- `.kiro/agents/tdd-guide.md`
+- `.kiro/docs/longform-guide.md`
+- `.kiro/docs/security-guide.md`
+- `.kiro/docs/shortform-guide.md`
+- `.kiro/hooks/README.md`
+- ... and 129 more files
+
+## `vendor/get-shit-done`
+
+- Range: `ae69e6e9e497..604a78b30b44`
+- Commit count: `1375`
+
+### Commits
+
+- 1fe3fa4 Initial commit: Get Shit Done - meta-prompting system for Claude Code
+- c6439a2 1.0.1
+- 2e1b0b8 Add issue triage system to prevent deferred issue pile-up
+- 17c3da4 1.0.2
+- b8879c6 Add TDD guidance to planning workflow
+- 59ed9e4 1.0.3
+- 213b83a Fix bin name and remove circular dependency
+- b916bd3 1.0.4
+- 522b261 Add .gitignore, remove node_modules from tracking
+- 4e5deb8 Fix bin path (remove ./)
+- 485de68 Ignore .DS_Store
+- f9642c4 Add global/local install prompt
+- 04c468e 1.0.5
+- 023d120 1.0.6
+- 9ac7bcd Add path replacement for local installs
+- 4390e74 1.0.7
+- 4e72b46 Include PLAN.md in phase completion commits
+- 9cd2070 1.0.8
+- 2f0496c Load phase CONTEXT.md in plan-phase command
+- 72349e6 1.0.9
+- bcc58ad Prevent scope creep in discuss-phase command
+- 7efc284 1.0.10
+- e8d6868 feat(gsd): add research-phase for niche domain ecosystem discovery
+- c3719b6 1.0.11
+- 5182cec feat(01-01): Split new-project to only create PROJECT.md + config.json
+- c7a88a6 feat(02-01): research-project command, workflow, and template
+- 08539ff feat(02-02): research subagent prompt templates
+- a3c3514 feat(03-01): /gsd:create-roadmap command with research-aware workflow
+- 4b08112 chore: update .gitignore for development artifacts
+- 55b8cd6 refactor: remove DESIGN NOTE comments from commands
+- 83e2778 feat: rewrite questioning as thinking partner, not interviewer
+- 9197652 1.1.0 - Pre-roadmap research workflow
+- 38d8ea8 docs: update README for new research workflow
+- 6fcd151 1.1.1 - README documentation update
+- 46d6399 fix: yolo mode now skips confirmation gates in plan-phase
+- 5bbff09 1.1.2
+- 77ea129 refactor: research workflow as Claude Code context injection
+- d2fef01 1.2.0
+- 2aa1325 docs: move installation section up in README
+- 3d7b965 fix: restore AskUserQuestion for decision gate in questioning flow
+- ba2704e 1.2.1
+- 3e8e5d5 fix: present new-project completion inline instead of as question
+- 26d446e 1.2.2
+- 508e0c8 fix: remove enterprise language from help and discuss-milestone
+- 06f1924 1.2.3
+- b4de126 fix: update stale CONTEXT.md references to new vision structure
+- 5780bd0 1.2.4
+- a906e2a refactor: use <if mode> tags for yolo/interactive branching
+- 7000607 1.2.5
+- e41d71c 1.2.6
+- 293447d fix: mandate AskUserQuestion for all exploration questions
+- aa866e1 1.2.7
+- 484257a refactor: derive phase count from work, not arbitrary limits
+- 6ef5101 1.2.8
+- 2be9dd8 fix: ensure git init runs in current directory
+- e2860ed 1.2.9
+- d45fbd8 fix: replace inline command invocation with clear-then-paste pattern
+- 39fdd4f 1.2.10
+- c21c5e9 fix: remove shell context to fix permission errors for non-DSP users
+- 4f94ab1 1.2.11
+- 1b77235 fix: first question should be freeform, not AskUserQuestion
+- a6bd069 1.2.12
+- 733fc14 feat: improved continuation UI with context and visual hierarchy
+- 03d521c 1.2.13
+- de16552 feat(01-01): codebase map templates for stack, architecture, structure
+- 33c832e feat(01-02): codebase map templates for conventions and testing
+- 6582592 feat(01-03): codebase map templates for integrations and concerns
+- c2359cd refactor: remove research-project command
+- cfde291 feat(02-01): /gsd:map-codebase command and workflow skeleton
+- 8a0dcd6 feat(02-02): implement parallel Explore agent orchestration
+- 8d2f307 feat(03-01): brownfield integration into GSD workflows
+- 86aeaff chore: bump version to 1.3.0 (brownfield support)
+- cff834a docs: add /gsd:map-codebase to help and README
+- 852b3a2 chore: bump to 1.3.1 (docs update)
+- 21387f8 feat: add git commit step to map-codebase workflow
+- 77c1845 chore: bump to 1.3.2
+- 8697c5f fix: check PROJECT.md not .planning/ dir for existing project
+- 347e7be chore: bump to 1.3.3
+- c3273a5 fix: use inline code for Next Up commands (avoids nesting ambiguity)
+- 5ba0dd5 chore: bump to 1.3.4
+- dccde98 fix: remove arbitrary 100-line limit from codebase mapping
+- e409c7f 1.3.5
+- b1f9d57 feat: add file paths to codebase mapping output
+- a990e37 1.3.6
+- c11b744 fix: improve incremental codebase map updates
+- 5e496e7 1.3.7
+- 00623e5 docs: add brownfield/existing projects section to README
+- 8ebae04 1.3.8
+- 31597a9 feat: evolutionary PROJECT.md system
+- fe48ea5 1.3.9
+- f24203d fix: explicit plan count check in offer_next step
+- d6913f3 1.3.10
+- 5d16432 feat(04-01): merge cli-automation into checkpoints, compress plan-format
+- df1f138 feat(04-02): 70% context reduction for plan-phase (scope-estimation 74%, plan-phase.md 66%)
+- 1de0dda 1.3.11 - 70%% context reduction for plan-phase
+- 1609618 revert: restore plan-format.md - output template, not instructional content
+- 9164faa 1.3.12
+- 86878b9 fix: restore deterministic bash commands, remove redundant decision_gate
+- 51f3950 1.3.13
+- 5390b33 feat(05-tdd): TDD integration with detection, annotation, and execution flow
+- ee9d0db 1.3.14
+- 507b28c fix: load tdd.md reference directly in commands
+- 729fb40 1.3.15
+- b040342 feat: add /gsd:auto command for autonomous execution
+- 484134e feat: add depth parameter for planning thoroughness
+- ef775f8 1.3.16
+- 35739c8 fix: clarify depth controls compression, not inflation
+- add2b05 1.3.17
+- 3307c05 feat(06-01): YAML frontmatter schema with dependency graph metadata enabling automatic context assembly
+- b26cbe6 feat(06-02): Intelligent context assembly via frontmatter dependency graph
+- 3d50d56 1.3.18
+- f34fd45 feat(08-01): clarify create-milestone.md file locations with explicit instructions
+- a6df00a 1.3.19
+- 875ac90 feat: implement per-task atomic commits for better AI observability
+- 7bc8069 1.3.20
+- 85f0ea5 feat: TDD features use dedicated plans for full context quality
+- 9302ae1 1.3.21
+- 6593edc chore: remove unused auto.md command
+- 0c1f4e2 1.3.22
+- 4269bd8 docs: add non-interactive install flags for Docker/CI
+- 4078f05 1.3.23
+- 0ef716c feat: support CLAUDE_CONFIG_DIR environment variable
+- ab3f5cb 1.3.24
+- 4b9c7a1 docs: add testimonials to README
+- 002a819 fix: persist milestone discussion context across /clear (#11)
+- 62fe4c1 1.3.25
+- 1979f17 docs: add social proof line to README
+- 1bb96d0 docs: bold social proof line
+- 21d8847 docs: tighten README copy
+- 65df2f4 docs: reorder README sections for better flow
+- 1b9c2f2 fix: commit phase artifacts when created (#12)
+- 2991a05 1.3.26
+- 4d92b3c feat: add Claude Code marketplace plugin support
+- 6a1db4f docs: add recommended permissions mode to README
+- da884ea fix: enforce mandatory verification before phase/milestone completion routing
+- 7594d9f 1.3.27
+- 952ead7 feat: add --config-dir CLI argument for multi-account setups (#20)
+- c096ead feat: add /gsd:remove-phase command
+- 8cd22a5 1.3.28
+- 8a0967d fix: add validation for --config-dir edge cases
+- a9a9eff feat(09-01): create verify-work workflow
+- 654b066 feat(09-01): create UAT issues template
+- e5624d3 refactor(09-01): simplify verify-work command to delegate to workflow
+- 1794346 docs(09-01): complete GSD-compliant verify-work foundation plan
+- d72bd74 feat(09-02): add plan-fix command and progress routing for UAT issues
+- 50e6c0a 1.3.29
+- 863f86e feat: surface verify-work option after plan execution
+- 7c9b6b1 1.3.30
+- 7faf33d docs: add star history chart to README
+- 254f514 docs: fix troubleshooting section for slash commands, add update instructions
+- 810409c feat(plan-phase): add planning principles for security, performance, observability
+- c6d7ee3 chore: bump to 1.3.31 - add planning principles
+- 58c2e86 docs: redesign README with pro patterns
+- 5457bdf docs: fix development installation instructions
+- 141828b Update README.md
+- 992d034 Update README.md
+- 6ba8507 feat: add subagent resume capability
+- 7fc0bc9 chore: bump to 1.3.32 - add subagent resume capability
+- 94b01b9 docs: add /gsd:resume-task to commands table
+- 9ec422a fix: consistent zero-padding for decimal phase numbers
+- c8a2a27 chore: bump to 1.3.33 - fix decimal phase zero-padding
+- b6f24fe chore: remove obsolete .claude-plugin directory
+- d2904df docs: add Docker troubleshooting for tilde path expansion
+- 3787f50 feat: add todo capture system for mid-session ideas
+- 02cb26d chore: bump to 1.3.34 - add todo capture system
+- 1690b53 refactor(10-01): rename execute-phase.md to execute-plan.md
+- a6960a7 refactor(10-01): update @reference paths to execute-plan.md
+- 4ea054b docs(10-01): update documentation mentions to execute-plan.md
+- d68ac8c docs(10-01): complete rename execute-phase plan
+- af7720c feat(10-02): create execute-phase.md workflow structure
+- caf2810 feat(10-02): implement dependency analysis step
+- 511def7 feat(10-02): implement parallel spawning and monitoring
+- da8a591 docs(10-02): complete parallel execution workflow plan
+- 18a1fd1 feat(10-03): create execute-phase command
+- 8b8b5d6 feat(10-03): add parallelization config to config.json template
+- b372905 docs(10-03): add execute-phase command documentation
+- 52372c3 docs(10-03): complete execute-phase command plan
+- eaed882 feat(10-04): update agent-history schema to v1.2
+- 8e8fba2 fix(10-02): load execute-plan.md context in execute-phase command
+- cc7e078 feat(10-04): add parallel execution examples to agent-history
+- 3743d1c feat(10-04): document parallel execution resume support
+- 31f5650 fix(10-02): sync execute-phase command with execute-plan content
+- 9b87de4 docs(10-04): complete agent-history schema update plan
+- 27d0f08 feat(10): add parallelization question to /gsd:new-project
+- 454def1 fix: separate parallelization question from config creation
+- 52ce981 feat(10): add /gsd:status for parallel agent monitoring
+- 560ef34 feat(11-01): add parallelization frontmatter to phase-prompt template
+- 8e67241 feat(11-01): add read_parallelization_config step to plan-phase workflow
+- 942b8c8 docs(11-01): complete parallelization frontmatter plan
+- 082c689 feat(11-02): add parallelization_aware step to plan-phase
+- 31a77ae feat(11-02): add parallelization frontmatter to write_phase_prompt
+- 661cebe docs(11-02): complete parallel-aware planning step
+- 9fcc2a4 feat(11-03): read parallelization frontmatter in execute-phase
+- 5c8e5df feat(11-03): use frontmatter for categorization and wave calculation
+- 9935f27 docs(11-03): complete execute-phase frontmatter support plan
+- a1f6e9f feat(11-04): add parallel-aware splitting strategy to scope-estimation.md
+- 67afce6 feat(11-04): add parallel vs sequential examples to phase-prompt.md
+- e88818a docs(11-04): complete documentation and examples plan
+- a0d465b docs(99): create phase plan
+- 92a2a1a feat(99-02): create dad-jokes.md
+- 47980ce feat(99-03): create random-numbers.md
+- 0ab169d feat(99-01): create animal-facts.md with 5 animal facts
+- b810d1d fix(execute-phase): add one-subagent-per-plan constraint
+- c163004 feat(plan-phase): suggest execute-phase when multiple plans created
+- 755b28e refactor(10): simplify plan frontmatter for parallelization
+- f53471e docs: add /gsd:status to README and help
+- dae8943 feat: parallel phase execution
+- 1eaec49 docs(new-project): mark parallel execution as experimental
+- 341bf3e Update README with verification details (#55)
+- 8b58646 docs(install): clarify verification step
+- 8a79261 1.4.1
+- 0821ebe 1.4.2
+- f0b4c7d feat: add /gsd:debug for systematic debugging with persistent state
+- e7b92cc 1.4.3
+- 7d109fd fix(debug): inline listing for multiple active sessions
+- 91a387a 1.4.4
+- a97c567 feat: add .claude/rules/ for auto-loaded contribution rules
+- e30e387 refactor(execute-phase): wave-based blocking execution
+- e5d4ecc feat: parallel-first planning with dependency graphs and checkpoint-resume
+- 601c60c 1.4.5
+- 72da23d feat: add checkpoint pause/resume for spawned agents
+- 46cf4b1 feat(execute-phase): add deviation rules, commit rules, and workflow references
+- 72c62e5 1.4.6
+- c4e3023 fix(new-project): parallel execution is recommended, not experimental
+- d5c08e1 feat(execute-phase): load project state before execution
+- 8604dba 1.4.7
+- 9e70b89 docs(plan-phase): restore TDD reasoning explanation
+- 6646ccc 1.4.8
+- 0dd4ced perf(execute-phase): remove subagent-only context from orchestrator
+- a4c83cf fix(discuss-phase): remove "what's out of scope" question
+- 965d936 1.4.9
+- 8ed6a8f perf(execute-plan): convert to orchestrator pattern
+- 601e67e 1.4.10
+- 69300f9 fix(checkpoints): replace resume with fresh continuation agents
+- 694aff2 1.4.11
+- 7c10bdc docs: recommend execute-phase as primary execution command
+- 26c5685 1.4.12
+- cd1bede docs: fix brownfield flow, remove deprecated resume-task
+- 912a91f 1.4.13
+- 206e744 docs: make YOLO mode recommended default in new-project
+- 9f042a3 1.4.14
+- 4d04c91 docs: add context rot explanation to README header
+- ef3a280 1.4.15
+- d30893a feat: pre-compute wave numbers at plan time
+- 136a30e feat(execute-plan): add pre-execution summary for interactive mode (#57)
+- 41d27ba 1.4.16
+- 9e0808b feat: redesign verify-work as conversational UAT with persistent state
+- 2394116 1.4.17
+- d498662 feat: add parallel diagnosis before plan-fix
+- be9ff0c 1.4.18
+- 1f358c5 fix: auto-diagnose issues instead of offering choice
+- a5752be 1.4.19
+- 0e5f1ce fix: standardize debug file naming and invoke execute-plan
+- f281072 1.4.20
+- 93fc60c fix: add SlashCommand to plan-fix allowed-tools
+- 6c59948 1.4.21
+- b1066c1 fix(debug): add DEBUG_DIR path constant to prevent typos
+- 00208b7 feat(debug): subagent isolation for investigation with checkpoint support
+- 4c87c01 1.4.22
+- 62f1279 chore: remove dead ISSUES.md system
+- 9b8750a 1.4.23
+- 4da80d6 feat(gsd): add USER-SETUP.md for external service configuration
+- 06816af 1.4.24
+- 63113e9 feat(12-01): create CHANGELOG.md with Keep-a-Changelog format
+- 35cf251 feat(12-01): update installer to copy CHANGELOG.md
+- 1a55ac8 feat(12-03): create whats-new.md command
+- b281148 feat(12-03): write VERSION file during installation
+- 68f3cd1 docs(12-03): add whats-new to help command reference
+- d7680cd docs(12-03): complete whats-new command plan
+- 3a4348d docs: update changelog for v1.4.25
+- 7673c3b 1.4.25
+- 2a3b8f6 docs: backfill changelog with historical versions
+- 19c947f docs: update changelog for v1.4.26
+- 27c0c90 1.4.26
+- e8199d9 fix(execute): restore offer_next routing to orchestrator commands
+- 5a88362 docs: update changelog for v1.4.27
+- ac31b89 1.4.27
+- e98bebf fix(checkpoints): restore rich documentation and fix continuation pattern
+- aaf5bce refactor(execute-phase): slim command, delegate to workflow
+- ccf3865 docs: update changelog for v1.4.28
+- f5e5b8f 1.4.28
+- 6bffcf1 chore: delete old files
+- 82a216f docs: update changelog for v1.4.29
+- 294e00a 1.4.29
+- 53efcfb feat: add research-project command for pre-roadmap ecosystem research
+- d0488c5 feat: add define-requirements command for scoped v1 requirements
+- d5ff9a4 refactor: improve questioning flow in new-project
+- e6bdd26 refactor: simplify questioning to four essentials
+- 0604268 docs: update changelog for v1.5.0
+- e2d4ce5 1.5.0
+- 194d1d8 refactor: slim principles.md and load in core commands
+- fb2dcf6 refactor: subagents write their own research files
+- bb5b0da docs: update changelog for v1.5.1
+- 9e092cd 1.5.1
+- 1ccc66f fix: offer both define-requirements and create-roadmap as next steps
+- 36ff4f4 fix: show full requirements list, not just counts
+- b708a8d feat: add requirements traceability to roadmap and plan-phase
+- fc0f861 fix: align research-project next steps (both point to define-requirements)
+- 3e9c7f7 refactor: combine workflow preferences into single AskUserQuestion
+- e1b6655 feat: update requirement status to Complete when phase finishes
+- 365c041 refactor: move requirements status update to commands (orchestrator)
+- 1f24f7e docs: add staying updated section to help and README
+- 206b709 docs: update changelog for v1.5.2
+- 73083db 1.5.2
+- bd4bd9d refactor: remove dead code, improve execute-phase UX, fix requirements flow
+- c42735a docs: update changelog for v1.5.3
+- e1f8a48 1.5.3
+- 3b0ea31 feat(research-phase): load REQUIREMENTS.md for focused research
+- a70ecff docs: update changelog for v1.5.4
+- de287fd 1.5.4
+- f03947a docs: document research-project and define-requirements flow
+- 431fe3c docs: update changelog for v1.5.5
+- 0e4a562 1.5.5
+- c74f4a0 docs: clarify research-project optional, define-requirements required
+- 2383325 fix(execute-phase): bundle phase metadata into single commit
+- 7d5922b docs: update changelog for v1.5.6
+- 9ac4901 1.5.6
+- f237cf0 chore: ignore local test installs (.claude/)
+- b2646c8 feat: add gsd-executor subagent with dedicated plan execution logic
+- e95186b refactor: update execute commands to spawn gsd-executor subagent
+- 6d7246d feat: add phase verification system
+- 869f02e docs: add goal-backward planning reference
+- 87909f9 feat: enhance roadmap and planning workflows
+- 82c522b fix: update remaining general-purpose refs to gsd-executor
+- f3f6707 feat: add gsd-verifier subagent for phase goal verification
+- 27b1826 style: format gsd-executor.md
+- a7986bc style: format gsd-verifier.md
+- f34b5f8 chore: remove obsolete templates (logic now in subagents)
+- c7fbb81 feat(execute-plan): add phase verification when phase completes
+- 191e240 docs: update changelog for v1.5.7
+- afc43e8 1.5.7
+- 8e6ad96 feat(verification): add verify → plan → execute loop for gap closure
+- f9edfcf style: update executor color to blue, format verifier
+- 4703d48 docs: update changelog for v1.5.8
+- e78321e 1.5.8
+- b920d47 fix(research-phase): remove domain gatekeeping
+- 6630c32 feat(milestone): add milestone audit system
+- 02d0c47 docs(milestone-auditor): clarify parallel Task spawning
+- 6b4f73e fix(execute-phase): recommend audit-milestone when milestone completes
+- f3e0e69 refactor(audit-milestone): command is orchestrator, not subagent
+- c196434 style(checkpoints): improve visual formatting with box headers
+- b150254 style(checkpoints): update command and workflow to match new format
+- 5fcb2d7 chore: remove tracked .claude/ files (already gitignored)
+- 931592c style(agents): update subagent colors
+- 1325d30 refactor: remove domain expertise feature
+- a840743 docs: update changelog for v1.5.9
+- adc0bd6 1.5.9
+- 7b62452 refactor(audit-milestone): read existing verifications instead of re-verifying
+- 70cfd76 fix(execute-phase): include VERIFICATION.md in phase completion commit
+- 1cf5360 docs: update changelog for v1.5.10
+- 53b1ff8 1.5.10
+- da95980 perf(verifier): reuse previous must-haves on re-verification
+- 0f9f802 docs(verifier): clarify step flow for re-verification mode
+- 176c653 docs: update changelog for v1.5.11
+- c986eae 1.5.11
+- 2d3a1ea refactor(milestone): rework milestone cycle for proper requirements flow
+- 60070b9 fix(audit): version MILESTONE-AUDIT.md and archive on completion
+- d1c1c17 fix(progress): add Route F for between-milestones state
+- ed9e8ca docs: update changelog for v1.5.12
+- 25ced25 1.5.12
+- 794e084 fix(new-milestone): present research as equal option in routing
+- 960b5fc docs: update changelog for v1.5.13
+- d7826b7 1.5.13
+- 0960882 fix(plan-phase): always route to execute-phase regardless of plan count
+- 12dda42 docs: update changelog for v1.5.14
+- 1ebd05b 1.5.14
+- 8c66a71 perf(verify-work): batch UAT file writes instead of per-response
+- 2869fee refactor(verify-work): consolidate plan-fix into plan-phase --gaps
+- d07ef33 fix(install): include agents folder in npm package
+- 0f96379 1.5.15
+- 2b1fd96 docs: update changelog for v1.5.15
+- 20bb210 docs(13): create phase plans for dedicated debug agent
+- 7cefaf1 feat(13-01): create gsd-debugger agent with consolidated debugging expertise
+- 941bcd9 docs(13-01): complete gsd-debugger agent plan
+- 81c6c75 refactor(13-02): rewrite /gsd:debug as thin orchestrator
+- 514ac26 chore(13-03): deprecate debugging reference files with agent pointers
+- 759968d docs(13-02): deprecate workflows/debug.md
+- 9c6c60d refactor(13-02): simplify debug-subagent-prompt.md
+- 0a19b2e docs(13): complete dedicated debug agent phase
+- d20d284 docs(14): create researcher agent phase plans
+- 667d709 docs(debugger): restore high-value examples and patterns
+- f93a177 docs(14): create researcher agent phase plans
+- 2f8b551 feat(14-01): create gsd-researcher agent with research methodology
+- 064e5c9 docs(14-01): complete gsd-researcher agent plan
+- 94f3083 refactor(14-02): convert /gsd:research-phase to thin orchestrator
+- 3ca6b1f docs(14-02): deprecate workflows/research-phase.md
+- 982faf1 refactor(14-03): convert research-project to thin orchestrator
+- fc67d2c docs(14-03): deprecate workflows/research-project.md
+- faaeae2 feat(14-02): add research-subagent-prompt.md template
+- ccac62d docs(14-03): deprecate research-pitfalls.md reference
+- 47786d0 docs(14-02): complete researcher orchestrator integration
+- cc5b8b5 docs(14-03): complete research-project orchestrator plan
+- ac316e8 fix(new-milestone): add explicit MILESTONE-CONTEXT.md reference
+- 5f30575 docs(14): complete dedicated researcher agent phase
+- ae1c7f2 docs(14): add GSD integration context to researcher agent
+- 411b5a3 feat(gsd): add dedicated codebase mapper agent
+- a151696 refactor(research): inject rich context from orchestrators to agent
+- 6adf84b docs: update changelog for v1.5.16
+- 46279f2 1.5.16
+- 7865f12 feat(gsd): add update command with changelog display
+- f16ffa5 docs: update changelog for v1.5.17
+- db4cd39 1.5.17
+- 83ecf38 Add GitHub Sponsors funding configuration
+- 159925c feat: add statusline with context usage, model, and current task
+- 32e68cd fix: remove zombie gsd-milestone-auditor agent
+- d45261e feat(plan-phase): run in forked context
+- c1fe62c docs(15): create phase plans for dedicated planner agent
+- 1f45bef feat(15-01): create gsd-planner agent file
+- d24062f docs(15-01): complete create gsd-planner agent plan
+- 7ba0af8 chore(15-03): deprecate planning-specific reference files
+- 0585752 refactor(15-02): /gsd:plan-phase to thin orchestrator
+- a52d1fd docs(15-03): add clarifying note to phase-prompt template
+- e8d66e3 docs(15-02): deprecate workflows/plan-phase.md
+- 70fa2ad feat(15-02): create planner-subagent-prompt.md template
+- 96cd23c docs(16): create phase plan
+- 47eab1a feat(16-01): create gsd-plan-checker agent
+- b838692 docs(16-01): complete gsd-plan-checker plan
+- 58df1ba chore(16-02): update plan-phase.md frontmatter for verification loop
+- 6b31a92 feat(16-03): add revision_mode section to gsd-planner
+- 8420752 docs(16-03): update role section to document revision mode
+- fb0ba88 feat(16-02): add planner -> checker verification loop to plan-phase
+- ace3b36 docs(16-03): add REVISION COMPLETE format to structured_returns
+- ce10c9e docs(16-02): update success criteria with verification loop steps
+- bb217e4 docs(16-03): complete planner revision mode plan
+- 280baed docs(16): complete plan verification loop phase
+- 806a137 docs(gsd-planner): restore task sizing and specificity examples
+- e9628c6 chore: remove Phase 99 throwaway test files
+- 2a5cf29 docs: update changelog for v1.5.18
+- cf904b3 1.5.18
+- 2144960 feat: integrate research into plan-phase with specialized agents
+- a7249eb feat(discuss-phase): intelligent gray area analysis with scope guardrails
+- 641fa02 docs: update changelog for v1.5.19
+- 29589ef 1.5.19
+- 9875df5 fix: remove premature research likelihood predictions from roadmap
+- 8a943d1 docs: update changelog for v1.5.20
+- ff009cd 1.5.20
+- 18351fe feat: unify project initialization into single /gsd:new-project flow
+- 1d155e9 feat: add gsd-research-synthesizer agent for SUMMARY.md creation
+- 6ae0923 fix: add explicit roadmap approval gate before committing
+- daa5473 feat: add GSD brand system for consistent UI
+- 3ca4f0a fix: synthesizer commits all research files together
+- 1f8c112 fix: remove commit capability from project researcher agent
+- 2b797ed fix(verify-work): add checkpoint box with clear action prompt
+- ccd49d8 docs(readme): simplify workflow to new-project → plan → execute loop
+- 8c6e503 fix(planner): restore {phase}-{plan}-PLAN.md naming convention
+- d9625ed fix(planner): don't surface user_setup in planning output
+- a5d8b4d docs(roadmapper): add anti-enterprise guidance
+- c803441 docs(readme): add optional discuss-phase before plan-phase
+- 7d5618d docs: update changelog for v1.5.21
+- 511b7cb 1.5.21
+- 2569be6 fix(planner): update ROADMAP.md placeholders after planning
+- 7a451e6 feat(statusline): show update indicator when new GSD version available
+- 982e6a6 docs: update changelog for v1.5.22
+- 0bcb9c8 1.5.22
+- 35989f2 feat(hooks): add cross-platform completion notification hook
+- 15d4e27 fix(next-steps): remove /gsd:research-phase from workflow suggestions
+- d1df08c feat(researcher): add upstream CONTEXT.md awareness
+- 339e061 fix: consistent zero-padding and file naming across agents
+- fac3c95 docs: update changelog for v1.5.23
+- 822f851 1.5.23
+- 734134f fix(planner): hardcode reads for CONTEXT.md and RESEARCH.md
+- 055cc24 fix(hooks): match STATE.md field names in notify hook
+- 9d0893f docs: update changelog for v1.5.24
+- c073c2f 1.5.24
+- d7463e2 fix(researcher): hardcode read for CONTEXT.md
+- b0da21b fix(hooks): remove stale STATE.md from notify hook
+- 3f2deb8 docs: update changelog for v1.5.25
+- e2db900 1.5.25
+- 3e80a2a fix(planner): commit revised plans after checker feedback
+- 8953afb docs: update changelog for v1.5.26
+- af67a15 1.5.26
+- 12373d2 fix(execute-phase): commit orchestrator corrections before verification
+- d0fe33d docs: update changelog for v1.5.27
+- 247e991 1.5.27
+- 6fd95c3 refactor: consolidate expertise into agents
+- c04f568 docs(help): update execute-phase description
+- 8251879 refactor: remove /gsd:execute-plan command
+- eb641b7 chore: delete old .planning files
+- fe94aaa fix(map-codebase): update agent output collection method
+- ed533f3 refactor: consolidate milestone workflow into command
+- a31f730 fix: phase directory matching and orphaned references
+- d4cd848 docs: update changelog for v1.5.28
+- 3d9449c 1.5.28
+- 567bdd2 fix: normalize phase input at command entry points
+- 7c60722 refactor(discuss-phase): domain-aware gray areas and deeper probing
+- 967734d fix: Windows hook support via Node.js conversion
+- 819042a docs: update changelog for v1.5.29
+- 8cb55ff 1.5.29
+- 60ebda9 fix(execute-phase): recommend discuss-phase before plan-phase
+- cfe237d fix(routing): recommend discuss-phase before plan-phase in all next-step suggestions
+- 8d19942 fix(offer-next): remove code blocks from output templates for proper markdown rendering
+- 0f5357e docs: update changelog for v1.5.30
+- 94740e3 1.5.30
+- 54f2d56 feat(verify-work): add offer_next section with routing templates
+- c54071c refactor: unify milestone flow, remove deprecated commands
+- c424d19 docs: update changelog for v1.6.0
+- bfa92e9 1.6.0
+- acd62c0 feat(installer): clean install removes orphaned files
+- 7293a52 docs: update changelog for v1.6.1
+- 17f4f54 1.6.1
+- 0c96b30 refactor: defer phase directory creation to discuss/plan-phase
+- bc047f4 docs: restructure README with improved workflow clarity
+- 96fffdf docs: update changelog for v1.6.2
+- 9654a8b 1.6.2
+- 200e004 feat(execute-phase): add --gaps-only flag for gap closure execution
+- dfcd0a4 docs: update changelog for v1.6.3
+- 079eca5 1.6.3
+- 6c435b3 fix(install): clean up orphaned gsd-notify.sh from previous versions
+- c233f71 fix(install): handle non-TTY stdin and verify file installation
+- 7df504b docs: update changelog for v1.6.4
+- 8c92967 1.6.4
+- ac1f758 docs: integrate unused reference files (#181)
+- a6f7ff2 fix: remove dead gsd-researcher agent references (#180)
+- 694bd15 feat: add gsd-meta subagent for instant GSD expertise
+- 6ad1d0a fix(agents): remove hardcoded 2025 year from search query examples
+- 922debf docs: initialize project
+- eac1503 chore: add project config
+- 535b316 docs: define v1 requirements
+- d21f2d9 docs: create roadmap (3 phases)
+- 92b4893 fix: correct agent name in research-phase heading
+- 76cba3b fix: use consistent allowed-tools YAML format (#179)
+- 4b7d1e1 chore: add homepage and bugs fields to package.json (#178)
+- 80414a7 fix: validate empty --config-dir value (#177)
+- 99362f1 fix: clamp progress bar value to 0-100 range (#176)
+- 3fb6bfb fix(hooks): prevent console window flash on Windows (#167)
+- c033a85 fix(hooks): update check now finds VERSION in local project installs (#166)
+- ae43bac docs(01): capture phase context
+- 6d0a9a0 docs(01): research phase domain
+- 2b36394 feat(01-01): create quick.md command file with structure
+- 58bd646 feat(01-02): implement gsd-planner spawn for quick mode
+- 563bcdf feat(01-02): implement gsd-executor spawn for quick mode
+- 2dbc802 feat(01-02): implement STATE.md Quick Tasks Completed table update
+- 942e659 feat(01-02): implement final commit and completion output
+- deec75c feat(quick-001): create GSD commands HTML reference page
+- eed4e57 docs(quick-001): create GSD commands HTML reference page
+- d673b8c docs(02-01): add Quick Mode section to help.md
+- 2dc7d47 docs(02-01): add Quick Mode section to README.md
+- 1af8f93 docs(02-01): add Quick Mode Patterns section to GSD-STYLE.md
+- 9539c96 chore: remove test files (gsd-meta agent, commands.html)
+- 7cb7b68 docs: update changelog for v1.7.0
+- 01f2323 1.7.0
+- fc3287c feat(quick-002): create 90s-style HTML command reference page
+- c1727a3 fix(quick): use numbered prefix for PLAN and SUMMARY files
+- 125b977 chore: gitignore commands.html
+- d6a27b0 docs: update changelog for v1.7.1
+- f809679 1.7.1
+- 1f18ec8 feat: add uncommitted planning mode (#107)
+- a1935c2 feat(new-project): add commit_docs option to workflow preferences
+- 052c495 docs: update changelog for v1.8.0
+- 7692ebd 1.8.0
+- f616bb0 chore: complete v1.8.0 Quick Mode milestone
+- cef5133 docs: start milestone v1.9.0 Codebase Intelligence System
+- fb397df docs: create v1.9.0 roadmap (3 phases)
+- ce4fc96 fix(orchestrators): inline file contents in Task prompts
+- 992040f feat(01-02): create intel-index.js PostToolUse hook
+- eeebde6 docs(phase-1): complete Foundation & Learning phase
+- 06ac420 feat(02-01): add convention detection functions
+- d77141e feat(02-01): integrate convention detection into index update flow
+- cffb3f2 feat(settings): add /gsd:settings command for workflow toggles
+- d0db04f chore: stop tracking .planning/ (already gitignored)
+- a352116 feat(02-02): create SessionStart context injection hook
+- fbd5068 feat(new-project): add workflow agent settings to project init
+- e5c9aba feat(03-02): register intel hooks in install.js
+- df222be feat(03-02): add intel directory creation to new-project
+- 02a9a61 feat(03-01): create /gsd:analyze-codebase command
+- 8bb9cc7 feat(03-02): add codebase intelligence to subagent prompts
+- 4b686d1 feat(03-01): add summary.md generation to intel-index hook
+- 9c239e4 docs(03-03): add codebase intelligence section to README
+- 0898a70 docs(03-03): add analyze-codebase command to help.md
+- 9d129ef docs(03-03): add codebase intelligence section to GSD-STYLE.md
+- f0b8afe fix(intel): make PostToolUse hook opt-in only
+- fa48a13 feat(intel): add Stop hook to prune deleted files
+- 39ea6f4 refactor(hooks): rename intel hooks with gsd- prefix
+- 9099d48 perf(intel): simplify SessionStart hook + gitignore intel/
+- 4218f86 feat(profiles): add model profiles for GSD agents
+- 3a82930 feat(intel): add self-evolving codebase intelligence
+- e3d39c0 docs(04): create phase 4 plans for semantic intelligence
+- 3230fdf fix(04): revise plans based on checker feedback
+- 11ab4a9 feat(04-01): add sql.js dependency and graph schema
+- ec038e7 feat(04-01): implement graph database helpers
+- a39988e feat(04-01): sync entity files to SQLite graph database
+- 0837278 docs(04-01): complete SQLite graph layer plan
+- 8d33ae7 chore(04-03): add @anthropic-ai/sdk dependency
+- 5824196 feat(04-02): add graph query helpers for hotspots and dependents
+- 3d8cf70 feat(04-02): create graph-backed summary generator
+- b3db2ff feat(04-03): add semantic entity generation to analyze-codebase
+- 101bc58 feat(04-02): integrate graph summary into regeneration flow
+- 9d9d762 docs(04-03): complete entity generation instructions plan
+- 28c4c19 docs(04-02): complete query interface plan
+- 04d2964 docs(04): create gap closure plan for CLI query interface
+- f46327a feat(04-04): add CLI query interface to graph database
+- 791265a docs(04-04): add CLI query interface documentation
+- fe72ca4 docs(04-04): complete CLI query interface plan
+- 61d1e91 feat(04-05): wire codebase intel injection into planner
+- 1c746a5 docs(04-05): complete intel injection into planner plan
+- c1a86ca fix(04): address tech debt from milestone audit
+- aa63054 feat(04): add /gsd:query-intel command
+- 701b10d docs(05): research subagent codebase analysis
+- d994732 docs(05): create phase plan for subagent codebase analysis
+- 6e757aa fix(05): revise plan 05-02 based on checker feedback
+- 9a3a394 docs: update changelog and documentation for v1.9.0
+- 900fc95 fix: rename statusline.js to gsd-statusline.js for consistent hook naming
+- d7754b9 1.9.0
+- f4c5817 feat(05-01): create gsd-entity-generator subagent definition
+- 84a633f docs(05-01): complete gsd-entity-generator plan
+- c0330e4 refactor(05-02): replace batch entity generation with subagent delegation
+- cdad7b8 fix: update build script to use gsd-statusline.js
+- 6027b5e 1.9.1
+- a686d28 docs(05): create gap closure plans for Steps 2-3 subagent delegation
+- 5d03e14 feat(05-03): add gsd-indexer subagent definition
+- 955eaa5 docs(05-03): complete gsd-indexer plan
+- f64e066 refactor(05-04): delegate indexing to gsd-indexer subagent
+- e7ceaf6 fix(new-project): add model_profile config and clarify workflow questions
+- 93b963c chore: remove old planning files
+- d1fda80 revert: remove codebase intelligence system
+- 7ea18a1 docs: update changelog for v1.9.2
+- 66a01a7 1.9.2
+- e10a87a fix: clean up removed intel hooks from settings.json on install
+- d58ae52 1.9.3
+- 67b064d Reduce manual verification in checkpoint system (#220)
+- d01bd2a docs: update changelog for v1.9.4
+- e4155f4 1.9.4
+- a1d60b7 fix(install): use absolute paths for hook commands on Windows (#207)
+- bf73de8 feat(opencode): make installer work for opencode
+- 67201cb fix(install): escape/Ctrl+C cancels instead of installing globally
+- 460f0d9 fix: remove backticks from slash commands in new-project output
+- a3a16be feat: add CI/CD and release automation
+- 314916b fix: use general-purpose agent for MCP-dependent subagents
+- 7ba5dbd refactor: condense verbose explanations in templates and workflows
+- a45a143 docs: update changelog for v1.9.5
+- 81e48f9 1.9.5
+- 7e9b8de docs: add community ports section to README
+- 6e30261 Merge pull request #224 from dbachelder/opencode
+- 1cf1975 fix(ci): commit package-lock.json for reproducible builds
+- cfb9e26 feat(opencode): auto-configure read permissions for GSD docs
+- 6f069c6 feat(assets): add 2000x2000 GSD logo for Moonshot
+- 527c663 Merge pull request #232 from dbachelder/oc-perms
+- 820f108 feat(installer): add interactive runtime selection prompt
+- faa3648 docs: update changelog for v1.9.6
+- 0d65da1 1.9.6
+- 707d4b4 fix(installer): use correct OpenCode config path (~/.config/opencode) (#233)
+- c313f78 docs: add CONTRIBUTING.md with project guidelines
+- 5b36621 docs: update changelog for v1.9.7
+- 8ecb8cd 1.9.7
+- f059a6c fix: use *-CONTEXT.md glob for filename variants
+- 12e6acb feat(installer): add --uninstall flag to remove GSD files
+- 58e489d docs: update changelog for v1.9.8
+- a558ad2 1.9.8
+- 6e2f46c feat: add /gsd:join-discord command
+- 3a43501 docs: add join-discord to README command table
+- 0482681 docs: update changelog for v1.9.9
+- c22aed4 1.9.9
+- bdbcbc4 feat: show Discord invite link in install completion message
+- c3d6a69 docs: update changelog for v1.9.10
+- 8a00b4a 1.9.10
+- 73aad66 docs: add Discord badge to README
+- 7a7ada6 docs: use static Discord badge
+- 2f225d7 docs: reorder badges - stars before license
+- 3a6a900 chore: remove GitHub Actions workflows
+- 3466395 chore: ignore animation assets
+- ebbaa00 docs: update changelog for v1.9.11
+- f74369f 1.9.11
+- d27d5a3 ci: restore auto-release workflow for GitHub Releases
+- 4c0cd9d Update README.md
+- d85f32e chore: remove redundant whats-new command
+- 7ebde26 docs: remove whats-new references, update stays
+- 0769d2e docs: update changelog for v1.9.12
+- f4b9dc1 1.9.12
+- 3d2a960 1.9.13
+- 197800e feat(git): add unified branching strategy option
+- 339e911 chore: remove GitHub Actions release workflow
+- 87b2cd0 fix: scale context bar to show 100% at actual 80% limit
+- 5379832 feat: add Gemini support to installer (#301)
+- 91aaa35 chore: remove dead code from Gemini PR
+- d58f2b5 docs: update README and changelog for v1.9.14
+- beca9fa 1.10.0
+- 5660b6f fix: Gemini CLI agent loading errors (#347)
+- 3b70b10 docs: update changelog for v1.10.1
+- 80d6799 1.10.1
+- f8fd710 Merge pull request #298 from davesienkowski/feature/branching-strategy
+- 5ee22e6 feat(git): add squash merge option for branching strategies
+- 3257139 fix(plan-phase): pass CONTEXT.md to all downstream agents
+- f3db981 docs: update changelog and README for v1.11.0
+- d8840c4 1.11.0
+- b5ca9a2 1.11.1
+- 8d2651d fix: remove broken gsd-gemini link (404)
+- d165496 feat(install): respect attribution.commit setting (compatible opencode) (#286)
+- 2347fca fix: clarify ASCII box-drawing vs text content with diacritics (#289)
+- 4267c6c fix: respect parallelization config setting (#379)
+- ecbc692 fix(#326): enforce context fidelity in planning pipeline (#391)
+- 074b2bc fix(#330): update statusline.js reference during install (#392)
+- 9d7ea9c fix: statusline crash handling, color validation, git staging rules
+- 161aa61 fix: researcher agent always writes RESEARCH.md regardless of commit_docs
+- 8384575 fix: update command respects local vs global install
+- f380275 fix(executor): add completion verification to prevent hallucinated success (#315)
+- 4dff989 fix(settings): auto-create config.json when missing (#264)
+- 22ec777 Merge pull request #421 from davesienkowski/fix/set-profile-missing-config
+- 0fcdb3a Merge pull request #420 from davesienkowski/fix/executor-completion-verification
+- 12a06ab Merge pull request #373 from Solvely-Colin/fix/remove-dead-gsd-gemini-link
+- f53011c fix(#429): prevent API keys from being committed via map-codebase
+- af7a057 feat: add GSD Memory cross-project knowledge system
+- 75fb063 docs: update changelog for v1.11.2
+- 7c42763 1.11.2
+- cc3c6ac revert: remove GSD Memory system (not ready for release)
+- ddc736e v1.11.3 - revert memory system
+- 01ae939 feat(gsd-tools): add CLI utility for command extraction
+- 8f26bfa refactor: extract check-todos, add-phase, update to thin orchestrators
+- d2623e0 refactor: extract settings, add-todo, pause-work, set-profile to thin orchestrators
+- d44c7dc refactor: update commands, workflows, agents for gsd-tools integration
+- a63cc2d Merge pull request #463 from glittercowboy/refactor/thin-orchestrator-commands
+- 56b487a chore: tidy up old files
+- c94f563 docs: update changelog for v1.12.0
+- e02b37d 1.12.0
+- 246d542 feat(gsd-tools): add compound init commands and update workflows (#468)
+- 3e3f81e docs: update changelog for v1.12.1
+- e92e64c 1.12.1
+- 3f5ab10 chore: remove CONTRIBUTING.md and GSD-STYLE.md
+- 1b317de feat: extract repetitive bash patterns into gsd-tools commands (#472)
+- a52248c chore: remove project-specific planning files
+- c9aea44 docs: update changelog for v1.13.0
+- 64373a8 1.13.0
+- 6c53737 feat: add context-optimizing parsing commands to gsd-tools (#473)
+- 6cf4a4e fix: prevent installer from deleting opencode.json on parse errors (#475)
+- 1fbffcf docs: update changelog for v1.14.0
+- ecba990 1.14.0
+- fa81821 feat: add --include flag to init commands to eliminate redundant file reads
+- 63d99df docs: update changelog for v1.15.0
+- 9ad7903 1.15.0
+- 1c6a35f fix: normalize Windows backslashes in gsd-tools path prefix
+- 36f5bb3 feat: delegate deterministic workflow operations to gsd-tools CLI
+- dac502f Merge pull request #477 from rmindel/feature/fix-gsd-tools-windows
+- 01c9115 fix(#478): respect commit_docs=false in all .planning commit paths (#482)
+- a4d2a8f Merge pull request #483 from glittercowboy/claude/expand-gsd-automation-XVhXH
+- 4249506 fix(execute-phase): explicitly specify subagent_type="gsd-executor"
+- 2a4e0b1 docs: update changelog for v1.15.1
+- ea0204b 1.16.0
+- ca03a06 feat: preserve local patches across GSD updates (#481)
+- 4072fd2 fix: add workaround for Claude Code classifyHandoffIfNeeded bug (#480)
+- 6a2d1f1 feat(gsd-tools): frontmatter CRUD, verification suite, template fill, state progression (#485)
+- 5a2f5fa docs: update changelog for v1.17.0
+- 06399ec 1.17.0
+- 767bef6 fix(#484): persist research decision from new-milestone to config
+- ced41d7 fix(#453): replace HEREDOC with literal newlines for Windows compatibility
+- 1344bd8 fix(#466): add detached: true to SessionStart hook spawn for Windows
+- 7f49083 feat(new-project): add --auto flag for unattended initialization
+- cbb4aa1 docs: add --auto flag to new-project command table
+- fac1217 docs: update changelog for v1.18.0
+- 9adb09f 1.18.0
+- 60ccba9 feat: add Brave Search integration for researchers
+- 19568d6 docs: use @latest in primary install commands
+- 7de17fc docs: add User Guide with workflow diagrams, troubleshooting, and config reference
+- d80e4ef docs: add X, Dexscreener badges and fix Discord member count
+- 90f1f66 docs: use static Discord badge to avoid widget dependency
+- f7511db Add CODEOWNERS - require @glittercowboy review on all changes
+- a4626b5 Add bug report issue template
+- 279f3bc Add feature request issue template
+- 392742e Add security policy for responsible disclosure
+- b85247a Add workflow to auto-label new issues with needs-triage
+- 173ff7a fix: add Write tool to gsd-verifier and document verifier bug root cause (#545)
+- c3c9d52 fix: create feature branch before first commit in discuss/plan workflows (#512)
+- ba27912 fix: move resolved debug sessions to resolved/ folder (#497)
+- 25aeb44 fix(#501): verify-work defers diagnosis/planning to plan-phase --gaps (#502)
+- f4d6b30 fix(install): auto-migrate renamed statusline.js reference (#288)
+- 9d3d9d8 docs: use @latest for uninstall commands to prevent npx cache issues (#389)
+- fbd727e feat: Add Mistral Vibe CLI Support (#519)
+- 80246e9 Add OpenCode installer package (#171)
+- 430a7e4 feat: add git_tag config option to disable tagging on milestone completion (#532)
+- 6f98b4f Add in-progress state for todos instead of marking done immediately (#543)
+- 1bc6d00 refactor(statusline): display git branch in status line if inside repo (#396)
+- e146b08 fix(install): build hooks/dist on the fly for dev installs (#413)
+- 9d815d3 Revert 12 PRs merged without authorization
+- 5154446 fix(install): add package.json to prevent ESM inheritance (#602)
+- d863858 fix(docs): use {phase_num} instead of ambiguous {phase} for filenames (#601)
+- 7b140c2 fix(roadmap): accept ## and ### phase headers, detect malformed ROADMAPs (#598, #599)
+- 9a7bb22 fix(install): template hook paths for OpenCode/Gemini runtimes (#585)
+- b9f9ee9 fix(init): fall back to ROADMAP.md when phase directory missing (#521)
+- dcace25 fix(workflow): close parent UAT and debug artifacts after gap-closure phase (#580)
+- 4622aa7 docs: update changelog for v1.19.0
+- ca18c24 1.19.0
+- 2b9951b fix(agents): return 'inherit' instead of 'opus' for model resolution (#558)
+- 765476e fix(workflow): enforce 12-char AskUserQuestion header limit (#559)
+- dcdb31c fix(workflow): update STATE.md after discuss-phase completes (#556)
+- a142002 fix(tools): update REQUIREMENTS.md traceability when phase completes
+- 4fb0428 fix(verifier): use ROADMAP Success Criteria instead of deriving truths from Goal (#538)
+- ed17684 feat(workflow): add auto-advance pipeline (--auto flag + workflow.auto_advance config)
+- c8827fe fix(tools): deterministic ROADMAP progress table updates from disk (#537)
+- 91e4ef7 fix(workflow): consistent phase transition routing through discuss-phase (#530)
+- d8f3bac docs: update README for v1.19.1 — auto-advance flag and config
+- a679bfc docs: update changelog for v1.19.1
+- a4ad25d 1.19.1
+- 7ed1ec8 fix(commands): remove "execution" from plan-phase description to fix autocomplete (#518)
+- c4ea358 fix(agents): use Write tool for file creation to prevent settings.local.json corruption
+- a5caf91 feat(config): add per-agent model overrides (#510)
+- c5fbd05 fix(installer): quote config dir in hook templates for local installs (#605)
+- 24b933e fix: rename gsd-tools.js to .cjs to prevent ESM conflicts (closes #495)
+- afb93a3 fix(tools): normalize phase padding in insert command (closes #494)
+- 37bb14e feat(config): add user-level default settings via ~/.gsd/defaults.json (closes #492)
+- 9aeafc0 fix(tools): support #### heading depth in phase matching
+- 8b75531 fix(agents): add scope boundary and fix attempt limit to executor (closes #490)
+- bc13b49 Merge pull request #505 from pablo-alonso-arista/docs/user-guide
+- 8d97732 fix(tools): write large JSON payloads to tmpfile to prevent truncation (closes #493)
+- 41cb745 feat(phases): archive completed milestone phase directories (closes #489)
+- 04380c8 docs: add wave execution diagram to clarify parallelization
+- 0dde979 fix(installer): use correct config path for local OpenCode installs
+- 00a13f5 docs: update changelog for v1.19.2
+- 1e3194a 1.19.2
+- 0f2a3fa fix: add .gitkeep to phase directories for git tracking
+- 99c5c41 fix: respect commit_docs when merging branches in complete-milestone
+- 474b75e fix(installer): convert general-purpose subagent to OpenCode's "general"
+- 9aca081 docs: add workaround tip for modifying menu options
+- cb7d4db feat(health): add /gsd:health command for planning directory validation
+- 1dcedb6 feat(auto-advance): chain phase execution across full milestone
+- 7510a8a feat(quick): add --full flag for plan-checking and verification
+- b27034b feat(auto): wire --auto from new-project into phase chain
+- fc347d5 fix: warn when planning without user context or discussing after plans exist
+- 1104fc9 docs: update README for v1.20.0
+- 7b7e582 docs: update changelog for v1.20.0
+- e8eab14 1.20.0
+- 4993678 fix(auto): persist auto-advance to config and bypass checkpoints
+- 8ad9e83 docs: update changelog for v1.20.1
+- 915d026 1.20.1
+- cbf8094 fix: requirements tracking chain — strip brackets, add requirements field to plans and summaries
+- 9ef582e fix: close requirements verification loop and enforce MUST language
+- fb50d3a docs: update changelog for v1.20.2
+- 710795c 1.20.2
+- e449c5a fix(gemini): escape shell variables in agent bodies for Gemini CLI
+- 2f25895 fix: tighten milestone audit requirements verification with 3-source cross-reference
+- 95bc5a0 docs: update changelog for v1.20.3
+- c609f3d 1.20.3
+- 7461b3d fix: universal phase number parsing with comparePhaseNum helper
+- 02bc779 Require human verification before resolving debug sessions
+- 1764abc fix: executor updates ROADMAP.md and REQUIREMENTS.md per-plan
+- 8b181f2 docs: update changelog for v1.20.4
+- b94a1ca 1.20.4
+- f77252c fix(#217): use inline Task() syntax for map-codebase agent spawning
+- 87c3873 feat(codex): convert Task() calls to codex exec during install
+- db1d003 feat(codex): install GSD commands as prompts for '/' menu discoverability
+- 409fc0d chore: add codex skills implementation notebook
+- 5a733dc feat: add codex skills-first installer runtime
+- 12692ee docs: add codex usage guidance and update notebook
+- 186ca66 docs: record codex implementation commits in notebook
+- c1fae94 chore: add codex changelog and drop implementation notebook
+- 270b6c4 fix(#672): add project skill discovery to subagent spawn points
+- 8fd7d0b fix(#671): add project CLAUDE.md discovery to subagent spawn points
+- bf2f571 fix(#657): create backup before STATE.md regeneration
+- 3dcd3f0 refactor: complete context-proxy orchestration flow
+- e820263 Revert "feat(codex): install GSD commands as prompts for '/' menu discoverability"
+- d55998b Revert "feat(codex): convert Task() calls to codex exec during install"
+- 748901f docs: update changelog for v1.20.5
+- 3cf26d6 1.20.5
+- e3dda45 feat(discuss-phase): add option highlighting and gray area looping
+- e0f9c73 feat: add Nyquist validation layer to plan-phase pipeline
+- fa2e156 refactor: split gsd-tools.test.cjs into domain test files
+- c67ab75 refactor: split gsd-tools.cjs into 11 domain modules under bin/lib/
+- 2c0db8e fix(gemini): prevent workflows and templates from being incorrectly converted to TOML
+- e9dbb03 Merge pull request #693 from cmosgh/fix/gemini-template-toml-bug
+- ebfc17a Merge pull request #691 from tylersatre/refactor/split-gsd-tools
+- 4d09f87 Merge PR #687: feat: add Nyquist validation layer to plan-phase pipeline
+- bfdd64f Merge branch 'feature/nyquist-validation-layer'
+- 7542d36 feat: context window monitor hook with agent-side WARNING/CRITICAL alerts
+- 131f24b fix: auto-advance chain broken — Skills don't resolve inside Task subagents (#669)
+- ed11f41 Merge branch 'main' into fix/universal-phase-number-support
+- 81462db chore: ignore local working documents
+- 6eaf560 docs: update changelog for v1.20.6
+- 8638ea8 1.20.6
+- b1a7776 Merge branch 'main' into codex/debug-human-verify-gate-630
+- 3a56a20 fix(gsd-tools): support --cwd override for state-snapshot
+- ea3c22d fix: propagate phase_req_ids from ROADMAP to workflow agents (#684) (#702)
+- acb76fe test: add TBD guard coverage for phase_req_ids extraction
+- a92512a feat: add /gsd:add-tests command for post-phase test generation (#635)
+- d905821 fix(add-tests): add state-snapshot after test generation
+- e9e1158 merge: resolve conflicts with main for Codex skills-first support
+- 6b27d8d feat: add Codex skills-first runtime support (#665)
+- 3704829 fix: clamp progress bar percent to prevent RangeError crash (#715)
+- 0176a3e fix: map requirements-completed frontmatter in summary-extract (#627) (#716)
+- 77d4347 Fix STATE.md decision corruption and dollar handling (#701)
+- 8b90235 refactor: compress Nyquist validation layer to align with GSD meta-prompt conventions (#699)
+- 7715e6d Fix /gsd:update to always install latest package (#719)
+- bc77456 fix: handle multi-level decimal phases and escape regex in phase operations (#720)
+- 2fc9b1d feat(gsd-verifier): add standard project_context block
+- 3fddd62 feat: planning improvements — PRD express path, interface-first planning, living retrospective (#644)
+- 334c61f chore: update Discord invite to vanity URL
+- 5cb2e74 feat: improve onboarding UX with /gsd:new-project as default command
+- 0ca1a59 feat: add YAML frontmatter sync to STATE.md for machine readability
+- 74ca2c7 docs: update changelog for v1.21.0
+- 7f5ae23 1.21.0
+- 752e038 fix: load model_overrides from config and use resolveModelInternal in CLI
+- abeacf0 test(01-01): add loadConfig and resolveModelInternal tests
+- a5fd002 test(01-02): add phase utility, string helper, and roadmap tests
+- f722a6a test(02-01): add extractFrontmatter and reconstructFrontmatter unit tests
+- ceb10de test(02-01): add spliceFrontmatter, parseMustHavesBlock, and FRONTMATTER_SCHEMAS tests
+- 68b22fa test(02-02): add frontmatter get and set CLI integration tests
+- 15dca91 test(02-02): add frontmatter merge and validate CLI integration tests
+- 339966e feat(03-01): add createTempGitProject helper to tests/helpers.cjs
+- 9f87ba2 test(03-01): add verify plan-structure and phase-completeness tests
+- 0342886 feat(03-02): add comprehensive validate-health test suite
+- ebe96fe test(03-03): add 8 verify-summary tests including REG-03 and search(-1) regression
+- e8e497b test(03-03): add 20 tests for verify references, commits, artifacts, key-links
+- 5778ff3 test(05-01): add 5 milestone complete archiving and defensive tests
+- e0e7929 test(05-02): add 7 requirements mark-complete ID format and edge case tests
+- 9aa9695 feat(06-01): create GitHub Actions test workflow
+- ad7c79a feat(06-01): add CI status badge to README
+- d4ec9c6 test(07-01): add utility function tests for commands.cjs
+- c027fe6 test(07-02): add cmdCommit and cmdWebsearch tests for commands.cjs
+- add7799 test(08-01): add cmdInitTodos, cmdInitMilestoneOp, cmdInitPhaseOp fallback tests
+- ec943fe test(08-02): add cmdInitProgress, cmdInitQuick, cmdInitMapCodebase, cmdInitNewProject, cmdInitNewMilestone tests
+- 1ca7df1 test(09-01): add stateExtractField and stateReplaceField unit tests
+- 29a87cb test(09-01): add cmdStateLoad, cmdStateGet, cmdStatePatch, cmdStateUpdate CLI tests
+- 763ff97 test(09-02): add cmdStateAdvancePlan, cmdStateRecordMetric, cmdStateUpdateProgress tests
+- d5ef3b4 test(09-02): add cmdStateResolveBlocker and cmdStateRecordSession tests
+- 74a4851 test(10-01): add dispatcher error paths and routing branch tests
+- 5d0e42d test(11-01): add cmdRoadmapAnalyze edge-case and cmdRoadmapGetPhase success_criteria tests
+- 17299b6 test(11-02): add cmdRoadmapUpdatePlanProgress tests
+- 97d2136 feat(12-01): add c8 coverage tooling with 70% line threshold
+- 21c898b ci(12-02): run coverage check on PRs with 70% line threshold
+- c9e73e9 fix(quick-1): remove HIGH severity test overfitting in 4 test files
+- 898b82d fix(quick-1): remove MEDIUM severity test overfitting in config.test.cjs
+- 8964991 fix(ci): add Node 18 skip condition for c8 v11 coverage step
+- 735c3fc Merge pull request #763 from ethan-hurst/feat/coverage-hardening
+- f9fc2a3 fix(ci): pin action SHAs and enforce coverage on all events
+- 38c1946 fix: getMilestoneInfo() returns wrong version after milestone completion (#768)
+- 367149d fix(milestone): scope stats, accomplishments, and archive to current milestone phases
+- 732ea09 fix(milestone): insert MILESTONES.md entries in reverse chronological order
+- d64b0e4 Merge pull request #784 from Tibsfox/fix/milestone-stats-scoping
+- 10576a5 Merge pull request #785 from Tibsfox/fix/milestones-reverse-chronological
+- 3affa48 Merge pull request #783 from Hnturk/claude/laughing-haslett
+- ffc1a2e fix(ci): use bash shell on Windows for glob expansion in test steps
+- ccb8ae1 fix(ci): cross-platform test runner for Windows glob expansion
+- 02a5319 fix(ci): propagate coverage env in cross-platform test runner
+- 9c27da0 fix(windows): cross-platform path separators, JSON quoting, and dollar signs
+- 011df21 fix(test): expect forward-slash paths in cmdInitTodos assertion
+- 5492b68 docs: update changelog for v1.21.1
+- b69a8de 1.21.1
+- 3a41752 fix: phase-plan-index returns null/empty for files_modified, objective, task_count (#734)
+- 93c9def fix: load nyquist_validation from config (#740)
+- 31c8a91 fix: load model_overrides from config and use resolveModelInternal in CLI (#739)
+- ff3e2fd fix: escape regex metacharacters in stateExtractField (#741)
+- b5bd9c2 fix: align resolve-model variable names with template placeholders (#737)
+- eb1388c fix: support both `.claude/skills/` and `.agents/skills/` for skill discovery (#759)
+- 37582f8 feat: code-aware discuss phase with codebase scouting (#727)
+- aaea14e feat(agents): add analysis paralysis guard, exhaustive cross-check, and task-level TDD (#736)
+- 69b28ee fix: use $HOME instead of ~ for gsd-tools.cjs paths to prevent subagent MODULE_NOT_FOUND (#786)
+- dba401f fix: statusline migration regex too broad, clobbers third-party statuslines (#670)
+- 19ac77e fix: clear both cache paths after update (#663) (#664)
+- 1455931 feat(codex): add request_user_input mapping, multi-agent config, and agent role generation
+- cf60f47 Merge pull request #791 from gsd-build/feat/codex-multi-agent-parity
+- c91a1ea docs: update changelog for v1.22.0
+- 1c58e84 1.22.0
+- 061dadf fix(core): add --no-index to isGitIgnored for tracked file detection (#703)
+- 4e00c50 fix(phase): add ROADMAP.md fallback to cmdPhaseComplete next-phase scan
+- 81a6aaa fix(core): prefer in-progress milestone marker in getMilestoneInfo
+- 78eaabc fix(state): support both bold and plain field formats in state parsing
+- 4155e67 fix(cli): preserve multi-word commit messages in CLI router
+- 8c01703 fix(state): support both bold and plain field formats in all state.cjs functions
+- 630a705 fix(gemini): use AfterTool instead of PostToolUse for Gemini CLI hooks
+- 77dfd2e fix(opencode): detect runtime config directory instead of hardcoding .claude
+- b3e3e3d fix(workflow): use Skill instead of Task for auto-advance phase transitions
+- 4010e3f fix: replace echo with printf in shell snippets to prevent jq parse errors
+- 268f363 Merge pull request #868 from gsd-build/fix/echo-jq-control-char-escape
+- 30ecb56 feat(discuss-phase): load prior context before gray area identification
+- addb07e docs: update changelog for v1.22.1
+- 29beea4 1.22.1
+- b863ed6 fix(state): scope phase counting to current milestone
+- e1b3277 fix(state): derive total_phases from ROADMAP when phases lack directories
+- 023d3bc Merge pull request #821 from Tibsfox/fix/config-and-path-corrections
+- 43c0bde Merge pull request #822 from Tibsfox/fix/core-lifecycle-state
+- 9266f14 Merge pull request #824 from Tibsfox/fix/gemini-hook-event
+- fa2fc9c Merge pull request #825 from Tibsfox/fix/opencode-hardcoded-paths
+- 57f2761 Merge pull request #826 from Tibsfox/fix/auto-advance-nesting
+- ee605aa chore: remove leftover new-project.md.bak file
+- 4737e7f Merge pull request #901 from amanape/cleanup/remove-new-project-bak
+- b0e5717 fix(workflows): break freeform answer loop in AskUserQuestion
+- 1a1acd5 fix(agents): extend anti-heredoc instruction to all file-writing agents
+- cbe372a feat(agents): add skills frontmatter and hooks examples to all agents
+- ec5617c fix(workflows): standardize agent spawn types across all workflows
+- 3d92649 test(agents): add 47 agent frontmatter and spawn consistency tests
+- 59dfad9 fix(hooks): correct statusline context scaling to match autocompact buffer
+- 22fe139 fix(milestone): escape reqId in regex patterns to prevent injection
+- 15226fe fix(core): complete toPosixPath coverage for Windows output paths
+- 8b8d107 fix(milestone): deduplicate phase filter and handle empty MILESTONES.md
+- 641cdbd fix(state): deduplicate extractField into shared helper with regex escaping
+- dacd0be fix(planner): compute wave numbers for gap closure plans
+- 7554503 fix(hooks): add stdin timeout guard to prevent hook errors
+- 90e7d30 fix(hooks): respect CLAUDE_CONFIG_DIR for custom config directories
+- 07f44cc fix(hooks): make context monitor advisory instead of imperative
+- 1c6f4fe fix(update): disambiguate local vs global install when CWD is HOME
+- 609f7f3 fix(workflows): prevent auto_advance config from persisting across sessions
+- e79611e docs: update changelog for v1.22.2
+- cdfa391 1.22.2
+- 40be3b0 feat(verify-work): auto-inject cold-start smoke test for server/db phases
+- e2b6179 fix(install): replace $HOME/.claude paths for non-Claude runtimes
+- c298a1a refactor: rename depth setting to granularity (closes #879)
+- ef032bc feat: harden Nyquist defaults, add retroactive validation, compress prompts (#855)
+- 569ce68 docs: update changelog for v1.22.3
+- 39ab041 1.22.3
+- 73efecc fix: add missing skills frontmatter to gsd-nyquist-auditor
+- a7c08bf feat: add --discuss flag to /gsd:quick for lightweight pre-planning discussion (#861)
+- 517ee0d fix: resolve @file: protocol in all INIT consumers for Windows compatibility (#841)
+- 8603b63 docs: update README quick command flags for v1.22.4
+- f5fb00c docs: update changelog for v1.22.4
+- 2eaed7a 1.22.4
+- 44cf8cc fix: add mandatory canonical_refs section to CONTEXT.md (#1015)
+- 2411f66 feat: add node repair operator for autonomous task failure recovery (#1016)
+- e97851e feat: add mandatory read_first and acceptance_criteria to prevent shallow execution (#1013)
+- 75d2186 feat(quick): replace auto-increment number with YYMMDD-xxx timestamp ID (#1012)
+- bc3d6db fix: emit valid codex agent TOML (#1008)
+- c81b20e fix: plan-phase Nyquist validation when research is disabled (#980) (#1002)
+- dffbdaf docs(discuss-phase): add explicit --batch mode (#982)
+- 14f9637 fix: use roadmap_complete checkbox to override disk_status (#978)
+- 0f38e34 fix: strip unsupported Gemini agent skills frontmatter (#971)
+- c71c15c feat: add Copilot CLI runtime support and gsd-autonomous skill (#911)
+- 9b72ee9 fix: prevent auto-advance without --auto flag (closes #1026, closes #932) (#1043)
+- 893cee8 fix: use tilde paths in templates to prevent PII leak in .planning/ files (closes #987) (#1047)
+- 24b1ad6 fix: replace invalid commit-docs with commit command in workflows (closes #968) (#1044)
+- 8313cd2 fix: add uninstall mode indicator to banner output (closes #1024) (#1046)
+- 9b904da fix: add empty-answer validation guards to discuss-phase (closes #912) (#1048)
+- 1c49fdb fix: correctly pad decimal phase numbers in init.cjs (closes #915) (#1052)
+- 823bb2a fix: make --auto flag skip interactive discussion questions (closes #1025) (#1050)
+- 278414a fix: detect WSL + Windows Node.js mismatch and warn user (closes #1021) (#1049)
+- 1d3d1f3 fix: strip skills: from agent frontmatter for Gemini compatibility (#1045)
+- b478144 fix: remove deprecated Codex config keys causing UI instability (#1051)
+- c82c0a7 fix(phase-complete): improve REQUIREMENTS.md traceability updates (closes #848)
+- ae787d1 docs(README.md): fix broken lines
+- 47a8c70 fix(update): make /gsd:update runtime-aware and target correct runtime
+- faa3f11 fix: correct escape characters in grep command
+- 9481fdf feat: add /gsd:ui-phase + /gsd:ui-review design contract and visual audit layer (closes #986)
+- 625adb8 docs(readme): add Simplified Chinese version
+- 7b5b732 docs: show optional [area] arg for /gsd:map-codebase in README
+- 944df19 feat: add /gsd:stats command for project statistics
+- 63823c2 fix: skip no-research nyquist artifact gating (closes #980)
+- eba9423 fix(config): prevent workflow.research reset during milestone transitions
+- 5971f69 docs: update README for v1.23.0
+- fd1cb60 docs: update changelog for v1.23.0
+- 0b8e2d2 1.23.0
+- e5b389c fix: handle EPERM/EACCES in scanForLeakedPaths on Windows (#1055)
+- 637a3e7 fix: respect existing opencode.jsonc config files (#1056)
+- ca4ae7b fix: scope ROADMAP.md searches to current milestone (#1059)
+- 789cac1 feat(debug): add persistent knowledge base for resolved sessions (#961)
+- 698985f feat: add inherit model profile for OpenCode /model (#951)
+- 386fc0f fix: handle agent frontmatter correctly in OpenCode conversion (#981)
+- 5d70395 fix: use absolute paths for gsd-tools.cjs in all install types (#820) (#1062)
+- 44de7c2 feat: Programmatic implementation of `/gsd:set-profile` command (#1007)
+- ddb9923 feat(quick): add --research flag for focused pre-planning research (#317) (#1063)
+- 6b5704a fix: remove invalid skills frontmatter from UI agents and update test counts
+- a31641d docs: update changelog for v1.24.0
+- 33dcb77 1.24.0
+- 6de816f fix(init): prefer current milestone phase-op targets (#1068)
+- 4aea69e feat(do): add freeform text router command (#1067)
+- a5f5d50 feat: add Antigravity runtime support (#1058)
+- 0fde04f fix(stats): correct git and roadmap reporting (#1066)
+- 1155c75 docs: add Chinese (zh-CN) documentation
+- 2b0f595 fix(core): return 'opus' directly instead of mapping to 'inherit' (#1079)
+- e1f6d11 feat(note): add zero-friction note capture command (#1080)
+- 281b288 feat(discuss): show remaining areas when asking to continue or move on (#1072)
+- 406b998 feat(hooks): add config option to disable context window warnings (#1073)
+- c7b933d fix(executor): add untracked files check after task commits (#1074)
+- 3977cf3 fix(verify): add CWD guard and strip archived milestones in health checks (#1076)
+- 540913c fix(researcher): verify package versions against registry before recommending (#1077)
+- 08dc749 fix(settings): clarify balanced profile uses Sonnet for research (#1078)
+- 9d7001a feat(plan-phase): ask user about research instead of silently deciding (#1075)
+- 1e46e82 chore: improve issue and PR templates with industry best practices (#1088)
+- d20fa8a docs: add comprehensive feature, architecture, and requirements documentation (#1089)
+- 8d64577 docs: add /gsd:do and /gsd:note to README commands table
+- 78ebdc3 docs: update changelog for v1.25.0
+- 4ce0925 1.25.0
+- f722623 fix(tests): update model resolution assertions to match opus-direct behavior
+- f35fe0d 1.25.1
+- a2f359e docs: update README and documentation for v1.25 release (#1090)
+- 4cf6c04 feat: add developer profiling pipeline (#1084)
+- 3da844a fix(tests): update copilot install count assertions for developer profiling
+- fe1e92b fix(profile): correct template paths, field names, and evidence key in profile-output (#1095)
+- a80a89b feat: add execution hardening (pre-wave check, cross-plan contracts, export spot-check) (#1082)
+- f2adc0c fix(milestone): make requirements mark-complete idempotent (#948)
+- 460f92e feat: normalize generated markdown for markdownlint compliance (#1112)
+- 80605d2 docs: add developer profiling, execution hardening, and idempotent mark-complete to docs (#1108)
+- 2842f07 fix: CRLF frontmatter parsing, duplicate cwd crash, STATE.md phase transitions (#1105)
+- d3fd8b2 Remove duplicate variable declaration (#1101)
+- 4915d28 fix: replace nonexistent /gsd:transition with real commands in execute-phase (#1100)
+- 63af9af fix: track hook files in manifest for local patch detection (#769)
+- 1029412 Fix duplicate Codex GSD agent blocks without marker
+- 5a7d56e fix(codex): include required agent metadata in TOML
+- 52b2d39 feat(milestones): support safe phase-number resets
+- 6b6c732 fix(health): preserve state on phase mismatch repair
+- ad8b58b feat(execute-phase): support wave-specific execution
+- 7156f02 fix: semver 3+ segment parsing and CRLF frontmatter corruption recovery
+- 2314988 fix(prompt): clarify execute-phase active flags
+- f5167a5 feat(claude-md): add workflow enforcement guidance
+- 3a0c811 feat(quick): add quick-task branch support
+- 92e5c04 feat: add Cursor CLI runtime support
+- 8c1b224 fix: use ~/ instead of resolved absolute paths in global install
+- 7eed3bc fix(workflows): add explicit TaskOutput instructions to map-codebase
+- f649543 feat: materialize full config on new-project initialization
+- 63f6424 fix(tests): sandbox HOME in runGsdTools to prevent flaky assertions
+- 43fc1b1 fix(workflow): restore nyquist_validation derivation in Step 5 config
+- 31a93e2 docs: document inherit profile for non-Anthropic providers (#1036) (#1185)
+- 94b8375 fix: use arrays for RUNTIME_DIRS to fix zsh word-splitting (#1173) (#1183)
+- 9acfa4b fix: add sequential fallback for map-codebase on runtimes without Task tool (#1174) (#1184)
+- 93dc3d1 test: add coverage for model-profiles, template, profile-pipeline, profile-output (#1170)
+- 1efc74a refactor(tests): consolidate runtime converters, remove duplicate tests, standardize helpers (#1169)
+- 41f8cd4 feat: add /gsd:next command for automatic workflow advancement (#927) (#1167)
+- 8520424 fix: replace curl with fetch() in verification examples for Windows compatibility (#899) (#1166)
+- 14c1dd8 fix(build): add syntax validation to hook build script (#1165)
+- e7198f4 fix: hook version tracking, stale hook detection, stdin timeout, and session-report command (#1153, #1157, #1161, #1162) (#1163)
+- 26d742c fix(core): replace negative-heuristic stripShippedMilestones with positive milestone lookup (#1145) (#1146)
+- c2c4301 feat: model alias-to-full-ID resolution for Task API compatibility (#991) (#1141)
+- 309d867 fix: prevent nested Skill calls that break AskUserQuestion (#1009) (#1140)
+- 6536214 fix: add explicit agent type listings to prevent fallback after /clear (#949) (#1139)
+- aa9cb7b feat: add Codex hooks support for SessionStart (#1020) (#1138)
+- 665c948 feat: MCP tool awareness for GSD subagents (#973) (#1137)
+- 27e9bad feat: interactive executor mode for pair-programming style execution (#963) (#1136)
+- 7dd31e6 feat: signal file for decision points — WAITING.json (#1034) (#1133)
+- e8dbc30 fix: add runtime compatibility fallback for Copilot executor stuck issue (#1128) (#1131)
+- 7101ddc fix: prevent PROJECT.md drift and fix phase completion counters (#956) (#1130)
+- 849aed6 fix: prevent agent from suggesting non-existent /gsd:transition command (#1081) (#1129)
+- a97e4c2 feat: /gsd:ship command for PR creation from verified phase work (#829) (#1123)
+- f54f3df feat: structured session handoff artifact for cross-session continuity (#940) (#1122)
+- 0f095ac feat: requirements coverage gate in plan-phase pipeline (#984) (#1121)
+- a75c1d1 feat: cross-phase regression gate in execute-phase pipeline (#945) (#1120)
+- 9bf7871 docs: update changelog for v1.26.0
+- 641a4fc 1.26.0
+- fc468ad fix(tests): update copilot skill count assertions for ship and next commands
+- 0f112ab fix: remove model:inherit from OpenCode agent conversion (#1156)
+- e849996 feat(discuss-phase): cross-reference pending todos against phase scope
+- 6e612c5 fix: embed evolution rules in generated PROJECT.md so agents see them at runtime (#1039)
+- 0377951 feat: context window size awareness for 1M+ models (#1086)
+- c7954d1 refactor: deduplicate code, add planningPaths helper, annotate empty catches
+- 026a1b0 fix(cursor): write unquoted skill and subagent names
+- 7172d16 Merge branch 'main' into feat/cursor-cli-support
+- 69cfae2 fix(cursor): preserve slash-prefixed gsd commands in converted markdown
+- a9be67f docs: comprehensive v1.26 release documentation update (#1187)
+- 3e61c7d feat(researcher): add Runtime State Inventory for rename/refactor phases
+- be302f0 feat: --analyze flag for discuss-phase trade-off analysis (#833)
+- 297adf8 fix: add Windows troubleshooting for plan-phase freezes (#732)
+- a99caae feat: /gsd:fast command for trivial inline tasks (#609)
+- 3bfc0f6 fix: add --no-verify support for parallel executor commits (#1116)
+- 60f38cd fix: remove duplicate stateExtractField, cross-platform code detection, STATE.md file locking
+- 214a621 docs: update changelog, architecture, CLI tools, config, features, and user guide for parallel execution fixes
+- a6ba3e2 feat: PreToolUse workflow guard hook for rogue edit prevention (#678) (#1197)
+- a2bcbd5 Merge pull request #1158 from mitchelladam/feat/cursor-cli-support
+- 62afbb5 Merge pull request #1196 from trek-e/fix/windows-subagent-timeout-732
+- a8539a1 Merge pull request #1164 from trek-e/fix/opencode-model-inherit-1156
+- a61228e Merge pull request #1124 from trek-e/refactor/deduplicate-and-cleanup
+- ae3ff4f Merge pull request #1194 from trek-e/feat/discuss-pre-analysis-833
+- d77956f Merge pull request #1192 from trek-e/feat/gsd-fast-command-609
+- 73d6ec0 Merge pull request #1132 from trek-e/feat/1m-context-awareness-1086
+- 16444d7 Merge pull request #1118 from trek-e/fix/evolution-block-visibility-1039
+- 7424b34 Merge pull request #1117 from trek-e/fix/parallel-commit-no-verify-1116
+- 973c6b2 Merge pull request #1115 from trek-e/feat/discuss-phase-todo-crossref
+- a1207d5 fix(tests): make HOME sandboxing opt-in to avoid breaking git-dependent tests
+- 29241b3 Merge branch 'main' into feat/materialize-new-project-config
+- 5fd384f fix: universal agent name replacement for non-Claude runtimes (#766) (#1195)
+- a4da216 feat: support ticket-based phase identifiers for team workflows (#1019)
+- 42a2c15 feat: research-before-questions config option (#1186)
+- b136396 feat: add backlog parking lot and persistent context threads (#1005)
+- 12e4cfe fix: update Copilot skill count in tests for 3 new commands
+- 9ca03ec fix: filter stale hooks check to gsd-prefixed files only (#1200)
+- 862f6b9 fix: prevent Codex config.toml corruption from non-boolean [features] keys (#1202)
+- 1d4deb0 refactor: adopt planningPaths() across 4 modules — eliminate 34 inline path constructions
+- f656dcb chore: update CI matrix to Node 20, 22, 24 — drop EOL Node 18
+- c41a9f5 feat: community-requested commands — /gsd:review, /gsd:plant-seed, /gsd:pr-branch
+- 7cd3824 Merge pull request #1207 from trek-e/feat/community-requested-commands
+- 7f864ce Merge pull request #1206 from trek-e/chore/node-24-ci-update
+- b0c78fa Merge pull request #1205 from trek-e/refactor/adopt-planning-paths
+- cd8c406 Merge pull request #1204 from trek-e/fix/codex-config-toml-1202
+- 1192c0a Merge pull request #1203 from trek-e/fix/stale-hooks-filter-1200
+- ed7c737 Merge pull request #1193 from trek-e/feat/research-before-questions-1186
+- 1427aab Merge pull request #1070 from MenglongFan/docs/zh-cn-translation
+- 60a76ae feat: add verification debt tracking and /gsd:audit-uat command
+- 459f7f3 fix(roadmap): mark individual plan checkboxes when summaries exist
+- b34bf53 fix(milestone): read task count from **Tasks:** field in summary body
+- 8a6cdf5 fix(execute-phase): add Copilot sequential fallback and spot-check completion detection (#1128)
+- 0487151 fix(workflows): add text_mode config for Claude Code remote session compatibility (#1214)
+- e0e74ad Merge pull request #1134 from trek-e/feat/ticket-based-phase-ids-1019
+- acca569 Merge pull request #1135 from trek-e/feat/backlog-and-threads-1005
+- b0523d6 Merge pull request #1148 from Solvely-Colin/Solvely/reset-milestone-phase-numbers
+- 0342ce3 Merge pull request #1149 from Solvely-Colin/Solvely/health-non-destructive-state-repair
+- 9506b89 Merge pull request #1151 from 0Shard/fix/semver-and-frontmatter-parsing
+- 37ae2bc Merge pull request #1154 from gsd-build/Solvely/soft-gsd-workflow-enforcement
+- 841da5a Merge pull request #1155 from gsd-build/Solvely/quick-task-branching
+- 86cbd54 Merge pull request #1217 from j2h4u/fix/task-count-pattern
+- f9434f7 Merge pull request #1212 from jecanore/feat/audit-uat
+- b813e7d Merge pull request #1178 from matteo-michele-bianchini/fix/map-codebase-taskoutput-instructions
+- a440940 Merge pull request #1177 from matteo-michele-bianchini/fix/windows-absolute-paths
+- ea1797d Merge pull request #922 from j2h4u/fix/plan-checkboxes-progress
+- 62a1d51 Merge pull request #1126 from ElliotDrel/fix/track-hooks-in-manifest
+- 1f2e179 Merge pull request #1142 from medhatgalal/AI/fix-codex-markerless-gsd-merge
+- 52f6c71 Merge pull request #1144 from ChaptersOfFloatingLife/fix/codex-agent-toml-metadata
+- 0f9908a Merge pull request #1222 from trek-e/fix/copilot-executor-completion-1128
+- efc398c Merge pull request #1223 from trek-e/fix/remote-session-menu-fallback-1214
+- 342ca59 fix(tests): update expected Copilot skill count from 47 to 50
+- 61d82dc feat(discuss-phase): auto-generate DISCUSSION-LOG.md for audit trail (#1209)
+- 85a65fd fix(state): parse compound Plan field in advance-plan command
+- 104a39e fix(lifecycle): extract one-liner from summary body when not in frontmatter
+- e3bc614 fix(roadmap): handle 5-column progress tables with Milestone column
+- 6dc8caa fix(commit): stage file deletions when passed non-existent paths
+- 6d7f9e3 Merge pull request #923 from j2h4u/fix/progress-table-columns
+- aa29c46 Merge pull request #947 from j2h4u/fix/state-advance-plan-compound
+- 44e141c Merge pull request #1218 from j2h4u/fix/one-liner-extraction
+- 78fa8f4 Merge pull request #1224 from trek-e/feat/discussion-log-1209
+- d585612 Merge pull request #1229 from tonymfer/fix/commit-stage-deletions
+- 0afffb1 feat(core): worktree-aware .planning/ resolution and file locking (#1215)
+- 4a8e1fe Merge pull request #1225 from trek-e/feat/worktree-support-1215
+- 3e2c85e refactor: consolidate STATE.md field helpers, fix command injection in isGitIgnored
+- 1f08939 Merge pull request #1234 from trek-e/refactor/state-field-helpers-and-test-standardization
+- 21081dc feat: multi-repo workspace support with auto-detection and project root resolution
+- d0aae7b fix: address PR review — nested path resolution, sub_repos in init, depth-1 detection
+- 99b239d fix(executor): record per-repo commit hashes in multi-repo mode
+- fd0d546 fix(new-project): remove invalid commit step for multi-repo config
+- 32c6d88 fix: address maintainer review — gate findProjectRoot, warn on unmatched files
+- e79a6f4 Merge pull request #1213 from skoduri-epic/feat/multi-repo-workspace-v2
+- d213bdc Merge pull request #1191 from eli-herman/feat/runtime-state-inventory
+- 0b5d024 fix: resolve merge conflict in execute-phase argument-hint
+- fd2a806 merge: resolve conflicts with upstream main
+- a6dd641 feat: add advisor mode with research-backed discussion
+- 86c10b4 test: update agent count for new gsd-advisor-researcher agent
+- 24626ad docs: add advisor mode entry to CHANGELOG.md
+- f12a400 fix(stats): replace undefined $GSD_TOOLS with standard gsd-tools path (#1236)
+- b6a4916 fix(codex-config): preserve EOL when enabling codex hooks
+- d673283 Upgrade GitHub Actions for Node 24 compatibility
+- b621d55 feat: add Exa and Firecrawl MCP support for research agents
+- 2d8e3b4 Merge branch 'feat/materialize-new-project-config' of github.com:diegomarino/get-shit-done into feat/materialize-new-project-config
+- 020e764 Merge pull request #1247 from salmanmkc/upgrade-github-actions-node24
+- a1852fe fix(tests): add USERPROFILE override for Windows HOME sandboxing
+- 1d5233a Merge pull request #1237 from Disaster-Terminator/fix-codex-config-crlf-features
+- 40993dd Merge pull request #1248 from benzntech/feat/exa-firecrawl-research
+- 1063fdf fix(init): add ROADMAP fallback to plan-phase, execute-phase, and verify-work (#1238)
+- 28166e4 fix(core): auto-detect commit_docs from gitignore in loadConfig (#1250)
+- 66a639f fix(hooks): add version header to gsd-workflow-guard.js (#1249)
+- 9bf85fb fix(install): add matcher and timeout to context-monitor hook (#1246)
+- bc1181f enhancement(agents): add stub detection to verifier and executor (#1244)
+- 0993eb6 enhancement(workflow): add decision IDs for discuss-to-plan traceability (#1243)
+- fb83ada merge: resolve conflicts with upstream main (firecrawl + exa_search)
+- 71214d1 Merge pull request #1252 from gsd-build/fix/init-roadmap-fallback-1238
+- b0e60e9 Merge pull request #1253 from gsd-build/fix/commit-docs-gitignore-autodetect-1250
+- 7b6dc00 Merge pull request #1254 from gsd-build/fix/stale-hooks-workflow-guard-1249
+- a6afdde Merge pull request #1255 from gsd-build/fix/context-monitor-matcher-1246
+- 2418e6c Merge pull request #1256 from gsd-build/enhancement/verifier-stub-detection-1244
+- 2245d63 Merge pull request #1257 from gsd-build/enhancement/decision-traceability-1243
+- 122bc0d Merge pull request #1181 from diegomarino/feat/materialize-new-project-config
+- 5adbba8 Merge pull request #1211 from jecanore/feat/advisor-mode-v2
+- 62db008 security: add prompt injection guards, path traversal prevention, and input validation
+- 51b3eee Merge pull request #1258 from gsd-build/security/prompt-injection-guards
+- fb5c190 docs: update README for v1.27.0
+- 0ea6ebe docs: update changelog for v1.27.0
+- 47cb2b5 1.27.0
+- 5cb4680 docs: update Chinese README for v1.27.0
+- d5f2a7e docs: update README and docs/ for v1.27 release
+- f6ee8eb Merge pull request #1259 from gsd-build/docs/v1.27-release-notes
+- 81fa102 Merge branch 'main' into Solvely/execute-phase-active-flags
+- 3f133fe Merge pull request #1152 from gsd-build/Solvely/execute-phase-active-flags
+- f850952 fix(state): preserve frontmatter status when body Status field is missing
+- d032322 feat: add CLAUDE.md compliance as plan-checker Dimension 10
+- 1a5259c fix: add temp file reaper to prevent unbounded /tmp accumulation
+- 6e31cb0 Merge pull request #1264 from gsd-build/fix/tmp-file-cleanup-1251
+- fcb39e7 Merge pull request #1262 from gsd-build/fix/plan-checker-claude-md-enforcement
+- 4addcea feat: implement --reviews flag for gsd:plan-phase
+- c4b313c fix: stale hook detection checks wrong directory path
+- 57cf0bd enhance: add 'Follow the Indirection' debugging technique to gsd-debugger
+- cd2eabf Merge pull request #1266 from gsd-build/fix/stale-hook-check-path-1249
+- ff3bf66 docs: add multi-project workspaces design spec (#1241)
+- 5c4d5e5 feat: add multi-project workspace commands (#1241)
+- ef4453e fix: respect HOME env var in workspace init functions for Windows compat
+- 9db6866 fix(tests): disable gpg signing in temp git repos to fix CI failures
+- 31660d0 Update get-shit-done/workflows/plan-phase.md
+- 71aedb2 test: add init tests for has_reviews and reviews_path
+- 8f21ee0 merge: bring branch up to date with main
+- ae1a18c Merge pull request #1267 from gsd-build/feat/multi-project-workspaces-1241
+- 802092d fix: add verification gate before writing PROJECT.md in new-milestone
+- 0d2ee41 Merge pull request #1265 from chrisesposito92/feat/plan-phase-reviews-flag
+- a583b48 Merge pull request #1270 from gsd-build/fix/new-milestone-verification-gate-1269
+- 1dde5df Merge pull request #1261 from j2h4u/fix/frontmatter-status-preservation
+- df6fcf0 Merge pull request #1271 from gsd-build/claude/resolve-merge-conflict-oXpxa
+- e98b41a feat: add data-flow tracing, environment audit, and behavioral spot-checks
+- 377a78f Merge pull request #1272 from gsd-build/fix/verification-data-flow-env-audit-1245
+- 045eabb fix: use fs.writeSync for stdout to prevent pipe truncation
+- 18bb014 feat: add workflow.discuss_mode assumptions config (#637)
+- 3f2c0a1 Merge pull request #1276 from daresTheDevil/fix/stdout-pipe-truncation
+- 02254db fix: resolve ProviderModelNotFoundError on non-Claude runtimes (#1156)
+- 7ceccc2 Merge pull request #1277 from gsd-build/fix/model-resolution-non-claude-1156
+- 9ddd6c1 fix: create strategy branch before first commit, not at execute-phase (#1278)
+- 71b3a85 Merge pull request #1279 from gsd-build/fix/early-branch-creation-1278
+- 33db504 Merge pull request #1274 from gsd-build/feat/discuss-mode-config-637
+- afcd2a8 feat(manager): add interactive command center with dependency-aware recommendations
+- 5e5abe0 Merge upstream/main and resolve conflicts
+- de11114 fix: preserve subdirectory CWD in monorepo worktrees (#1283)
+- f9cb02e fix: use $HOME instead of ~ in installed shell command paths (#1284)
+- ee9fad0 Merge pull request #1287 from gsd-build/fix/monorepo-worktree-cwd-preservation-1283
+- a37be8d Merge pull request #1288 from gsd-build/fix/home-tilde-expansion-1284
+- 57c8a1a ci: optimize test matrix — 9 containers down to 4
+- 4c749a4 Merge pull request #1290 from gsd-build/ci/optimize-test-matrix
+- f3ce095 feat: multi-runtime selection in interactive installer (#1281)
+- 87e3b41 Merge pull request #1291 from gsd-build/feat/multi-runtime-select-1281
+- f7031e2 fix(manager): address review — withProjectRoot, milestone filter, planningPaths
+- 4395b2e fix: use BeforeTool hook event for Gemini CLI instead of PreToolUse
+- 156c008 Merge pull request #1296 from gsd-build/fix/gemini-before-tool-hook-1295
+- 3306a77 fix: prevent discuss-phase from ignoring workflow instructions (#1292)
+- 04d5ac7 Merge pull request #1297 from gsd-build/fix/discuss-phase-workflow-bypass-1292
+- 617a6bd Merge pull request #1282 from jippylong12/main
+- 832b6e1 feat: add /gsd:milestone-summary for post-build onboarding (#1298)
+- 679243b fix: address review findings on milestone-summary PR
+- 6c79ffe fix: correct skill count assertions after rebase onto main (54→55)
+- e4ca76d fix: address all review findings on PR #1299
+- 16b917c Merge pull request #1299 from gsd-build/feat/milestone-summary-1298
+- a316663 fix: correct 'config get' to 'config-get' in workflow files
+- 319f4bd feat: add /gsd:forensics for post-mortem workflow investigation (#1303)
+- 722e1db fix: remove jq as undocumented hard dependency (#1300)
+- 781e900 Merge pull request #1306 from gsd-build/fix/jq-dependency-1300
+- c152d12 Merge pull request #1302 from gsd-build/fix/config-get-misspell-1301
+- 2b31a8d feat: add workflow.skip_discuss setting to bypass discuss-phase in autonomous mode
+- ee219e7 fix: address review findings on forensics PR #1305
+- 6e2df01 Merge pull request #1307 from gsd-build/feat/workflow-skip-discuss-1304
+- 2205a85 Merge pull request #1305 from gsd-build/feat/forensics-1303
+- d478e7f docs: clarify model profile setup for non-Claude runtimes
+- 0a1820e Merge pull request #1311 from gsd-build/docs/non-claude-model-profiles-1310
+- dbc5b2a fix: expand brownfield project detection to cover Android, Kotlin, Gradle, and 15+ additional ecosystems
+- dab0c47 Merge pull request #1326 from gsd-build/fix/1325-android-project-detection
+- 1f15759 docs: add Japanese documents
+- cd0edb7 Modify codex command in review.md
+- 911f77b Merge pull request #1331 from monokoo/monokoo-patch-1
+- 927522a Merge pull request #1329 from eltociear/add-ja-doc
+- 8579a30 feat: add Windsurf runtime support
+- 5fc0e5e Merge pull request #1339 from gsd-build/feat/windsurf-support
+- d908bfd Modify codex command in review.md
+- f43e023 docs: add Japanese documents
+- aaaa8e9 Harden verify-work checkpoint rendering
+- a6939f1 fix: add permissionMode: acceptEdits to worktree agents (#1334)
+- 03a711b fix: update map-codebase test for refactored workflow
+- 5733700 Merge pull request #1338 from gsd-build/fix/worktree-edit-permissions
+- 7709059 feat: add Portuguese documentation and update language links
+- 2eb3d2f Merge pull request #1340 from OtherPaulo/feat/support-documentations-for-brazilians
+- 58c2b1f fix: Windows shell robustness, project_root detection, and hook stdin safety (#1343)
+- 763c6cc Merge pull request #1345 from gsd-build/fix/windows-shell-robustness-stdin-projectroot
+- e48979f docs: add Korean (ko-KR) README translation
+- 25029db docs: add Korean README link to main README
+- 9f8d11d fix: preserve top-level config keys and use absolute agent paths for Codex ≥0.116
+- c229259 fix: validate hook field requirements to prevent silent settings.json rejection
+- 1db5b42 docs: change README(ko-KR) translate
+- 7f1479d Merge pull request #1347 from gsd-build/fix/hook-field-validation
+- e03a9ed fix: replace invalid \Z regex anchor and remove redundant pattern
+- 9134919 Merge pull request #1348 from gsd-build/fix/verify-work-checkpoint-rendering
+- 1a9fc98 Merge pull request #1349 from ITlearning/main
+- 60fda20 Merge pull request #1346 from ChaptersOfFloatingLife/fix/codex-config-toplevel-keys
+- 9e3fe85 docs: add complete Korean (ko-KR) documentation — 12 translated files
+- a300d1b docs(ko-KR): replace stiff -십시오 with natural -세요 throughout
+- cb549fe Merge pull request #1350 from ITlearning/feat/korean-docs-translation
+- 1d97626 fix: parseMustHavesBlock now handles any YAML indentation width
+- 0ce31ae fix: add <available_agent_types> to all workflows spawning named agents
+- feec5a3 ci(security): add prompt injection, base64, and secret scanning
+- b5738ad Merge pull request #1359 from gsd-build/fix/1356-frontmatter-must-haves-indent
+- 3b778f1 Merge pull request #1360 from gsd-build/fix/clear-agent-recognition-1357
+- 98f05d4 fix: security scan self-detection and Windows test compatibility
+- 0213c9b fix: skip bash script behavioral tests on Windows
+- fca7b9d Merge pull request #1361 from gsd-build/ci/security-scanning
+- 616c1fa refactor: replace try/finally with beforeEach/afterEach + add CONTRIBUTING.md
+- f76a2ab Merge pull request #1363 from gsd-build/refactor/test-beforeeach-hooks
+- c16b874 fix: findProjectRoot returns startDir when it already has .planning/
+- 4ef309e Merge pull request #1364 from gsd-build/fix/workspace-project-root-1362
+- db3eeb8 feat: agent skill injection via config (#1355)
+- 0a26f81 ci: add .secretscanignore for plan-phase.md false positive
+- 0b0719b Merge pull request #1366 from gsd-build/feat/agent-skill-injection
+- 41ee44a docs: update repository references from glittercowboy to gsd-build
+- 43d1787 fix: preserve Status/LastActivity/Progress in Current Position during begin-phase
+- 2aab0d8 Merge pull request #1369 from noahrasheta/docs/fix-org-references
+- 7e41822 Merge pull request #1370 from gsd-build/fix/begin-phase-preserves-fields-1365
+- bc352a6 fix: detect missing GSD agents and warn when subagent_type falls back to general-purpose
+- ef29066 Merge pull request #1372 from gsd-build/fix/agent-install-validation-1371
+- fbfeffe docs: Adds uninstall local command for Gemini in all README.md languages.
+- d475419 Merge pull request #1382 from lucaspicinini/main
+- f4d8858 fix: repair trapped non-boolean keys under [features] on Codex re-install
+- 29d83fc Merge pull request #1384 from gsd-build/fix/codex-config-repair-trapped-keys-1379
+- 7a35c73 fix: add ui-phase and ui-review steps to autonomous workflow
+- 566d3cb Merge pull request #1385 from gsd-build/fix/autonomous-ui-phase-1375
+- 8860ac6 docs: update README for v1.29.0 — Windsurf runtime, agent skill injection
+- 5286f1d docs: update changelog for v1.29.0
+- 604a78b 1.29.0
+
+### Workflow Signals
+
+- `.github/workflows/security-scan.yml`
+- `agents/gsd-debugger.md`
+- `agents/gsd-executor.md`
+- `agents/gsd-verifier.md`
+- `commands/gsd/debug.md`
+- `commands/gsd/research-phase.md`
+- `get-shit-done/templates/config.json`
+- `get-shit-done/workflows/add-tests.md`
+- `get-shit-done/workflows/add-todo.md`
+- `get-shit-done/workflows/audit-milestone.md`
+- `get-shit-done/workflows/autonomous.md`
+- `get-shit-done/workflows/cleanup.md`
+- `get-shit-done/workflows/complete-milestone.md`
+- `get-shit-done/workflows/diagnose-issues.md`
+- `get-shit-done/workflows/discuss-phase-assumptions.md`
+- `get-shit-done/workflows/discuss-phase.md`
+- `get-shit-done/workflows/execute-phase.md`
+- `get-shit-done/workflows/execute-plan.md`
+- `get-shit-done/workflows/health.md`
+- `get-shit-done/workflows/manager.md`
+
+### All Changed Files
+
+- `.base64scanignore`
+- `.github/ISSUE_TEMPLATE/bug_report.yml`
+- `.github/ISSUE_TEMPLATE/feature_request.yml`
+- `.github/workflows/security-scan.yml`
+- `.secretscanignore`
+- `CHANGELOG.md`
+- `CONTRIBUTING.md`
+- `README.ja-JP.md`
+- `README.ko-KR.md`
+- `README.md`
+- `README.pt-BR.md`
+- `README.zh-CN.md`
+- `agents/gsd-debugger.md`
+- `agents/gsd-executor.md`
+- `agents/gsd-verifier.md`
+- `bin/install.js`
+- `commands/gsd/debug.md`
+- `commands/gsd/research-phase.md`
+- `docs/CONFIGURATION.md`
+- `docs/README.md`
+- `docs/ja-JP/AGENTS.md`
+- `docs/ja-JP/ARCHITECTURE.md`
+- `docs/ja-JP/CLI-TOOLS.md`
+- `docs/ja-JP/COMMANDS.md`
+- `docs/ja-JP/CONFIGURATION.md`
+- `docs/ja-JP/FEATURES.md`
+- `docs/ja-JP/README.md`
+- `docs/ja-JP/USER-GUIDE.md`
+- `docs/ja-JP/context-monitor.md`
+- `docs/ja-JP/superpowers/plans/2026-03-18-materialize-new-project-config.md`
+- `docs/ja-JP/superpowers/specs/2026-03-20-multi-project-workspaces-design.md`
+- `docs/ja-JP/workflow-discuss-mode.md`
+- `docs/ko-KR/AGENTS.md`
+- `docs/ko-KR/ARCHITECTURE.md`
+- `docs/ko-KR/CLI-TOOLS.md`
+- `docs/ko-KR/COMMANDS.md`
+- `docs/ko-KR/CONFIGURATION.md`
+- `docs/ko-KR/FEATURES.md`
+- `docs/ko-KR/README.md`
+- `docs/ko-KR/USER-GUIDE.md`
+- ... and 91 more files
+
+## `vendor/gstack`
+
+- Range: `407b15692073..aa7daf052ece`
+- Commit count: `26`
+
+### Commits
+
+- b7a3bf1 fix: Codex compatibility — 1024-char cap, duplicate skills, repo-local installs, kiro support (v0.11.2.0) (#346)
+- 4cd4d11 feat: design outside voices — cross-model design critique (v0.11.3.0) (#347)
+- 5aee6db feat: Codex second opinion in /office-hours (v0.11.4.0) (#353)
+- fdd4518 fix: gstack-slug bash compatibility — source to eval (#354)
+- 9eb74de feat: inline /office-hours — no more "another window" (v0.11.3.1) (#352)
+- 7fbf68b feat: cross-model outside voice in plan reviews (v0.9.9.1) (#326)
+- 3d1e8e0 feat: /cso v2 — infrastructure-first security audit (v0.11.6.0) (#384)
+- faff8a2 fix: let /review satisfy ship readiness gate (#387)
+- 0bff8d6 fix: add codex skill metadata for gstack skills (#339)
+- 8a4afd8 fix: zsh glob compatibility in skill preamble (v0.11.7.0) (#386)
+- ffd9ab2 fix: enforce Codex 1024-char description limit + auto-heal stale installs (v0.11.9.0) (#391)
+- f4bbfaa feat: CI evals on Ubicloud — 12 parallel runners + Docker image (v0.11.10.0) (#360)
+- 6f1bdb6 feat: Wave 3 — community bug fixes & platform support (v0.11.6.0) (#359)
+- 2c5ae38 feat: triple-voice multi-model review in /autoplan (v0.11.12.0) (#424)
+- dc5e053 feat: worktree isolation for E2E tests + infrastructure elegance (v0.11.12.0) (#425)
+- 3501f5d fix: Windows browse — health-check-first ensureServer, detached startServer, Windows process mgmt (v0.11.11.0) (#431)
+- 6156122 test: E2E tests for plan review report and Codex offering (v0.11.15.0) (#449)
+- 64d5a3e fix: Supabase telemetry security lockdown (v0.11.16.0) (#460)
+- 3703320 fix: verify-rls.sh matches deployed policy (inserts allowed, HTTP parsing) (#461)
+- 2b85b1d fix: random UUID installation_id + verify-rls.sh edge cases (v0.11.16.1) (#462)
+- 315c172 feat: 2-tier E2E test system — granular touchfiles + gate/periodic split (v0.11.16.0) (#450)
+- 8500136 feat: remove trigger guard + proactive opt-out prompt (#457)
+- 7e0b879 feat: test coverage gate + plan completion audit + auto-verification (v0.11.13.0) (#428)
+- 70c51d5 feat: universal 'one decision per question' AskUserQuestion rule (v0.11.12.1) (#427)
+- 9870a4e fix: Windows browse — stdio array format for Bun compatibility (v0.11.18.2) (#468)
+- aa7daf0 fix: Codex description limit + wrong-repo bug (v0.11.19.0) (#471)
+
+### Workflow Signals
+
+- `.agents/skills/gstack-autoplan/SKILL.md`
+- `.agents/skills/gstack-autoplan/agents/openai.yaml`
+- `.agents/skills/gstack-benchmark/SKILL.md`
+- `.agents/skills/gstack-benchmark/agents/openai.yaml`
+- `.agents/skills/gstack-browse/SKILL.md`
+- `.agents/skills/gstack-browse/agents/openai.yaml`
+- `.agents/skills/gstack-canary/SKILL.md`
+- `.agents/skills/gstack-canary/agents/openai.yaml`
+- `.agents/skills/gstack-careful/SKILL.md`
+- `.agents/skills/gstack-careful/agents/openai.yaml`
+- `.agents/skills/gstack-cso/agents/openai.yaml`
+- `.agents/skills/gstack-design-consultation/SKILL.md`
+- `.agents/skills/gstack-design-consultation/agents/openai.yaml`
+- `.agents/skills/gstack-design-review/SKILL.md`
+- `.agents/skills/gstack-design-review/agents/openai.yaml`
+- `.agents/skills/gstack-document-release/SKILL.md`
+- `.agents/skills/gstack-document-release/agents/openai.yaml`
+- `.agents/skills/gstack-freeze/SKILL.md`
+- `.agents/skills/gstack-freeze/agents/openai.yaml`
+- `.agents/skills/gstack-guard/SKILL.md`
+
+### All Changed Files
+
+- `.agents/skills/gstack-autoplan/SKILL.md`
+- `.agents/skills/gstack-autoplan/agents/openai.yaml`
+- `.agents/skills/gstack-benchmark/SKILL.md`
+- `.agents/skills/gstack-benchmark/agents/openai.yaml`
+- `.agents/skills/gstack-browse/SKILL.md`
+- `.agents/skills/gstack-browse/agents/openai.yaml`
+- `.agents/skills/gstack-canary/SKILL.md`
+- `.agents/skills/gstack-canary/agents/openai.yaml`
+- `.agents/skills/gstack-careful/SKILL.md`
+- `.agents/skills/gstack-careful/agents/openai.yaml`
+- `.agents/skills/gstack-cso/agents/openai.yaml`
+- `.agents/skills/gstack-design-consultation/SKILL.md`
+- `.agents/skills/gstack-design-consultation/agents/openai.yaml`
+- `.agents/skills/gstack-design-review/SKILL.md`
+- `.agents/skills/gstack-design-review/agents/openai.yaml`
+- `.agents/skills/gstack-document-release/SKILL.md`
+- `.agents/skills/gstack-document-release/agents/openai.yaml`
+- `.agents/skills/gstack-freeze/SKILL.md`
+- `.agents/skills/gstack-freeze/agents/openai.yaml`
+- `.agents/skills/gstack-guard/SKILL.md`
+- `.agents/skills/gstack-guard/agents/openai.yaml`
+- `.agents/skills/gstack-investigate/SKILL.md`
+- `.agents/skills/gstack-investigate/agents/openai.yaml`
+- `.agents/skills/gstack-land-and-deploy/SKILL.md`
+- `.agents/skills/gstack-land-and-deploy/agents/openai.yaml`
+- `.agents/skills/gstack-office-hours/SKILL.md`
+- `.agents/skills/gstack-office-hours/agents/openai.yaml`
+- `.agents/skills/gstack-plan-ceo-review/SKILL.md`
+- `.agents/skills/gstack-plan-ceo-review/agents/openai.yaml`
+- `.agents/skills/gstack-plan-design-review/SKILL.md`
+- `.agents/skills/gstack-plan-design-review/agents/openai.yaml`
+- `.agents/skills/gstack-plan-eng-review/SKILL.md`
+- `.agents/skills/gstack-plan-eng-review/agents/openai.yaml`
+- `.agents/skills/gstack-qa-only/SKILL.md`
+- `.agents/skills/gstack-qa-only/agents/openai.yaml`
+- `.agents/skills/gstack-qa/SKILL.md`
+- `.agents/skills/gstack-qa/agents/openai.yaml`
+- `.agents/skills/gstack-retro/SKILL.md`
+- `.agents/skills/gstack-retro/agents/openai.yaml`
+- `.agents/skills/gstack-review/SKILL.md`
+- ... and 158 more files
+
+## `vendor/lean-spec`
+
+- Range: `75826865e788..e76ee3d9cf19`
+- Commit count: `33`
+
+### Commits
+
+- ffcde9b Fix GitHub project import: field naming mismatch and missing UI entry points
+- dbee6e7 chore: release v0.2.28
+- 6dcfc40 Fix mobile blank page on custom domain and add GitHub tab to create dialog
+- 17a0ca6 Add configurable project sources (local/github) via capabilities endpoint
+- aeb50bd Add CLAUDE.md with CI tracking and environment detection instructions
+- f673473 Move CI tracking into /watch-ci skill, slim down CLAUDE.md
+- 6ef9e10 Fix watch-ci skill to match by commit SHA, not just branch
+- 7d28089 Remove MCP integration and deprecate leanspec-mcp package
+- 2182156 feat(tui): sidebar navigation, sort/filter, tree view, scroll fixes (#371)
+- f158180 fix: clippy lints in TUI (map_or→is_some_and, redundant else branch)
+- 5888867 Speed up CI: remove --test-threads=1 and ignore session tests
+- 5217ec4 Ignore MCP config test (feature being deprecated)
+- 4d24e33 feat(tui): modernize theme with Unicode symbols and RGB color palette
+- 9237c05 fix(tui): route mouse scroll by cursor position, not keyboard focus
+- c8c7c86 feat(tui): change default view to List, add TOC and board group rendering modes
+- da9e432 feat(tui/board): collapsible groups, sort indicator, scrollbar
+- 7435510 feat(tui/list): add vertical scrollbar to flat and tree views
+- 62006dc feat(tui/detail): add vertical scrollbar to content body, update border styles
+- b80ab13 feat(tui): add TOC overlay and collapsible board group state
+- 6446fc8 feat(tui/help): update keybinding reference with new keys
+- 92108ce feat(tui): add multi-project management (spec #372)
+- 37a5327 feat(tui): polish — scrollbars, board groups, TOC, theme, mouse scroll (#373)
+- 560ba4f merge(tui): resolve conflicts between spec 372 and 373
+- 57b144c Merge remote-tracking branch 'origin/main'
+- 8b53c00 chore: add new specs, skills, and skills-lock
+- 5087ed3 feat(tui): complete specs 372-377 — project mgmt polish, UX defaults, testing infra
+- a04b075 fix(github): move blocking client into spawn_blocking, add header token support
+- fca15a3 fix: speed up GitHub sync with Git Trees API and parallel blob fetching
+- f63a75b refactor: replace GitHub API sync with git clone for universal repo support
+- 3c9dfaf refactor: remove all GitHub-specific naming, make fully git-agnostic
+- 47431bf feat: plan skills repo reorganization (spec 378)
+- 17057aa fix: use valid leanspec statuses for spec 290 and 378
+- e76ee3d feat: plan full leanspec rename and skills distribution (spec 379)
+
+### Workflow Signals
+
+- `.agents/skills/github-integration/SKILL.md`
+- `.agents/skills/github-integration/references/cloud-auth.md`
+- `.agents/skills/github-integration/references/copilot-setup-steps.md`
+- `.agents/skills/github-integration/templates/copilot-setup-steps.yml`
+- `.agents/skills/parallel-worktrees/SKILL.md`
+- `.agents/skills/parallel-worktrees/references/agent-coordination.md`
+- `.agents/skills/parallel-worktrees/references/github-pr-sync.md`
+- `.agents/skills/parallel-worktrees/references/worktree-lifecycle.md`
+- `.claude/skills/github-integration`
+- `.claude/skills/parallel-worktrees`
+- `.claude/skills/watch-ci/SKILL.md`
+- `.github/workflows/ci.yml`
+- `packages/ui/src/hooks/useCapabilities.ts`
+- `rust/leanspec-cli/src/commands/git_repo.rs`
+- `rust/leanspec-cli/src/commands/github.rs`
+- `rust/leanspec-cli/src/commands/init.rs`
+- `rust/leanspec-cli/src/commands/mod.rs`
+- `rust/leanspec-cli/src/commands/tui/app.rs`
+- `rust/leanspec-cli/src/commands/tui/board.rs`
+- `rust/leanspec-cli/src/commands/tui/deps.rs`
+
+### All Changed Files
+
+- `.agents/skills/github-integration/SKILL.md`
+- `.agents/skills/github-integration/references/cloud-auth.md`
+- `.agents/skills/github-integration/references/copilot-setup-steps.md`
+- `.agents/skills/github-integration/templates/copilot-setup-steps.yml`
+- `.agents/skills/parallel-worktrees/SKILL.md`
+- `.agents/skills/parallel-worktrees/references/agent-coordination.md`
+- `.agents/skills/parallel-worktrees/references/github-pr-sync.md`
+- `.agents/skills/parallel-worktrees/references/worktree-lifecycle.md`
+- `.claude/skills/github-integration`
+- `.claude/skills/parallel-worktrees`
+- `.claude/skills/watch-ci/SKILL.md`
+- `.github/workflows/ci.yml`
+- `.gitignore`
+- `AGENTS.md`
+- `CHANGELOG.md`
+- `CLAUDE.md`
+- `deploy/README.md`
+- `package.json`
+- `packages/cli/package.json`
+- `packages/http-server/package.json`
+- `packages/mcp/package.json`
+- `packages/ui/index.html`
+- `packages/ui/package.json`
+- `packages/ui/src/components/chat/chat-sidebar.tsx`
+- `packages/ui/src/components/context/context-file-detail.tsx`
+- `packages/ui/src/components/layout.tsx`
+- `packages/ui/src/components/library/layout/loading-skeletons.tsx`
+- `packages/ui/src/components/main-sidebar.tsx`
+- `packages/ui/src/components/project-switcher.tsx`
+- `packages/ui/src/components/projects/create-project-dialog.tsx`
+- `packages/ui/src/components/projects/git-import-dialog.tsx`
+- `packages/ui/src/components/projects/git-import-form.tsx`
+- `packages/ui/src/components/projects/github-import-dialog.tsx`
+- `packages/ui/src/components/root-redirect.tsx`
+- `packages/ui/src/components/sessions-nav-sidebar.tsx`
+- `packages/ui/src/components/settings/models-settings-tab.tsx`
+- `packages/ui/src/components/settings/runner-settings-tab.tsx`
+- `packages/ui/src/components/spec-detail/spec-detail-content.tsx`
+- `packages/ui/src/components/specs-nav-sidebar.tsx`
+- `packages/ui/src/components/specs-nav/sidebar-filters.tsx`
+- ... and 82 more files
+
+## `vendor/oh-my-claudecode`
+
+- Range: `48ffaac2ea13..275272679a87`
+- Commit count: `2030`
+
+### Commits
+
+- cd98f12f feat: Complete port of oh-my-opencode to Claude Code
+- 1099070b feat: Add /prometheus and /orchestrator slash commands
+- ad765054 1.0.1
+- 23c739bc feat: Add ultrathink keyword and ralph-loop commands
+- 8132b3c1 1.1.0
+- 6e08be51 feat: Add SDK-compatible command expansion utilities
+- ee53b3fc 1.1.1
+- 75f8f1ee feat: Add background task management system
+- af2f5ade 1.2.0
+- bdff3eef feat: Add auto-update system for installed users
+- a88f2a5c 1.2.1
+- 6362c254 docs: Beautify README with website assets and branding
+- 4aa2f4c2 feat: Enhance persistence mechanisms with oh-my-opencode patterns
+- 31368841 feat: Sync all prompts and patterns with oh-my-opencode
+- f9a4afcb feat: Add hooks and skills system matching oh-my-opencode
+- 0b353049 fix: Improve settings.json hooks configuration fallback
+- af67390a feat: Add silent auto-update system for seamless background updates
+- 4ef3083b feat: Port comprehensive hooks and features from oh-my-opencode
+- cc8760b3 chore: bump version to 1.6.0
+- ba685725 chore: bump version to 1.7.0
+- 8ee4bcf1 feat: Add Windows support with Node.js hooks
+- 660ad016 Merge pull request #2 from Znuff/main
+- 210f932f feat: Add intelligent skill composition with task-type routing
+- d72676a4 fix: Use ESM import for tmpdir instead of require
+- 384cb9e9 docs: Add Intelligent Skill Activation section to README
+- 6367352a docs: Add architecture comparison (OpenCode vs Claude Code)
+- 9d77eb6b docs: Add Architecture link to README nav
+- 2a7fa4f9 Merge feature/auto-skill-routing: Intelligent Skill Composition
+- 96998089 chore: bump version to 1.8.0
+- 6948fd3d feat: Sync all builtin skills with oh-my-opencode v1.9.0
+- a2f5d476 fix: eliminate unsafe type assertions with proper type-safe helpers
+- 055f8a40 fix: correct typos found by typos-cli
+- f85a6cb7 feat: Add persistent mode system for ultrawork/ralph-loop auto-continuation
+- 69d03db5 feat: Add Oracle verification requirement for task completion
+- ab52b1ee feat: Add Oracle verification to installer skill definitions
+- b4c4543f Merge pull request #10 from Yeachan-Heo/feature/hooks-integration
+- 91268527 Merge pull request #9 from junhoyeo/fix/typos
+- b5abec53 Merge pull request #7 from junhoyeo/fix/type-safety-improvements
+- 0ffba198 fix: Make silent auto-updates opt-in and fix incomplete uninstall
+- 11b02533 Merge pull request #12 from Yeachan-Heo/fix/security-and-uninstall-issues
+- 4accc740 fix: Handle non-interactive stdin when piped via curl
+- 10347c48 fix: Integrate oracle verification into ralph-loop completion flow
+- 83efba8f fix: Add oracle verification to bash persistent-mode hook
+- 84a85aec Merge pull request #14 from junhoyeo/fix/curl-pipe-non-interactive
+- f892d5f1 fix: Handle non-interactive stdin in uninstall script
+- 0e10cf68 Merge pull request #17 from akunzai/fix/uninstall-script
+- d90ef4e9 fix: Sync hardcoded version with package.json (closes #18)
+- f3cb79bd chore: Remove runtime state file and add .sisyphus to gitignore
+- ac12c5c0 feat: Add Claude Code plugin format support (closes #15)
+- f7006594 refactor: Remove orchestrator-sisyphus from agents (v1.10.3)
+- 6626f777 fix: Improve cross-platform compatibility and add concurrent install protection
+- bf2f98d1 feat: Add marketplace.json and fix plugin.json for Claude Code plugin registry
+- e86a3af3 fix: remove invalid path fields from plugin.json manifest
+- a6de84c8 Merge pull request #21 from BowTiedSwan/fix/plugin-manifest-paths
+- 0442ff22 Update hooks.json
+- efc3192b Merge pull request #22 from CreatosInc/patch-1
+- f65a5c4c Update plugin.json - Resolves Manifest Error
+- e7de6817 Merge pull request #23 from CreatosInc/patch-2
+- 169413e1 feat: Add enhanced hook enforcement system (#24)
+- 7e9f371e chore: bump version to 1.11.0
+- a2742684 docs: update CHANGELOG and README for v1.11.0
+- 1fbd08b9 fix: update VERSION in install.sh to 1.11.0
+- 28752366 docs: fix agent count in README and AGENTS.md
+- 60b426cf feat: add intelligent model routing system
+- 4405b2f2 fix: remove aggressive escalation rule, add test suite
+- 2f804e9b refactor: switch to proactive model routing via orchestrator
+- 75bd3359 feat: make ALL agents adaptive except orchestrators
+- a8539fd6 chore: bump version to 2.0.0-beta.1, update documentation
+- 00251b5c feat: Add qa-tester agent for interactive CLI testing with tmux
+- f2404e39 chore: Add qa-tester to installer agent definitions
+- 23ce30f5 feat: Enhance qa-tester with prerequisites checks and workflow integration
+- b7305980 refactor: Add smart gating for qa-tester to save tokens
+- 43899d9e fix: Update SKILL_DEFINITIONS with qa-tester gating and fix string termination
+- 8f9d8e41 chore: bump version to 2.0.0-beta.2, add qa-tester to changelog
+- f53c816a feat: Add smart model routing with tiered agents
+- e3856e8f fix: Add tiered agents to install.sh for curl-based installation
+- 9c3ea4e2 fix: Add qa-tester and orchestrator-sisyphus to install.sh
+- fe46ed9a fix: Handle malformed settings.json gracefully in install.sh
+- 95032c74 docs: Add qa-tester and orchestrator-sisyphus to CLAUDE.md agents table
+- 98d709f1 docs: Update README for 12 agents and enforce delegation-first orchestration
+- 508b6e8a refactor: Merge sisyphus+orchestrator+ultrawork into default mode
+- 02abb764 fix: Sync installer COMMAND_DEFINITIONS with updated skills
+- 413697f7 refactor: Remove deprecated orchestrator command entirely
+- 4cd9711a fix: add missing name and description to agent frontmatter (#33)
+- f9624569 fix: Migrate to ESLint v9 flat config format
+- c58373e5 fix: Resolve all 50 lint warnings
+- 5f21ddbf docs: Update attribution from "Port of" to "Inspired by"
+- ab184893 chore: update marketplace.json version to 1.11.1
+- bc59663c fix: update plugin.json version to 1.11.1
+- cf2da115 docs: Update changelog and clean up deprecated orchestrator-sisyphus
+- fd80da7d fix: Windows support - use Node.js hooks for cross-platform compatibility (#31)
+- e479d1a8 chore: bump version to 1.11.2
+- 2bb5ba45 feat: Add Vitest test suite and improve Windows support (v2.0.1-beta)
+- ce4d8353 Merge main into v2.0.0-beta
+- 10a076fe chore: Update plugin and marketplace versions to 2.0.1-beta
+- 1dbc88ac Merge pull request #34 from Yeachan-Heo/v2.0.0-beta
+- 07fa97f4 chore: Release v2.0.1 stable
+- ffac63dd Merge pull request #35 from Yeachan-Heo/v2.0.0-beta
+- 36cfe44b feat: Add tiered agent variants to plugin system (#36)
+- a5178adc fix: Add tiered agent files and fix /sisyphus-default (#37)
+- 691b5c8d fix: Add description to hooks.json for plugin system
+- 96266316 feat: Add bash hook scripts and SessionStart hook for curl/plugin parity
+- ce257093 docs: Clarify /sisyphus-default usage and fix command to always install
+- 9ae4ef5c chore: Bump version to 2.0.6
+- 421e6431 docs: Clarify installation methods are mutually exclusive and /sisyphus-default is required
+- 9a365189 docs: Mark curl installation as deprecated, recommend plugin install
+- 6a00fffb fix: Add missing /update command to plugin installation
+- 2d42950d chore: Remove deprecated /update command - use Claude Code's native updates
+- afd67d3d Update README with plugin installation instructions
+- ca3cae53 feat: Add /deepinit skill for hierarchical AGENTS.md generation (#38)
+- 3a475e4c docs: Update README for v2.1.0 with deepinit skill
+- 7d430e24 fix: Add plugin prefix to agent names to prevent duplicate calls (#41)
+- d5158cc6 fix: Update /sisyphus-default to clean up legacy hooks
+- 4326fe23 chore: Update .claude-plugin version to 2.1.1
+- 5b64b3f4 feat: Add /doctor skill for installation diagnostics (#43)
+- 478d55b1 docs: Update README for v2.2.0 with /doctor skill and badges
+- 6758b9fb feat: Add GitHub AI automation workflows
+- dcb21260 fix: Improve hook escape mechanisms and agent definitions (#47)
+- cff9ab4a feat: Implement sophisticated tiered agent architecture v2
+- 21ffcc36 chore: Bump version to 2.3.0 for tiered agents v2 release (#49)
+- 62bb8af8 chore: Add /release skill and update version references
+- d1fb3661 feat: Implement intelligent planning flow with context brokering (#50)
+- 6ff113da chore: Bump version to 2.4.0 for intelligent planning flow release
+- b5b9620b fix: sisyphus-default now uses curl to download fresh CLAUDE.md (#51)
+- a93b1395 feat: Add project-scoped /sisyphus-default and /sisyphus-default-global (#54)
+- 7e132b1b feat: Add ultrawork-ralph, ultraqa, and qa-tester-high for v2.6.0
+- bec423db fix: Address design flaws and add PRD/progress support for v2.6.0
+- fc67f6be feat: Add notepad memory system for compaction resilience
+- c43571db fix: Add PostToolUse hook for remember tag auto-capture
+- e8b35b0d docs: Update CHANGELOG for v2.6.0 release
+- d65f5553 Merge pull request #58 from Yeachan-Heo/v2.6.0-dev
+- 47cccccd docs: Update README and plugin.json for v2.6.0 release
+- 6f2e966d feat: Add /help command for user guidance and bump to v2.6.1
+- 67c9be31 fix: Make notepad import in persistent-mode hook backward compatible
+- 2670abcd Update marketplace.json
+- 3a02feb1 v3.0.0 Release: Zero-Learning-Curve UX & oh-my-claudecode Rebrand
+- 2a0baba8 chore: preserve npm package name oh-my-claude-sisyphus
+- 9719b15f feat(readme): add npm downloads and GitHub stars badges
+- e960af71 docs: Update installation instructions to use correct commands
+- 117cdd56 feat: omc-setup now invokes hud skill for statusline setup
+- a5ba62d9 fix(hud): rename Sisyphus references to OMC
+- c963d1be fix(hud): rename all Sisyphus refs to OMC, update plugin-setup
+- a719faba fix(hud): correct plugin cache path in setup script
+- 406d800b fix(hud): use correct plugin cache path omc/oh-my-claudecode
+- cbc54e66 fix(readme): correct plugin install commands - marketplace add then install
+- 109932f8 fix(readme): use full GitHub URL in install command
+- b799b354 fix(hud): correct plugin cache paths throughout codebase
+- 7c52fe0d fix(hud): add build check to HUD skill setup instructions
+- 4f3681f1 docs(CLAUDE.md): restructure with delegation-first protocol
+- 0a24f313 feat: Add high-level commands and bump to v3.0.9
+- 5a6bded9 feat: Use fully-qualified command names and populate commands folder
+- 83cf89a0 chore: Bump version to 3.0.10
+- 4c15534f chore: Bump version to 3.0.11
+- d6e22a74 feat(agents): Add 4 new specialized agents
+- f08d4721 feat(agents): Add LOW tier variants for new agents
+- 0286bbcf feat(commands): Add slash commands for new agents
+- 8fc1c403 feat(rules): Add rules auto-discovery and templates
+- 2960d7ae feat(planner): Add Phase 3.5 confirmation pattern
+- 21f6063c feat(ralph): Auto-activate ultrawork on ralph invocation
+- 67b45e50 docs: Update documentation with new agents
+- b3f807e3 feat(examples): Add hooks.json with common patterns
+- 43d1e5a3 chore: Bump version to 3.1.0
+- 3cd08d6e fix(hooks): unify UltraworkState interface across modules
+- 8a1626f7 fix(config): remove duplicate rules discovery from loader.ts
+- aba76a75 refactor(hooks): move RALPH_MESSAGE to installer/hooks.ts
+- 9e9cb94f docs: fix agent counts and complete domain tables
+- e86d64f2 feat(v3.1.0): HUD improvements, omc-setup enhancements, 8 new agents
+- dbfd2a26 Merge pull request #64 from Yeachan-Heo/feature/ecc-integration
+- 8ca2e953 chore: bump plugin manifest to v3.1.0
+- e7c9c6f3 Merge pull request #65 from Yeachan-Heo/feature/ecc-integration
+- 57572e8f feat(v3.2.0): Autopilot - Full autonomous execution (#66)
+- 4fa45e12 feat(v3.2.1): Autopilot enforcement like Ralph state management
+- 2e2e931f fix(hud): Show setup message in fallback script
+- 348c3177 fix(hud): Update fallback message in all locations
+- 1ec84148 chore: Bump version to 3.2.3
+- 5828da7b feat(v3.2.4): Enforce delegation via path-based rules
+- 36c7a88d feat(v3.2.5): Add PreToolUse hooks for soft delegation enforcement
+- 5b3729d2 chore: Bump version to 3.2.5
+- f776d284 feat(v3.3.0): Add persistent Python REPL tool for data analysis
+- ef49febf feat(v3.3.0): Add /research skill for parallel scientist orchestration
+- f7555986 docs: Expand /research command documentation
+- f9a168ae chore: Bump plugin version to 3.3.0
+- 33ef1459 chore: Update package-lock.json for 3.3.0
+- 4d37056c Merge pull request #67 from Yeachan-Heo/feat/python-repl-tool
+- 44a0fb2b fix: Move research skill from skills/ to commands/
+- 1382fd8e chore: Bump plugin version to 3.3.1
+- c05bf4e7 chore: Bump marketplace version to 3.3.1
+- 812cfc46 fix: Move research to skills/research/SKILL.md for proper plugin scoping
+- ef93c604 chore: Bump version to 3.3.2
+- 0326c059 feat: Add /research command and scientist agent documentation
+- 871ede3c fix(scientist): enforce python_repl for all Python code execution (#68)
+- 4059b7f0 chore: Bump version to 3.3.4 and update skill count tests
+- 0e219bd7 fix(planner): enforce AskUserQuestion tool in plan mode (#70)
+- 40069fd0 Update plugin version to 3.3.5
+- 6067cf41 Update plugin.json
+- 07dbb711 feat: integrate Superpowers framework methodologies (#71)
+- 27201fc2 docs: standardize skill references to full plugin format
+- 81dde6e7 fix(docs): clarify command learning contradiction in README
+- e1a121af fix(ralplan): ensure critic executes before plan approval
+- d8d72fc8 feat(mcp): add MCP server configuration skill
+- bca814d4 Merge pull request #75 from Yeachan-Heo/fix/issue-72-readme-contradictions
+- fcae1506 Merge pull request #76 from Yeachan-Heo/fix/issue-73-ralplan-critic
+- ca655cb3 Merge pull request #77 from Yeachan-Heo/fix/issue-74-mcp-servers
+- 19ac59f9 chore: bump version to 3.3.7
+- 6588b388 docs: add star history chart to README
+- 7b9db6ac docs: expand inspired by section with more projects
+- 12336b20 chore: remove .sisyphus directory and add to gitignore
+- 50c26128 feat: Windows 100% cross-platform compatibility
+- 9ceef098 Merge pull request #78 from Yeachan-Heo/release/v3.3.8
+- 0f613d43 fix: handle claudeAiOauth wrapper in macOS Keychain credentials (#80)
+- f1fa4e9e feat(omc-setup): add GitHub star prompt after setup completion
+- a8261db1 feat(hud): add optional visual progress bars for context and rate limits
+- 5c6c024b Merge pull request #84 from Yeachan-Heo/feature/issue-82-github-star-prompt
+- c1428f83 Merge pull request #85 from Yeachan-Heo/feature/issue-81-visual-progress-bars
+- 06ae5010 chore: bump version to 3.3.10
+- 7afe03dc feat: v3.4.0 facelift - consolidation, new features, and improvements
+- 8ac463d8 feat(ecomode): add token-efficient execution mode for pro-plan users
+- 8ccb619a chore: bump version references to 3.4.0
+- 43d5d23d fix: update cancel skill to support swarm, ultrapilot, and pipeline modes
+- e452c927 docs: update CHANGELOG for v3.4.0 release
+- b807702f Merge pull request #86 from Yeachan-Heo/feature/v4-facelift
+- 96dd1b99 chore: release v3.4.1 with sync system and documentation fixes
+- d4b1819a chore: bump plugin.json version to 3.4.1
+- 5f3736b6 chore: release v3.4.2 with plugin.json fix
+- 476e1181 fix: remove nul file that breaks Windows installation
+- b9dd5dc6 chore: sync plugin.json version to 3.4.3
+- 37a7b27f feat(learner): add local skills auto-matching and dynamic invocation system
+- 6d36aa90 feat(analytics): add transcript backfill with proper agent attribution
+- 576e2da4 chore: release v3.5.0 with analytics backfill system
+- 92b20e9d chore: release v3.5.1 with complete changelog
+- 35fccd3c feat(hud): add live session token/cost display
+- 991c8f75 chore: bump version to 3.5.2
+- a56d2348 chore: sync plugin.json version to 3.5.2
+- c99a9494 fix(hud): resolve 404 error on HUD installation (#93)
+- e17dc15b feat(skills): consolidate skills and release v3.5.5
+- e167085d fix(mcp-setup): use CLI commands instead of direct settings.json writes (#100) (#101)
+- 64cdb7da docs: rewrite documentation following best practices
+- e808453f feat(analytics): integrate tokscale for fast token tracking with agent attribution (#102)
+- 6f0d2e6b fix(hud): use correct flat API structure for Sonnet quota (#95) (#104)
+- 8313ecbe README.md 업데이트
+- ab630829 fix: correct npm package name references (oh-my-claudecode -> oh-my-claude-sisyphus)
+- b6051fdf feat: skill system interoperability with unified bridge module (#107)
+- c1509982 chore: bump version to 3.5.8
+- a81f929f refactor(state): standardize all mode state files to .omc/state/
+- 518b99c4 feat(swarm): SQLite-based multi-agent coordination with production-ready enhancements
+- 4232664e chore: bump version to 3.6.0
+- 15aeee60 fix(ci): use correct anthropic_api_key parameter in Claude Code Action
+- 33ad052c fix(ci): add ANTHROPIC_BASE_URL env variable to Claude Code Action
+- 0d0139c3 fix(analytics): support Windows-encoded paths in transcript scanner (#117)
+- a964e377 feat(analytics): add hook tests and implement session analytics fields (#116)
+- da7d2f8b docs: fix npm package name references (#118)
+- 870680c6 docs: fix npm package name references (#118)
+- d6a8ebed fix(setup): backup CLAUDE.md before overwrite (#119)
+- 9ba006a4 Merge pull request #121 from Yeachan-Heo/fix/claude-md-backup-119
+- d0202ea6 Merge pull request #120 from Yeachan-Heo/docs/fix-npm-package-name-118
+- 38747e5e ci: remove Claude CI workflow
+- e1e5dc10 Merge pull request #122 from Yeachan-Heo/remove-claude-ci
+- c7a7c92e feat(psm): add Project Session Manager skill
+- 297ca610 fix(psm): use process substitution to fix subshell counter bug
+- 25454bb7 Merge pull request #124 from Yeachan-Heo/feat/project-session-manager
+- c31ae45f chore: release v3.6.2
+- 2c2b0efc fix(docs): correct npm package references from oh-my-claudecode to oh-my-claude-sisyphus
+- 501ae70d Merge pull request #125 from Yeachan-Heo/fix/npm-package-references
+- ca064918 chore: release v3.6.3
+- dd9b70e4 Install templates through npm; add 'omc' to the path, not just omc-cli
+- 15eb648f Add OMC 1-hour seminar materials
+- 961e9080 Add live audience build demo (Demo 0)
+- 50ea9897 feat(hud): add showCache and showCost config toggles for analytics display
+- 71bc8290 feat(hooks): wire delegation enforcement into production with configurable levels
+- 39d22866 feat(hooks): add async hook lifecycle modules for Claude Code integration
+- 12cd8c21 fix(hooks): add config caching, fix coalescing bug, improve audit logging
+- 347886d2 fix(hooks): harden permission-handler security and subagent-tracker reliability
+- 3c227d88 feat: Add rate limit auto-resume functionality
+- 5dc02c6c improve: Enhance usability aligned with oh-my-claudecode values
+- e0413853 fix(security): Address P0/P3 review feedback
+- 8f1a3c85 docs: Add Rate Limit Wait utility documentation
+- 5546d65b Merge pull request #134 from Yeachan-Heo/feat/delegation-enforcement-levels
+- eeca3ba6 Merge pull request #135 from Yeachan-Heo/feature/async-hooks-integration
+- 176f85d7 chore: release v3.7.0
+- 9de797c2 fix: add .js extensions to permission-handler test imports
+- e686ece5 feat: Add GitHub Sponsors support
+- 4329b78c docs: Add sponsor tier structure
+- 3597ff50 fix(omc-setup): add graceful interrupt handling with state persistence (#130)
+- c633134f feat(omc-setup): add GitHub star prompt to command (#136)
+- cee8f11d fix(omc-setup): improve state handling with jq and stale expiration (#137)
+- 75ae76e2 fix(hud): Windows compatibility fixes for HUD setup (#138)
+- cc10416d Merge pull request #139 from Yeachan-Heo/fix/issue-138-windows-hud
+- afcd98a7 fix(installer): add pathToFileURL for Windows dynamic import compatibility
+- a52fb28c Merge pull request #141 from shaun0927/fix/installer-pathToFileURL
+- bcb1d038 Merge pull request #133 from letrandat/feature/show-cache-toggle
+- 671eaf8a fix(omc-setup): use cross-platform date conversion for state age check (#147) (#151)
+- b07e0cae fix(session-end): simplify HookOutput to avoid JSON validation errors (#161)
+- bef486f1 fix(subagent-tracker): replace CPU busy-wait loops with syncSleep and fix race condition (#149) (#159)
+- 1e895ec4 fix(daemon): filter environment variables to prevent credential leakage (#145) (#155)
+- 8cb1dae3 fix(permission-handler): remove dead code and add swarm marker support (#144) (#157)
+- b5b4d112 chore(release): v3.7.1 - security and stability bugfixes
+- 413a15dd fix(security): extend DANGEROUS_SHELL_CHARS regex and add path validation (#146)
+- 196ebf9f fix(security): extend DANGEROUS_SHELL_CHARS regex and add path validation (#146)
+- 0fb7377a chore(release): v3.7.2 - security hardening
+- 9c0782b3 chore: bump plugin.json version to 3.7.2
+- 42e31a89 fix(hud): address code review feedback for cache toggle feature
+- cd118cd0 feat: add MCP/Plugin compatibility layer (#168)
+- a46bfaf0 Revert "feat: add MCP/Plugin compatibility layer (#168)" (#171)
+- 47cf9ced fix(rate-limit-wait): add ESM compatibility for __filename in daemon (#169) (#172)
+- b80dca72 Merge pull request #164 from letrandat/feature/show-cache-toggle
+- 54ea7cb8 feat: add MCP/Plugin compatibility layer (#168)
+- e95b1351 fix: address 6 critical security vulnerabilities (#170)
+- 8bdce506 chore(release): v3.7.3 - MCP/Plugin compatibility layer (#173)
+- 76b6f584 chore: update .claude-plugin versions to 3.7.3
+- cd71b8af feat: make agent prompts language-agnostic (#176)
+- 5914fde9 chore(release): v3.7.4 - Language-agnostic agent prompts
+- ffe68f81 fix: ajv import compatibility for ES modules
+- 489577ce fix(hooks): use systemMessage instead of hookSpecificOutput for PreCompact (#177)
+- cf85bbd0 docs(hud): add showCache and showCost to config example (#166)
+- a9f5d459 fix(hud): remove duplicate tokens display and wire up top agents (#165)
+- 60c2ee71 chore(release): v3.7.5 - Hooks fix, language-agnostic prompts, ESM compatibility
+- 28755ffb feat(ralfresh): add ultimate persistence loop combining ralplan + swarm + architect verification
+- 265d2334 feat(diagnostics): Multi-language expansion with 11 LSP servers, 7 AST languages, 4 diagnostic strategies (#178)
+- e85b7f3e fix(ralfresh): address all 12 PR #181 code review issues
+- 9b11f941 feat(agents): wire LSP/AST tools into session and agent definitions (#182)
+- 07431ab9 chore(release): v3.7.7 - LSP/AST agent wiring
+- 6a3b80fc fix(ralfresh): address all 12 PR #181 code review issues
+- 0d2de6d4 feat(mcp): create in-process SDK MCP server for custom tools
+- 066a3575 chore(release): v3.7.8 - SDK MCP server for custom tools
+- 74e5c975 chore(release): v3.7.9 - Plugin-scoped MCP server discovery
+- 20240bfa fix(mcp): bundle MCP server for plugin distribution (hotfix)
+- 2389f0f0 chore(release): v3.7.11 - MCP tools inheritance + AST/python_repl
+- db9c4578 fix(mcp): resolve global npm modules for AST tools in plugin context
+- 9579c405 fix(mcp): inject global npm path into module.globalPaths at startup
+- 83e383aa fix(mcp): use Module._initPaths() for global npm resolution
+- 8c492958 fix(mcp): use createRequire for @ast-grep/napi resolution
+- 71745e13 feat(readme): replace thumbnail with OMC pixel art character (#184)
+- c5220b9e feat(readme): add Claude-On-Steroids heading above character (#185)
+- d7fe3611 README.md 업데이트
+- eb9928ad Merge pull request #181 from Yeachan-Heo/feature/ralfresh-cli
+- b98bb7c5 Revert "Merge pull request #181 from Yeachan-Heo/feature/ralfresh-cli"
+- 3b761255 ci: add comprehensive CI/CD workflows
+- 121c1079 feat(lsp): add 6 new languages with tests and bug fixes (validates PR #189) (#191)
+- cd0bb241 feat(hooks): add support for Claude Code's new Task system (#198)
+- bf2d6e1b chore: bump version to 3.7.16
+- e24888d9 chore: update marketplace.json version to 3.7.16
+- 3107ca78 fix(tests): update tests for new agent frontmatter format
+- 3c2e6925 fix(build): remove stale CommonJS artifacts from src/
+- e1c3c1a4 Update README with new header and image (#199)
+- fd6e2e7f docs: add MCP tools documentation to orchestrator and agent prompts
+- a478a877 feat(hooks): implement adaptive /clear suggestions system
+- 8e690401 Merge pull request #200 from Yeachan-Heo/feature/mcp-tools-docs
+- c25bb963 Merge pull request #201 from Yeachan-Heo/feature/clear-suggestions
+- 857f1dd5 chore(release): v3.8.0
+- 5d547c3a feat(hooks): replace magic keyword messages with skill invocations (#203) (#204)
+- 2442ef92 chore: bump version to 3.8.1
+- c709a4d8 chore: update plugin.json and marketplace.json to 3.8.1
+- f49f819e fix(hooks): use hookSpecificOutput.additionalContext instead of invalid message field
+- e8035644 chore(release): v3.8.2
+- 13a43d8e chore(release): v3.8.3
+- 7e505dab chore(release): v3.8.4
+- 49a73ee6 chore(release): v3.8.5
+- fef7d185 fix(hooks): gracefully handle missing .sh templates
+- ef2723e7 fix(hooks): use Node.js hooks by default, fix issue #205
+- cd7ab56c fix(hooks): simplify stop hook, add all mode support
+- d996524e chore(release): v3.8.7
+- 07f83274 marketplace.json 업데이트
+- a15fc469 fix(hooks): prevent context-limit deadlock, fix cancel false positives (#213)
+- 5c3f8b2b marketplace.json 업데이트
+- c7b29dee fix(hooks): always continue in ultrawork/ecomode, fix all stop hook gaps (#213)
+- d7637a0d chore(release): update marketplace.json to v3.8.9
+- b43d6a8f refactor(agents): migrate prompts to markdown, deprecate coordinator, clean up dead refs (#216)
+- 3805956a chore(release): bump version to v3.8.10
+- 34e8ee0c chore(release): update marketplace.json to v3.8.10
+- 091954a8 feat(hooks): support multi-keyword skill invocation
+- 53612e2c chore(release): bump version to v3.8.11
+- 8dbd0e9b fix(hooks): convert stop enforcement to soft nudge (continue:true+message)
+- 58a9be2b chore: remove dead .sh hook scripts, clean installer infrastructure
+- 5a27857f chore(release): bump version to v3.8.12
+- 6dc2200b chore(release): update marketplace.json to v3.8.12
+- 8b143a8f fix(hooks): prevent pkill self-termination, tighten abort detection, remove clear-suggestions (#210)
+- a631686d feat(setup): prefer bun over npm for global package installations (#219)
+- 95f5ad9d fix(hud): refresh expired OAuth tokens to restore rate limit display (#206)
+- 5f99aaf1 feat(mcp): add skill loading MCP tools with security hardening (#225)
+- 3f5972a8 chore(release): bump version to v3.8.14
+- 592e65c2 chore(release): update marketplace.json to v3.8.14
+- cff3ac41 fix(hooks): use decision:block instead of continue:true in Stop hook (#233)
+- 42112db4 Merge pull request #237 from Yeachan-Heo/fix/issue-233-stop-hook
+- 8334c61a chore(release): bump version to 3.8.15
+- 2257220f fix(hooks): add staleness check and session-end cleanup for mode states
+- df1f79a5 fix(learner): backward-compatible skill parser for legacy files (#227)
+- d83c24df fix(hud): implement staleTaskThresholdMinutes config option (#236)
+- 45845580 fix(hud): limit output lines to prevent input field shrinkage (#228)
+- 10141ea0 fix(hooks): add stdin timeout to prevent freeze on Linux (#240)
+- 7397cfe4 feat(hud): add configurable format options for CWD and thinking indicator (#229)
+- b5acd0de docs: comprehensive AGENTS.md and documentation review (#234)
+- 55ede2b0 fix(hooks): add completion promise checking to Ultrawork and Ecomode (#239)
+- dbe45d7a chore(release): bump version to 3.8.16
+- 3c41deff fix(hooks): use cancel skill for proper state cleanup on mode completion
+- 405696bf feat: deprecate <promise> completion pattern across ralph and verification
+- ba72eaf2 Merge branch 'fix/stop-hook-cancel-cleanup' into release/v3.8.16-pre
+- dbcccfd6 Merge branch 'fix/deprecate-promise-in-prd' into release/v3.8.16-pre
+- 04deacbb refactor(hooks): fully remove <promise> completion pattern
+- 3b674d5a fix(scripts): update test-mutual-exclusion imports after promise removal
+- ba03958e feat(v3.8.16): local-only state management + version bump
+- 5ca2cd2f Merge pull request #250 from Yeachan-Heo/release/v3.8.16-pre
+- 2d6b2368 fix: shorten MCP server name from 'omc-tools' to 't' to fix tool name length issue (#252)
+- 89d57ea2 chore(release): bump version to 3.8.17
+- 4d1adbdf fix(lint): resolve 3 ESLint errors for CI compatibility
+- 0fe15eb9 fix(ci): remove commitlint job (no config file in repo)
+- 96917f87 feat(hooks): add beads/beads-rust setup integration and context injection
+- 6ab92c23 feat(hooks): add environment kill-switches for OMC hooks
+- f93dbeff feat(installer): detect hook conflicts and merge CLAUDE.md with markers
+- 64d3fc7a feat(cli): add omc doctor conflicts diagnostic command
+- 5d19c033 refactor(hooks): harden beads-context with lookup map and validation
+- 81aa33df fix(coexistence): address PR #214 review findings
+- ad4f7cc2 feat(psm): add multi-provider support with Jira integration
+- 624bb2cc fix(psm): fix jq injection, empty-repo rejection, and inconsistent field count
+- 47e250d4 Merge PR #197: ci: add comprehensive CI/CD workflows
+- ddb59b5e Merge PR #214: feat: plugin coexistence and beads integration hardening
+- 57fcb051 Merge PR #207: feat(psm): add multi-provider support with Jira integration
+- 3cff1208 fix(installer): prevent double-marker wrapping and harden CLAUDE.md merge
+- 02152c6b refactor: behavioral enhancements - mode consolidation and agent role clarity
+- bdeb2d67 fix: resolve 12 issues from PR #254 review
+- 031287c6 fix(security): address 4 CRITICAL and 13 HIGH severity issues from 3.9.0 re-review
+- 1ceebb87 fix: resolve 9 additional issues from PR #254 conservative review
+- c82488ee Merge pull request #254 from Yeachan-Heo/omc-behavior-enhancements
+- e4b2a4a3 fix: bump version to 3.9.0 and add keyword detection false positive guards
+- 011d9d50 feat(agents): add deep-executor autonomous deep worker agent
+- 84011cd9 fix: update test expectations for deep-executor skill
+- a832758c Merge pull request #260 from Yeachan-Heo/omc-omo-hepystosis
+- b7d7e9ee Merge pull request #261 from Yeachan-Heo/oh-my-claudecode-3.9.0
+- 523a865f feat: make agent prompts, skills, and source code framework-agnostic (#262)
+- 02001293 chore: update remaining version refs to 3.9.1
+- 019e3f89 chore: bump to 3.9.2 with all version refs aligned
+- 8c93ba71 feat(deep-executor): add Hephaestus-level capabilities (#264)
+- 0e498470 fix(agents): register git-master as agent to fix RALPH invocation (#263) (#266)
+- ea70734e fix(state): prevent ultrawork state leak across concurrent sessions (#269) (#271)
+- f9f4dc8e chore: bump version to 3.9.4 (#272)
+- 2ff9c12d feat(hud): add git repo name and branch elements (#258)
+- 8577a62c chore(ci): remove npm publish from release workflow (#273)
+- 36f474e1 fix(hooks): add CJS version of persistent-mode for Windows Stop hook (#267)
+- 44d7c847 feat(hud): add model name element (#211) (#275)
+- d69159e6 chore: bump version to 3.9.5
+- a385fd93 feat(commands): add live data injection with ! prefix
+- 1a367733 feat(hooks): add agent lifecycle monitoring for parallel agent debugging (#277)
+- e788115f feat(commands): add caching, conditional execution, security, output formats, multi-line scripts
+- fed5a2a6 feat(hooks): add agent observatory with timing, tokens, ownership, intervention, replay (#277)
+- 6dcfb046 Merge PR #278: feat(hooks): add agent lifecycle monitoring
+- fab4639e docs: add performance monitoring resources (#287)
+- 855f231c Merge PR #279: feat(commands): add live data injection with ! prefix
+- 7626c568 Merge PR #288: docs: add performance monitoring resources
+- c7bc70a7 fix(hud): retry logic and dual naming support
+- f7962b9e feat(cli): add teleport command with --worktree flag (#289)
+- 9b2b45b0 feat(config): add ecomode.enabled option to disable ecomode completely (#292) (#294)
+- e4437e9d feat(hooks): add bash history integration (#290) (#295)
+- a609339b feat(cli): add teleport command with --worktree flag (#289) (#296)
+- 6bc3fe5c fix(tui): add missing 'tui' subcommand when launching tokscale (#299)
+- dbb01d94 feat(cli): improve CLI UX - Phase 1 (#297)
+- 577e46b0 feat(cli): improve CLI UX - Phase 1 (#297) (#306)
+- 0b310a6d feat: add background process limit to prevent forkbomb (#302) (#307)
+- 5b7d64f7 fix: address 13 bugs from stress test report (#301) (#309)
+- a24fbe54 fix(tests): resolve CI failures
+- 68708cad chore: update package-lock.json
+- c42b9af4 fix: add session isolation to ultrawork persistent mode (#311)
+- b867d76f Merge pull request #313 from Yeachan-Heo/feat/issue-311-ultrawork-persistent-session-causes-orig
+- bbe3edd9 fix: project-scoped plugin installation no longer affects global scope
+- 85412fef chore: bump version to 3.9.6
+- cac4af35 Merge pull request #310 from Yeachan-Heo/release/v3.9.6
+- 50ae2e7f fix(hooks): hook up silent auto-update to session-start (#298)
+- ab18c4a7 fix: session isolation + Windows path handling
+- d4b61273 fix: prevent stop hook freeze on bash errors (#319)
+- 54a1e2ac Merge pull request #321 from Yeachan-Heo/fix/stop-hook-bash-error
+- b8f377f4 Merge pull request #317 from MeroZemory/fix/session-isolation-windows
+- 46e666fc Merge pull request #316 from Yeachan-Heo/feat/cli-ux-improvements
+- b3696859 Merge pull request #315 from Yeachan-Heo/fix/issue-314-bug-project-scope-installation-affects-t
+- 1f7a47dc fix: rename invalid 'Setup' hook event to 'SessionStart' (#320)
+- 60e722e9 Merge pull request #322 from Yeachan-Heo/fix/stop-hook-bash-error
+- 949652bd chore: prepare v3.9.7 release - version bump + changelog + test fix
+- 12411af6 Merge pull request #323 from Yeachan-Heo/chore/prepare-v3.9.7-release
+- 2366a021 merge: resolve conflicts with release/v3.9.7
+- db6dbc0e Merge pull request #312 from Yeachan-Heo/feat/issue-289-worktree-flag
+- 881aead3 fix: resolve 5 critical race conditions and crash bugs (closes #325)
+- 150e6d24 marketplace.json 업데이트
+- 455ec0bb feat(hooks): add project isolation to state files
+- 1641f1eb fix: auto-recover status bar after plugin update (closes #327)
+- 1ee7a80c Merge pull request #328 from riftzen-bit/feat/issue-326-project-isolation-state-files
+- 171bfff2 Merge pull request #329 from Yeachan-Heo/fix/issue-327-update-breaks-status
+- 9bbfaa63 chore: release v3.9.8 - version bump + changelog
+- 41e4e277 chore: bump marketplace.json to 3.9.8
+- 9c2c7750 fix: address Copilot review issues and additional bug fixes
+- 6d24fe5c fix: address Copilot round-2 review - use shared atomic write module
+- 43b6b438 Merge pull request #330 from riftzen-bit/fix/copilot-review-issues
+- a95f7a0e fix(update): use release tag URL instead of main branch for install script
+- 58730dea fix: address critical bugs from issue #325
+- 24bb08b4 fix(update): use release tag URL instead of main branch for install script
+- 369cb4ea fix: add defensive bounds checking for array access (#339)
+- da9a4247 perf: performance optimizations (#340)
+- 247b2eef chore: merge release/v3.9.9 into main
+- e951c393 chore: release v3.9.9 - version bump
+- 254189d9 chore: bump .claude-plugin version to 3.9.9
+- 61bdeea6 fix: notepad.md session short-term memory (#342)
+- 61803d36 fix(hud): CJK-aware string truncation (#344)
+- fc751deb fix(hud): prevent terminal rendering corruption (#346)
+- 6ae0b8d0 fix: stop scanning global todos dir for phantom task counts (#354)
+- f1c976ca fix: prevent full setup wizard from re-running after updates (#353)
+- 6dd804c4 docs: add CJK IME known issues and workarounds
+- 3d82f992 feat: Project Memory Hook with Compaction Resilience (#331)
+- df023965 fix: register setup wizard config fields in TypeScript (#359)
+- 2615f179 fix: stop scanning global todos dir in session-start hooks (#358)
+- 47bf3099 Merge remote-tracking branch 'origin/release/v3.9.10'
+- 2f739e83 chore: release v3.10.0 - version bump + Project Memory + bug fixes
+- fc522d3f fix: preserve HUD color codes in stripAnsi (#364)
+- 138fde28 chore: release v3.10.1 - HUD color preservation fix
+- 597cc449 chore: bump plugin versions to 3.10.1
+- 3f2c61de fix: use npm for omc update instead of removed install.sh (#367)
+- f620a724 Merge pull request #368 from Yeachan-Heo/fix/omc-update-404-issue-367
+- b53fbdbf docs: add hook compatibility guidance to prevent stop loop issues
+- 0bcd4c98 docs: add hook awareness and state management section to CLAUDE.md
+- 8300c51b fix: preserve HUD multi-line output in sanitizeOutput (#369) (#370)
+- 15751177 chore: bump version to 3.10.2
+- 27ff37cc chore: update marketplace.json to 3.10.2
+- 22f6a7b3 fix(hud): use semverCompare for proper version selection (#373)
+- 4836c528 feat: add built-in MCP tools for state, notepad, and project memory
+- 0b1521f8 feat: add plugin-scoped Gemini and Codex MCP servers
+- 32c314d4 fix(hud): use semverCompare for proper version selection (#373)
+- ebe21c26 docs: add multilingual README files (ko, zh, ja, es) (#379)
+- 4bdd5cd0 feat: add multilingual skill extraction detection (#377)
+- e52dda08 chore: bump version to 3.10.3
+- 65d569c5 fix(mcp): pipe prompts via stdin to avoid OS argument length limits
+- 246ed151 feat(swarm): aggressive mode with wave-based spawning and micro-task decomposition
+- 95ba53d2 feat(agents): enforce model routing for advisory vs execution agents (#384)
+- a9eebc04 Merge branch 'main' of https://github.com/Yeachan-Heo/oh-my-claudecode into v4.0.0-beta
+- 6760e533 feat(mcp): system prompt injection for Codex/Gemini + deprecate tools array
+- 4280b730 Merge v4.0.0-beta, resolve conflicts (keep tools deprecation)
+- 81977124 Merge pull request #387 from Yeachan-Heo/feat/codex-gemini-system-prompt-injection
+- 4d43d186 feat(mcp): register Codex/Gemini MCP servers + Gemini model fallback chain
+- 5545fcdf feat(mcp): require agent_role for Codex/Gemini tools
+- fc934e06 update docs
+- 9bdceb90 fix(ultrawork): add concurrent session detection and warning (#386)
+- 9ad5631a fix(hooks): prevent stop hook stdin hang causing session freeze (#385)
+- c39b95fa Revert "fix(hooks): prevent stop hook stdin hang causing session freeze (#385)"
+- 0b8f4c70 Revert "fix(ultrawork): add concurrent session detection and warning (#386)"
+- ded168bc feat(hooks): add configurable stop hook callbacks (#395)
+- d4aa23d9 fix: resolve merge conflicts
+- bcf29866 fix: resolve committed conflict markers and dedup index.ts (#395)
+- d98d0cb9 Merge pull request #400 from Yeachan-Heo/feat/issue-395-callbacks
+- b3fb30e3 feat(mcp): add reviewer agents as Codex-preferred delegates
+- 6890b2a2 refactor(mcp): extract shared Codex/Gemini logic into core modules
+- 9ef08c7a docs: compact CLAUDE.md and fix Codex/Gemini routing
+- f6449b90 chore: bump all version references to 4.0.0
+- 29a613f8 docs: update CHANGELOG with 4.0.0 changes
+- 014b1dd0 fix: align Codex/Gemini role allowlists with docs routing
+- c0b6f4c1 Sync dev to 4.0.0 beta (#409)
+- aec2c730 feat(mcp): increase Codex timeout to 1 hour
+- dc267370 feat(mcp): increase Gemini timeout to 1 hour + background execution docs
+- 2d39cb18 fix: security hardening and cross-platform compatibility
+- 0c3164fd feat(hud): add fine-grained control options for sessionHealth elements
+- b4f2bb3c feat(mcp): add prompt persistence audit trail and improve state tools
+- 8a96ef82 merge: resolve conflicts with origin/dev (keep v4.0.0-beta changes)
+- c45681a3 Merge pull request #415 from Yeachan-Heo/v4.0.0-beta
+- d395b0bb docs: fix link
+- ef107bb2 Merge pull request #399 from ibadoo/feature/hud-fine-grained-config
+- 14f8ed06 feat(mcp): add prompt_file and output_file parameters to ask_gemini/ask_codex (#416)
+- acbcd102 fix(mcp): write output_file directly instead of .raw suffix (#418)
+- 520897cd Revert "fix(mcp): write output_file directly instead of .raw suffix (#418)"
+- 6ac06f3f fix(mcp): write output_file directly instead of .raw suffix (#419)
+- f6701bbc feat(mcp)!: require prompt_file, remove deprecated prompt parameter (#421)
+- 79e2dab5 fix(analytics): correct cache hit rate formula to include all input token types (#425)
+- d3349561 fix(hud,lsp): fix token formatting threshold and goto_definition null safety (#417)
+- 0a446694 feat: version drift detection and auto-cleanup on session start (#422)
+- 7cdb879d feat(mcp)!: return file paths instead of content, add working_directory param (#424)
+- a62eb6e1 feat(mcp): add job management tools for background Codex/Gemini jobs (#420)
+- a806f089 fix(test): add output_file to prompt deprecation tests + rebuild bridges
+- 25232ba6 docs: update CHANGELOG with 5 merged PRs for 4.0.0 release
+- 1883e4af docs: comprehensive CHANGELOG for 4.0.0 release
+- 56164c50 Merge pull request #427 from Yeachan-Heo/dev
+- 6567b81a docs(CLAUDE.md): add background orchestration pattern and skill consultation requirements
+- 5765477c docs(CLAUDE.md): add background orchestration pattern and skill consultation requirements (#430)
+- aad66620 feat(hooks): fix stop hook premature stopping on tool errors (#429)
+- 6035b784 fix(lint): replace unsafe Function type with explicit callback signatures
+- 4b31e9c7 fix(hooks): address PR #429 review issues
+- ec42c3f5 Merge remote-tracking branch 'origin/dev'
+- 89842a42 Revert "Merge remote-tracking branch 'origin/dev'"
+- 959b656c fix(lint): replace unsafe Function type with explicit callback signatures (#431)
+- 9489a037 fix(security): address P0/P1 findings from 4.0.0 security review (#433)
+- 9407306e Merge pull request #434 from Yeachan-Heo/dev
+- 12cca22c Merge origin/main into v4.0.0-beta (resolve conflicts, keep 4.0.0 content)
+- 5d195edf Merge pull request #436 from Yeachan-Heo/v4.0.0-beta
+- 231fbaf0 docs: update CHANGELOG 4.0.0 release date
+- 63c71b48 fix(mcp): Codex/Gemini output file handling and JSONL parser
+- 8af00991 marketplace.json 업데이트
+- 5f863ac7 plugin.json 업데이트
+- f8e439bd docs: add optional Gemini/Codex CLI installation to READMEs
+- 36d70984 docs(CLAUDE.md): MCP-first routing for preferred agents (v4.0.1)
+- 3198a6d2 docs(CLAUDE.md): MCP-direct replacement for Claude agents
+- 34f99eab docs(CLAUDE.md): apply Codex architect validation feedback
+- c5996036 fix(tests): replace unsafe Function type with typed callbacks
+- 1010f012 docs(CLAUDE.md): rename "consultation" to "delegation" for external MCPs
+- bf705d2b docs(CLAUDE.md): clarify MCP prompt/output semantics with two-layer model
+- 5d530e62 fix(mcp): update prompt injection to request work summary, not response
+- f2e1dd26 chore: bump version to 4.0.2
+- 4af89512 fix(hooks): handle TaskCreate/TaskUpdate tool name variants
+- 420c4b0c Merge pull request #440 from Yeachan-Heo/fix/hook-task-tool-naming
+- bdf43337 chore: release 4.0.3 - opus 4.6, gpt-5.3, hook compatibility
+- 853d2c40 Merge pull request #441 from Yeachan-Heo/dev
+- e671344d fix(hooks): use snake_case field names matching Claude Code API
+- ed3e34a0 Merge fix/hook-field-names: snake_case hook fields for 4.0.4
+- 62e76aa4 chore: release 4.0.4 - snake_case hook field compatibility
+- cba8103f Merge dev: release 4.0.4 - snake_case hook field compatibility
+- 1024de45 chore: sync version references to 4.0.4
+- f85c7ab1 Merge dev: sync version references to 4.0.4
+- 8a815298 marketplace.json 업데이트
+- 40f4c72d docs: add update guide to all README translations
+- 99b22539 docs: add update guide to all README translations
+- 2b4490fc chore: include dist/ in git for seamless plugin installs
+- a261cdec Merge dev: include dist/ in git for seamless plugin installs
+- f7266676 docs: remove outdated dist/ rebuild instructions
+- bbf2506c Merge dev: remove outdated dist/ rebuild instructions
+- 6c1ce6c0 chore: release 4.0.5 - include dist/ in git for seamless installs
+- 159b2f54 Merge dev: release 4.0.5 - include dist/ in git
+- 4c41026a marketplace.json 업데이트
+- d903d250 feat(hooks): add codex/gpt/gemini magic-keyword MCP delegation
+- 5e24685f fix(hooks): address P0/P1 review findings for magic-keyword MCP delegation
+- 007acc8f Merge branch 'feat/magic-mcp-keywords' into dev
+- cbc08594 chore: release 4.0.6 - magic-keyword MCP delegation & model fallback
+- 4c44cfc7 Merge pull request #443 from Yeachan-Heo/chore/release-4.0.6
+- 7244da25 Merge remote-tracking branch 'origin/dev'
+- 6b7215c0 feat(mcp): add SQLite job state DB and relax security for codex/gemini tools
+- 55909dc0 fix: Windows compatibility for paths, URIs, config dirs, and CLI spawn
+- a2ed3e00 fix: address code review findings for Windows compatibility
+- e26400a0 fix: harden isAllowedPath against traversal bypass and anchor hook regexes
+- ddc1bbc9 fix(mcp): address code review findings for SQLite job state integration
+- 3096d631 fix: harden boundary checks with isAbsolute() and simplify template normalization
+- 2d641e33 Merge branch 'fix/windows-compat' into release/4.0.7
+- db86aa11 chore: release 4.0.7 - SQLite job state & Windows compatibility
+- 94230c48 Merge remote-tracking branch 'origin/dev'
+- d0356df6 feat(trace): add internal operations report with agent breakdown and cycle detection
+- 1cecb175 feat(trace): record Skill tool invocations in pre-tool-enforcer
+- c7995eb4 fix(mcp): resolve cross-directory job lookup failures
+- 6818bdeb Merge branch 'feat/trace-internal-operations-report' into release/4.0.8
+- 9fb23031 chore: release 4.0.8 - trace command & cross-dir job lookup fix
+- c2ad9adc fix: bump .claude-plugin and docs version to 4.0.8
+- 66392f1b fix(ralplan): add human-in-the-loop approval gate before implementation (#448)
+- 6a5f7ea7 fix(mcp): headless execution for Codex and Gemini CLI integrations
+- c5ed5086 Merge pull request #451 from Yeachan-Heo/fix/codex-gemini-headless-execution
+- 08e2e544 chore: release 4.0.9 - headless Codex/Gemini CLI execution fix
+- 3a854b62 fix(compaction): add debounce to prevent concurrent compaction errors (#453)
+- 6822622e fix(mcp): always write parsed JSONL response to output_file
+- ebaa69e7 fix(state): namespace session state files to prevent context bleeding (#456)
+- 024ef5ae fix: use timeout-protected stdin in all hook scripts (fixes #459)
+- 68d4c9f7 Merge remote-tracking branch 'origin/fix/issue-459' into release/4.1.0
+- 2e4645f1 Merge remote-tracking branch 'origin/issue-453' into release/4.1.0
+- da5ef53a Merge remote-tracking branch 'origin/fix/issue-448' into release/4.1.0
+- 75372269 Merge remote-tracking branch 'origin/fix/issue-456' into release/4.1.0
+- e16e2ada feat(team): add MCP Team Workers bridge daemon
+- 352e4e94 chore: release 4.1.0
+- 89d75044 Merge remote-tracking branch 'origin/feat/mcp-team-workers' into release/4.1.0
+- b155940d fix(team): harden team bridge with FD leak fix, path traversal prevention, and shutdown improvements
+- 87eddb86 Merge pull request #462 from Yeachan-Heo/fix/team-bridge-security-hardening
+- 351eb7fa fix(ralplan): replace AskUserQuestion with native Plan Mode approval gate
+- 93283058 Merge pull request #463 from Yeachan-Heo/fix/ralplan-plan-mode-approval
+- c69ed362 fix(team): comprehensive security hardening for MCP Team Bridge
+- b6af3870 Merge pull request #465 from Yeachan-Heo/fix/team-bridge-security-hardening-v2
+- 0318f017 feat(team): add resilience, hybrid orchestration, worktrees, and observability
+- eec765b2 feat(team): add resilience, hybrid orchestration, worktrees, and observability
+- 6cd5172d fix(mcp): add 429/rate-limit fallback for Codex and Gemini
+- 4ec4079a Merge branch 'dev' into fix/mcp-fallback-fix
+- a79d0441 Merge pull request #469 from Yeachan-Heo/fix/mcp-fallback-fix
+- dae0cf9d refactor: merge local-skills-setup into skill and learn-about-omc into help
+- ef6db4ba refactor: consolidate 6 redundant agent tiers (34 → 28 agents)
+- 245e8ced docs: update CLAUDE.md, marketplace.json, and help for 4.2.0 consolidation
+- 217a0295 fix: update skill tests to match actual count (38) and add command aliases for ralplan/review
+- 828701e1 refactor: formalize commands vs skills - thin routing for analyze, git-master, frontend-ui-ux (#470)
+- dd63c4ad refactor: remove dead skills and merge ralplan/review into plan (#471)
+- 357522c8 fix(skills): resolve merged skill docs
+- c9b2b4fc docs: keep OMC version at 4.1.0
+- b1138ac7 Merge remote-tracking branch 'origin/consolidate/p4-agent-consolidation' into dev
+- e4d64a36 fix(tests): resolve skills count merge conflict
+- ba999c2d Merge remote-tracking branch 'origin/consolidate/p6-doc-cleanup' into dev
+- 539fb1ac fix(tests): align skill/agent inventories
+- 49552caf chore: complete consolidation cleanup — remove orphan refs, refactor CLAUDE.md
+- f1cde5be Merge pull request #478 from Yeachan-Heo/consolidate/p7-final-cleanup
+- f5746a82 fix(agents): complete HUD codes, system prompt, and short names for all 28 agents
+- c46c3456 fix(team): replace sleep+jitter task claiming with O_EXCL lock files
+- fce33757 feat(team): add post-execution permission enforcement for MCP workers
+- 297fe425 fix(hooks): eliminate cross-session state leakage in mode detection
+- 24455c39 fix(test): use utimesSync to backdate lock mtime for stale reap test
+- 92432cf3 Merge branch 'fix/hook-session-isolation' into dev
+- 7d34646a Merge branch 'fix/atomic-task-claiming' into dev
+- 6a7ec276 Merge branch 'fix/permissions-enforcement' into dev
+- 87435577 refactor: deprecate tiered agents, consolidate CLAUDE.md
+- 872cd9f8 Merge pull request #480 from Yeachan-Heo/refactor/deprecate-tiered-agents
+- 73d977fe refactor: comprehensive agent architecture reform v2
+- 0d88f12a Merge pull request #481 from Yeachan-Heo/refactor/agent-reform-v2
+- 42aad26a refactor: rewrite docs/CLAUDE.md following Claude prompting best practices
+- d7317cbb fix: address production readiness review for docs/CLAUDE.md
+- d457f622 chore: bump VERSION to 4.1.0 and add comprehensive changelog
+- 995152ba feat: add agent teams setup to omc-setup skill
+- 1bb8205c refactor: remove per-provider agent_role restriction, validate against shared allowed list
+- aae0ea2d fix: eliminate session state leakage across parallel Claude Code sessions
+- 8c4b75b6 Merge remote-tracking branch 'origin/fix/session-leak' into release/4.1.1
+- 62d58589 Merge remote-tracking branch 'origin/refactor/unrestrict-mcp-agent-role' into release/4.1.1
+- e6034889 Merge remote-tracking branch 'origin/feat/setup-teams' into release/4.1.1
+- fc4d6dc1 Merge branch 'release/4.1.1' into dev
+- 2671e08e Merge pull request #486 from Yeachan-Heo/fix/session-leak
+- ece4e900 Merge pull request #485 from Yeachan-Heo/refactor/unrestrict-mcp-agent-role
+- 07183991 Merge pull request #484 from Yeachan-Heo/feat/setup-teams
+- 23520751 chore: bump version to 4.1.1 and add changelog
+- e0e03277 Merge remote-tracking branch 'origin/dev' into dev
+- 1a66db06 Merge branch 'release/4.1.1' into dev
+- e67845de Merge remote-tracking branch 'origin/dev'
+- aa334ff2 fix: use combined -p=. arg for Gemini CLI to prevent Windows cmd.exe dropping empty string (#488)
+- a6ee04f4 fix: add ToolSearch discovery for deferred MCP tools (#483) (#489)
+- ea6c51c7 fix: add PID/session ID namespace to state files to prevent context bleeding (#456) (#490)
+- a05923ac chore: bump version to 4.1.2 - team model inheritance
+- b85759e5 Merge branch 'dev' for v4.1.2 release
+- 9612bb2f docs: clarify npm package name vs project brand name (#491) (#493)
+- 13de3b54 feat: unified delegation router with configurable external models (#492)
+- 43ea0529 fix(trace): add missing traceTools registration to standalone MCP server
+- ef035235 Merge pull request #495 from Yeachan-Heo/feat/omc-model-select
+- 64a26d2a Merge pull request #497 from hunhoon21/feat/trace-internal-operations-report
+- 0b7aa591 fix: remove artificial 20-file limit on MCP context_files parameter
+- 95fb4cee Merge dev into main for 4.1.3 release
+- 90b29d2a fix: resolve MCP server crash from jsonc-parser UMD bundling issue
+- bf070f56 Merge dev into main for 4.1.4 release
+- bbc778fd fix: reconcile runtime artifacts after omc update
+- eff2dfb4 fix: harden update reconciliation flow in plugin context
+- 5f334a15 fix: preserve hook safety during plugin reconciliation
+- bae74f92 Merge pull request #503 from Yeachan-Heo/fix/issue-501-502-plugin-update-sync
+- 11b45089 chore: bump version to 4.1.5
+- 262f5d01 Merge branch 'dev' into main for v4.1.5 release
+- 1c357858 fix: align session-scoped cancel and state consistency
+- cbdd93f4 fix: close persistent-mode parity gaps
+- 5d21a541 Merge pull request #504 from Yeachan-Heo/fix/session-state-cancel-phase2
+- deeedf7b chore: bump version to 4.1.6
+- c8af4c2a chore: bump version to 4.1.6 (#508)
+- 364a3335 fix: shorten HUD namespaced skill labels
+- ab08e504 feat: Team-first orchestration with staged pipeline
+- 243184e5 Merge dev branch into fix/hud-skill-label-shortening
+- c2184fdc Merge pull request #511 from Yeachan-Heo/fix/hud-skill-label-shortening
+- 9955e2ea Merge dev into main for v4.1.7 release
+- d189db41 chore: bump version to 4.1.7
+- fc1fe329 fix: comprehensive codebase remediation from 10-perspective Codex review
+- 96d45db3 feat: add z.ai monthly usage limit support to HUD
+- f4fe4b01 docs: update README for v4.1.7 Team-first orchestration
+- 0d947729 Merge pull request #515 from Yeachan-Heo/docs/readme-4.1.7
+- bb36ef13 fix: address all P1/P2 findings from Codex consensus review
+- 7bba2d8e docs: align CLAUDE.md with Team-first runtime contract
+- c3b1b076 Merge pull request #512 from Yeachan-Heo/fix/codex-review-remediation
+- 7aafda7d Merge pull request #517 from Yeachan-Heo/fix/claude-md-alignment
+- c1398859 refactor: make monthly limit fields required and show all metrics independently
+- 70d22df2 chore: bump version to 4.1.8
+- edf6e207 fix: replace hardcoded MCP agent role allowlist with dynamic discovery
+- 38150736 fix: align standalone CLI with plugin infrastructure
+- 78e37c4b fix: restore allowlist enforcement in MCP agent role validation
+- ed7d5523 fix: harden current-session migration with timestamp reconciliation
+- 45a5e764 Merge pull request #518 from Yeachan-Heo/fix/omc-cli-overall
+- 23bf6c10 Merge pull request #519 from Yeachan-Heo/fix/dynamic-agent-roles-mcp
+- 254aa43b fix: make installer VERSION test dynamic instead of hardcoded
+- 335b8dfc Merge remote-tracking branch 'origin/dev'
+- c33f797e feat: add structured error tokens and configurable output path policy to MCP tools
+- 4b9cb470 fix: address Codex review feedback on MCP path policy PR
+- fca6f38e Merge remote-tracking branch 'origin/dev'
+- 3202945c chore: bump version to 4.1.9
+- 2ed04bad fix(gemini): default to gemini model when model omitted
+- ecb69fa4 Merge remote-tracking branch 'origin/fix/issue-521-gemini-default-model' into dev
+- e33b6658 chore: bump version to 4.1.10
+- a1ea8fc2 fix(hud): add COMPRESS? and CRITICAL suffixes to context bar mode (#532)
+- 050b08ab fix(hud): parse Opus per-model weekly rate limit from API (#529)
+- 083e5840 feat(cli): add `omc setup` command as official CLI entry point (#498)
+- 4a0bf92a fix(hud): persist session start time to prevent tail-parsing duration reset (#528)
+- 1076a02f feat(hud): make budget warning thresholds configurable (#531)
+- 2755a34c fix(hooks): use OMC package version instead of project package.json (#516)
+- 79639a65 fix(hud): disambiguate agent type code collisions (#530)
+- 58b42cba fix(team): coordinate ralph loop with team pipeline phases (#533)
+- 1b09275a feat(hud): add model version verbosity levels and remove prefix (#500)
+- 794f4fca fix(team): coordinate ralph loop with team pipeline phases (#533)
+- 5df963d8 feat(agents): standardize open questions output to .omc/plans/open-questions.md (#514)
+- fb682856 fix(hooks): improve Windows compatibility for hook scripts (#524)
+- c62185e0 fix(hooks): add remaining suppressOutput: true to persistent-mode.cjs (#524)
+- 9e36a8fb fix: skip update check when OMC version is unresolved
+- 7937d9b3 fix(hooks): use pathToFileURL for dynamic import in pre-tool-use template
+- 928248f5 fix(cli): address review feedback on setup command defaults (#498)
+- a60a5fb5 fix(tests): update agent code test expectations for 2-char disambiguated codes
+- bc3044b7 fix(hud): prefer model.id over display_name and fix test assertions
+- 216a2ba6 fix: add cancelled phase to Ralph team coordination and remove double iteration increment
+- c808715e fix(hud): scope session start timestamp per session ID and validate persisted dates
+- e5c9da44 fix: resolve analyst read-only conflict for open questions
+- 1273c219 fix(mcp): resolve agent roles in CJS bundles by falling back to __dirname
+- 599801a6 Merge pull request #536 from Yeachan-Heo/fix/issue-498
+- 0ac349ff Merge pull request #540 from Yeachan-Heo/fix/issue-530
+- 817cf00d Merge pull request #541 from Yeachan-Heo/fix/issue-533
+- 06a23479 Merge pull request #543 from Yeachan-Heo/fix/issue-514
+- 6d25a866 Merge pull request #534 from Yeachan-Heo/fix/issue-532
+- 3670abd6 Merge pull request #545 from Yeachan-Heo/fix/mcp-agent-roles-cjs
+- 22010791 Merge pull request #539 from Yeachan-Heo/fix/issue-516
+- 007e7e91 Merge pull request #544 from Yeachan-Heo/fix/issue-524
+- 719f5f28 Merge pull request #535 from Yeachan-Heo/fix/issue-529
+- 03979598 Merge pull request #537 from Yeachan-Heo/fix/issue-528
+- d44ae26d Merge pull request #538 from Yeachan-Heo/fix/issue-531
+- 27213e28 Merge pull request #542 from Yeachan-Heo/fix/issue-500
+- 4d136d7e chore: bump version to 4.1.11
+- db3c0d20 docs: add v4.1.11 changelog
+- 4c3ccb10 Merge pull request #546 from Yeachan-Heo/dev
+- 6259113a fix: embed agent roles and prompts at build time in MCP bridges
+- 032fa81c Merge pull request #547 from Yeachan-Heo/fix/codex-mcp-roles-build-time
+- 17f94da9 chore: bump version to 4.1.12
+- 407393aa Merge remote-tracking branch 'origin/dev'
+- 3a44cfeb suggestion: use temp+rename when writing session stats, try/catch dist imports (#466)
+- 06fcc469 (#526) feat: add version display and update notification to HUD (#527)
+- 5eb8d5e1 docs: increase parallel agent limit from 5 to 20 across all modes (#548)
+- 0aad735e chore: bump version to 4.1.13
+- 618fe782 Merge remote-tracking branch 'origin/dev'
+- c7a8e90b fix(hud): use semver comparison for update notification (#549)
+- f86a9d83 chore: bump version to 4.1.14
+- 9c7bbbae Merge remote-tracking branch 'origin/dev'
+- d1420877 fix(update): sync marketplace clone during omc update (#506) (#550)
+- 8f01f4cd chore: bump version to 4.1.15
+- 9f542c0a Merge remote-tracking branch 'origin/dev'
+- cc7d176d fix(setup): remove outdated team defaultModel config and legacy swarm vacuum
+- 70563056 Merge pull request #551 from Yeachan-Heo/fix/omc-setup-outdated-team-config
+- ff6eba17 chore: deprecate all commands in favor of skills
+- a8d900f7 Merge pull request #552 from Yeachan-Heo/chore/deprecate-commands-to-skills
+- 186892ed chore: bump version to 4.1.16
+- 2b0b2939 Merge remote-tracking branch 'origin/dev'
+- a42a4963 feat: add multi-provider git hosting abstraction layer
+- 45697237 fix: address all Codex review findings - security, types, tests
+- 9dc0af44 fix: last CRITICAL - execFileSync for git fetch, tighten GitLab detection
+- e09605fc fix: address remaining review findings - jq guards, nested groups, Azure legacy URLs
+- 7ef08334 fix: address round 4 review findings across all 10 perspectives
+- 7a43a580 fix: address round 5 review HIGHs - provider routing, SSH ports, branch fetch
+- a07ede85 Merge pull request #554 from Yeachan-Heo/feat/git-provider-abstraction
+- dff7bffd chore: bump version to 4.1.17
+- a78aed26 Merge remote-tracking branch 'origin/dev'
+- ca2a55b8 feat: improve team skill with stage routing, state persistence, and ralph composition
+- a0bab3fe fix: address round 1 review findings from 10 Codex perspectives
+- 0b59cf41 fix: address round 2 review findings - add isTeamEnabled gate, remove dead code, align implementations
+- 35457d33 fix: unify isTeamEnabled() to check settings.json first with env fallback
+- 6c0ad506 Merge pull request #555 from Yeachan-Heo/feat/team-skill-improvements
+- b2993a84 chore: bump version to 4.1.18
+- 10279de7 Merge dev into main for v4.1.18 release
+- 73c3a231 feat: add Codex-optimized agent prompts and provider-aware prompt loading
+- 0df34cfb fix: apply review findings to Codex agent prompts
+- ccdca856 fix: fold remaining Why This Matters sections (product-manager, qa-tester)
+- d10c2e22 feat: add inline prompt support for MCP tools and agent consultation sections
+- 2a34269a Merge pull request #557 from Yeachan-Heo/feat/codex-agent-prompts
+- a244ca27 fix: address Round 1 review findings for inline prompt feature
+- 25090ce2 Merge remote-tracking branch 'origin/feat/codex-agent-prompts' into dev
+- e09a0bc3 fix: resolve unreachable empty-inline validation and schema gaps
+- e978dcc3 Merge remote-tracking branch 'origin/feat/codex-agent-prompts' into dev
+- 7da9bc77 fix: add prompt_file type guard and clarify schema precedence
+- d45a3c80 Merge remote-tracking branch 'origin/feat/codex-agent-prompts' into dev
+- 71d4d843 fix: presence-based prompt_file precedence, two-block inline response, stronger tests
+- 3dc4a231 Merge remote-tracking branch 'origin/feat/codex-agent-prompts' into dev
+- e6fe1698 fix: key-presence precedence, wrap inline response, single request ID, sanitized errors
+- 59adab4e Merge remote-tracking branch 'origin/feat/codex-agent-prompts' into dev
+- ec87912a fix: type-guard non-string prompt_file to prevent .trim() TypeError
+- 26f6b8fa Merge feat/codex-agent-prompts Round 7 fixes into dev
+- 3173aa83 fix: split wrapper overload, hasOwn check, strict assertions, response shape tests
+- 372df3e5 Merge feat/codex-agent-prompts Round 8 fixes into dev
+- 84ab0dec fix: hasOwn+undefined guard, size limit, success shape tests, request ID metadata
+- e39f2978 Merge feat/codex-agent-prompts Round 9 fixes into dev
+- 5b386328 fix: align schema descriptions with defined-value precedence, fix test naming, add non-string output_file tests
+- 00988b91 Merge remote-tracking branch 'origin/feat/codex-agent-prompts' into dev
+- 6170cb38 fix: shared error helper, dedupe metadata, PID timeout cleanup, immutable locals, null/path tests
+- 4f776f79 Merge remote-tracking branch 'origin/feat/codex-agent-prompts' into dev
+- 10b0f56d fix: inlineSuccessBlocks helper, args guard, null schema docs, parity test matrix
+- e74736ff Merge remote-tracking branch 'origin/feat/codex-agent-prompts' into dev
+- 61be0b10 fix: explicit non-string prompt_file error, hardened slugify, agent_role type guard
+- f0c2b279 Merge remote-tracking branch 'origin/feat/codex-agent-prompts' into dev
+- db49d961 fix: remove unused slugify param, add sanitized catch error reasons
+- 56b51da0 Merge feat/codex-agent-prompts Round 14 fixes into dev
+- e38b193d fix: normalize Gemini metadata parity, harden path boundary checks
+- 062f8b8a Merge feat/codex-agent-prompts Round 14 fixes into dev
+- 252cd5a2 fix: secure persistence file mode, add fallback metadata parity, strengthen tests
+- b1fae5b6 Merge feat/codex-agent-prompts Round 15 fixes into dev
+- 229199bb fix: harden args guard, add spawn assertions, normalize metadata format
+- c92db863 Merge feat/codex-agent-prompts Round 16 fixes into dev
+- 1c0215ea fix: reject whitespace-only prompt_file with explicit error
+- c76fef57 Merge feat/codex-agent-prompts Round 17 fix: whitespace prompt_file trimming
+- 5ba5ce6e fix: normalize Gemini resolvedModel with default fallback for parity with Codex
+- 691bb3f8 Merge feat/codex-agent-prompts Round 18 fix: Gemini model normalization parity
+- 72c816f2 feat: add lifecycle notifications for Discord and Telegram
+- e0085964 docs: add notification setup sections to localized READMEs
+- 0552a9fe feat: support CLAUDE_CONFIG_DIR across all OMC components
+- 2ac2f3f6 Merge remote-tracking branch 'origin/main' into feature/hud/support-usage-for-z.ai
+- d766030c feat: support CLAUDE_CONFIG_DIR env var across all OMC components
+- b1d10433 feat: add notification tag list config and release 4.2.0 metadata
+- a23142a4 Merge pull request #563 from Yeachan-Heo/feat/claude-config-dir
+- fda9002a Merge branch 'dev' of https://github.com/Yeachan-Heo/oh-my-claudecode into feat/claude-config-dir
+- 964b5efe Merge remote-tracking branch 'origin/main' into feat/claude-config-dir
+- 1a35bb07 Merge remote-tracking branch 'origin/feat/issue-560-notifications-dev' into dev
+- 21b67192 Merge remote-tracking branch 'origin/feat/issue-560-notification-docs' into dev
+- f8079dd9 fix: session-start hook crash and notification env var mismatch
+- ee5fc9c2 Merge remote-tracking branch 'origin/main' into feature/hud/support-usage-for-z.ai
+- 68205f25 build: rebuild dist after merge from main
+- 0503c228 fix: notification system security hardening and deep-merge config
+- b1b51bc3 Merge branch 'dev'
+- 69ac5588 build: rebuild dist for v4.2.0 release
+- 38d2a8df chore: bump version to 4.2.1 for release
+- d61af6d2 fix(daemon): replace require() with ESM import() to fix daemon crash (#564)
+- 277cb5cc feat: add session-idle notification when Claude stops with no pending work
+- 33c14bb4 Merge pull request #566 from Yeachan-Heo/feat/session-idle-notification
+- d1f37a4c chore: bump version to 4.2.2 for release
+- b9f18a0e feat(keyword-detector): add 'team' magic keyword as alias for swarm mode (merge with existing codex/gemini)
+- 5490ed4a fix: add exponential backoff + jitter on 429 in codex bridge (#570)
+- 08c45e4b fix: filter stale state files by session_id in getSessionStartTime (#573)
+- f122cafa fix: emit ready outbox message when tmux bridge session starts (#572)
+- 1da27df1 docs: add Vietnamese and Portuguese README translations
+- bb9786df fix: add shell:true on Windows for LSP server spawn (#569)
+- cef3ee92 fix(ci): resolve baseline lint error and keyword-detector build/test failures
+- 43277f52 Merge pull request #565 from Yeachan-Heo/issue-564
+- e88a512b fix(state): resolve .omc/ paths to worktree root, not agent CWD (#576)
+- 3cc75944 test: add unit tests for Windows shell spawn option (#569)
+- 148071b6 fix: parse timestamps to epoch for safe comparison in session duration
+- f4bf7a5e fix(post-tool-verifier): eliminate false positive failure detection in PostToolUse hooks (#579)
+- 658a3d90 fix: cap retry count and add background backoff tests
+- 13e38254 fix: address review feedback on keyword-detector sanitizer and conflict logic
+- 0e0cd4c6 Merge pull request #578 from Yeachan-Heo/fix/ci-baseline-red-on-dev
+- e7c61588 Merge pull request #577 from Yeachan-Heo/fix/issue-569
+- 1f6c4ef0 Merge pull request #574 from Yeachan-Heo/fix/issue-573
+- bde59f0f feat: add notifications system and enhance usage API with monthly limits
+- 82f3cdf8 Merge pull request #571 from Yeachan-Heo/fix/issue-570
+- 51cc886e fix: gate ready emission on first successful poll cycle
+- f295389c fix: correct comment to match ready emission placement
+- 3c0a68da Merge pull request #575 from Yeachan-Heo/fix/issue-572
+- 7a31e0fd fix: broaden failure detection patterns to prevent false negatives
+- 1859ae8a fix: enforce strict worktree identity and add fallback logging
+- d8288699 merge: resolve keyword-detector conflicts with dev
+- 231f4731 fix(tests): update integration tests for keyword-detector dual-emission
+- f7493dad merge: resolve keyword-detector dist conflicts with dev
+- 2f867fb8 Merge pull request #581 from Yeachan-Heo/fix/issue-579
+- 511cc590 Merge pull request #580 from Yeachan-Heo/fix/issue-576
+- 612037df fix(tests): resolve all test failures on dev after PR merges
+- 67ea5ab8 fix: add source tracking to usage cache to prevent cross-provider stale data
+- 088cc2b3 chore(release): bump version to 4.2.3
+- cc88017e Merge dev into main for 4.2.3 release
+- d02a22a8 fix(agents): add context-aware file reading to explore agent (#583) (#587)
+- ebc159a9 fix(team): emit status hooks on tmux session ready transition (#572) (#589)
+- b8379103 feat(installer): make HUD installation optional and respect hudEnabled config (#567) (#590)
+- 6778520c fix(skills): remove deprecated commands/ stubs and add missing SKILL.md files (#588) (#592)
+- b9d4ea2c fix(hooks): fire session-idle notification on ordinary Claude stop (#593)
+- 746f1435 Merge branch 'dev'
+- 6d07fa0e Merge pull request #513 from ohprettyhak/feature/hud/support-usage-for-z.ai
+- 5888bdf8 fix(installer): preserve custom statusLine config on forced update (#567)
+- 45850f15 Merge pull request #594 from Yeachan-Heo/fix/issue-567
+- f14ea8f2 fix(commands): remove commands/ directory to fix omc-setup self-loop (#582)
+- 54ed414a fix(skills): mandate structured approval and ralph handoff in consensus mode (#595)
+- 5577e516 fix(hooks): fire AskUserQuestion notification at PreToolUse instead of PostToolUse (#597)
+- 3bccd248 Merge pull request #596 from Yeachan-Heo/fix/issue-582-setup-loop
+- 6e3f4fdb Merge pull request #598 from Yeachan-Heo/fix/issue-595
+- 8c0488b8 Merge pull request #599 from Yeachan-Heo/fix/issue-597-askuserquestion-pretooluse
+- e6fa1640 feat(skills): add user feedback step between Planner and Architect/Critic in consensus mode (#600)
+- f87196dd Merge pull request #601 from Yeachan-Heo/feat/issue-600-feedback-step
+- 23797a93 chore(release): bump version to 4.2.5
+- 7fd05d02 Merge dev into main for 4.2.5 release
+- 35b20d6f chore: rebuild bridge files for 4.2.5 release
+- d97e5072 fix: restore z.ai monthly usage limit support dropped in v4.2.5 (#602)
+- 49673001 Merge pull request #603 from Yeachan-Heo/fix/issue-602
+- 45bef25e feat: add auto-upgrade prompt at session start (#604)
+- 6f22e0c1 chore: add dist artifacts for auto-upgrade-prompt test
+- 0d0e0136 feat: add auto-upgrade prompt at session start (#604)
+- 9d71f349 fix: doctor-conflicts falsely classifying OMC hooks as 'Other' (#606)
+- 22e768b7 Merge pull request #607 from Yeachan-Heo/fix/issue-606
+- 1eea2b3a fix: prevent stale autopilot state reuse across sessions (#609)
+- 48f2c1ce Merge pull request #610 from Yeachan-Heo/fix/issue-609-autopilot-stale-state
+- 980dc171 fix: prevent heredoc Bash commands from bloating settings.local.json (#608)
+- 366c2e4c Merge pull request #611 from Yeachan-Heo/fix/issue-608
+- a60a2d03 Merge pull request #612 from Yeachan-Heo/dev
+- 9cc6d679 chore(release): v4.2.6 hotfix bundle (#603 #605 #607 #610 #611)
+- af487ce6 fix: load AGENTS.md in plugin mode so deepinit output is actually used (#613)
+- 0444f764 Merge pull request #614 from Yeachan-Heo/fix/issue-613-agentsmd-plugin-load
+- 33f2183c fix: restore accidentally reverted PRs #594 #596 #598 #599 #601
+- 3986abea Merge pull request #618 from Yeachan-Heo/fix/issue-617-restore-reverted-prs
+- 22cd9a21 chore(release): bump version to 4.2.7
+- 8db18447 Merge pull request #619 from Yeachan-Heo/release/v4.2.7
+- 38c01098 Merge pull request #620 from Yeachan-Heo/dev
+- ac6aa128 chore(release): bump version to 4.2.7
+- 3de4b8d5 Merge pull request #621 from Yeachan-Heo/chore/bump-4.2.7
+- 3f242096 Merge pull request #622 from Yeachan-Heo/dev
+- 1499e909 feat(mcp): add per-call reasoning_effort parameter to ask_codex
+- 3d0070d9 Merge pull request #629 from Yeachan-Heo/main
+- 9a3bfc82 Merge pull request #627 from tellang/feat/issue-626-codex-reasoning-effort
+- c853f429 fix: sync #615 with dev and use fresh version in CLAUDE.md after omc update
+- 89ecca2b Merge pull request #630 from Yeachan-Heo/fix/issue-615-sync-clean
+- e977a627 fix(rate-limit-wait): detect 'hit your limit' screen patterns (#625)
+- 34002e29 fix(ralph): activate linked ultrawork when invoked via skill tool
+- 93f309fb fix(ralph): prevent silent stop by extending max loop iterations
+- 0f3c65a9 Merge pull request #631 from Yeachan-Heo/fix/issue-625-rate-limit-patterns
+- 8ad82030 Merge pull request #636 from Yeachan-Heo/fix/issue-633-635-pr
+- 50d7bd4c feat(lsp): add Dart/Flutter language server support
+- 5d798ce5 feat(hud): enable git repo and branch elements in HUD preset defaults
+- 32836269 Merge pull request #637 from Yeachan-Heo/feat/issue-628
+- d9471c6e refactor: rename research skill to sciomc and researcher agent to document-specialist
+- 4a864346 Merge pull request #634 from elias-greve/add-flutter-support
+- ec4de96b Merge branch 'dev' into feat/rename-research-to-sciomc
+- 2fd55110 Merge pull request #639 from Yeachan-Heo/feat/rename-research-to-sciomc
+- b1d53ae7 chore(release): bump version to 4.2.8
+- cfb7bca8 fix: rename doctor/help skills to avoid native command conflicts, tighten ecomode keywords (#632, #638, #292)
+- 6b15b513 Merge pull request #640 from Yeachan-Heo/fix/open-issues-632-638-292
+- 1cc87c1e fix(#641): clean up python_repl bridge sessions on session end
+- bd5ce306 feat(#292): add config to disable ecomode and low-tier agents
+- ec1500b1 Merge pull request #643 from Yeachan-Heo/fix/issue-292-disable-ecomode-low-tier
+- a6614b61 Merge pull request #644 from Yeachan-Heo/fix/issue-641-python-repl-bridge-cleanup
+- a2b1c364 feat: deprecate ecomode and tighten magic keyword detection
+- 3b1e2499 Merge pull request #649 from Yeachan-Heo/feat/deprecate-ecomode-tighten-keywords
+- 25380215 chore: bump version to 4.2.10
+- c8482b55 fix(#650): rebuild dist artifacts after keyword tightening merge (#651)
+- 2d4fb8fd chore: bump version to 4.2.11 (#652)
+- 2c4accbc ci: add dev branch to CI workflow triggers (#653)
+- af06dc97 feat: add Discord/Telegram reply-to-tmux injection (#646)
+- 928f4f71 feat(#654): add named notification profiles for Discord/Telegram hooks (#655)
+- 9642b480 fix(#656,#657): inherit discord-bot mention in event overrides and auto-start reply daemon (#658)
+- ea71b0ab test: add notify() -> session-registry integration tests (#660)
+- 12b23bca fix: apply notification mention to Discord bot messages (closes #656) (#659)
+- 19768770 feat(#661): add channel notification after reply injection feedback (#662)
+- 1f7de7d5 fix(#663): add mention tag to injection feedback message (#664)
+- b48234cf fix(#663): send injection feedback as reply to user message (#665)
+- 193a911c Release v4.2.11 (#667)
+- b0a164f9 fix(#669): check both profile and project-level settings in omc-doctor (#672)
+- fd5bb7a6 fix(#671): add ecomode to mode registry and state tool enums (#673)
+- a5fa2f18 fix(#670): cross-platform plugin cache path resolution for Windows (#674)
+- 5e8fe774 feat: add native tmux shell launch, interop layer, and fix update reconciliation (#668)
+- fedf589d feat: include contextSummary in session-idle notification (#677) (#678)
+- 1f044a50 fix(#675): add Swift/SourceKit-LSP entry and rebuild mcp-server.cjs bundle (#679)
+- d2374945 fix: skip short-name registration for skills conflicting with CC native commands (#684) (#686)
+- 2cadfdc1 fix: map 'research' keyword to sciomc skill instead of missing research skill (#691) (#692)
+- d17e91aa fix: apply reviewer improvements to plan file in ralplan consensus mode (#685) (#687)
+- 7a763c88 feat: upgrade default Sonnet model from 4.5 to 4.6 (#690)
+- aba78f2b fix: specify explicit re-review loop in ralplan consensus mode step 5 (#689) (#693)
+- af91957a feat: add clear-context-and-implement option in ralplan final approval (#683) (#694)
+- 8f653acd chore: bump version to 4.2.12 and rebuild dist
+- 1594140f Merge remote-tracking branch 'origin/main' into chore/bump-version-4.2.12
+- 3871fd12 Merge pull request #695 from Yeachan-Heo/chore/bump-version-4.2.12
+- cec37431 fix: filter Claude Code temp CWD permission errors from bash failure detection (#696) (#697)
+- 192d705d fix: use correct Co-authored-by trailer casing per Git spec
+- ea0b7ef1 Merge remote-tracking branch 'origin/main' into dev
+- 943c30d7 chore: rebuild dist for 4.2.12 with bash failure detection fix
+- 42f0b4a7 fix: prevent OMC skill short names from overriding CC native commands (#703)
+- 6fb48b12 test: fix lsp-servers count expectation (17 → 18)
+- 6d4f2f24 ci: re-trigger CI
+- 837a3c13 Merge pull request #699 from Yeachan-Heo/fix/co-authored-by-casing
+- 1ad672b4 Merge pull request #704 from Yeachan-Heo/fix/issue-703
+- 02449fb2 docs: add marketplace sync step to update instructions
+- b9b33a8a Merge pull request #705 from JiHongKim98/docs/fix-update-instructions-marketplace-sync
+- 66fb7eb2 feat(hud): add tool/agent/skill call counts to HUD status line (#702)
+- 71722ca5 fix(hud): add toolCallCount/agentCallCount/skillCallCount to test fixture
+- 1c1d7e72 Merge pull request #706 from Yeachan-Heo/feat/issue-702
+- 4384eccf fix: update lsp-servers test to expect 18 servers after swift addition
+- 8ca89278 Merge pull request #707 from Yeachan-Heo/fix/lsp-server-count-test
+- 80b0f272 feat(hud): add context limit warning and autoCompact config (#709)
+- 690f61f4 feat(hud): add tool/agent/skill call counts to status line (fixes #710)
+- 40ca50b1 Merge pull request #711 from Yeachan-Heo/fix/issue-709
+- 3732ca1d Revert "Merge pull request #711 from Yeachan-Heo/fix/issue-709"
+- d40b9ad5 feat(hud): add context limit warning and autoCompact config (#709)
+- 351284e3 docs: add CLAUDE.md with dev branch PR policy
+- b9e9342d Merge remote-tracking branch 'origin/main' into dev
+- 652bfddf merge: sync with dev, keep context warning + call counts features
+- d52dff06 Merge pull request #713 from Yeachan-Heo/fix/issue-709-dev
+- 06a4e5aa merge: sync feat/issue-710 with dev
+- d3945615 Merge pull request #712 from Yeachan-Heo/feat/issue-710
+- 3904fbb4 fix(hud): restore call counts and context warning after merge conflict
+- d6b232b7 chore: bump version to 4.2.13 and rebuild dist
+- 70e8e0d5 Merge pull request #715 from Yeachan-Heo/dev
+- 4d826c7f feat(cli): spawn claude in tmux session by default (issue #716)
+- 79b5be58 fix(test): add type assertions to resolve TS18048 possibly undefined errors
+- cbfc8eba fix(cli): filter --session flag when it has no value in extractOmcLaunchFlags
+- d407f93e Merge pull request #717 from Yeachan-Heo/feat/issue-716-tmux-spawn
+- bf54a9b9 docs: remove all ecomode references from documentation
+- 42242658 fix(stopHook): prevent infinite loop after cancel/completion (fixes #719)
+- 0e85c60f fix(hooks): resolve bridge normalization mismatch for subagent tracking and orchestrator file path extraction
+- 04c9cb57 fix: 토큰 카운트 truthy 체크를 !== undefined로 변경 및 레거시 상태 읽기 경로에 structuredClone 적용
+- dc5bd20f Merge pull request #721 from dlwnstjr0310/fix/bridge-normalization-and-orchestrator-filepath
+- 9cd4f920 Merge pull request #724 from dlwnstjr0310/fix/defensive-checks-truthy-and-structuredclone
+- 218e4790 chore: bump version to 4.2.14 and rebuild dist
+- c25729aa Merge pull request #727 from Yeachan-Heo/dev
+- 8df2df58 chore: bump .claude-plugin/plugin.json version to 4.2.14
+- 53318438 feat(issue-722): OMC_DISABLE_TOOLS env var and omc update hook merge protection
+- 86d71af0 chore: bump marketplace.json version to 4.2.14
+- 0db68f76 ci: add version consistency check for package.json, plugin.json, marketplace.json
+- ca808f5f ci: add version consistency check for package.json, plugin.json, marketplace.json
+- fe16aa5c Merge pull request #730 from Yeachan-Heo/feat/issue-722-disable-tools
+- e0f67640 docs: update slash commands from /oh-my-claudecode: to /omc: in README (fixes #731)
+- 395449b4 fix(skills): remove '!' from node -e inline scripts for MINGW64 compatibility
+- f247f8ef chore: sync plugin.json and marketplace.json to 4.2.14
+- e23c3ba5 chore: sync plugin.json and marketplace.json to 4.2.14 in dev
+- 0480432e Merge pull request #732 from Yeachan-Heo/fix/issue-729-mingw-escape
+- 8d564327 feat(ccg): implement Claude-Codex-Gemini tri-model orchestration pipeline (#735)
+- 708ea1e7 fix: correct KeywordType union syntax error (ccg type placement)
+- 25673615 fix: add missing ecomode type to KeywordType union, remove deprecated research
+- ca26b703 feat: deprecate ecomode execution mode (#737) (#738)
+- d7010946 fix: use TMUX_PANE to resolve correct session name (#736) (#740)
+- 6442222d docs: replace plugin install with marketplace update in update instructions (#743)
+- 0c479f64 fix(windows): fix HUD not showing on Windows (NODE_PATH separator + rendering) (#742)
+- c2368e97 fix: use TMUX_PANE env to resolve correct session name in notifications (#736) (#741)
+- 754d95c7 docs: add oh-my-codex cross-reference for Codex users (#744)
+- cd96e149 chore: bump version to 4.2.15 (#745)
+- 3ed9332e release: v4.2.15
+- 651c2fe9 feat(notifications): add /configure-slack skill and Slack mention support (#747)
+- 94543f02 docs: remove deprecated /omc: prefix from skill commands in all READMEs (#749)
+- 2848d3c9 fix: traverse up to find root .omc directory (#750) (#751)
+- ac4373d6 fix(ralplan): prevent sibling cascade failure in parallel ask_codex calls (#754) (#755)
+- bd5b8774 feat: add code-simplifier stop hook for auto refactoring (#753) (#756)
+- 6adb2fd5 fix: sync plugin.json and marketplace.json to v4.2.15
+- 04247931 fix(windows): use forward slashes in statusLine path for Claude Code 2.1.47+ (#758) (#759)
+- 4ac1f201 fix: CI test failures (agent registry, omc-setup, state cache) (#760)
+- 461ebcf3 fix(windows): use v==='' instead of !v in omc-setup SKILL.md for MINGW64 compat
+- 58e85243 Consolidate alias skills into canonical entries + Tier-0 contract coverage (#762)
+- 36a95cd2 feat(notifications): add verbosity levels to CCNotifier (#761) (#764)
+- 9e7e73a8 fix: reduce readStdin default timeout from 5s to 2s (#765) (#766)
+- 97612807 docs: update CLAUDE.md version to 4.2.15 (#767)
+- 28c431c2 fix(lsp): disconnect LSP servers on session end to prevent orphaned processes (#769)
+- 16482fab feat: shell-based launcher (claud) + --notify flag (#770) (#772)
+- 8618efd4 fix(installer): normalize backslashes in Windows statusLine command path
+- b7cdea12 fix(analytics): rebuildStatsFromLog이 항상 null을 반환하는 버그 수정 (#774)
+- 8e2a00e0 fix(setup): Windows 경로 역슬래시를 포워드슬래시로 변환하여 HUD statusLine 재설치 시 깨짐 방지 (#771)
+- e0d58e0c Merge pull request #775 from myhong76/fix/windows-statusline-backslash-path
+- 663c2ad7 fix(ralph): prevent infinite retry loop when rate limited (#777)
+- 110102e4 fix(ralph): document overloaded/capacity patterns + add capacity test
+- ce9a95c7 Merge pull request #778 from Yeachan-Heo/fix/issue-777-ralph-rate-limit-loop
+- 054c1760 docs(rules): add Karpathy coding guidelines template
+- 432910e3 feat(team): structured handoff convention for stage transitions
+- f8f2ffac feat(team): blocking shutdown protocol with orphan detection
+- c0977853 feat(hooks): add context safety system with threshold blocking
+- b4dcfabd feat(hooks): automated deliverable verification gates
+- e2354c87 Merge pull request #783 from 0xarkstar/docs/karpathy-guidelines
+- c99b781f Merge pull request #784 from 0xarkstar/feat/handoff-convention
+- f4f0ccfa Merge pull request #780 from 0xarkstar/feat/blocking-shutdown
+- 47fb7562 Merge pull request #782 from 0xarkstar/feat/deliverable-gates
+- c399f5da Merge pull request #779 from 0xarkstar/feat/context-safety
+- b9ae0898 fix(commands): add /omc:* shorthand prefix alias for slash commands (#785)
+- 654eae39 cleanup(mode-registry): remove deprecated ecomode from registry (#787)
+- e966f769 revert(commands): remove /omc:* shorthand prefix alias (#785) (#789)
+- 754b3260 fix(cli): remove claud binary, make omc forward all args to launch (#792)
+- b2afd08c fix(hooks): dedup plugin hooks, remove ~/.claude/hooks installer path (#793)
+- cdcf598e chore: bump version to 4.3.0
+- fe5beb1d chore: merge dev into main for v4.3.0 release
+- a62982d1 ci(release): add npm publish step to release workflow
+- 80f06e94 ci(release): add npm publish step to release workflow
+- 4365093b chore: add .env to .gitignore
+- d47b0f8a feat(hud): add OMC_HUD_RATE_LIMIT_CMD custom rate limit provider
+- 286995c6 feat(hud): implement custom rate limit provider per #794 spec
+- 7bb7ee2c Merge pull request #795 from Yeachan-Heo/feat/issue-794-hud-custom-rate-limits
+- e87d8e11 fix(hud): use forward slashes in HUD skill Windows path example (#797)
+- f838f07f feat(hooks): task-size detection and lightweight execution path (#790) (#800)
+- cf1a5412 feat: Auto-star repository on omc-setup (#801)
+- c30fb190 Revert "feat: Auto-star repository on omc-setup (#801)"
+- a6175f4a feat: check star status before prompting user
+- d7bda9a6 feat: lightweight cleanup - remove unused agents and skills (#805)
+- bccff488 fix: restore ralplan skill (incorrectly removed in #805)
+- 6df40c8c Merge pull request #803 from seunggabi/feat/github-star-with-consent
+- a527321b fix: update skills count to 36 after ralplan restore
+- 85f2a133 ci: retrigger after server reboot
+- c3ff07a0 Merge pull request #807 from Yeachan-Heo/fix/restore-ralplan
+- 9226ef8a docs: add phase 3+ consolidation roadmap
+- 402577e4 feat(consolidation): deprecate aliases and shrink agent registry
+- cfba9816 feat(consolidation): merge thin skill wrappers and notification skills
+- cfe98e0b feat(consolidation): trim agent registry 30→21, merge review scopes
+- 55bea8ed chore(rebase): restore skill dirs + deep-executor silently deleted by #805
+- 3ce40144 fix: register deep-executor in agent registry + update skills test expectations
+- 62abff6c docs: add quality-strategist and vision to deprecated aliases list
+- 29ee2bb2 Merge pull request #763 from Yeachan-Heo/feat/consolidation-phase3-roadmap
+- b93fe081 docs: remove deprecated agent refs from skills and agent prompts
+- 3d9ff96f Merge pull request #809 from Yeachan-Heo/fix/deprecated-agent-refs-in-skills-agents
+- bb0256d3 chore: bump version to 4.3.1
+- ea62fa0e Merge remote-tracking branch 'origin/dev'
+- c6c83821 docs: add user-friendly v4.3.1 changelog with migration guide
+- 2ca94b84 fix(cli): use utc timestamp in tmux session naming (#810)
+- 433d595f feat: purge stale plugin cache versions on update
+- eccef474 fix: harden cache purge path comparison and add race condition guard
+- 586950be chore: bump version to 4.3.2
+- e5f21939 Merge remote-tracking branch 'origin/dev'
+- aa9e9e97 fix: clean up deprecation inconsistencies after agent consolidation
+- e20c265c feat(mcp): update default Gemini model to gemini-3.1-pro-preview
+- f0d94fb5 Merge pull request #812 from Yeachan-Heo/fix/deprecation-inconsistencies
+- 53d26c2c chore: bump version to 4.3.3
+- 7ecd095c Merge remote-tracking branch 'origin/dev'
+- bea837bb Merge pull request #813 from realstone2/feat/update-gemini-3.1-model
+- 1f96bb4f Merge pull request #811 from HyunjunJeon/feat/purge-stale-plugin-cache
+- e4a0c1ad fix(mcp): harden ToolSearch discovery with 3-step sequence to prevent false negatives (#816)
+- 0456fef9 fix(models): update opus alias to resolve to claude-opus-4-6 (fixes #681) (#817)
+- fee1d410 feat(hooks): add startup codebase map injection hook (#804) (#818)
+- 03909dfa feat(notifications): add parseTmuxTail to clean tmux output in notifications
+- 0e1a1e8b Merge pull request #820 from Yeachan-Heo/feat/issue-819-ccnotifier-smart-summary
+- 6e5823d4 fix(ralplan): remove mandatory AskUserQuestion in consensus mode, add --interactive flag
+- 0982e12a cleanup: normalize legacy OmO agent aliases to canonical names
+- 040fafdd refactor: remove remaining sisyphus references repository-wide
+- 286b1ccc Merge pull request #823 from Yeachan-Heo/feat/cleanup-omo-names
+- 40190247 fix(ralplan): restore MUST language + add team approval option in --interactive mode
+- 728280e9 Merge pull request #822 from Yeachan-Heo/fix/issue-821-ralplan-interactive
+- 2e73c1cc fix(keyword-detector): reduce false positives in FP-prone patterns (#824)
+- e72351d2 fix(notifications): add per-session cooldown for session-idle notifications
+- dde0b2eb Merge pull request #825 from Yeachan-Heo/fix/issue-824-keyword-fp
+- ae0cec19 Merge pull request #827 from Yeachan-Heo/feat/issue-826-idle-cooldown
+- 7f24f4aa feat(interop): gate interop tooling and direct-write bridge by mode
+- 6b92cccc Merge pull request #829 from Yeachan-Heo/feat/interop-broker-wiring-dev
+- 3d3386ca fix: add compact to native CC command denylist (closes #830)
+- 5941fdcf Merge pull request #832 from Yeachan-Heo/fix/issue-830-compact-skill-error
+- a96c24c1 fix(mcp): add SUBAGENT_HEADER to prevent recursive Codex/Gemini spawning
+- 089c246e Merge pull request #833 from Yeachan-Heo/fix/issue-828-subagent-header
+- db06a0c2 fix(team): auto-cleanup workers when all tasks complete (closes #835)
+- 79dfa15a Merge pull request #836 from Yeachan-Heo/fix/issue-835-team-cleanup
+- bd0a9356 fix(mcp): pass file paths to Codex/Gemini instead of reading contents
+- 18f0a01b Merge pull request #837 from Yeachan-Heo/fix/context-files-pass-paths
+- 9c134973 fix(hooks): add OMC_SKIP_HOOKS guard to standalone hook scripts
+- 94ad511f fix(test): make auto-cleanup test hermetic by using CLAUDE_CONFIG_DIR
+- d683d91b fix(team): guard auto-cleanup against empty task list (closes #841)
+- 93f9d21c fix(team): guard auto-cleanup against empty task list (closes #841)
+- d107a4b6 fix(bridge): wire per-session idle cooldown into TypeScript hook path (closes #842)
+- 56448c34 Merge pull request #846 from Yeachan-Heo/fix/issue-843
+- 7f3936d3 fix(mcp): validate context_files paths to prevent path traversal and prompt injection (closes #840)
+- b8f79fdf Merge pull request #847 from Yeachan-Heo/fix/issue-841
+- 8c24a84c Merge pull request #848 from Yeachan-Heo/fix/issue-842
+- fc3c08d5 Merge pull request #849 from Yeachan-Heo/fix/issue-840
+- 77f89652 fix(formatter): return last N lines in parseTmuxTail instead of first N
+- 3e7fcf1b fix(outbox-reader): backtrack cursor when read window ends mid-JSON line
+- 0d3bd2f9 fix(teleport): replace execSync with execFileSync in createWorktree to prevent shell injection
+- fa5a41cb fix(agents-overlay): remove duplicate truncation note (closes #844)
+- 318c5a66 Merge pull request #856 from Yeachan-Heo/fix/issue-845
+- bfdcdca2 Merge pull request #857 from Yeachan-Heo/fix/issue-852
+- 1a6e8d92 Merge pull request #859 from Yeachan-Heo/fix/issue-851
+- e92ff43c Merge pull request #860 from Yeachan-Heo/fix/issue-844
+- c6388c6f fix(live-data): enforce allowed_patterns independently of allowed_commands
+- 90a971c2 fix(live-data): skip directives inside unterminated fenced code blocks (closes #853)
+- 6a1a5992 fix(live-data): HTML-escape command and output in live-data tag attributes (closes #854)
+- f43f3be2 fix(pre-compact): pass cwd to job DB queries in getActiveJobsSummary (closes #862)
+- cf49e184 Merge pull request #864 from Yeachan-Heo/fix/issue-855
+- ed329aa6 Merge pull request #866 from Yeachan-Heo/fix/issue-853
+- 49aa22ad Merge pull request #868 from Yeachan-Heo/fix/issue-854
+- 0a627bfa Merge pull request #873 from Yeachan-Heo/fix/issue-862
+- 39ab96b3 Merge pull request #839 from alanxurox/fix/skip-hooks-guard
+- c7e52bcd fix(hook-bridge): redirect unknown-field debug log from stdout to stderr
+- 7c73e3d0 fix(notifications): lookupByMessageId now returns most recent entry for duplicate message IDs
+- 90f78cc8 fix(plugin-patterns): use config.types in validateCommitMessage
+- b0887a6c fix(cli-launch): propagate Claude non-zero exit codes instead of swallowing them
+- 97718da8 fix(plugin-patterns): accept Windows file paths in isValidFilePath
+- 7fad7b22 fix(team): replace require() with ESM import in captureFileSnapshot
+- 76b0cab0 test(notifications): make session-registry tests hermetic via temp dir
+- ff059c30 Merge pull request #878 from Yeachan-Heo/fix/issue-876
+- b146f2b1 Merge pull request #879 from Yeachan-Heo/fix/issue-875
+- 4a0fa620 Merge pull request #880 from Yeachan-Heo/fix/issue-872
+- 8fcf2d14 Merge pull request #881 from Yeachan-Heo/fix/issue-865
+- 15b54d76 Merge pull request #882 from Yeachan-Heo/fix/issue-869
+- 3fb53dbc Merge pull request #883 from Yeachan-Heo/fix/issue-871
+- 212efb6b Merge pull request #885 from Yeachan-Heo/fix/issue-877
+- 3fdeb717 fix(plugin-patterns): runPreCommitChecks now runs tests and lint validation
+- 5994b8f6 fix(cli-launch): enable HUD pane by registering omc hud command
+- ce7c69f4 Merge pull request #884 from Yeachan-Heo/fix/issue-870
+- 6674f655 Merge pull request #886 from Yeachan-Heo/fix/issue-863
+- 9cb4c03d chore(lint): fix 180 production lint warnings to zero
+- 0214f270 fix(hooks): de-normalize camelCase back to snake_case for four hook handlers (closes #858)
+- d34a8d06 Merge pull request #874 from Yeachan-Heo/fix/issue-858
+- 93cd2dee Merge pull request #887 from Yeachan-Heo/fix/issue-867
+- baced864 fix(mcp): add --skip-git-repo-check to Codex CLI invocations (closes #888)
+- 631c6d8d Merge pull request #889 from Yeachan-Heo/fix/issue-888
+- 24aeca9d Resolve stash pop conflicts in codex/gemini MCP cores
+- c6ba547f fix(cli): enable tmux mouse mode so scroll works instead of history navigation (closes #890)
+- b83d3ae0 fix(session-end): normalize cwd to git worktree root before resolving .omc/ paths (closes #891)
+- 542b93ba Merge pull request #893 from Yeachan-Heo/fix/issue-890
+- f98ca149 fix(mcp): harden codex bridge trust bypass and disconnect retries
+- 4ca84903 Merge pull request #894 from Yeachan-Heo/fix/issue-891
+- 800890e6 fix(hooks): resolve node binary for nvm/fnm users (closes #892)
+- a0c98196 Merge pull request #896 from Yeachan-Heo/fix/issue-892
+- 8cbbb636 Merge pull request #895 from Yeachan-Heo/fix/codex-mcp-stream
+- b6ecd66a chore(release): bump version to 4.3.4
+- 9b7e1a08 Merge remote-tracking branch 'origin/dev'
+- 2eaac8db chore: rename npm package from oh-my-claudecode to oh-my-claude-sisyphus
+- baae26ae chore: rename npm package from oh-my-claudecode to oh-my-claude-sisyphus
+- 9194af7b feat(team): deprecate Codex/Gemini MCP servers, use tmux-based team workers
+- 0d75253c refactor(hooks): remove ask_codex/ask_gemini MCP delegation from keyword detectors
+- 963f6946 fix(team): deliver initial tasks via inbox file to avoid 200-char tmux truncation
+- 3ef7f5a4 feat(team): add dedicated team MCP server with omc_run_team_wait
+- e8fb24db fix(team): extend watchdog to cover claude workers + unify task delivery
+- fc3108f6 fix(team): address regression-review findings from 5-codex parallel review
+- 72478fec fix(team): cleanup dead code and restore mcp prompt-injection exports
+- 80709e6b test(skills): update skill count assertions for omc-teams addition
+- c4efb3f5 feat(team): tmux-based CLI workers replacing Codex/Gemini MCP servers
+- 930900bf fix(team): hard-kill backstop, orphan PID detection, exit-code propagation, user-scoped job dir (#901)
+- 20d7401d fix(hud): respect CLAUDE_CONFIG_DIR when locating plugin cache (#897) (#898)
+- e30de964 fix(team): surgical pane cleanup on timeout — never kill-session on shared sessions
+- ff15f5d2 fix(omc-teams): default timeout_ms to 60s with stale-team guidance
+- 2a7e98b7 fix(team): surgical pane cleanup — never kill-session on shared sessions
+- dc8d2e4c fix(release): 4.4.0 blocker fixes — package name, CHANGELOG, codex/gemini routing
+- b69ff42b fix(team): omc_run_team_wait timeout does not kill workers
+- 3a162bdd Merge pull request #903 from Yeachan-Heo/fix/wait-timeout-no-kill
+- 0d1f21df feat(team): on-demand worker spawn/kill, remove hard timeout
+- 56020d8e Merge pull request #904 from Yeachan-Heo/feat/on-demand-worker-lifecycle
+- c2fd3950 fix(hooks): avoid sh+find-node.sh on Windows to prevent false hook error labels (closes #899) (#902)
+- 32146f67 fix(docs/skills): sync ccg skill and docs with omc-teams tmux integration
+- 4ee3fcf6 Merge pull request #905 from Yeachan-Heo/fix/ccg-skill-omc-teams-sync
+- e5b31a9f docs(changelog): elaborate 4.4.0 release notes
+- a57fc858 chore(release): merge dev into main for v4.4.0
+- eed60010 docs(readme): update Team section for 4.4.0 tmux CLI workers
+- d022876a docs(i18n): update all language READMEs for v4.4.0 tmux CLI workers
+- 3bce6c6c Merge branch 'dev'
+- 8ce697c3 fix(hud): restore unconditional main() call so import() wrapper works (#906)
+- edc5789e chore(release): merge dev into main for v4.4.1
+- 5e759dee fix(release): correct npm package name back to oh-my-claude-sisyphus
+- 314de18b chore(release): merge dev into main for v4.4.1
+- bd5d24f4 feat(team): harden tmux injection and add runtime/status telemetry
+- b799a65c test(mcp): replace Function callbacks in team-cleanup mocks
+- 07fcf9b5 Merge pull request #907 from Yeachan-Heo/feat/adaptive-polling
+- 1c11ade5 fix(hud): fix --watch mode repeated setup error via stdin cache (#911)
+- c94481ee fix(hooks): replace sh+find-node.sh with cross-platform node+run.cjs chain (#912)
+- 9cee43bb fix(keyword-detector): prevent ralph-init from triggering ralph loop (#914)
+- 15781b2d fix(codex): normalize background inline prompts to prompt_file at callsite (#919) (#920)
+- 36b1522f fix: prevent cancel re-arm race in ralph/ultrawork (#921)
+- 837ebc65 Merge pull request #922 from Yeachan-Heo/fix/issue-921-ralph-cancel-race
+- fd537536 feat(cli): add win32 platform warning on startup (#923)
+- 95692ebe Merge pull request #924 from Yeachan-Heo/feat/win32-startup-warning
+- e69b074d chore(release): bump version to 4.4.2
+- 4dd87804 Merge remote-tracking branch 'origin/dev'
+- f13fca8e fix(team): avoid implicit worker-timeout cleanup guidance
+- 5899398a Merge pull request #926 from Yeachan-Heo/feat/no-timeout-for-3rdparty
+- df89f5c1 fix(persistent-mode): suppress team continuation during explicit cancel
+- 4a226f50 fix(team): handle outbox rotation edge case for maxLines <= 1
+- bf77e6e7 fix(installer): quote node/script paths in generated command strings
+- 35a075ba fix(mode-registry): preserve foreign session marker files in clearModeState
+- bc94745e fix(persistent-mode): enforce non-negative bounds for sessionIdleSeconds
+- f4d46146 security(team-server): enforce job_id validation in status/wait handlers
+- ff08e76c test(cli): replace simulated win32 test with real bootstrap-path assertion
+- 8c63e359 fix(windows): replace WMIC-only process queries with fallback strategy
+- 02601be1 fix(persistent-mode): scope idle notification cooldown by session
+- 2ad17b64 fix(team): make tmux worker bootstrap platform-aware
+- a1edcae4 fix(test): use relative path for team-server source in validation test
+- 95dda947 test(team): update edge-case test for fixed outbox rotation behavior
+- 0bb15d16 team: use codex bypass-approvals flag for teammate spawns
+- dcef4653 fix(test): correct relative path for team-server source in CI
+- 36e7aa43 fix(team): unify task storage paths with canonical getTaskStoragePath
+- 2926acde fix(team): listTaskIds falls back to legacy path, getTeamStatus passes cwd
+- afa94055 Merge pull request #945 from Yeachan-Heo/fix/issue-927
+- 981aa451 Merge pull request #944 from Yeachan-Heo/fix/issue-931
+- b74c9d0c Merge pull request #943 from Yeachan-Heo/fix/issue-938
+- fe7e209c Merge pull request #951 from Yeachan-Heo/fix/issue-936
+- 418519d8 fix(pre-compact): pass cwd explicitly to job-state DB queries (#948)
+- c3e7c697 fix(hooks): inject continuation guidance in PostToolUseFailure hook (#964)
+- e7b315b9 Merge pull request #950 from Yeachan-Heo/fix/issue-929
+- 348207c3 Merge pull request #949 from Yeachan-Heo/fix/issue-935
+- 594df15b chore(code-quality): remove unused imports and dead code (#947)
+- 76e426d7 Merge pull request #942 from Yeachan-Heo/fix/issue-928
+- 13332041 fix(hooks): treat non-zero exit codes with valid stdout as warning, not error (#960) (#961)
+- ebde60c0 fix(launch): stop spawning redundant OMC tmux HUD pane (#952)
+- 093bd016 Merge pull request #957 from Yeachan-Heo/feat/dangerously-skip-permissions-codex
+- e5a3a87b Merge pull request #956 from Yeachan-Heo/fix/issue-933
+- 39f954c4 Merge pull request #954 from Yeachan-Heo/fix/issue-932
+- ad6d2cdd Merge pull request #958 from Yeachan-Heo/fix/issue-937
+- b7955e10 Merge pull request #953 from Yeachan-Heo/fix/issue-934
+- ed7363a0 docs(cli): align Windows support policy messaging
+- dbc7b245 Merge pull request #946 from Yeachan-Heo/fix/issue-939
+- af4c0774 security(team): sanitize/validate teamName before filesystem and shell usage
+- 6b02fb55 test(team): align codex argv expectation
+- 6380b8dc test(cli): match win32 warning copy
+- 39416608 Merge pull request #955 from Yeachan-Heo/fix/issue-930
+- e27bc11c chore(release): bump to 4.4.3
+- 4804a1b7 Merge remote-tracking branch 'origin/dev'
+- 20ba7007 fix(team): anchor pane creation to invoking TMUX_PANE
+- aa5c4fac fix(team): remove --full-auto from codex worker args
+- 8d3249aa Merge pull request #976 from Yeachan-Heo/fix/codex-full-auto-conflict
+- a42a02f2 chore(release): bump to 4.4.4
+- 4331a9e7 Merge dev into main for v4.4.4 release
+- ea786616 fix(docs): remove unnecessary whitespace
+- 9163fd1d fix(cli): quote teleport #refs in help output (#968)
+- affd960f fix(hooks): symlink old plugin cache versions instead of deleting them
+- 0cfc1d15 fix: gate pre-tool boulder reminder by active mode
+- 3085e3f7 fix(hooks): address code review feedback for PR #980
+- 290f9fae fix(cli): fix mouse wheel scroll in tmux wrapper (#890)
+- c930197a feat(team): remove timeoutSeconds and require explicit cleanup
+- ebfb6c71 fix(hooks): reduce readStdin timeout to prevent Stop hook race condition (closes #982)
+- bcf6dfdb feat(hud): add prompt submission time element
+- 26a08ee0 feat(setup): install omc CLI tool during /omc-setup (closes #971)
+- 7cf1981c fix(cli): drain terminal DA response before Claude starts in tmux (closes #977)
+- 1f4f812f fix(cli): handle dirty marketplace clone during omc update (closes #978)
+- 0d338f69 Merge pull request #981 from edoko/patch-1
+- 016adb1c Merge pull request #990 from Yeachan-Heo/fix/977-da-response-leak
+- 6fcc75a7 Merge pull request #988 from Yeachan-Heo/fix/982-stop-hook-race
+- b0988700 Merge pull request #983 from Yeachan-Heo/fix/issue-970
+- 32dab460 Merge pull request #975 from Yeachan-Heo/fix/debug-tmux-race-dev-pr
+- 90b2eb8f Merge pull request #985 from Yeachan-Heo/fix/890-mouse-scroll
+- 0d23b9c6 Merge pull request #979 from Yeachan-Heo/fix/issue-968
+- 2d83a53f fix(hooks): use junction type for Windows symlink compatibility
+- 3c5b9805 fix(setup): add user opt-in prompt before CLI global install
+- 8d11aa7e fix(team): address review feedback on timeoutSeconds deprecation
+- 7fa8d761 Merge pull request #991 from Yeachan-Heo/fix/971-omc-setup-cli
+- 487eaf6e Merge pull request #986 from Yeachan-Heo/feat/deprecate-timeoutSeconds-and-only-support-explicit-worker-kill
+- cb310f77 Merge pull request #989 from Yeachan-Heo/fix/978-update-dirty-clone
+- 1f2c1166 docs(ralplan): clarify ITERATE/REJECT re-review loop semantics (#992)
+- 59e42365 Merge pull request #987 from insuwhatap/feat/hud-prompt-time
+- 7f96458e Merge pull request #980 from ChoKhoOu/fix/plugin-cache-symlink-stale-sessions
+- 184f2249 Merge pull request #995 from Yeachan-Heo/fix/issue-992
+- 9e656e7b REFERENCE.md - local projects should be configured with --local
+- 01f30fac Merge pull request #1001 from osher/patch-1
+- f29bd306 feat(ralplan): enforce pre-execution gate for underspecified requests (#997) (#998)
+- 79aa3d43 fix(docs): add codex/gemini as trigger keywords for omc-teams skill (#1002)
+- 8011af06 chore: remove analytics, tokscale, and agents.codex (#1004)
+- fe425904 fix(hooks): tighten detectWriteFailure patterns to avoid false positives (#1008)
+- 385a5316 fix(hud): statusLine compatibility with modern Claude Code and Node 24+ (#1009)
+- 7e275894 fix(runtime-cli): use prompt mode for Gemini workers to bypass Ink TUI (#1010)
+- 2fb310d3 fix(hooks): robust path resolution and graceful fallback for stale CLAUDE_PLUGIN_ROOT (#1011)
+- cc61a50f fix(team): route team prompts correctly and guard context safety (#1006) (#1012)
+- b659bc66 chore(release): bump version to 4.4.5
+- 30f2c55c fix(ci): skip npm publish when version already exists
+- 603d8ae0 feat(ralplan): add RALPLAN-DR structured deliberation
+- 0d605c2c feat(state): add configurable state directory path via OMC_STATE_DIR (#1015)
+- 719607d3 fix(notifications): denoise session idle notification output (#1016)
+- 4bc14e12 feat(i18n): inject prompt translation dynamically via keyword-detector hook (#1017)
+- 7c8e2022 fix(launch): remove terminal-overrides smcup@/rmcup@ causing Ink rendering corruption (#1020)
+- ec85e5c1 fix(team): Windows MSYS2/Git Bash tmux worker compatibility (#1019) (#1021)
+- 3e3dfb2c fix(config): avoid hardcoding model IDs for team/sub-agent creation (#1025) (#1027)
+- c6d84c05 fix(lsp): use Buffer for Content-Length byte counting in handleData (#1026) (#1028)
+- 9bc4f740 fix(team): add prompt-mode support for codex CLI workers in omc-teams (#1030)
+- 999eebe4 fix(hooks): add team-state.json checking to persistent-mode Stop hooks (#1032)
+- a35dc2e1 feat(notifications): add hook config, template engine, and platform gating (#1022)
+- e745e208 feat(openclaw): add OpenClaw webhook gateway integration (#1023)
+- bdefdb49 feat(cli): add --telegram, --discord, --slack, --webhook platform flags (#1024)
+- f315a842 fix(hooks): add skill-active-state lifecycle to prevent premature stops (#1033) (#1036)
+- a4d0f9b1 fix(team): add exec subcommand and flags to codex buildLaunchArgs (#1038) (#1039)
+- 449b5bf5 Revert "fix(team): add exec subcommand and flags to codex buildLaunchArgs (#1038) (#1039)" (#1040)
+- b4402093 fix(launch): remove terminal-overrides smcup@/rmcup@ re-introduced by #1024 (#1044)
+- a94ffadf fix(notifications): add null guard to resolveEventTemplate (#1045)
+- 48fd38d4 fix(cli): use undefined default for platform flags to preserve env vars (#1046)
+- f590f181 feat(team): auto-nudge idle teammate panes during team_wait (#1047) (#1048)
+- d12c7d39 fix(setup): replace BSD-incompatible sed with portable awk in omc-setup (#1051)
+- 5dfb88b8 fix(notifications): add cumulative deadline to lock acquisition loop (#1068)
+- aa105dfc fix(recovery): return failure from non-functional recovery stub (#1054) (#1069)
+- a3e2da04 fix(agents): fix vision enforcer, decomposer thresholds, routing gaps (#1070)
+- 52e621c7 fix(team): skip CLI worker ACK poll, add task claiming lock (#1071)
+- d9b7d037 chore(cleanup): remove dead code — compatibility subsystem, orphan agents, unused files (#1074)
+- b1bcff5c fix(security): replace shell interpolation with array-form spawn (#1076)
+- 415a5d98 fix(config): unify config types, add Zod validation, fill MODES gaps (#1072)
+- 064f43e3 fix(project-memory): atomic writes, async mutex, session cache cleanup (#1073)
+- 826c8270 fix(team): reconstruct workers on resume, handle malformed inbox, parallel watchdog (#1078)
+- e50be0ef fix(hooks): deduplicate Ralph loop, cache cancel signal, extract mode constants (#1079)
+- e9045fbf fix(skills): deduplicate frontmatter parser, prevent CC command shadowing (#1081)
+- 6d34b341 fix(tools): add isError to LSP errors, fix bridge exit, AST replaceAll (#1075)
+- 01a6ac7d fix(error-handling): gc session state, reject LSP pending on exit, escalate watchdog (#1082)
+- 304b9b83 perf(hooks): add state read cache, notification-driven diagnostics, parallel watchdog (#1083)
+- 8aca7b05 chore(release): bump version to 4.5.0, add changelog and frontmatter tests
+- a9d7a1c8 chore(build): rebuild dist for v4.5.0 release
+- ae5e34e1 release: oh-my-claudecode v4.5.0
+- d3e2f797 feat(openclaw): add CLI command gateway type with tmux tail context (#1087)
+- 341bf18b chore(release): bump version to 4.5.1, add changelog and dist rebuild
+- d7c5de5c Merge remote-tracking branch 'origin/dev'
+- b03966ef feat(cli): include worktree path in tmux session name (#1088) (#1089)
+- 3f5bbdb4 fix(team): auto-create detached tmux session when not inside tmux (#1095)
+- 39d2a3b6 docs(i18n): fix npm package name in translated READMEs (#1096)
+- 3ffe0409 fix(cli): forward OMC_* env vars to tmux sessions (#1093)
+- 18b4068e fix(hooks): resolve worktree-mismatched transcript paths (#1098)
+- de4efbbd fix(notifications): fix 3 reply listener bugs preventing Telegram reply injection (#1099)
+- ae6af7d1 feat(hud): add maxWidth config option for statusline truncation (#1102)
+- 0c45dc6a fix(omc-doctor): resolve false-positive checks for CLAUDE.md and legacy skills (#1101) (#1104)
+- 96cdbce8 fix(team): resolve 4 Gemini CLI worker bugs (#1105)
+- 06af5a13 feat(lsp): make request timeout configurable via OMC_LSP_TIMEOUT_MS env var (#1106)
+- ba6bd036 fix(bridge): add TCP localhost fallback for Windows (AF_UNIX unavailable) (#1112)
+- 15b1148b fix(skills): prefix plan, review, security-review skill names with omc- (#1111)
+- 6d2837ab fix(plugin-setup): install runtime deps in plugin cache, remove prepare trap (#1113) (#1114)
+- ae90c082 feat(openclaw): pass originating channel context to webhook hooks (#1110) (#1115)
+- 8234e6d8 docs: add links to CLI reference, notifications, workflows in README
+- be3510c0 fix(openclaw): stop and session-end hooks fire reliably in claude -p mode (#1120) (#1122)
+- 24c2f580 feat(interop): add OMC-OMX cross-platform worker adapter (issue #1117) (#1123)
+- f55170cf fix(hud): resolve worktree root to prevent .omc/ in subdirectories (#1118) (#1121)
+- 3d11aec6 fix(state): use getOmcRoot() in HUD and hooks to respect OMC_STATE_DIR (#1127)
+- 110f37ef fix: support CLAUDE_CONFIG_DIR in HUD Keychain credential lookup (#1125)
+- a7b4aeba fix(team): resolve user's shell PATH for CLI detection and runtime spawn (#1128)
+- 3548b7a9 feat(autopilot): add configurable pipeline orchestrator (Phase 1 & 2) (#1132)
+- 9840665f chore(modes): deprecate ultrapilot, swarm, and pipeline execution modes (#1131) (#1134)
+- 03cc6619 feat(routing): add forceInherit option to bypass model routing (#1135) (#1136)
+- 9179ce26 feat(notifications): add Slack Bot Socket Mode for bidirectional replay injection (#1138)
+- cbd09f47 feat(shared-memory): add cross-session memory sync for multi-agent handoffs (#1137)
+- 671a5ba4 feat(notifications): add Slack Bot Socket Mode for bidirectional replay injection (#1139)
+- d2cb6a7f test: add smoke and unit tests for main→dev changelog features (#1140)
+- dbe0b19f refactor(docs): diet CLAUDE.md from 288 to 162 lines (-44%)
+- e06ae994 Merge pull request #1142 from Yeachan-Heo/worktree-feat/CLAUDEmd-diet
+- cbab7e94 fix(team): add shell-readiness wait for promptMode agent panes (#1144) (#1145)
+- 322d2135 feat(hud): add API key source indicator (#1146) (#1147)
+- 8a76aaeb fix(team): inline task content for prompt-mode workers to bypass gitignore (#1148) (#1150)
+- ec8cdef8 fix(team): include .ready/done.json sentinel in inline worker task (#1151) (#1152)
+- 00edf6b8 fix(state): consolidate mode state I/O and fix cancel cleanup (#1143)
+- 354bb010 fix(team): harden worker spawn env + interop bootstrap fail-open (#1141)
+- 341a9e15 fix(shell): load default shell rc in OMC tmux shell sessions (#1153) (#1154)
+- 140ea786 test: add edge/smoke test suites for main→dev feature coverage (#1157)
+- a8af6cf0 feat(guards): portable factcheck guard + sentinel health analyzer (#1155) (#1156)
+- 17293a06 fix(notifications): add input sanitization for Slack webhook data (#1175)
+- b15ff846 fix(notifications): redact Slack/Telegram bot tokens in log and error paths (#1176)
+- 72c3b9aa fix(shared-memory): add cross-process file locking to prevent concurrent write data loss (#1178)
+- 78e376af fix(shared-memory): use atomic write-to-temp + rename to prevent corruption on crash (#1174)
+- fdfcf519 fix(state-manager): prevent TOCTOU cache poisoning and add locking to update() (#1179)
+- bec5462b fix(shared-memory): add payload size validation on memory writes (#1181)
+- 9262ec2a fix(team): add visible warning log when interop bootstrap fails open (#1164) (#1182)
+- b0037405 fix(team): add path validation to prevent traversal in worker inbox/outbox (#1185)
+- a6d9183f fix(team): add shell rc sandboxing and binary validation (#1166) (#1189)
+- 57837bf2 fix(team): close readiness race between pane check and task delivery (#1183)
+- b98ed8dc fix(notifications): validate Slack WebSocket messages before session injection (#1188)
+- 85db6f85 fix(team): PATH manipulation could influence CLI binary resolution (#1173) (#1190)
+- b3439a0c fix(team): add configurable timeout to shell-readiness wait (#1171) (#1192)
+- 16356466 fix(shared-memory): use deep merge instead of full overwrite for cross-session sync (#1193)
+- 0602b717 fix(notifications): close WebSocket cleanup gaps on disconnect (#1172) (#1194)
+- 05e3c357 fix(hooks): resolve transcript path in native git worktrees (#1191) (#1195)
+- ceea004b fix(team): debounce tmux layout operations during rapid worker spawn/kill cycles (#1158) (#1196)
+- 06c0005f fix(tests): fix CI test failures in slack-socket and project-memory-merge tests (#1197)
+- 80385933 fix(tests): fix runtime-interop and runtime-prompt-mode CI test failures (#1198)
+- 0ca4419f fix(cli): source shell rc files in tmux launch sessions
+- b9ab35bf Merge pull request #1200 from Yeachan-Heo/fix/tmux-shell-rc-loading
+- 3ad9200e fix(tests): align memory-tools payload tests with actual source behavior (#1199)
+- 6a9b93da fix(config): auto-detect non-Claude providers and enable forceInherit (#1201) (#1202)
+- 262beb5d chore(release): bump version to 4.5.2
+- f850dd70 fix(lint): resolve all 140 eslint warnings and errors across codebase
+- 0a99ffac fix(state): isolate omc-teams state from native team to prevent leader pane kill
+- e73e0cc5 chore(release): bump version to 4.5.3
+- c44b1c4b chore(release): bump plugin.json version to 4.5.3
+- 204f6ca7 fix(release): include built artifacts missing from 4.5.3 release
+- 2b6eea02 fix(team): prevent leader pane crash when omc-teams workers are active
+- b7fc13f1 Merge pull request #1205 from Yeachan-Heo/fix/omc-teams-leader-pane-crash
+- 40fcbc40 revert(team): rollback team runtime surface to v4.5.1 and bump to 4.5.4
+- fc451989 Merge pull request #1206 from Yeachan-Heo/dev
+- f9b8dd2e fix(cli): source shell RC files when launching tmux sessions (#1207)
+- 29f5f486 chore(release): bump marketplace.json and docs version to 4.5.5
+- 30de9818 chore(release): include built artifacts for 4.5.5
+- 2aaace92 Merge pull request #1208 from Yeachan-Heo/dev
+- a595a178 fix(tests): fix skills and consolidation-contracts CI test failures (#1212)
+- b1a79044 fix(routing): add modelAliases config to override agent definition defaults (#1211) (#1213)
+- 73978490 feat(skills): add deep-interview skill with Ouroboros-inspired Socratic questioning
+- 00fa44b5 fix(tests): update skills test counts for deep-interview addition
+- 740d6358 Merge pull request #1215 from Yeachan-Heo/worktree-research/omc-ouroboros-integration
+- 9037985b fix(hooks): return continue: false when stop hook should block (#1216)
+- 39cc2844 feat(ralph): make PRD mode mandatory with auto-scaffold (#1219)
+- b4e836fc refactor(cleanup): remove dead agents/skills, sync PluginConfig, rename plan to omc-plan
+- fe850797 merge: resolve conflict in skills/ralph/SKILL.md — keep both Bad examples
+- 1c67f963 Merge pull request #1220 from Yeachan-Heo/cleanup/agents-skills-deprecation
+- 06b4c2d6 feat(team): wire factcheck sentinel readiness gate into team pipeline (#1210)
+- 2bbf38c0 fix(team): add transient-failure retry for dead worker panes (#1209)
+- 05f720c4 docs: update execution mode options to recommend Team first (#1221) (#1222)
+- bb6b59a6 fix(team): make failure retry accounting atomic
+- 9d642e72 fix(team): restore tmux fallback and export compatibility
+- a733e832 fix(team): harden cli binary validation and launch safety
+- b8c607c3 fix(team): import normalize for binary path compatibility checks
+- 86675e41 Merge pull request #1228 from Yeachan-Heo/fix/release-readiness-team-runtime
+- e3e14e9f fix(team-runtime): restore done.json parse recovery in watchdog path (#1234)
+- 47430b7c fix(deep-interview): align state mode with state tools enum (#1233) (#1235)
+- 1ca28056 fix(team-runtime): allow absolute launchBinary paths with spaces (#1236)
+- 7a5d7857 fix(python-repl): resolve orphan process leak caused by inline require in killProcessGroup
+- f639398a fix(team-mcp): prevent wait hang via artifact convergence (#1241)
+- a932f111 fix(team-security): tighten CLI path trust and RC-loading behavior (#1230)
+- c26bb9b7 fix(team-security): restore validated binary path plumbing after dev sync
+- 193d5e27 fix(team-runtime): restore readiness-based startup for non-prompt workers
+- e44cfb2f fix(team-runtime): skip done.json retry backoff on ENOENT (#1229)
+- 265a5f45 fix(team-runtime): preserve team context on pane-ready rollback
+- 75b92bdd Merge pull request #1243 from Yeachan-Heo/fix/issue-1229-clean
+- bf4adcd4 test(team): harden dead-pane retry watchdog flake
+- c5c1af9b test: harden watchdog retry wait helper for slow CI
+- 22af78e2 test(team): harden runtime watchdog retry flake cleanup
+- 46ca59c0 test(team): make runtime watchdog retry wait deterministic
+- 2f439b01 fix(team-runtime): retry pending-task read on transient gaps
+- 9c82095e test(team): force watchdog tick scheduling in retry flake suite
+- 4bcbf274 test(team): isolate runtime-watchdog mocks per test
+- 82fa3b48 Stabilize watchdog retry stress test determinism
+- d264130e Merge pull request #1237 from Yeachan-Heo/fix/issue-1230-team-security
+- 88b4db23 Merge pull request #1239 from JuJinHyeong/feature/fix-pythonRepl-windows
+- 21be6340 release(v4.6.0): bump metadata and fix omc-teams runtime startup
+- 935574c5 feat(hud): display active profile name when CLAUDE_CONFIG_DIR is set
+- 58d2a6e7 release(v4.6.0): Team Runtime Hardening, Security Fixes & PRD-Driven Ralph
+- 65bc774e Merge pull request #1247 from Yeachan-Heo/dev
+- 1134f26e fix(test): stub TMUX env in create-team test for tmux-in-tmux environments
+- 4f66b2ce Merge pull request #1248 from Yeachan-Heo/dev
+- e8b6e88c docs: fix Ouroboros project link in CHANGELOG and deep-interview skill
+- a06af871 Merge pull request #1249 from Yeachan-Heo/dev
+- e67668de docs: fix Superpowers repo link
+- 1fa5e357 Merge pull request #1250 from Yeachan-Heo/dev
+- 6b71edcb docs: add deep-interview workflow guidance
+- 43795e7d Merge pull request #1251 from Yeachan-Heo/dev
+- cf96711e docs: deprecate ultrapilot and swarm modes
+- 6baad43c Merge pull request #1252 from Yeachan-Heo/dev
+- c095e3dd feat(hud): show explicit error indicator when API rate limit fetch fails
+- a27e4b7c Merge pull request #1255 from kwag93/feat/hud-api-error-indicator
+- 88ee21c7 Merge pull request #1246 from 0BVer/feat/hud-profile-display
+- 7a8ae836 feat(hud): add API error indicator for rate limit fetch failures (issue #1253)
+- 882bbce6 fix(merge): resolve conflicts for API error indicator feature
+- 066da053 Merge pull request #1259 from Yeachan-Heo/feat/issue-1253
+- b39ac762 docs: add Korean translations for MIGRATION and REFERENCE (Mission #9 50%)
+- c6721000 docs: sync all translated READMEs with English version
+- 23bd7e07 Merge pull request #1260 from anduinnn/fix/sync-translated-readmes
+- 0c437254 Merge pull request #1262 from junhoyeo/main
+- b7a00caa docs(ko): add Korean translation for ARCHITECTURE.md (Mission #9 progress)
+- 0b8f3c7e docs(ko): add Korean translation for FEATURES.md (Mission #9 progress)
+- 8390f936 Merge pull request #1264 from junhoyeo/main
+- b173c814 feat(agents): add harsh-critic adversarial review agent
+- 08659712 refactor(agents): replace adversarial framing with evidence-based techniques
+- 473b024f feat(benchmark): add harsh-critic benchmark pack with 8 fixtures and scoring
+- efa1dbce chore: remove compiled artifacts from benchmarks and gitignore them
+- fd3ea671 test(benchmark): add vitest scoring tests and update agent count to 22
+- 2e4210bf chore: rebuild dist artifacts for harsh-critic agent
+- 7b3a0fa1 fix(security): default-deny security in live-data.ts
+- 3d6f56f7 fix(benchmark): add retry with exponential backoff for API overload errors
+- 9f52cd1a feat(agents): make harsh-critic opt-in via features.harshCritic config flag
+- 06a8c4c0 chore: rebuild dist artifacts and add @anthropic-ai/sdk devDependency
+- 84f1519a Merge PR #1289 to dev
+- 0a4a8c07 Merge PR #1288 to dev
+- 209953dd Merge PR #1286 to dev
+- 3f1df5bf Merge PR #1284 to dev
+- 32a0a55e Merge PR #1282 to dev
+- 469f914a fix(benchmark): harden parser and calibrate keyword matching
+- eb005bd4 Merge pull request #1281 from junhoyeo/fix/security-live-data-1266
+- ef8c74a0 Merge pull request #1265 from AlexU-A/feat/harsh-critic-benchmark
+- 0b2e0542 fix(security): shell and config injection fixes
+- 9675babb fix: validate model name and provider in spawnCliProcess to prevent shell injection
+- bfd726cb fix: add max-size caps to unbounded Maps and caches to prevent memory leaks
+- 63b8e53a Merge pull request #1283 from junhoyeo/fix/shell-injection-1268-1271
+- 90070f7f Merge pull request #1285 from junhoyeo/fix/shell-true-1270
+- d46cda8f Merge pull request #1287 from junhoyeo/fix/memory-leaks-1274
+- 9d713bc4 fix(cli): bundle CLI entry point to eliminate node_modules dependency
+- 9c29a655 style: fix lint warnings
+- 6027d97f style: fix lint errors for CI
+- 8165b35a ci: trigger rebuild
+- a64304e0 ci: trigger workflow run
+- 8dc90980 ci: remove trigger file
+- b0a27330 fix(team): pass CLI worker model through in omc-teams
+- 730789cf style: fix lint warnings
+- 047d5638 feat(hud): add configurable git info position (above/below)
+- ba71c4e6 style: fix lint warnings
+- 8bbcd9a2 chore: trigger ci
+- 2fcdad79 fix: use Array.from instead of spread operator for Set iteration
+- 949f66a2 chore: trigger ci after type fix
+- 6544ad9a fix(lint): fix pre-existing lint errors on dev branch
+- cfef6ac6 fix: sync with dev branch API changes (rateLimits -> rateLimitsResult)
+- 26ac83c5 chore: trigger ci
+- 6d9771e5 fix(tests): fix live-data tests and increase test timeout
+- 2cd7962e fix: add timeouts to git execSync calls to prevent test hangs
+- 1deb7ae1 fix: resolve merge conflicts with dev branch
+- aebd4883 fix(tests): fix mcp-team-bridge test expectation
+- d316e52c fix(tests): fix mcp-team-bridge spawn-args test expectations
+- b7231539 style: fix empty catch block lint error
+- 24085fea chore: add .eslintignore to exclude problematic test file
+- 1ae9acae chore: remove problematic benchmark test file
+- 4168d0e0 Merge pull request #1294 from Yeachan-Heo/fix/issue-1291-model-passthrough
+- 7a09c385 fix(error-handling): add logging to silent catch blocks (#1303)
+- 3f87aad5 fix(security): add SSRF protection for ANTHROPIC_BASE_URL (#1304)
+- 70c3b95b fix(hud): use async file I/O to prevent event loop blocking (#1305)
+- 08ef8869 Revert "fix(error-handling): add logging to silent catch blocks (#1303)"
+- d017fce3 Merge remote-tracking branch 'origin/fix/issue-1290-cli-bundle' into dev
+- f86c90c3 Merge remote-tracking branch 'origin/worktree-/home/bellman/Workspace/omc-worktrees/issue-1261' into dev
+- 3b596c6a fix(persistent-mode): check cancel signal before blocking stop hook (#1306)
+- 6d3ba66c chore: cleanup unused fiels
+- 9a58ebde Merge branch 'dev' for v4.6.1 release
+- b10e298c chore(release): bump version to 4.6.1
+- 9acc860c fix(config): auto-detect Bedrock and Vertex AI for forceInherit (#1292)
+- 7aaacdf3 chore(release): bump version to 4.6.1
+- e2592a90 Hotfix: Fix duplicate shebang in CLI build (v4.6.2) (#1309)
+- 512125f3 Merge branch 'origin/dev' into dev
+- 41ccf7d6 Merge origin/main into dev
+- 1f93bf53 Merge pull request #1312 from Yeachan-Heo/dev
+- 257baa56 Hotfix: Fix CLI import.meta.url error in CJS bundle (v4.6.3)
+- c643ae8e Hotfix: Fix CLI import.meta.url error in CJS bundle (v4.6.3)
+- e687f8fa Hotfix: Fix getPackageDir CJS bundle path resolution (v4.6.4) (#1314)
+- d3e8e2ee Merge dev into main for v4.6.4 release
+- 588132d2 Hotfix: Remove jsonc-parser dependency, use internal parser (v4.6.5) (#1316)
+- afcf8cec Merge remote-tracking branch 'origin/dev'
+- 9a5415f0 Hotfix: Fix agent discovery path resolution and bump to v4.6.6 (#1317)
+- 4102381e Merge remote-tracking branch 'origin/dev'
+- e5247068 ci: add npm pack + install test to prevent publish failures
+- 938e4882 Merge pull request #1318 from Yeachan-Heo/ci/npm-pack-test
+- 5830417f fix: resolve bundled path regressions for #1322 #1323 #1324
+- 90cb9e2d Merge pull request #1325 from Yeachan-Heo/fix/1322-1323-1324
+- d017f593 chore(release): bump version to 4.6.7
+- 2a3937ab test: expand regression coverage for daemon/team/hooks/installer/notifications
+- c4dd6d0f Merge pull request #1327 from Yeachan-Heo/test/regression-suite-hardening-20260304
+- 517d5997 Fix HUD build guidance and detection for plugin cache (#1328) (#1332)
+- ce697f50 feat(hud): add wrap mode for maxWidth output (#1331)
+- 98cde405 fix: use $argv when spawning workers under fish shell (#1329)
+- ce11ab73 fix(hud): resolve documentation and error handling slop (#1307)
+- b472e577 fix(benchmark): harden harsh-critic parser for markdown variants (#1301)
+- ca3c8635 feat(benchmark): calibrate keyword matcher with deterministic thresholds (#1300)
+- d45a323b feat(agents): upgrade harsh-critic to v2 with plan-specific protocol and adaptive harshness (#1335)
+- d4024de3 docs: remove deprecated analytics CLI commands (#1336) (#1341)
+- 474e99c9 feat(notifications): add custom integration system with webhook and CLI support
+- d84803e8 test(qa): add integration tests for custom webhook and CLI dispatch
+- 36a2b05a test: remove placeholder example test suite
+- f3543145 test: add runtime and integration edge-case coverage
+- 45424ae9 fix(cli): handle bare --notify without consuming next arg
+- 1e3db610 test: fix stop-hook OpenClaw cooldown assertion (#1344)
+- 822e54f2 fix(session-end): restore awaited OpenClaw wake on session end
+- a507db0d Revert "fix(session-end): restore awaited OpenClaw wake on session end"
+- d114792f Merge pull request #1345 from Yeachan-Heo/test/cleanup-unused-tests-and-add-more-tests
+- e9f6da4d feat(cli): integrate omx ask/team into omc; deprecate team MCP runtime
+- 4acb2ac3 Merge pull request #1346 from Yeachan-Heo/feat/integrate-omx-ask-team
+- f3e14b73 feat(team): event-driven team redesign matching OMX architecture
+- 712d7b4d feat(team): v2 runtime uses direct tmux spawn with CLI API inbox, no done.json or watchdog
+- dd5768f4 Merge branch 'worktree-feat/match-omc-team-behavior-exactly-like-omx' into dev
+- 7df6de6a fix: stop infinite 401/403 OAuth loops in Team persistent mode (#1308) (#1330)
+- c82d2254 fix(cli): remove duplicate 'team' command registration
+- 6b782663 test(cli): add CLI boot regression tests for duplicate command registration
+- 269d875c feat(ask): add ask-codex and ask-gemini skills (#1350)
+- 47120f42 fix(skills): use CLAUDE_PLUGIN_ROOT for ask skill wrapper paths (#1351)
+- cc546915 docs(skills): align team/ask docs and route ccg via ask skills
+- f83877da Merge pull request #1353 from Yeachan-Heo/docs/ccg-ask-routing
+- 66b3799b chore: bump version to 4.7.0 and add release notes
+- b3636b1b Release v4.7.0: Event-Driven Team Runtime & Multi-Model Flexibility (#1354)
+- 916c63f5 fix(hooks): prevent infinite team spawning by disabling team keyword auto-detection
+- c7b859e6 fix(tests): update tier0 contract test for explicit-only team mode
+- 502b8f6b Merge pull request #1355 from Yeachan-Heo/fix/team-keyword-infinite-spawn
+- eab19423 fix(team): use --approval-mode yolo -i for gemini worker launch (#1356)
+- ebd19885 chore: rebuild dist with team --json flag and gemini worker fixes
+- a12aa253 chore: bump version to 4.7.1 and add release notes
+- f592222e chore: merge main into dev, resolve conflicts for v4.7.1 release
+- 8573e3f8 Merge pull request #1358 from Yeachan-Heo/dev
+- cb171ab6 docs(ko): align Team CLI docs with omc team canonical route
+- 3f48836d Merge pull request #1361 from HaD0Yun/fix/readme-ko-omc-team-1359
+- 2ee004c6 fix(team): remove -i flag from gemini worker launch args
+- 7b26bdcc feat: add Realist Check phase and 'Mitigated by' requirement
+- 51b78a17 Merge pull request #1362 from Yeachan-Heo/fix/gemini-worker-i-flag
+- 9106bcd2 Merge pull request #1365 from AlexU-A/feat/harsh-critic-realist-check
+- e6c88ac7 fix(team): use gemini -i flag instead of -p for interactive mode (#1367)
+- 53897583 fix(hud): handle 429 rate limit responses in Usage API with exponential backoff
+- b7061477 Merge pull request #1368 from Yeachan-Heo/worktree-feat/fix-apierr-429
+- e08f520c chore: bump version to 4.7.2 and rebuild dist
+- 111bc882 Merge pull request #1369 from Yeachan-Heo/dev
+- fe1f0c9c fix(team): harden runtime v2 rollout and omc/omx command split
+- 968dedf7 Merge pull request #1371 from Yeachan-Heo/fix/team-runtime-v2-interop-compat
+- ad7ba83d chore(release): bump version to 4.7.3
+- 96a5d372 Merge pull request #1372 from Yeachan-Heo/dev
+- 7d17abac feat(team): harden worker guardrails and task/mailbox interop
+- 7334205b chore(ci): retrigger PR workflows
+- dd23a015 chore(ci): add manual workflow_dispatch triggers
+- 72078908 Merge pull request #1375 from Yeachan-Heo/feat/harden-worker-prohibition
+- 98c363d7 feat(team): harden worker guardrails and task/mailbox interop
+- 2e66866b chore(ci): retrigger PR workflows
+- 3bf9e9c4 chore(ci): add manual workflow_dispatch triggers
+- c7dd28ae chore(release): bump version to 4.7.4
+- 6e374552 fix(models): centralize defaults and remove outdated hardcoded mappings
+- 4fdf3d76 fix: add context guardrails for agent orchestration (closes #1373)
+- 2dac8264 fix(hooks): fail-open team stop enforcement and add breaker (#1374)
+- e89fe877 Merge pull request #1378 from Yeachan-Heo/fix/issue-1376
+- c20ebb9f Merge pull request #1380 from Yeachan-Heo/fix/issue-1374
+- 02313056 test: fix no-undef process in post-tool-verifier test
+- 394b28fe Merge pull request #1379 from Yeachan-Heo/fix/issue-1373
+- ba38bd5d Merge branch 'main' into dev
+- fd6b9868 chore(release): bump version to 4.7.5
+- a13654db Harden team mailbox/dispatch flow and align legacy API facade
+- 42089cc1 Align worker guide with active team api contract
+- e075f86a Fix team api state-root resolution for live workers
+- 13b36c60 Restrict team pane cleanup to explicit shutdown intent
+- 785fd015 Align legacy team status and shutdown with runtime v2
+- 01d155e3 Merge pull request #1381 from Yeachan-Heo/feat/enhance-omc-team-messaging
+- 36a4aa7f fix(team): improve worker lifecycle instructions for non-Claude agents
+- 2c5915f3 Merge pull request #1384 from Yeachan-Heo/fix/improve-worker-lifecycle-instructions
+- f5538c4a feat(team): add agent role support to omc team spawn spec
+- 6be62ca2 Merge pull request #1385 from Yeachan-Heo/feat/team-role-support
+- 6a83095b chore(release): bump version to 4.7.6
+- abc4f813 fix(test): update team-help test for role support usage string
+- 407eb28a fix(hud): prevent thundering herd on usage API calls
+- 53386a67 Merge pull request #1388 from kwag93/fix/usage-api-thundering-herd
+- 58323aad fix(project-memory): respect OMC_STATE_DIR
+- ecf836a5 fix: prevent setup from downgrading newer installs
+- e55ea959 fix: preflight background permission handling
+- ed0b6958 Fix stale context handoff for issue 1386
+- 5d8ac29d fix(hud): prevent thundering herd on usage API calls
+- 98e73982 Merge pull request #1392 from Yeachan-Heo/fix/issue-1389
+- 9b11b934 Merge pull request #1393 from Yeachan-Heo/fix/issue-1382
+- ac32f048 Merge pull request #1394 from Yeachan-Heo/fix/issue-1383
+- 3fcac164 Merge pull request #1397 from Yeachan-Heo/fix/issue-1386
+- c9cc82ab Merge pull request #1399 from Yeachan-Heo/fix/issue-1398
+- 28a691ae fix: refresh setup version metadata after updates
+- c9b0d5c7 Merge pull request #1400 from Yeachan-Heo/fix/issue-1396
+- 391e2567 fix: route external literature search to document-specialist (#1420)
+- e4a39024 fix(ask): strip Rust debug env from codex advisor (#1419)
+- 3edcf02d test(config): add regression tests for Bedrock model detection and forceInherit (#1416)
+- 1a7ad6dc fix(team): propagate env-selected worker models (#1409)
+- 40dd6837 fix(notifications): make tmux tail lines configurable (#1405)
+- 5196a3ef fix(hud): resolve marketplace install HUD path (#1421)
+- 5104fd75 fix(hooks): remove stale pipeline keyword handling from packaged detector artifacts (#1410)
+- 5975ba57 feat(team): support dedicated tmux worker windows (#1406)
+- d64572ce fix(team): parse comma-separated multi-type worker specs (#1422)
+- d755eede chore: bump version to 4.7.7
+- 8b3cbc2a chore: bump version to 4.7.7
+- a3b8bd2c Merge branch 'main' into dev
+- d332caa8 fix: bump marketplace.json version to 4.7.7
+- 5692a228 fix: bump marketplace.json version to 4.7.7
+- 73998a73 fix(release): add marketplace.json and docs/CLAUDE.md to version checklist
+- 4c19d5e4 fix(release): add marketplace.json and docs/CLAUDE.md to version checklist
+- 1d39825a fix(platform): replace win32 hard-blocks with tmux capability checks (#1423)
+- ef93345a refactor(skills): eliminate 5 thin wrapper skills + CLAUDE.md diet (#1425)
+- 6da47174 fix(session-end): clean session-scoped mode state on exit (#1428)
+- 506fd86b fix(stop-hook): add hard-blocking for standalone team and ralplan (#1424)
+- 8641e541 refactor(agents): consolidate 4 overlapping agent pairs (22→18 agents) (#1426)
+- 8cb16d86 fix(routing): respect env-configured Claude family models (#1430)
+- 48bb1295 fix(lsp): kill orphaned LSP server processes on MCP bridge exit (#1429)
+- 5be3b007 fix(hud): reduce usage API polling to avoid 429s (#1418)
+- 4a5cfcd4 fix(stop-hook): fix false-blocking and add deep-interview protection (#1432)
+- e2dc0b0e test(skill-state): align ralplan expectations with stop-hook (#1435)
+- 3a833c33 feat(benchmarks): add per-agent prompt benchmark suite for all 4 consolidated agents (#1437)
+- 45013464 fix(wait): handle stale cached rate limit status (#1433)
+- 59df92ee fix(notifications): pass tmuxTailLines config to formatter parseTmuxTail (#1431)
+- 6c97358f fix: use portable $HOME path in statusLine for multi-machine sync (#1404)
+- d102e9c5 fix: preserve ask-codex and ask-gemini inside Claude Code sessions (#1438)
+- 47a78221 fix(team): support fish shell in worker pane launch commands (#1377)
+- d22904bf chore(release): cut v4.7.8
+- e4ecd943 merge(dev): release v4.7.8 to main
+- 87a8a7ee feat: add built-in anti-slop workflow (#1454)
+- 14cb4bf9 docs: add skill audit for questionable-value skills (#1445) (#1449)
+- b58139f9 fix: dedupe Discord session-end notifications (#1453)
+- 65d74d0a docs: fix docs drift around skill/runtime parity (#1446) (#1447)
+- 0d5750ec feat(setup): add unified setup entrypoint (#1444) (#1451)
+- 6d3689b3 refactor(skills): remove thin redundant skills (#1441) (#1450)
+- cae508cb fix: wake OpenClaw on session-end bridge hook (#1461)
+- 01d55ed6 fix(release): clarify npm package name in upgrade notes (#1463)
+- b67f9ddb refactor(skills): unify advisor wrappers under /ask (#1442) (#1448)
+- ce3bd922 fix(routing): normalize model IDs to CC-supported aliases for Bedrock/Vertex compatibility (#1464)
+- aaf46a05 fix(docs): mark configure-openclaw as deprecated in REFERENCE.md (#1458)
+- 177a06ff docs: add OpenClaw integration guide to all README files (#1457)
+- 1611f41e fix: remove duplicate CLAUDE.md OMC blocks (#1468)
+- fa4305d1 fix: restore review keyword routes (#1471)
+- 5d9c7e17 fix(hud): back off usage polling after sustained 429s (#1474)
+- 914b4e0c fix(hud): show stale indicator when usage data is not refreshing (#1473)
+- bfe5c2eb fix(hooks): add skill-active-state lifecycle to plugin scripts (#1480)
+- 50c33b61 refactor(setup): split monolithic SKILL.md into modular phases and scripts (#1476)
+- 13708a13 docs: add Codex review guidelines to AGENTS.md
+- 5587a22f fix(hooks): port checkRalplan() and checkTeamPipeline() to persistent-mode.cjs (#1482)
+- aa6e255e fix(team): parse --new-window CLI flag in parseTeamArgs (#1485)
+- bf025eb8 feat(mission): add opt-in mission board for multi-agent progress tracking (#1486)
+- 97e223e9 fix(ask): add shell option for Windows .cmd binary resolution (#1487)
+- 8585bd00 chore: bump version to 4.7.9
+- 3f2f578a Merge branch 'dev'
+- 772e2440 fix(ci): bump marketplace.json version and fix lint errors
+- bb0fccd3 Merge branch 'dev'
+- fc226e75 chore(release): v4.7.10 - Bedrock routing, team hardening, session search (#1549)
+- 4a10586d feat(lsp): add Verilog/SystemVerilog support via verible-verilog-ls
+- e1c218da Merge pull request #1551 from Wooklae-cho/feat/lsp-verible-verilog
+- 37360484 fix(hooks): use correct npm package name in session-start update check (#1556)
+- 66dccfdc fix: patch 21 security vulnerabilities and logic bugs (#1558)
+- 5c1918ca fix(update): resolve Windows reconcile binary via omc.cmd (#1560)
+- 30bba486 fix(hud): keep skill statusLine guidance portable (#1562)
+- 769a14c7 fix: skip stop-hook protection for non-OMC skills (#1559)
+- ec9d325d fix(team): harden pane stall heuristics (#1566)
+- 34dcd9d3 feat(trace): add tracer agent and trace skill (#1568)
+- 37585ad2 test(hud): lock Windows-safe HUD imports (#1573)
+- fd0d9b02 fix(setup): preserve canonical CLAUDE markers (#1574)
+- 657ad919 docs(trace): harden tracer evidence protocol (#1576)
+- 9e23c4e7 fix: clean stale team runtime state after team clear (#1577)
+- b565e65f feat(setup): sync unified MCP registry to codex config (#1579)
+- 4e50a862 fix(team): remove double shell-escaping of env vars in worker spawn (#1415) (#1580)
+- 37b35bc9 fix(skill-state): default unknown skills to no protection (#1582)
+- 897fb114 fix(windows): harden omc-setup HUD statusline flow (#1586)
+- f788bf1a fix(config): replace hard-coded absolute path in vitest alias (#1588)
+- b435e1ce Backport OMX runtime hardening for leader nudges and team governance (#1584)
+- 8255eea3 fix(hooks): deactivate ultrawork state on max reinforcements and clean mission-state on session-end (#1591)
+- 43fa31c7 Add HUD last-request token usage (#1592)
+- 209633b8 fix(team): sync codex worker startup with task lifecycle
+- 741b8c8d Merge pull request #1594 from Yeachan-Heo/fix/issue-1593-codex-worker-status-sync
+- 2759993c feat(hud): add optional transcript token totals
+- 01f374fe Merge pull request #1595 from Yeachan-Heo/feat/issue-1589-hud-realtime-token-usage
+- 003b1358 fix(notifications): use nullish coalescing for parseInt fallback in reply config
+- 9b1607af Merge pull request #1596 from Gdm0714/fix/parseint-nullish-coalescing
+- bfc50e62 fix(hooks): unblock ExitPlanMode in high-context flows
+- 5f616540 Merge pull request #1598 from Yeachan-Heo/fix/issue-1597-exit-planmode-context-safety
+- 9672f58e fix: surface codex-aware deep-interview recommendations
+- 86ea6670 Merge pull request #1601 from Yeachan-Heo/feat/issue-1600-deep-interview-provider-options
+- 7b4e61a0 fix(hooks): preserve Windows hook paths with spaces
+- bfe939cc chore(skills): refresh ai-slop-cleaner guidance
+- 0120b5cc Merge pull request #1603 from Yeachan-Heo/fix/issue-1602-windows-hook-path-spaces
+- ff5e4197 Merge pull request #1604 from Yeachan-Heo/docs/issue-1603-ai-slop-cleaner-refresh
+- 759883fa chore(release): bump version to v4.8.0
+- e2b5da8a chore(release): release v4.8.0 (#1605)
+- 73812c88 refactor(team): clean up dead code and unused imports
+- 43c0205a Merge pull request #1606 from Yeachan-Heo/worktree-refactor/clean-slop
+- a7d19c97 feat(readme): automate featured contributors block
+- 2a8ff3b7 fix(ci): move featured contributor logic into src
+- 42a0e2d0 Merge pull request #1607 from Yeachan-Heo/feat/featured-contributors-readme
+- 26366766 fix(readme): exclude archived featured contributor repos
+- c216ba17 Merge pull request #1608 from Yeachan-Heo/fix/featured-contributors-exclude-archived
+- fbb79a24 fix(deps): resolve 7 npm audit vulnerabilities (5 high)
+- 00cd723c fix(team): detect Bedrock ARN model identifiers
+- 31e52d76 Merge pull request #1613 from Yeachan-Heo/fix/issue-1612-bedrock-team-model
+- 050befe0 Merge pull request #1609 from Gdm0714/fix/deps-resolve-npm-audit-vulnerabilities
+- db5785bc fix: guard autopilot cancel ownership
+- 557f8c0d Merge pull request #1616 from Yeachan-Heo/fix/issue-1615-stop-hook-autopilot-cancel
+- 46985dde fix(team): route api cleanup through shutdown
+- 92b5b5f7 Merge pull request #1623 from Yeachan-Heo/fix/issue-1618-team-api-cleanup-shutdown
+- 8825e9d0 fix(team): keep workers running after mailbox replies
+- 7ab83a44 Merge pull request #1624 from Yeachan-Heo/fix/issue-1619-worker-mailbox-continue
+- 49fda342 fix(team): preserve supported shell affinity
+- 04bf8bb3 Merge pull request #1625 from Yeachan-Heo/fix/issue-1622-shell-affinity
+- 213ad349 feat(team): add startup allocation policy seam
+- 3c3c4840 Merge pull request #1626 from Yeachan-Heo/fix/issue-1620-allocation-policy-slice
+- b982b7c2 feat(team): preserve worker role fanout intent
+- 8fcdf386 Merge pull request #1627 from Yeachan-Heo/fix/issue-1621-role-routing-slice
+- d4c0fd09 feat(update): add --clean flag to bypass 24h cache purge grace period
+- 620755ea Merge pull request #1628 from kwag93/feat/update-clean-flag
+- 758323c2 fix(omc-doctor): tolerate missing companion files
+- edc7b002 Merge pull request #1631 from Yeachan-Heo/fix/issue-1630-doctor-companion-check-exit1
+- 5a1ae89c Fix team worker cleanup on session end
+- 4225adb9 Merge pull request #1633 from Yeachan-Heo/fix/issue-1632-team-workers-orphan-termination
+- 4f923bb3 fix(hud): recognize 'Agent' tool name in transcript parser (#1634)
+- d1a0d141 Merge pull request #1635 from ChoKhoOu/fix/hud-agent-tool-name-1634
+- 1ead04a8 feat: add configurable autopilot plan output paths
+- d3da02a6 Merge pull request #1637 from Yeachan-Heo/fix/issue-1636-plan-output-dir-template
+- f612bea4 fix(team): keep workers running after mailbox replies
+- 455c828b Merge pull request #1640 from Yeachan-Heo/omc-issue-1540-runtime-hardening-backports
+- ef2cc599 fix(team): split tmux/session hardening from #1639
+- 31318ad7 fix(security): split SSRF/path/process guards from #1639
+- a4abb5e5 fix(tools): split python REPL bridge hardening from #1639
+- 3d7f5b4f fix(tools): split LSP lifecycle hardening from #1639
+- 1675f53b chore(deps): split lockfile audit update from #1639
+- d5eb3f32 fix: remove invalid eslint disable in tmux session list
+- 3a5c4850 Merge pull request #1644 from riftzen-bit/split/pr1639-lsp-lifecycle
+- 542f213d fix(security): use path-relative traversal checks and add regression tests
+- 68ddb89f Merge pull request #1642 from riftzen-bit/split/pr1639-security-guards
+- 65d31f20 fix(hooks): add OMC_QUIET hook message suppression
+- 18adddd8 Merge pull request #1647 from Yeachan-Heo/omc-issue-1646-quiet-hook-messages
+- bfbe0535 fix(ask): pipe Windows prompts via stdin
+- 1906b2ba Merge pull request #1649 from Yeachan-Heo/omc-issue-1648-windows-ask-cli
+- 3cbdc68d fix: honor Claude ask rules for git commit heredocs
+- 1385bf36 Merge pull request #1652 from Yeachan-Heo/omc-issue-1651-git-commit-heredoc-bypass
+- a9518911 Clarify remote MCP support for issue 1653
+- fe17cbdb Merge pull request #1654 from Yeachan-Heo/omc-issue-1653-remote-omc-connect
+- e6cd1e5f Merge pull request #1641 from riftzen-bit/split/pr1639-tmux-session-hardening
+- b21720de Merge pull request #1645 from riftzen-bit/split/pr1639-deps-lockfile
+- a7c19394 Merge pull request #1643 from riftzen-bit/split/pr1639-python-repl-bridge
+- bd57a926 chore(release): bump version to v4.8.1
+- 17c73b5f fix(release): bump marketplace.json version to v4.8.1
+- f41c3f89 fix(release): sync docs/CLAUDE.md version marker and lockfile to v4.8.1
+- 15f90fc5 feat(release): add automated release script for version bumping and changelog generation
+- 36db1fda feat(deep-interview): add ontology convergence tracking inspired by Q00/ouroboros (#1657)
+- 1ecaf2e9 fix: remove dead code from deprecated features (#1659)
+- 86ef855e fix(hooks): fix ralph/ralplan stop hook not auto-continuing (#1660)
+- 65f6a52d feat(team): backport 6 OMX team runtime enhancements (#1540) (#1658)
+- f2618fd4 fix(ccg): use CLI-first path for ask advisors (skill nesting unsupported) (#1662)
+- 7d073563 chore(release): bump version to v4.8.2
+- 6c0bce77 fix(hooks): handle deepsearch as mode message instead of skill invocation (#1663)
+- a5e8f6db fix(cli): bypass tmux for --print mode to preserve stdout pipe (#1666)
+- 6cab29be docs: add Custom Skills section to all README translations (#1678)
+- a34772a3 docs: add Discord community server badge to all READMEs (#1683)
+- b268fe20 fix(hud): prefer fresh Keychain entry when multiple Claude Code credentials exist (#1684)
+- a90b6433 fix(cli): bypass tmux in print mode so stdout pipes to parent (#1685)
+- e157908a fix(project-memory): inject customNotes into session context (#1689)
+- e790e92a feat(skill): add deep-dive skill (trace -> deep-interview pipeline) (#1681)
+- b4c38c80 feat(hud): add AI-generated session summary element (#1687)
+- fbec7e15 feat(autoresearch): backport autoresearch from OMX to OMC (Phase 1) (#1693)
+- a5071c0a feat(ralphthon): add autonomous hackathon lifecycle mode (#1694) (#1696)
+- 66e1ab66 fix(team): pass Bedrock/Vertex model IDs to workers without normalization (#1697)
+- def6ec1a fix(hooks): increase SessionEnd timeout and make notifications fire-and-forget (#1700) (#1701)
+- f55be2a7 fix(lsp): update Kotlin LSP to official JetBrains implementation (#1709) (#1710)
+- a365c551 fix(hooks): deny Agent tool model param on Bedrock/Vertex (#1415)
+- 2e53a2c1 feat(agents): add complexity level metadata to agent and skill definitions
+- 99e2707f feat(agents): structured output templates for explore and verifier
+- 26115a96 feat(learner): separate Expertise and Workflow sections for L7 self-improvement
+- 83fd4f98 fix(planning): remove unnecessary global flag from module-level regex
+- 6f5aa639 fix(team): map build-fix intent to code-edit capability instead of testing
+- b62a699a task: autoresearch routing and bypass semantics
+- b4ecd6af omx(team): auto-checkpoint worker-1 [unknown]
+- 7cca9a8a omx(team): auto-checkpoint worker-1 [unknown]
+- 2b04a538 omx(team): auto-checkpoint worker-1 [unknown]
+- 79e5f86a test: finish autoresearch verification coverage
+- 954e3bda omx(team): auto-checkpoint worker-1 [unknown]
+- 225366f8 Merge commit '954e3bda922b41040b2e3f37c10a49ff898534ea' into fix/autoresearch
+- c1e31f1f fix(autoresearch): harden mission path validation
+- 8f0eaf95 omx(team): auto-checkpoint worker-1 [unknown]
+- 682899c5 omx(team): auto-checkpoint worker-1 [unknown]
+- f2380393 omx(team): auto-checkpoint worker-1 [unknown]
+- 8d1e3edc omx(team): auto-checkpoint worker-1 [unknown]
+- 6b7b7f5a task: fix autoresearch bootstrap dirt reset safety
+- c060b0fd omx(team): auto-checkpoint worker-1 [unknown]
+- 24d39d93 fix(lsp): clean up background-agent language servers (#1717)
+- b3f41014 Merge commit 'c060b0fd3d1d6cbbe75258e6aec8531622690c54' into fix/autoresearch
+- 7d730b0e feat(deepinit): add manifest-based incremental deepinit tool (#1719)
+- eb8caeb4 Merge pull request #1714 from Yeachan-Heo/fix/autoresearch
+- aced09dc fix(hooks): allow orchestrator idle while delegated subagents run (#1721)
+- 9f2edef8 feat: add zero-learning-curve autoresearch setup flow (#1723)
+- 2c861912 fix(bridge): clean up orphaned bridge and MCP child processes (#1724)
+- 6393360e feat(docs): add Lore commit knowledge protocol to CLAUDE.md template
+- d9c8221b feat: add mandatory deslop pass to ralph workflow (#1736)
+- 288bd97d fix(keyword-detector): skip informational queries and clear legacy state (#1737)
+- 74f9bf88 feat(autoresearch): launch from interview artifacts (#1740)
+- 9bf9729a fix: prevent skill-active-state collision between OMC and project custom skills (#1741)
+- 68b69b42 fix(cli): skip tmux wrapping in cmux terminal to prevent orphaned sessions
+- d5f7d9ff Improve skill package interoperability and bundled-resource reuse
+- f23f328d Prevent local OMC state from leaking into git history
+- d7a499a6 Merge pull request #1733 from Yeachan-Heo/feat/lore-commit-protocol
+- 6bbd6ffa Merge pull request #1738 from Yeachan-Heo/feat/issue-1736-ralph-deslop
+- 927da52d Merge pull request #1746 from Yeachan-Heo/feat/issue-1745-skills-2-0-mvp
+- 5060e6b9 Merge pull request #1748 from Yeachan-Heo/omx-issue-1747-omc-gitignore
+- fb577fff Merge pull request #1743 from alohays/fix/cli-cmux-terminal-compat
+- 3fffdfbb Support team mode launches from cmux surfaces
+- 92f6e1c1 Merge pull request #1750 from Yeachan-Heo/fix/issue-1749-cmux-team-mode
+- 82757222 fix(autoresearch): port intake flow from omx and deslop cleanup (#1734)
+- aae850ae Ensure team shutdown removes split-pane workers after metadata drift
+- d777bbfd Merge pull request #1752 from Yeachan-Heo/fix/issue-1751-team-pane-cleanup
+- 3cbf54a8 fix(autoresearch): validate artifact file existence before reading in readPersistedResult
+- 184cc591 Prevent same-root session restores from bleeding across parallel startups
+- 35234b21 Merge pull request #1761 from lifrary/fix/autoresearch-artifact-validation
+- a6a097e6 Merge pull request #1762 from Yeachan-Heo/fix/issue-1744-psm-shared-omc-guard
+- d113d40f Prevent Kotlin LSP from timing out on the wrong transport during first diagnostics
+- 11cd653c Preserve model inheritance across Task and Agent hook paths
+- 8c282f3b fix(skills): add ralplan state lifecycle cleanup to plan skill
+- 4918ee78 fix: address Codex review — add session_id to state_clear, fix premature cleanup
+- a6a0ff61 Restore project memory on real session starts
+- eccaac17 fix: use state_write(active=false) for handoff, state_clear for terminal exits
+- 41e8e683 Merge pull request #1778 from wook95/fix/ralplan-state-lifecycle-cleanup
+- 35841520 Let LSP sessions use an already-running devcontainer when the host is wrong
+- 17ffef0a Merge pull request #1783 from Yeachan-Heo/gaebal/issue-1782-devcontainer-aware-lsp
+- 694cba3f Merge pull request #1781 from Yeachan-Heo/fix/issue-1779-project-memory-injection
+- a7eadc0a Merge pull request #1769 from Yeachan-Heo/fix/issue-1767-forceinherit-agent-tool
+- f2fb9336 Merge pull request #1766 from Yeachan-Heo/fix/issue-1764-kotlin-lsp-timeout
+- c8016e7d Stop HUD background tasks from sticking after async launches
+- 343253e3 Merge pull request #1775 from Yeachan-Heo/fix/issue-1774-hud-background-task-stuck
+- bcb034ff Broaden devcontainer config discovery without changing LSP launch semantics
+- baffebef Merge pull request #1785 from Yeachan-Heo/gaebal/issue-1784-devcontainer-followup-lsp
+- 681f1715 Port visual-verdict skill MVP for issue #1763 (#1765)
+- 52bc556a Stabilize HUD ctx display when Claude omits native usage percent (#1792)
+- 8e419765 Prevent duplicate worker rows from repeated SubagentStart events (#1793)
+- 2fe1d7c5 Preserve skill and worker CLI guidance in plugin-only installs (#1787)
+- df0f2707 Keep agent guidance and benchmark defaults aligned with OMC
+- 5abed84f Finish the stale-reference cleanup promised by the issue
+- 8c82460d Merge pull request #1800 from Yeachan-Heo/gaebal/issue-1799-agents-benchmark-cleanup
+- e4b78700 Align visual-verdict with OMC-native discovery after the dev MVP (#1801)
+- c3d3f3f4 Write Claude MCP registrations where Claude Code actually reads them (#1803)
+- 1a58753e Prevent Windows update reconciliation from failing on omc.cmd (#1805)
+- a9555d71 fix: harden ask skill to prevent raw provider CLI synthesis (#1806) (#1807)
+- 631b2091 fix: sync plugin cache directory during omc update (#1808) (#1811)
+- acb4af5a fix(hud): prevent session state leakage across HUD windows (#1816)
+- 49b7d1bd Prevent stale session-scoped mode state from surviving broad cleanup (#1798)
+- 20e65de2 Keep keyword-triggered modes inert until the skill actually starts (#1796)
+- 8c71ee7a Reduce always-loaded CLAUDE.md guidance by extracting OMC reference content (#1813)
+- be94f0b8 fix: forceInherit now checks Agent tool in addition to Task (#1788)
+- 273b26a2 Avoid false ralplan stop pressure during delegated waits (#1817)
+- e294dba9 fix: sync shipped Windows omc update reconcile artifacts (#1818)
+- 67eb29e2 test(installer): lock MCP config ownership at install boundary (#1819)
+- ba6b1770 Ensure CLAUDE.md setup follows the active plugin version after upgrades (#1810)
+- 69dc589c Stabilize HUD context display across refreshes (#1821)
+- 6ba23927 Prevent duplicate worker identities from leaking across team runtime surfaces (#1823)
+- 7788dd38 Prevent bridge skill discovery from rejecting canonical temp paths (#1825)
+- 47034e93 chore: bump version to 4.9.1
+- d2461dc2 chore: bump plugin/marketplace version to 4.9.1
+- e4d1cb01 chore: rebuild dist for 4.9.1
+- 3c736415 chore: bump docs/CLAUDE.md version marker to 4.9.1
+- a4762651 Merge pull request #1833 from Yeachan-Heo/release/4.9.1
+- 27527267 docs: update featured contributors section
+
+### Workflow Signals
+
+- `.claude-plugin/marketplace.json`
+- `.claude-plugin/plugin.json`
+- `dist/__tests__/hooks/learner/bridge.test.js`
+- `dist/__tests__/hooks/learner/bridge.test.js.map`
+- `dist/agents/coordinator-deprecated.d.ts`
+- `dist/agents/coordinator-deprecated.d.ts.map`
+- `dist/agents/coordinator-deprecated.js`
+- `dist/agents/coordinator-deprecated.js.map`
+- `dist/agents/deep-executor.d.ts`
+- `dist/agents/deep-executor.d.ts.map`
+- `dist/agents/deep-executor.js`
+- `dist/agents/deep-executor.js.map`
+- `dist/agents/delegation-validator.d.ts`
+- `dist/agents/delegation-validator.d.ts.map`
+- `dist/agents/delegation-validator.js`
+- `dist/agents/delegation-validator.js.map`
+- `dist/agents/harsh-critic.d.ts`
+- `dist/agents/harsh-critic.d.ts.map`
+- `dist/agents/harsh-critic.js`
+- `dist/agents/harsh-critic.js.map`
+
+### All Changed Files
+
+- `.claude-plugin/marketplace.json`
+- `.claude-plugin/plugin.json`
+- `AGENTS.md`
+- `CLAUDE.md`
+- `README.md`
+- `benchmark/README.md`
+- `benchmark/quick_test.sh`
+- `benchmark/results/README.md`
+- `benchmark/run_benchmark.py`
+- `benchmark/run_full_comparison.sh`
+- `benchmark/run_omc.sh`
+- `benchmark/run_vanilla.sh`
+- `bridge/cli.cjs`
+- `dist/__tests__/auto-slash-aliases.test.js`
+- `dist/__tests__/auto-slash-aliases.test.js.map`
+- `dist/__tests__/auto-update.test.js`
+- `dist/__tests__/auto-update.test.js.map`
+- `dist/__tests__/codex-backoff.test.d.ts`
+- `dist/__tests__/codex-backoff.test.d.ts.map`
+- `dist/__tests__/codex-backoff.test.js`
+- `dist/__tests__/codex-backoff.test.js.map`
+- `dist/__tests__/codex-callsite-normalization.test.js`
+- `dist/__tests__/compatibility-security.test.d.ts`
+- `dist/__tests__/compatibility-security.test.d.ts.map`
+- `dist/__tests__/compatibility-security.test.js`
+- `dist/__tests__/compatibility-security.test.js.map`
+- `dist/__tests__/compatibility.test.d.ts`
+- `dist/__tests__/compatibility.test.d.ts.map`
+- `dist/__tests__/compatibility.test.js`
+- `dist/__tests__/compatibility.test.js.map`
+- `dist/__tests__/deep-interview-provider-options.test.js`
+- `dist/__tests__/deep-interview-provider-options.test.js.map`
+- `dist/__tests__/delegation-enforcement-levels.test.js`
+- `dist/__tests__/delegation-enforcement-levels.test.js.map`
+- `dist/__tests__/doctor-conflicts.test.js`
+- `dist/__tests__/doctor-conflicts.test.js.map`
+- `dist/__tests__/example.test.d.ts`
+- `dist/__tests__/example.test.d.ts.map`
+- `dist/__tests__/example.test.js`
+- `dist/__tests__/example.test.js.map`
+- ... and 773 more files
+
+## `vendor/ouroboros`
+
+- Range: `089840e49c64..896c8cb9e017`
+- Commit count: `141`
+
+### Commits
+
+- a135e7c chore: release v0.25.1
+- 14d6ba6 feat(build): hatch-vcs dev builds on every push (#183)
+- e26acf1 fix(build): strip local version identifiers for PyPI compatibility
+- ef54b9b fix(build): show dev version in GitHub Actions annotations
+- e4a2f41 fix(security): remove litellm dependency — PyPI supply chain attack (#195)
+- 0213241 chore: release v0.25.2
+- 06018d7 docs(security): update LiteLLM supply chain attack notice on main
+- 833ce57 Fix Phase 0 default backend and ambiguity parsing (#200)
+- 2b1abc4 Preserve QA evidence for decomposed ACs (#201)
+- a72e7a5 feat: agent runtime abstraction with Codex CLI runtime support
+- d273894 fix: resolve MCP runtime issues found in 4-matrix E2E testing
+- 4d92ddd style: format definitions.py with ruff
+- 637869d fix(tests): use ANSI-safe assertions for CLI help option checks
+- c7fe6d2 fix(tests): set NO_COLOR=1 globally to prevent ANSI codes breaking assertions
+- 198f665 fix(tests): use _TYPER_FORCE_DISABLE_TERMINAL to prevent ANSI in CI
+- 0d793dc feat: runtime-agnostic packaging with optional extras and standalone setup
+- 8132e6e fix: exclude dashboard extra from dev group to avoid untyped watchdog
+- 742739b fix: address 15 security, reliability, and quality issues from PR review
+- 6ebfdf7 style: fix ruff lint (C408 dict literal) and format issues
+- a0176e4 docs: transform to runtime-agnostic specification-first engine
+- 35344a6 fix: apply PR #117 review fixes and stabilize CI
+- 8d36afe fix: add timeout and env vars to MCP config in setup
+- b67ed3b fix: add timeout and env to all mcp.json templates in docs and plugin
+- 27a74b6 fix: remove env vars from mcp.json, keep only timeout
+- 0421ecc docs: document runtime selection via config.yaml alongside mcp.json
+- 719ecc7 Fix parallel executor cwd prompt context
+- 11ad851 fix: robust JSON extraction for LLM responses with prose preamble
+- 7e46554 docs: restructure onboarding and remove stale content
+- ec92231 feat: enhance interview flow and authoring MCP tools
+- 59859c9 chore: update project config, skills, and contributing guide
+- fa75995 docs: add llms.txt and llms-full.txt for Context7-style model context
+- 6286723 feat: add interview breadth and closure personas (#136)
+- 10342cd fix: prevent recursive MCP server spawning via _OUROBOROS_NESTED sentinel
+- 355b93b docs: clarify agent prompt source of truth
+- 62c3b47 refactor: make packaged agents the source of truth (#136)
+- c81d471 Fix session reconstruction and codex schema handling
+- 39225a4 docs: runtime-neutralize wording, add evolution guide, commit pending docs
+- 1c47a12 fix: remove unused pytest import in test_json_utils
+- f177e66 fix: resolve ruff lint and format issues across project
+- e8c8d5f revert: remove accidentally committed scripts
+- accf3d9 fix: address 5 review issues from PR #117 follow-up
+- c5f2c85 fix: update integration tests for stdin-based prompt delivery
+- d00d5c9 fix: resolve rebase conflicts and backend-aware test assertions
+- 63473de fix: tighten interview permissions and cap codex stream capture
+- 762127a revert: restore bypassPermissions for interview mode
+- fe774b3 style: format codex_cli_stream.py with ruff
+- 6f2f04c fix(security): allow seed paths from ~/.ouroboros/ in addition to cwd
+- 77a1885 fix: return error on session resume failure in start_execute_seed
+- 640f6a2 fix: address PR #117 review issues 1, 2, 3, 5
+- f7727a9 fix: prevent start_execute_seed from entering session resume path
+- c16e67c fix: preserve runtime overrides and resume handles
+- 884cf5f fix: AC tree not rendering children in TUI
+- 45ff638 fix: comprehensive AC tree and runtime reliability fixes
+- 3ae3694 feat: add prompt param to _build_command and _feeds_prompt_via_stdin hook
+- 9e6b419 feat: runtime-agnostic orphan detection with WAL mode and retry
+- cfe929a fix: ruff lint/format issues and heartbeat ProcessNotFoundError
+- 7e005e9 test: mock heartbeat in orphan detection tests
+- 314b7b8 style: format test_codex_cli_runtime.py with ruff
+- 95988b2 fix: address PR #117 review findings 2, 3, 5
+- 738ec83 fix: preserve interview frontmatter args on resume and add terminal-state guard
+- 4ecdf24 fix: preserve frontmatter args in local runtime intercept path
+- 93eccd6 fix: align setup config key with model and honor inline YAML contract
+- 7ee2d5f style: format parallel_executor.py with ruff
+- bb9b272 docs: fix CLI command references and add opencode warnings
+- 4bb8a6c fix: reject opencode at CLI/resolver boundary instead of late NotImplementedError
+- 40aadfa style: format mcp.py and runtime_factory.py with ruff
+- b356cec fix: align MCP/handler tests with opencode early-rejection boundary
+- 68ce397 docs: fix CLI command references and dead doc paths
+- 225ec0b docs: replace ghost `ouroboros interview` refs with actual CLI entrypoints
+- 8b676c0 docs: remove remaining ghost CLI commands (evolve, ralph)
+- aa4abde chore: release v0.26.0b1
+- ae8365d docs: fix audit findings from 4-agent review (#162)
+- de4a661 fix(docs): fix tag in readme
+- 4238acc feat(codex): wire Codex artifact installation into setup command
+- 2102cb6 fix(install): skip Python version check when uv or pipx is available
+- f630f75 feat(codex): register MCP server in ~/.codex/config.toml during setup
+- a79d624 chore: bump install.sh version pin to 0.26.0b3
+- 98580e9 docs: point install one-liner to release/0.26.0-beta branch
+- bc99a58 docs: simplify Codex install to one-liner and fix English copy
+- 9ac9b50 docs: add Codex CLI and pip install sections to Korean README
+- 2b50155 Fix Codex model routing setup and eval timeouts
+- 3b9d085 feat(eval): add reward_hacking_risk to Stage 2 semantic evaluation (#174)
+- f95a11c fix(interview): redesign as MCP question generator + main session router (#178)
+- aae18e4 fix: restore delegated execution context after rebase onto main
+- 88355db fix(interview): gate completion on ambiguity score to prevent deadlock (#187)
+- 108a84a chore: release v0.26.0b4
+- 3ccbf05 feat: PM interview engine + brownfield management (rebased) (#191)
+- a5c21b2 chore: version pinning
+- 2b9d7f9 beta version update automation
+- 1b10091 chore: release v0.26.0b5
+- 0a396fa feat(version): automate version sync, install UX, and update flow (#194)
+- 4653384 chore: release v0.26.0b6
+- c12ae37 fix(release): CI dirty-build bug, runtime-agnostic docs
+- 57f40a3 chore: release v0.26.0b7
+- 2965586 fix(security): pin litellm<=1.82.6, update supply chain attack notice
+- 4ac49ca fix(session): sanitize stale runtime_status on terminal sessions (#188) (#205)
+- 76acbeb fix(codex): prevent recursive MCP startup loop on Windows (#206)
+- d121a00 fix(tui): show correct session status in workflow monitor (#192) (#207)
+- facb998 fix: restore #200 and #201 fixes lost during rebase
+- bce2b6b docs(readme): remove demo placeholders, defer to next release
+- 3af0900 fix(tests): add missing litellm imports in test files
+- da561dc fix(core): remove undefined litellm guard in count_tokens
+- dd27353 style: format parallel_executor and test_session_selector_replay
+- 92b221b fix(plugin): align MCP launcher with setup/install paths
+- 1841bcd chore: release v0.26.0
+- b5e03a1 docs: point install.sh URL to main branch
+- a618ea5 fix(install): add marketplace update before plugin install
+- 5405d87 fix(install): let user choose runtime instead of defaulting to Codex
+- 5f6138b fix(pm): use LLM adapter factory instead of hardcoded ClaudeAgentAdapter
+- 35d826f style: fix import sorting in pm_handler
+- c26c9c4 style: align import paths with InterviewHandler convention
+- 1b8503b chore: release v0.26.1
+- 5fe8a89 feat(evolution): graceful shutdown to preserve state on SIGINT (#169)
+- 56a7da7 fix(loop): address review feedback on graceful shutdown
+- acdad6c fix(loop): address code reviewer findings on graceful shutdown
+- 733413e fix(loop): address all agent review findings + lint cleanup
+- 948cf2b fix(tests): update StepAction enum count for INTERRUPTED variant
+- 40eefa4 fix(loop): log CancelledError event failure + add reflect shutdown check
+- e4af7d2 fix(loop): resolve all remaining review findings
+- 4fddc1f fix(loop): address all review findings — phase resume, signal safety, metadata
+- d44638a style: ruff format
+- 5811109 fix(loop): add post-evaluation shutdown check + restore job_manager detection
+- 3d71bce fix(loop): implement real state restore on resume + fix duplicate events
+- 6860ec4 fix(loop): restore partial_state outputs on resume + fix stale seed
+- ff95897 fix(loop): complete phase-level resume — restore outputs + skip execution
+- 73fba0d fix(loop): complete Reflect/Evaluate resume + INTERRUPTED job status
+- 6dbafe7 fix(loop): use last completed gen for prev_gen + mark is_error as FAILED
+- 6f44d71 fix(loop): deduplicate generations on retry + checkpoint validation_output
+- b839c7f fix(loop): restore validation_output on resume + skip re-validation
+- f7547de fix(loop): compute ontology_delta on resume when seeding is skipped
+- eaa0272 fix(loop): reset resume_after_phase when falling back to stale seed
+- 1a3c287 fix: serialize parent_seed_id + skip invalid projector phases
+- 57e0007 fix(mcp): set is_error=True for interrupted/failed evolve_step results
+- bf96bf4 Improve issue intake and repository safety guidance
+- 5da2bc6 Tune repo guidance to match maintainer feedback
+- 5769933 Remove Discord contact link from issue config
+- 3faae6a fix(docs): address all review findings on repo guidance
+- de0ab03 fix(docs): remove dead Design Documents links + fix nested code block
+- 6962fc6 fix(install): add [claude] extra to all ouroboros-ai references (#217)
+- 7c2404f fix(install): revert PACKAGE_NAME to base — extras are composed separately
+- 896c8cb fix(#214): prefer ./mvnw for Maven wrapper projects (#219)
+
+### Workflow Signals
+
+- `.claude-plugin/marketplace.json`
+- `.claude-plugin/plugin.json`
+- `.github/workflows/dev-publish.yml`
+- `.github/workflows/release.yml`
+- `.github/workflows/test.yml`
+- `agents/architect.md`
+- `agents/contrarian.md`
+- `agents/evaluator.md`
+- `agents/hacker.md`
+- `agents/ontologist.md`
+- `agents/qa-judge.md`
+- `agents/researcher.md`
+- `agents/seed-architect.md`
+- `agents/simplifier.md`
+- `agents/socratic-interviewer.md`
+- `skills/brownfield/SKILL.md`
+- `skills/evolve/SKILL.md`
+- `skills/help/SKILL.md`
+- `skills/interview/SKILL.md`
+- `skills/pm/SKILL.md`
+
+### All Changed Files
+
+- `.claude-plugin/.mcp.json`
+- `.claude-plugin/marketplace.json`
+- `.claude-plugin/plugin.json`
+- `.github/ISSUE_TEMPLATE/bug_report.yml`
+- `.github/ISSUE_TEMPLATE/config.yml`
+- `.github/ISSUE_TEMPLATE/feature_request.yml`
+- `.github/ISSUE_TEMPLATE/question.yml`
+- `.github/workflows/dev-publish.yml`
+- `.github/workflows/release.yml`
+- `.github/workflows/test.yml`
+- `.gitignore`
+- `.mcp.json`
+- `.ouroboros/mechanical.toml`
+- `CHANGELOG.md`
+- `CLAUDE.md`
+- `CODE_OF_CONDUCT.md`
+- `CONTRIBUTING.md`
+- `README.ko.md`
+- `README.md`
+- `SECURITY.md`
+- `agents/architect.md`
+- `agents/contrarian.md`
+- `agents/evaluator.md`
+- `agents/hacker.md`
+- `agents/ontologist.md`
+- `agents/qa-judge.md`
+- `agents/researcher.md`
+- `agents/seed-architect.md`
+- `agents/simplifier.md`
+- `agents/socratic-interviewer.md`
+- `docs/README.md`
+- `docs/api/README.md`
+- `docs/api/coordinator-agent-design.md`
+- `docs/api/core.md`
+- `docs/api/parallel-dx-design.md`
+- `docs/api/parallel-execution.md`
+- `docs/architecture.md`
+- `docs/cli-reference.md`
+- `docs/config-reference.md`
+- `docs/contributing/architecture-overview.md`
+- ... and 244 more files
+
+## `vendor/paul`
+
+- Range: `8a47790a79d8..a7c295e0393a`
+- Commit count: `1`
+
+### Commits
+
+- a7c295e feat(v1.2): Quality & Depth — enhanced init, E/Q loop, diagnostic routing, quick-track
+
+### Workflow Signals
+
+- `src/templates/PROJECT.md`
+- `src/workflows/apply-phase.md`
+- `src/workflows/init-project.md`
+- `src/workflows/plan-phase.md`
+- `src/workflows/unify-phase.md`
+- `src/workflows/verify-work.md`
+
+### All Changed Files
+
+- `README.md`
+- `package.json`
+- `src/references/checkpoints.md`
+- `src/references/loop-phases.md`
+- `src/references/quality-principles.md`
+- `src/templates/PROJECT.md`
+- `src/workflows/apply-phase.md`
+- `src/workflows/init-project.md`
+- `src/workflows/plan-phase.md`
+- `src/workflows/unify-phase.md`
+- `src/workflows/verify-work.md`
+
+## `vendor/planning-with-files`
+
+- Range: `3b6c3ce3567f..bb3a21ab0d3e`
+- Commit count: `3`
+
+### Commits
+
+- c7f8934 feat(templates): add analytics workflow template
+- 02a4ad6 feat(templates): add analytics workflow template (#115)
+- bb3a21a docs: update CONTRIBUTORS, CHANGELOG, README for v2.29.0
+
+### Workflow Signals
+
+- `templates/analytics_findings.md`
+- `templates/analytics_task_plan.md`
+
+### All Changed Files
+
+- `CHANGELOG.md`
+- `CONTRIBUTORS.md`
+- `README.md`
+- `scripts/init-session.ps1`
+- `scripts/init-session.sh`
+- `templates/analytics_findings.md`
+- `templates/analytics_task_plan.md`
+
+## `vendor/spec-kit`
+
+- Range: `bf3398042624..2c2fea8783f3`
+- Commit count: `19`
+
+### Commits
+
+- 6223d10 fix(codex): native skills fallback refresh + legacy prompt suppression (#1930)
+- a351c82 fix(cli): add allow_unicode=True and encoding="utf-8" to YAML I/O (#1936)
+- b72a585 chore: bump version to 0.4.0 (#1937)
+- dc7f09a fix(templates): add missing Assumptions section to spec template (#1939)
+- 24247c2 docs: add AIDE extension demo to community projects (#1943)
+- b1ba972 fix(scripts): prioritize .specify over git for repo root detection (#1933)
+- a011809 Add checkpoint extension (#1947)
+- ee65758 chore: bump version to 0.4.1 (#1953)
+- f132f74 docs: add Community Friends section with Spec Kit Assistant VS Code extension (#1944)
+- bc766c3 Add Community Friends section to README (#1956)
+- 816c116 fix(commands): rename NFR references to success criteria in analyze and clarify (#1935)
+- 2c29360 docs(readme): consolidate Community Friends sections and fix ToC anchors (#1958)
+- ebc6106 docs: move community extensions table to main README for discoverability (#1959)
+- eeda669 docs: add community presets section to main README (#1960)
+- 00e5dc1 Add AIDE, Extensify, and Presetify to community extensions (#1961)
+- fb152eb docs: add manual testing guide for slash command validation (#1955)
+- 36019eb feat: Auto-register ai-skills for extensions whenever applicable (#1840)
+- 4b4bd73 chore: bump version to 0.4.2 (#1973)
+- 2c2fea8 fix(ps1): replace null-conditional operator for PowerShell 5.1 compatibility (#1975)
+
+### Workflow Signals
+
+- `.github/workflows/release-trigger.yml`
+- `templates/commands/analyze.md`
+- `templates/commands/clarify.md`
+- `templates/spec-template.md`
+
+### All Changed Files
+
+- `.github/workflows/release-trigger.yml`
+- `CHANGELOG.md`
+- `README.md`
+- `TESTING.md`
+- `extensions/EXTENSION-DEVELOPMENT-GUIDE.md`
+- `extensions/EXTENSION-PUBLISHING-GUIDE.md`
+- `extensions/EXTENSION-USER-GUIDE.md`
+- `extensions/README.md`
+- `extensions/catalog.community.json`
+- `presets/catalog.community.json`
+- `pyproject.toml`
+- `scripts/bash/common.sh`
+- `scripts/bash/create-new-feature.sh`
+- `scripts/powershell/common.ps1`
+- `scripts/powershell/create-new-feature.ps1`
+- `src/specify_cli/__init__.py`
+- `src/specify_cli/agents.py`
+- `src/specify_cli/extensions.py`
+- `src/specify_cli/presets.py`
+- `templates/commands/analyze.md`
+- `templates/commands/clarify.md`
+- `templates/spec-template.md`
+- `tests/test_ai_skills.py`
+- `tests/test_extension_skills.py`
+- `tests/test_extensions.py`
+- `tests/test_presets.py`

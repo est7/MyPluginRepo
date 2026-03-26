@@ -105,3 +105,7 @@
 	path = vendor/everything-claude-code
 	url = git@github.com:affaan-m/everything-claude-code.git
 	shallow = true
+[submodule "vendor/dotclaude"]
+	path = vendor/dotclaude
+	url = https://github.com/FradSer/dotclaude
+	shallow = true

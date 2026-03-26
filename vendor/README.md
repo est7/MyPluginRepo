@@ -55,6 +55,7 @@ The summary below focuses on three things for each project:
 | `claude-code-cookbook` | Multilingual plugin collection with slash commands, expert roles, and automation hooks for Claude Code. |
 | `compound-engineering-plugin` | Compound engineering workflow plugin with brainstorm-plan-work-review-compound cycle and cross-platform CLI converter. |
 | `everything-claude-code` | Full-stack harness performance system with 28 agents, 116 skills, 60 commands, hooks, rules, and cross-platform support (Claude Code/Cursor/Codex/OpenCode). |
+| `dotclaude` | 15-plugin marketplace covering git, gitflow, github, refactoring, SwiftUI, shadcn, Next.js, office docs, and plugin optimization. |
 
 ## Detailed Summaries
 
@@ -222,6 +223,12 @@ The summary below focuses on three things for each project:
 - `Traits`: 28 agents, 116 skills, 60 commands across 12 language ecosystems; continuous learning with instinct-based pattern extraction; AgentShield security scanning; cross-platform parity (Claude Code, Cursor, Codex, OpenCode); token optimization and strategic compaction; selective install architecture.
 - `Flow`: `/plugin marketplace add` -> `/plugin install` -> install language rules via `./install.sh` -> use `/plan`, `/tdd`, `/code-review`, `/learn` -> `/evolve` to compound learnings.
 
+#### `dotclaude`
+
+- `Focus`: Provide a curated, well-structured plugin marketplace with domain-specific skills for common development workflows.
+- `Traits`: 15 plugins, clean per-plugin structure with agents/skills/scripts separation, PreToolUse hooks for commit validation, plugin-optimizer for self-validation, office document generation (patents, Feishu, PRDs), and marketplace-based distribution.
+- `Flow`: `claude plugin install <name>@frad-dotclaude` -> use domain commands like `/git:commit`, `/refactor:refactor`, `/swiftui:review` -> validate with `/plugin-optimizer:optimize-plugin`.
+
 ## Patterns Across the Collection
 
 ### Most common workflow shapes
@@ -229,7 +236,7 @@ The summary below focuses on three things for each project:
 - `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`
 - `Role-orchestration first`: `gstack`, `oh-my-claudecode`, `Claude-Code-Workflow`, `ccg-workflow`, `BMAD-METHOD`
 - `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`
-- `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`
+- `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`
 
 ### Key differentiators worth watching
 
@@ -248,6 +255,6 @@ If the goal is to compare approaches quickly, read in this order:
 1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`
 2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`
 3. `planning-with-files`, `Trellis`, `claude-reflect`
-4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`
+4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`
 
 That sequence moves from execution systems, to specification systems, to memory systems, to setup and distribution layers.

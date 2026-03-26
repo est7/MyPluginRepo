@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vendor Evolution SOP"
+  short_description: "Refresh vendor repos and summarize workflow evolution"
+  default_prompt: "Use $vendor-evolution-sop to pull the latest vendor submodules and summarize how each workflow repo evolved."
