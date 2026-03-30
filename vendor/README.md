@@ -22,6 +22,7 @@ The summary below focuses on three things for each project:
 | `paul` | Plan-Apply-Unify loop emphasizing loop closure, acceptance criteria, and in-session context quality. |
 | `claude-reflect` | Learns from user corrections and turns repeated behavior into durable memory and reusable commands. |
 | `skill-router` | Low-presence runtime for reducing skill-selection waste in crowded skill environments. |
+| `yoyo-evolve` | Self-evolving Rust CLI agent that autonomously reads its own source, implements improvements, and commits if tests pass — running 24/7 on GitHub Actions. |
 
 ### Workflow systems and spec-driven development
 
@@ -108,6 +109,12 @@ The summary below focuses on three things for each project:
 - `Focus`: Reduce the cost of skill discovery and routing in environments with too many overlapping skills.
 - `Traits`: Default-first resolution, minimal commentary, low-presence runtime philosophy, and explicit anti-taxonomy positioning.
 - `Flow`: decide if routing is needed -> prefer installed defaults -> discover only real gaps -> stay silent if routing does not change the next action.
+
+#### `yoyo-evolve`
+
+- `Focus`: Build a coding agent that autonomously improves itself by reading its own source and committing working changes.
+- `Traits`: 31k+ lines of self-written Rust, ~3 evolution sessions/day via GitHub Actions cron, community-directed via GitHub Issues voting, two-layer memory (append-only JSONL + synthesized daily context), and 11-provider multi-model support.
+- `Flow`: install via `cargo install yoyo-agent` -> run `yoyo` in REPL or `-p` one-shot -> open a GitHub Issue with `agent-input` label to direct future evolution -> agent reads issues, plans, implements, tests, commits or reverts automatically.
 
 ### Workflow Systems and Spec-Driven Development
 
@@ -236,6 +243,7 @@ The summary below focuses on three things for each project:
 - `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`
 - `Role-orchestration first`: `gstack`, `oh-my-claudecode`, `Claude-Code-Workflow`, `ccg-workflow`, `BMAD-METHOD`
 - `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`
+- `Self-evolution first`: `yoyo-evolve`
 - `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`
 
 ### Key differentiators worth watching
@@ -252,7 +260,7 @@ The summary below focuses on three things for each project:
 
 If the goal is to compare approaches quickly, read in this order:
 
-1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`
+1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`, `yoyo-evolve`
 2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`
 3. `planning-with-files`, `Trellis`, `claude-reflect`
 4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`

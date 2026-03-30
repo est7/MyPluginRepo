@@ -109,3 +109,7 @@
 	path = vendor/dotclaude
 	url = https://github.com/FradSer/dotclaude
 	shallow = true
+[submodule "vendor/yoyo-evolve"]
+	path = vendor/yoyo-evolve
+	url = https://github.com/yologdev/yoyo-evolve
+	shallow = true
