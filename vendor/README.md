@@ -56,6 +56,8 @@ The summary below focuses on three things for each project:
 | `compound-engineering-plugin` | Compound engineering workflow plugin with brainstorm-plan-work-review-compound cycle and cross-platform CLI converter. |
 | `everything-claude-code` | Full-stack harness performance system with 28 agents, 116 skills, 60 commands, hooks, rules, and cross-platform support (Claude Code/Cursor/Codex/OpenCode). |
 | `dotclaude` | 15-plugin marketplace covering git, gitflow, github, refactoring, SwiftUI, shadcn, Next.js, office docs, and plugin optimization. |
+| `superpowers` | Official cross-platform skills system centered on automatic workflow activation, TDD discipline, and subagent execution. |
+| `claude-plugins-official` | Anthropic's official plugin directory with internal and community plugins covering LSP, MCP, code review, and dev workflows. |
 
 ## Detailed Summaries
 
@@ -229,6 +231,18 @@ The summary below focuses on three things for each project:
 - `Traits`: 15 plugins, clean per-plugin structure with agents/skills/scripts separation, PreToolUse hooks for commit validation, plugin-optimizer for self-validation, office document generation (patents, Feishu, PRDs), and marketplace-based distribution.
 - `Flow`: `claude plugin install <name>@frad-dotclaude` -> use domain commands like `/git:commit`, `/refactor:refactor`, `/swiftui:review` -> validate with `/plugin-optimizer:optimize-plugin`.
 
+#### `superpowers`
+
+- `Focus`: Turn coding agents into disciplined implementation workers by auto-invoking planning, TDD, review, debugging, and branch-finishing workflows.
+- `Traits`: Official Claude marketplace availability, cross-platform install paths (Claude Code, Cursor, Codex, OpenCode, Gemini CLI), mandatory skill activation, subagent-driven execution, and strong test-first posture.
+- `Flow`: install plugin/extension -> let `brainstorming` refine the goal -> run `writing-plans` and `using-git-worktrees` after design approval -> execute via `subagent-driven-development` or `executing-plans` -> finish with code review and branch wrap-up skills.
+
+#### `claude-plugins-official`
+
+- `Focus`: Provide the canonical reference for Claude Code plugin structure, conventions, and available first-party plugins.
+- `Traits`: Anthropic-maintained, split into internal and external plugin directories, covers LSP integrations (12 languages), MCP server dev, code review, feature dev, skill creation, and output style presets.
+- `Flow`: browse `plugins/` and `external_plugins/` -> study `plugin.json` and skill structure -> install via `/plugin install <name>@claude-plugins-official` -> adapt patterns for your own plugins.
+
 ## Patterns Across the Collection
 
 ### Most common workflow shapes
@@ -236,7 +250,7 @@ The summary below focuses on three things for each project:
 - `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`
 - `Role-orchestration first`: `gstack`, `oh-my-claudecode`, `Claude-Code-Workflow`, `ccg-workflow`, `BMAD-METHOD`
 - `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`
-- `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`
+- `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`, `claude-plugins-official`
 
 ### Key differentiators worth watching
 
@@ -247,6 +261,7 @@ The summary below focuses on three things for each project:
 - `spec-workflow-mcp` and `claude-code-spec-workflow` both add dashboard visibility, but the former is MCP-first while the latter is Claude-Code-first.
 - `planning-with-files` and `Trellis` both treat files as durable memory, but `planning-with-files` is planning-centric while `Trellis` is broader team structure plus multi-platform wiring.
 - `claude-reflect` stands out because it improves the agent itself from corrections, not just the project.
+- `superpowers` stands out because it treats skills as mandatory runtime policy, not optional slash-command helpers.
 
 ## Suggested Reading Order
 
@@ -255,6 +270,6 @@ If the goal is to compare approaches quickly, read in this order:
 1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`
 2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`
 3. `planning-with-files`, `Trellis`, `claude-reflect`
-4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`
+4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`, `superpowers`, `claude-plugins-official`
 
 That sequence moves from execution systems, to specification systems, to memory systems, to setup and distribution layers.
