@@ -120,3 +120,7 @@
 	path = vendor/yoyo-evolve
 	url = https://github.com/yologdev/yoyo-evolve
 	shallow = true
+[submodule "vendor/flowspec"]
+	path = vendor/flowspec
+	url = https://github.com/jpoley/flowspec
+	shallow = true

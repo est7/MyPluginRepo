@@ -37,6 +37,7 @@ The summary below focuses on three things for each project:
 | `ouroboros` | Specification-first system using Socratic questioning and ontological analysis before execution. |
 | `claude-code-specs-generator` | Context and documentation generator that builds steering plus spec documents for Claude Code. |
 | `spec-based-claude-code` | Implementation guide for building a custom slash-command-based SDD workflow yourself. |
+| `flowspec` | SDD CLI with complexity scoring, specialized AI subagents, and backlog integration via backlog.md + beads. |
 
 ### Project memory, planning, and team structure
 
@@ -174,6 +175,12 @@ The summary below focuses on three things for each project:
 - `Traits`: Educational implementation guide, explicit file structure, approval gates, and command templates for each phase.
 - `Flow`: create `.claude/commands/spec` and `spec/` -> `/spec:new` -> `/spec:requirements` -> `/spec:approve` -> `/spec:design` -> `/spec:tasks` -> `/spec:implement`.
 
+#### `flowspec`
+
+- `Focus`: Give every feature the right level of spec rigor by scoring complexity first and scaling the SDD process accordingly.
+- `Traits`: `flowspec-cli` Python package, 8-dimension complexity scoring, three workflow tiers (Simple/Medium/Full SDD), specialized backend/frontend/QA/security subagents, backlog.md + beads task tracking, and rigorous quality gates enforced per phase.
+- `Flow`: `flowspec init` -> `/flow:assess` to score complexity -> `/flow:specify` -> `/flow:plan` (Full SDD only) -> `/flow:implement` -> `/flow:validate`.
+
 ### Project Memory, Planning, and Team Structure
 
 #### `planning-with-files`
@@ -254,7 +261,7 @@ The summary below focuses on three things for each project:
 
 ### Most common workflow shapes
 
-- `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`
+- `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`, `flowspec`
 - `Role-orchestration first`: `gstack`, `oh-my-claudecode`, `Claude-Code-Workflow`, `ccg-workflow`, `BMAD-METHOD`
 - `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`
 - `Self-evolution first`: `yoyo-evolve`
@@ -276,7 +283,7 @@ The summary below focuses on three things for each project:
 If the goal is to compare approaches quickly, read in this order:
 
 1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`, `yoyo-evolve`
-2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`
+2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `flowspec`
 3. `planning-with-files`, `Trellis`, `claude-reflect`
 4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`, `superpowers`, `claude-plugins-official`
 
