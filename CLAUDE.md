@@ -1,144 +1,170 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+本文件为 Claude Code（claude.ai/code）在此仓库中工作时提供指导。
 
-## Repository Purpose
+## 仓库用途
 
-This is a **parent monorepo** for Claude Code plugin development. It has two top-level directories:
+这是一个用于 Claude Code 插件开发的**父级 monorepo**，包含两个顶层目录：
 
-- `1st-cc-plugin/` — The primary plugin marketplace (git submodule). This is where all active development happens.
-- `vendor/` — Read-only third-party plugin/workflow projects (git submodules) used as research references. Do not modify vendor contents.
+- `1st-cc-plugin/` — 主插件市场（git submodule），所有活跃开发均在此进行。
+- `vendor/` — 只读的第三方插件/工作流项目（git submodule），仅用于研究参考，禁止修改其内容。
 
-## Working in `1st-cc-plugin/`
+## 在 `1st-cc-plugin/` 中工作
 
-The `1st-cc-plugin/` submodule contains its own detailed `CLAUDE.md` — read it before making any changes there. Key points:
+`1st-cc-plugin/` submodule 内有自己详细的 `CLAUDE.md`，修改前必须先阅读。要点如下：
 
-- **Plugin validation:** Run before committing:
+- **插件校验：** 提交前运行：
   ```bash
   python3 1st-cc-plugin/meta/plugin-optimizer/scripts/validate-plugin.py <plugin-path>
   ```
-  Exit codes: 0 = pass, 1 = MUST violations, 2 = token budget critical.
+  退出码：0 = 通过，1 = MUST 级违规，2 = token 预算超限。
 
-- **Branch strategy:** `develop` → `main` (merge commits)
+- **分支策略：** `develop` → `main`（merge commits）
 
-- **Commit scopes:** `git`, `gitflow`, `github`, `refactor`, `review`, `doc-gen`, `swiftui`, `po`, `project-init`, `sp`, `nd`, `issue-flow`, `simple-task`, `complex-task`, `code-context`, `shadcn`, `acpx`, `docs`, `ci`, `release`, `testing`, `ai-hygiene`, `clarify`, `android`, `plan`, `catchup`, `skill-dev`
+- **Commit scopes：** `git`, `gitflow`, `github`, `refactor`, `review`, `doc-gen`, `swiftui`, `po`, `project-init`, `sp`, `nd`, `issue-flow`, `simple-task`, `complex-task`, `code-context`, `shadcn`, `acpx`, `docs`, `ci`, `release`, `testing`, `ai-hygiene`, `clarify`, `android`, `plan`, `catchup`, `skill-dev`
 
-## Architecture
+## 架构
 
-### Plugin Component Model
+### 插件组件模型
 
-Each plugin in `1st-cc-plugin/` follows a 3-tier token budget:
-1. **Metadata (~100 tokens):** `plugin.json` name + description — always loaded
-2. **Instructions (<5k tokens):** `SKILL.md` body — loaded when skill is triggered
-3. **Resources (unlimited):** `references/*.md` files — loaded on demand via bash
+`1st-cc-plugin/` 中每个插件遵循三层 token 预算：
+1. **元数据（约 100 tokens）：** `plugin.json` 的 name + description — 始终加载
+2. **指令（< 5k tokens）：** `SKILL.md` 正文 — 触发 skill 时加载
+3. **资源（不限）：** `references/*.md` 文件 — 按需通过 bash 加载
 
-### Skill Registration
+### Skill 注册
 
-A skill's visibility is determined by its registration in `plugin.json`:
-- Listed under `"commands"` → becomes a user-invocable slash command (e.g., `/git:commit`)
-- Listed under `"skills"` → internal-only, auto-loaded by Claude when relevant, never shown in `/help`
+Skill 的可见性由 `plugin.json` 中的注册位置决定：
+- 列在 `"commands"` 下 → 成为用户可调用的斜杠命令（如 `/git:commit`）
+- 列在 `"skills"` 下 → 仅供内部使用，由 Claude 自动加载，不显示在 `/help` 中
 
-### Tool Invocation Convention in Plugin Content
+### 插件内容的工具调用规范
 
-| Context | Convention |
-|---------|-----------|
-| File operations (Read, Write, Edit, Glob, Grep) | Describe the action directly |
-| Bash commands | Describe the command directly: "Run `git diff`" |
-| Skill tool | Always explicit: "Load X skill using the Skill tool" |
-| Agent launch | Describe it: "Launch code-reviewer agent" |
+| 上下文 | 规范 |
+|--------|------|
+| 文件操作（Read, Write, Edit, Glob, Grep） | 直接描述动作 |
+| Bash 命令 | 直接描述命令，如 "Run `git diff`" |
+| Skill tool | 始终明确写出："Load X skill using the Skill tool" |
+| 启动 Agent | 描述即可："Launch code-reviewer agent" |
 
-Never use bare `Bash` in `allowed-tools`; always scope it (e.g., `Bash(git:*)`).
+`allowed-tools` 中禁止使用裸 `Bash`，必须限定范围（如 `Bash(git:*)`）。
 
-## Submodule Management
+## Submodule 管理
 
 ```bash
-# Update all submodules to tracked commits (shallow)
+# 更新所有 submodule 到已追踪的提交（浅克隆）
 git submodule update --init --depth 1
 
-# Pull latest from a specific submodule remote
+# 拉取特定 submodule 远端的最新版本
 git submodule update --remote vendor/<name>
 ```
 
-All vendor submodules use `shallow = true` in `.gitmodules` to avoid pulling full history. The `vendor/` submodules are intentionally pinned and should only be updated deliberately for research purposes.
+所有 vendor submodule 在 `.gitmodules` 中设置了 `shallow = true` 以避免拉取完整历史。`vendor/` submodule 为有意锁定版本，仅在有研究需求时才应主动更新。
 
-## Adding a New Vendor Reference (SOP)
+## 添加新 Vendor 参考（SOP）
 
-This is the standard preparation workflow before updating `1st-cc-plugin/`. Every time a new vendor repo is added, follow these steps in order:
+这是更新 `1st-cc-plugin/` 前的标准准备流程。每次添加新 vendor 仓库时，按顺序执行以下步骤：
 
-1. **Add the git submodule:**
+1. **添加 git submodule：**
    ```bash
    git submodule add <repo-url> vendor/<name>
    ```
 
-2. **Read the new repo's README:** Understand what it does, its core workflow, and key traits.
+2. **阅读新仓库的 README：** 了解其用途、核心工作流和主要特征。
 
-3. **Update `vendor/README.md`:** Add the new project to:
-   - The "At a Glance" table under the appropriate category
-   - The "Detailed Summaries" section with `Focus`, `Traits`, and `Flow`
-   - The "Patterns Across the Collection" classification
-   - The "Suggested Reading Order" list
+3. **更新 `vendor/README.md`：** 将新项目添加到：
+   - "At a Glance" 表格的对应分类下
+   - "Detailed Summaries" 部分，包含 `Focus`、`Traits` 和 `Flow`
+   - "Patterns Across the Collection" 分类
+   - "Suggested Reading Order" 列表
 
-4. **Commit the changes** (submodule addition + vendor README update) as a single commit.
+4. **提交变更**（submodule 添加 + vendor README 更新）为单次提交。
 
-## Removing a Vendor Reference (SOP)
+## 移除 Vendor 参考（SOP）
 
-When a vendor repo is no longer needed, follow these steps in order:
+当某个 vendor 仓库不再需要时，按顺序执行以下步骤：
 
-1. **Remove the git submodule:**
+1. **移除 git submodule：**
    ```bash
    git submodule deinit -f vendor/<name>
    git rm -f vendor/<name>
    rm -rf .git/modules/vendor/<name>
    ```
 
-2. **Update `vendor/README.md`:** Remove the project from:
-   - The "At a Glance" table
-   - The "Detailed Summaries" section
-   - The "Patterns Across the Collection" classification
-   - The "Suggested Reading Order" list
+2. **更新 `vendor/README.md`：** 从以下位置移除该项目：
+   - "At a Glance" 表格
+   - "Detailed Summaries" 部分
+   - "Patterns Across the Collection" 分类
+   - "Suggested Reading Order" 列表
 
-3. **Commit the changes** (submodule removal + vendor README update) as a single commit.
+3. **提交变更**（submodule 移除 + vendor README 更新）为单次提交。
 
-## Porting a Skill to 1st-cc-plugin (SOP)
+## 将 Skill 移植到 1st-cc-plugin（SOP）
 
-When the user identifies a good skill from a vendor repo and wants it added to `1st-cc-plugin/`, follow these steps:
+当用户从 vendor 仓库中发现好的 skill 并希望加入 `1st-cc-plugin/` 时，按以下步骤操作：
 
-### 1. Decide where it belongs
+### 1. 确定归属位置
 
-Read the skill's content and understand its domain. Then check existing plugin groups in `1st-cc-plugin/`:
+阅读 skill 内容，理解其领域。然后对照 `1st-cc-plugin/` 中现有插件组：
 
-```
-vcs/          — git, gitflow, github
-workflow/     — issue-driven-dev, superpower, simple-task, complex-task, catchup, plan
-quality/      — review, refactor, testing, ai-hygiene, clarify
-tools/        — project-init, code-context, doc-gen
-framework/    — swiftui, shadcn, next-devtools, android
-meta/         — plugin-optimizer, acpx, skill-dev
-ops/          — release
-```
+| 路径 | 插件 | 描述 |
+|------|------|------|
+| `vcs/git` | git | Conventional Git automation and advanced repository management |
+| `vcs/gitflow` | gitflow | GitFlow workflow automation for feature, hotfix, and release branches |
+| `vcs/github` | github | GitHub project operations with quality gates |
+| `workflow/issue-driven-dev` | issue-flow | GitLab Issue type-aware workflow for Android teams — Bug (3-stage) and Feature (4-stage) lifecycle |
+| `workflow/superpower` | superpowers | Advanced development superpowers for orchestrating complex workflows with Superpower Loop integration |
+| `workflow/simple-task` | simple-task | Guided workflow for simple, single-scope tasks — quick fixes, small tweaks, and straightforward changes |
+| `workflow/complex-task` | complex-task | Structured workflow for complex, multi-scope tasks — new features, cross-module refactors, and architectural changes |
+| `workflow/catchup` | catchup | Context gathering and handoff tools for catching up on branch changes and generating structured work summaries |
+| `workflow/deep-plan` | deep-plan | Planning workflow tools — Plan/Code mode switching for moderate-complex tasks and deep analysis with review gates |
+| `quality/ai-hygiene` | ai-hygiene | Detect and remove AI-generated code slop — defensive overreach, noise comments, duplicate boilerplate, and style inconsistencies |
+| `quality/clarify` | clarify | Clarify ambiguous prompts and incomplete spec documents through structured interviews |
+| `quality/codex-review` | codex-review | Code review via Codex CLI — auto-collects changes and task context for AI-powered review |
+| `quality/meeseeks-vetted` | meeseeks-vetted | Enforces task clarity before execution and requires verified work before exit |
+| `quality/project-health` | project-health | Quantitative project health analysis with multi-role debate — tech debt scoring, improvement priorities, and roadmap generation |
+| `quality/refactor` | refactor | Refactor files or modules — simplify logic, remove dead code, improve cross-file consistency |
+| `quality/testing` | testing | TDD workflow and testing strategy with Red-Green-Refactor gates and implementation quality checks |
+| `tools/async-agent` | async-agent | Run Claude, Codex, or Gemini tasks asynchronously via the packaged async-agent-backend binary |
+| `tools/code-context` | code-context | 5 methods to retrieve code context: DeepWiki, Context7, Exa, git clone, and web search+fetch |
+| `tools/doc-gen` | doc-gen | Office productivity skills for patent applications, PRD generation, Feishu document creation, and browser automation |
+| `tools/jetbrains` | jetbrains | JetBrains IDE MCP integration — code navigation, refactoring, inspections, and run configurations via IDE indexes |
+| `tools/knowledge-vault` | knowledge-vault | Obsidian PARA knowledge vault management — inbox capture, smart routing, web clipping, literature notes, ADR recording, and periodic reviews |
+| `tools/mcp-services` | mcp-services | MCP service usage guides and multi-tool collaboration patterns for Context7, GitHub, Google Developer Knowledge, and more |
+| `tools/project-init` | project-init | Initialize project configuration — environment detection, AI assistant setup, TDD options, and multi-file sync |
+| `tools/utils` | utils | General-purpose utility skills for documentation, writing, and project maintenance |
+| `framework/android` | android | Android development toolkit — MVI feature development, design-to-XML UI generation, and Kotlin code review |
+| `framework/next-devtools` | next-devtools | Next.js development tools integration via MCP server |
+| `framework/shadcn` | shadcn | Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI |
+| `framework/swiftui` | swiftui | SwiftUI code review with modern API best practices |
+| `meta/acpx` | acpx | Knowledge base for acpx — a headless ACP CLI for agent-to-agent communication |
+| `meta/plugin-optimizer` | plugin-optimizer | Validates and optimizes Claude Code plugins against official best practices and file patterns |
+| `meta/skill-dev` | skill-dev | Skill development toolkit for creating, optimizing, and testing Claude Code skills, commands, and MCP servers |
+| `meta/upstream-sync` | upstream-sync | Sync upstream changes from FradSer/dotclaude into 1st-cc-plugin with directory mapping and content adaptation |
+| `ops/release` | release | Release management and version control automation for GitHub releases and semantic versioning |
 
-- If the skill fits an existing plugin's domain, add it there.
-- If it opens a new domain with no good fit, create a new plugin directory with `plugin.json` and `SKILL.md`.
+- 若 skill 契合某个现有插件的领域，直接添加到该插件中。
+- 若开辟了全新领域且无合适归属，新建插件目录并创建 `plugin.json` 和 `SKILL.md`。
 
-### 2. Adapt the skill
+### 2. 适配 skill
 
-- Do NOT copy vendor content verbatim. Rewrite to match `1st-cc-plugin/` conventions.
-- Follow the 3-tier token budget: metadata (~100 tokens), instructions (<5k tokens), resources (unlimited `references/*.md`).
-- Register in `plugin.json` under `"commands"` (user-invocable) or `"skills"` (auto-triggered).
-- Respect tool invocation conventions (no bare `Bash`, scoped permissions).
+- **禁止**逐字复制 vendor 内容，必须按 `1st-cc-plugin/` 规范重写。
+- 遵循三层 token 预算：元数据（约 100 tokens）、指令（< 5k tokens）、资源（不限，存放于 `references/*.md`）。
+- 在 `plugin.json` 中注册于 `"commands"`（用户可调用）或 `"skills"`（自动触发）。
+- 遵守工具调用规范（禁用裸 `Bash`，使用限定范围的权限）。
 
-### 3. Validate
+### 3. 校验
 
 ```bash
 python3 1st-cc-plugin/meta/plugin-optimizer/scripts/validate-plugin.py 1st-cc-plugin/<group>/<plugin-name>
 ```
 
-### 4. Update documentation
+### 4. 更新文档
 
-- Update the plugin's own `README.md` (or create one if new plugin).
-- Update `1st-cc-plugin/README.md` if the plugin list or marketplace description changed.
+- 更新插件自身的 `README.md`（若为新插件则创建）。
+- 若插件列表或市场描述有变动，更新 `1st-cc-plugin/README.md`。
 
-### 5. Bump version and commit
+### 5. 升级版本并提交
 
-- Bump the version in the plugin's `plugin.json`.
-- Commit with an appropriate scope: `feat(<scope>): add <skill-name> skill`.
+- 在插件的 `plugin.json` 中升级版本号。
+- 使用适当的 scope 提交：`feat(<scope>): add <skill-name> skill`。

@@ -116,3 +116,7 @@
 	path = vendor/claude-plugins-official
 	url = git@github.com:anthropics/claude-plugins-official.git
 	shallow = true
+[submodule "vendor/yoyo-evolve"]
+	path = vendor/yoyo-evolve
+	url = https://github.com/yologdev/yoyo-evolve
+	shallow = true
