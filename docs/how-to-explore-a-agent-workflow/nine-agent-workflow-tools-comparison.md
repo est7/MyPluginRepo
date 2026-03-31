@@ -1,30 +1,33 @@
-我把你补充的 workflows = EveryInc/compound-engineering-plugin、everything-claude-code = affaan-m/everything-claude-code、ralph = snarktank/ralph 一起并进来了，顺手把整套东西按“方法论层 / 执行层 / 记忆与循环层”重新整理了一遍。结论先给：没有一个“全场最佳”，只有“在你当前约束下最合适”。如果你是个人开发者、主力用 Claude Code、想少 ceremony 多产出，我会先看 GSD；如果你做的是长期维护的现有代码库，要规格可审计、变更可回放，我会先看 OpenSpec；如果你要最完整、最“规格驱动正统派”的链路，我会看 Spec Kit；如果你要 TDD/工艺纪律，我会看 Superpowers；如果你要 repo-aware 的计划→执行→审查→沉淀闭环，我会看 Compound Engineering/workflows；如果你要组织级、多角色、多 track 的大流程，才上 BMAD；如果你只是想解决长会话失忆，不想引入大框架，用 planning-with-files；如果你要让 agent 反复 fresh-context 干到 PRD 清零，用 Ralph。
+# Agent 工作流工具全景分析
 
-1. GSD / get-shit-done
+结论先给：没有一个”全场最佳”，只有”在你当前约束下最合适”。如果你是个人开发者、主力用 Claude Code、想少 ceremony 多产出，我会先看 GSD；如果你做的是长期维护的现有代码库，要规格可审计、变更可回放，我会先看 OpenSpec；如果你要最完整、最“规格驱动正统派”的链路，我会看 Spec Kit；如果你要 TDD/工艺纪律，我会看 Superpowers；如果你要 repo-aware 的计划→执行→审查→沉淀闭环，我会看 Compound Engineering/workflows；如果你要组织级、多角色、多 track 的大流程，才上 BMAD；如果你只是想解决长会话失忆，不想引入大框架，用 planning-with-files；如果你要让 agent 反复 fresh-context 干到 PRD 清零，用 Ralph。
+
+## 1. GSD / get-shit-done
+
 定位：反 bureaucracy 的 spec-driven 工作流，作者明确把它写成“个人开发者高吞吐量系统”，重点是解决 context rot。核心路径是 PROJECT.md、REQUIREMENTS.md、ROADMAP.md、STATE.md、.planning/research/，每个 phase 还会产出 {n}-CONTEXT.md、{n}-RESEARCH.md、{n}-{k}-PLAN.md、{n}-VERIFICATION.md，quick 模式走 .planning/quick/...。核心命令是 /gsd:new-project、/gsd:discuss-phase、/gsd:plan-phase、/gsd:execute-phase、/gsd:verify-work、/gsd:complete-milestone、/gsd:new-milestone、/gsd:quick；安装用 npx get-shit-done-cc@latest，Claude/OpenCode/Codex 的命令前缀还不一样。优点是：阶段清楚、fresh-context 执行强、原生把“研究/计划/执行/验证”串起来；缺点是：它把复杂度藏在系统内部，出了偏差你要理解它的文件协议，而且 repo 还推荐 claude --dangerously-skip-permissions，我不建议在公司仓库或高风险仓库里无脑照做，最好改成 allowlist。适合：单兵开发、从想法到功能落地、你愿意信任系统帮你做大量 orchestration。
 
-2. OpenSpec
+## 2. OpenSpec
 定位：轻量、brownfield-first 的 spec/change management。它把“当前真相”和“拟议变更”分开：openspec/specs/ 放现状规范，openspec/changes/<change>/ 放 proposal/tasks/design/spec delta，这个结构对老项目非常友好。核心命令是 openspec init、openspec list、openspec show、openspec validate、openspec archive，AI 侧常用 /openspec:proposal、/openspec:apply、/openspec:archive；新版还有更流动的 OPSX：/opsx:new、/opsx:continue、/opsx:ff、/opsx:apply、/opsx:archive。优点是：变更可审计、diff 语义清晰、跨工具兼容好；缺点是：执行自动化本身不算强，更像“规格层”而不是“自动施工队”。适合：现有项目增量迭代、多人协作、需要 reviewable spec delta。
 
-3. Spec Kit / speckit
+## 3. Spec Kit / speckit
 定位：规格驱动的“全套正统流”，强调 constitution → specification → plan → tasks → implement 的完整链路。核心路径是 .specify/memory/constitution.md、.specify/scripts/...、specs/001-foo/spec.md，继续规划后会长出 research.md、plan.md、quickstart.md、data-model.md、contracts/ 等。CLI 是 specify init、specify check；AI 命令在文档里同时出现了两套写法：GitHub README 用 /speckit.constitution、/speckit.specify、/speckit.plan、/speckit.tasks、/speckit.implement，官网 quick start 又展示了短命令 /specify、/plan、/tasks、/implement。这不是你记混了，而是不同文档/集成层存在命名漂移，实际以 specify init 生成到你 agent 里的命令为准。优点是：artifact 完整、治理感强、很适合需要规范化产出的团队；缺点是：ceremony 比 OpenSpec 更重。还有一个重要点：OpenSpec 官方把自己描述成更偏 brownfield，而 Spec Kit 现在也公开给了 brownfield demo，所以它已经不只是 greenfield 工具了。
 
-4. planning-with-files / planwithfiles
+## 4. planning-with-files / planwithfiles
 定位：不是大方法论，而是持久化工作记忆。核心路径非常简单：task_plan.md、findings.md、progress.md。核心命令是 /planning-with-files:plan（autocomplete 输 /plan）、/planning-with-files:status（/plan:status）、/planning-with-files:start（/planning）。它还靠 hooks 做几件事：关键决策前重读 plan、写文件后提醒更新状态、停止前验证完成、/clear 后做 session recovery。优点是：轻、直接、对抗长会话失忆特别有效；缺点是：它本质上只是 memory discipline，不是完整的 spec / architecture / implementation framework，文档如果不持续维护，很快就会变成另一种“过期上下文”。适合：多步任务、研究型任务、跨很多 tool call 的复杂会话；不适合：单文件小修。
 
-5. Superpowers / superpowes
+## 5. Superpowers / superpowes
 定位：工程纪律型 skills framework，核心价值不在“写多少 artifact”，而在强制触发正确的工程习惯。repo 结构里最关键的是 agents/、commands/、hooks/、skills/；工作流技能包括 brainstorming、using-git-worktrees、writing-plans、subagent-driven-development、test-driven-development、requesting-code-review 等。安装上现在有两条路：官方 Claude marketplace 可直接 /plugin install superpowers@claude-plugins-official，社区 marketplace 则是先 /plugin marketplace add obra/superpowers-marketplace 再 /plugin install superpowers@superpowers-marketplace。命令也有两套说法：仓库里展示了 namespaced 版 /superpowers:brainstorm|write-plan|execute-plan，marketplace 页又写成 /brainstorm|/write-plan|/execute-plan，所以最佳实践也是装完先看 /help，别死背 README。优点是：TDD、worktree、并行 subagent、code review 都很强，适合把 agent 拉回工程正轨；缺点是：它非常 opinionated，尤其是 TDD-first 和 mandatory workflow，不喜欢这套的人会觉得“被管太多”。适合：你重视测试、工艺、可维护性，而不是只求快出代码。
 
-6. BMAD Method / bmad-method
+## 6. BMAD Method / bmad-method
 定位：最重、最组织化、最“角色化”的一套。它不是一个小插件，而是一个模块化框架：安装后会生成 bmad/core、bmad/bmm、bmad/bmb、bmad/cis、bmad/_cfg/agents，其中 _cfg 专门用来放可升级保留的定制。安装命令是 npx bmad-method@alpha install（v6 alpha）或 npx bmad-method install（v4 stable），入门建议是先跑 *workflow-init；你也可以直接用 /bmad:bmm:workflows:workflow-init、/bmad:bmm:workflows:prd、/bmad:bmm:workflows:dev-story 这类命令。优点是：scale-adaptive、角色分工清晰、适合复杂产品与组织级流程；缺点也很明显：学习曲线最高、ceremony 最高，且 v6 文档仍在收敛。如果你是 solo builder，只想把功能做出来，BMAD 往往太重。适合：复杂产品、多人协作、需要 PM/架构/UX/开发多角色工作流的场景。
 
-7. workflows / Compound Engineering Plugin
+## 7. workflows / Compound Engineering Plugin
 定位：repo-aware 的 plan → work → review → compound 闭环。关键 repo 路径能看到 .claude/commands、.claude-plugin、docs/，并且它还有一个 Bun/TypeScript CLI 可以把 Claude Code 插件转换到 OpenCode、Codex、Droid、Gemini 等。安装是 /plugin marketplace add EveryInc/compound-engineering-plugin + /plugin install compound-engineering，或用 bunx @every-env/compound-plugin install compound-engineering --to opencode|codex|droid|pi|gemini 做跨工具转换。这里有个你一定要知道的坑：公开文档存在命令名漂移。仓库搜索摘要写的是 /workflows:plan|work|review|compound，而 Every Marketplace 页面又写的是 /compound-engineering:plan|work|review|triage|resolve_todo_parallel|generate_command。我的判断是版本/包装层重命名过，所以安装后先信任你本地 /help 里真正注册出来的命令。优点是：worktree、plan file、multi-agent review、知识沉淀闭环很完整；缺点是：命令和包装层还在变化，更偏“工程执行与评审系统”，不是需求发现工具。适合：已有仓库、PR 驱动、评审质量和知识沉淀比“灵感式开发”更重要的团队。
 
-8. Everything Claude Code / ECC
+## 8. Everything Claude Code / ECC
 定位：这是“大而全 harness”，不是单一 workflow。它同时覆盖插件、hooks、rules、skills、agents、commands、contexts、MCP configs，而且已经扩展到 Claude Code、Codex、Cursor、OpenCode 等。核心 repo 路径非常多：.claude-plugin/、.claude/、.codex/、.cursor/、commands/、contexts/、hooks/、mcp-configs/、rules/、skills/、tests/。安装先走 /plugin marketplace add affaan-m/everything-claude-code 和 /plugin install everything-claude-code@everything-claude-code，但规则文件不能随插件自动分发，README 明确要求你再 git clone 仓库并执行 ./install.sh typescript|python|golang|swift|php 之类的脚本。命令层则有 /everything-claude-code:plan，官网还重点推荐 /tdd、/plan、/code-review、/e2e、/security-review、/build-fix、/continuous-learning-v2，另有 ecc-universal 和 AgentShield。优点是：覆盖面最大、跨 harness 一致性最好、hooks/security/research/continuous learning 都齐；缺点是：复杂度也最大，你不是在装一个 workflow，而是在装一整套 agent harness。适合：你想把 Claude Code 体系彻底武装起来，而不是只引入一个 planning 方法。
 
-9. Ralph
+## 9. Ralph
 定位：它不是 spec 工具，而是autonomous execution loop。现在的 README 已经不只写 Amp，也支持 Claude Code：你可以手动复制 ralph.sh 和对应的 prompt.md/CLAUDE.md，也可以在 Claude Code 里 /plugin marketplace add snarktank/ralph，再 /plugin install ralph-skills@ralph-marketplace，然后获得 /prd 和 /ralph 两个技能。核心运行文件是 ralph.sh、prd.json、progress.txt、AGENTS.md、tasks/prd-*.md；真正执行时是 ./scripts/ralph/ralph.sh [max_iterations]。它的核心思想非常硬核：每轮 fresh context，记忆只靠 git history、progress.txt、prd.json。优点是：极强的长任务推进能力，特别适合拆成小 user stories 后循环干活；缺点是：任务粒度如果太大就会崩，而且它强依赖反馈回路——typecheck、tests、browser verification、AGENTS.md learnings，全都不能省。适合：你已经有 PRD/任务清单，想让 agent 连续跑很多轮直到清零。
 
 如果你问“到底哪个更好”，我的直接建议是这样：
@@ -48,14 +51,8 @@
 如果你只让我给一个最终落地版建议：
 严肃产品开发：OpenSpec + Superpowers。
 个人高吞吐量：GSD。
-长任务无人值守推进：OpenSpec/PRD + Ralph。
-大组织、多角色、流程优先：BMAD。
-
-你接下来真正该问我的两个问题是：
 	1.	你的主战场到底是 Claude Code 单一环境，还是 Claude/Codex/Cursor/OpenCode 混用？
 	2.	你更看重的是 规格可审计，还是 自动执行吞吐量最大化？
-
-
 
 可以，这三项加进来之后，前面的结论要做一次重新分层：
 
@@ -304,6 +301,3 @@ OpenCode 用户：
 要最稳，不要神化单一框架：
 一个主规格层 + 一个主执行层 + 可选 Ralph，不要把所有框架都装成“主脑”。
 
-你现在最该追问的两个问题是：
-	1.	你最终主战场到底定在 Claude Code 还是 OpenCode？
-	2.	你更想优化的是 规格清晰度，还是 执行吞吐量？
