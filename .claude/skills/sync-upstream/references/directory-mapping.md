@@ -12,7 +12,7 @@
 | `claude-config/` | `integrations/project-init/` | Different plugin name |
 | `office/` | `integrations/doc-gen/` | Different plugin name |
 | `plugin-optimizer/` | `authoring/plugin-optimizer/` | |
-| `next-devintegrations/` | `platforms/next-devintegrations/` | |
+| `next-devtools/` | `platforms/next-devtools/` | |
 | `swiftui/` | `platforms/swiftui/` | |
 | `code-context/` | `integrations/code-context/` | |
 | `acpx/` | `authoring/acpx/` | |
@@ -134,7 +134,7 @@ to locate the exact file when syncing a specific skill.
 
 | est7/dotclaude | 1st-cc-plugin |
 |----------------|---------------|
-| `next-devintegrations/skills/next-devtools-guide/` | `platforms/next-devintegrations/skills/next-devtools-guide/` |
+| `next-devtools/skills/next-devtools-guide/` | `platforms/next-devtools/skills/next-devtools-guide/` |
 
 ### platforms/swiftui
 
@@ -168,6 +168,7 @@ These plugins are unique to `1st-cc-plugin` and must never be modified during up
 | catchup | `workflows/catchup/` | est7 |
 | deep-plan | `workflows/deep-plan/` | est7 |
 | todo-sdd-workflow | `workflows/todo-sdd-workflow/` | est7 |
+| superpower | `workflows/superpower/` | est7 (diverged from upstream) |
 | codex-review | `quality/codex-review/` | est7 |
 | testing | `quality/testing/` | est7 |
 | ai-hygiene | `quality/ai-hygiene/` | est7 |
