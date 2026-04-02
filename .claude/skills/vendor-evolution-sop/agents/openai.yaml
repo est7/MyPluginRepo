@@ -1,4 +1,4 @@
 interface:
   display_name: "Vendor Evolution SOP"
-  short_description: "Refresh vendor repos and summarize workflow evolution"
-  default_prompt: "Use $vendor-evolution-sop to pull the latest vendor submodules and summarize how each workflow repo evolved."
+  short_description: "Refresh vendor repos and produce discovery-first evolution research"
+  default_prompt: "Use $vendor-evolution-sop to pull the latest vendor submodules and produce a discovery-first evolution research report with code-level mechanism extraction. Do NOT fall back to keyword-matching summaries. Every conclusion must cite at least one file path or code snippet as evidence."
