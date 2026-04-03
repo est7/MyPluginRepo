@@ -4,25 +4,25 @@
 > **Repository**: `vendor/flowspec/` (jpoley/flowspec)
 > **Version**: 0.4.008 (CLI) | 0.0.20 (plugin manifest)
 > **Research Date**: 2026-04-02
-> **Evidence Level**: Direct (source code access)
+> **Evidence Level**: Direct（源码级访问）
 
 ---
 
-## 1. Framework Profile
+## 1. 框架概览
 
 | Dimension | Value |
 |-----------|-------|
-| **Type** | Workflow harness + Agent orchestrator (hybrid) |
-| **Primary Language** | Python 3.11+ (CLI: typer + rich) |
+| **Type** | Workflow harness + Agent orchestrator（混合型） |
+| **Primary Language** | Python 3.11+（CLI：typer + rich） |
 | **Target Platforms** | Claude Code, GitHub Copilot, Codex, Gemini CLI, Cursor, Windsurf |
-| **Core Concept** | Spec-Driven Development (SDD) — formal specs before code |
+| **Core Concept** | Spec-Driven Development (SDD) — 先写正式规格，再写代码 |
 | **License** | MIT |
 | **Dependencies** | typer, rich, httpx, pyyaml, jsonschema, mcp, node-pty |
-| **Test Framework** | pytest (>80% coverage target) |
-| **Linter/Formatter** | Ruff (replaces Black + Flake8 + isort) |
+| **Test Framework** | pytest（目标覆盖率 >80%） |
+| **Linter/Formatter** | Ruff（替代 Black + Flake8 + isort） |
 | **Package Manager** | UV |
 
-### Directory Map
+### 目录结构
 
 ```
 vendor/flowspec/
@@ -56,89 +56,89 @@ vendor/flowspec/
 └── utils/                 # flowspec-netlog utility
 ```
 
-### File Statistics
+### 文件统计
 
 | Category | Count |
 |----------|-------|
-| Total files | 500+ |
-| Python SLOC (workflow module) | ~18,000 |
-| Documentation (markdown) | 150+ |
-| Templates | 50+ |
-| Test files | 50+ |
-| Configuration files | 8 major |
-| Slash commands | 22 |
-| Skills (internal) | 20 |
-| Agent personas | 15 |
+| 文件总数 | 500+ |
+| Python SLOC（workflow 模块） | ~18,000 |
+| 文档（markdown） | 150+ |
+| 模板 | 50+ |
+| 测试文件 | 50+ |
+| 配置文件 | 8 个主要 |
+| 斜杠命令 | 22 |
+| Skills（内部） | 20 |
+| Agent 人设 | 15 |
 
 ---
 
-## 2. Source Inventory
+## 2. 源文件清单
 
-### Overview
-
-| File | Purpose |
-|------|---------|
-| `README.md` | Framework overview, quickstart, feature matrix |
-| `CLAUDE.md` | Claude Code integration guide (rules, workflows, agents) |
-| `memory/constitution.md` (55K) | Comprehensive project governance — tiers, rigor, standards |
-| `memory/WORKFLOW_DESIGN_SPEC.md` | Workflow execution specification |
-| `build-docs/adr/` (60+ files) | Architecture Decision Records |
-| `build-docs/platform/` | Platform engineering docs |
-| `.stacks/*/README.md` | Stack-specific guidance |
-
-### Execution
+### 概述
 
 | File | Purpose |
 |------|---------|
-| `.claude/commands/flow/*.md` (22 files) | Slash command definitions for each workflow phase |
-| `.claude/skills/*/SKILL.md` (20 dirs) | Internal skill definitions |
-| `src/flowspec_cli/workflow/orchestrator.py` | Custom workflow execution engine |
-| `src/flowspec_cli/workflow/executor.py` | Agent-context workflow step runner |
-| `src/flowspec_cli/workflow/transition.py` | Artifact-gated state transitions |
-| `flowspec_workflow.yml` | State machine + workflow + agent definitions |
+| `README.md` | 框架概述、快速上手、功能矩阵 |
+| `CLAUDE.md` | Claude Code 集成指南（规则、工作流、agents） |
+| `memory/constitution.md` (55K) | 全面的项目治理文件 — 层级、严格度、标准 |
+| `memory/WORKFLOW_DESIGN_SPEC.md` | 工作流执行规格 |
+| `build-docs/adr/`（60+ 文件） | 架构决策记录 |
+| `build-docs/platform/` | 平台工程文档 |
+| `.stacks/*/README.md` | 技术栈专属指南 |
 
-### Prompts
-
-| File | Purpose |
-|------|---------|
-| `.agents/*.md` (15 files) | Specialized agent persona definitions |
-| `.claude/agents/*.md` (5 files) | Claude Code dispatchable agent definitions |
-| `.claude/agents-config.json` | Agent→workflow routing table |
-| `.languages/*/agent-personas.md` | Language-specific expert guidance |
-| `templates/agents/*.md` | Agent template files |
-
-### Enforcement
+### 执行层
 
 | File | Purpose |
 |------|---------|
-| `.claude/settings.json` | Hook definitions, permission denials, preferences |
-| `.claude/rules/critical.md` | Non-negotiable rules (test protection, DCO, pre-PR) |
-| `.claude/rules/rigor.md` | 4-phase rigor enforcement (SETUP/EXEC/VALID/PR) |
+| `.claude/commands/flow/*.md`（22 文件） | 每个工作流阶段的斜杠命令定义 |
+| `.claude/skills/*/SKILL.md`（20 目录） | 内部 skill 定义 |
+| `src/flowspec_cli/workflow/orchestrator.py` | 自定义工作流执行引擎 |
+| `src/flowspec_cli/workflow/executor.py` | Agent 上下文中的工作流步骤执行器 |
+| `src/flowspec_cli/workflow/transition.py` | 基于产物门控的状态转换 |
+| `flowspec_workflow.yml` | 状态机 + 工作流 + agent 定义 |
+
+### Prompt 层
+
+| File | Purpose |
+|------|---------|
+| `.agents/*.md`（15 文件） | 专业化 agent 人设定义 |
+| `.claude/agents/*.md`（5 文件） | Claude Code 可调度的 agent 定义 |
+| `.claude/agents-config.json` | Agent→workflow 路由表 |
+| `.languages/*/agent-personas.md` | 语言专属的专家指导 |
+| `templates/agents/*.md` | Agent 模板文件 |
+
+### 强制执行层
+
+| File | Purpose |
+|------|---------|
+| `.claude/settings.json` | Hook 定义、权限拒绝列表、偏好设置 |
+| `.claude/rules/critical.md` | 不可违反的规则（测试保护、DCO、PR 前检查） |
+| `.claude/rules/rigor.md` | 4 阶段严格度强制执行（SETUP/EXEC/VALID/PR） |
 | `.pre-commit-config.yaml` | Ruff lint + format hooks |
-| `scripts/bash/pre-pr-check.sh` | Pre-PR validation (DCO + lint + format + tests) |
-| `src/flowspec_cli/workflow/validator.py` (718 SLOC) | DAG validation, cycle detection, reachability |
-| `src/flowspec_cli/hooks/runner.py` | Hook execution with timeout + env sanitization |
-| `src/flowspec_cli/hooks/config.py` | Hook config validation (path traversal, metachar) |
-| `schemas/flowspec-workflow-schema.json` | JSON Schema for workflow config |
+| `scripts/bash/pre-pr-check.sh` | PR 前校验（DCO + lint + format + tests） |
+| `src/flowspec_cli/workflow/validator.py`（718 SLOC） | DAG 校验、环路检测、可达性分析 |
+| `src/flowspec_cli/hooks/runner.py` | Hook 执行（含超时 + 环境净化） |
+| `src/flowspec_cli/hooks/config.py` | Hook 配置校验（路径穿越、元字符） |
+| `schemas/flowspec-workflow-schema.json` | 工作流配置的 JSON Schema |
 
-### Evolution
+### 演进层
 
 | File | Purpose |
 |------|---------|
-| `tests/` (50+ files) | pytest suite covering workflow, memory, security |
-| `CHANGELOG.md` | Version history |
-| `build-docs/adr/decision-tracker.md` | Decision log |
-| `.github/` | CI/CD workflows |
-| `memory/learnings/` | Accumulated project learnings |
-| `memory/decisions/` | Logged architectural decisions |
+| `tests/`（50+ 文件） | pytest 测试套件，覆盖 workflow、memory、security |
+| `CHANGELOG.md` | 版本历史 |
+| `build-docs/adr/decision-tracker.md` | 决策日志 |
+| `.github/` | CI/CD 工作流 |
+| `memory/learnings/` | 累积的项目经验 |
+| `memory/decisions/` | 已记录的架构决策 |
 
 ---
 
-## 3. Object Model & Context Strategy
+## 3. 对象模型与上下文策略
 
-### First-Class Entities
+### 一等实体
 
-#### 3.1 Workflow State (`flowspec_workflow.yml:1-52`)
+#### 3.1 工作流状态 (`flowspec_workflow.yml:1-52`)
 
 ```yaml
 states:
@@ -151,13 +151,13 @@ states:
   - name: "Done"           # terminal: true
 ```
 
-- **Definition**: `flowspec_workflow.yml` states array
-- **Schema**: `schemas/flowspec-workflow-schema.json`
-- **Lifecycle**: Created at init → transitions via workflow execution → terminal at Done
-- **Validation**: `validator.py` ensures DAG (no cycles), all states reachable from initial, terminal states exist
-- **Classification**: **Fact object** — represents current task progress
+- **定义**：`flowspec_workflow.yml` states 数组
+- **Schema**：`schemas/flowspec-workflow-schema.json`
+- **生命周期**：初始化时创建 → 通过工作流执行进行转换 → 在 Done 时终止
+- **校验**：`validator.py` 确保 DAG（无环路）、所有状态从初始状态可达、存在终止状态
+- **分类**：**Fact object** — 表示当前任务进度
 
-#### 3.2 Workflow (`flowspec_workflow.yml:54-180`)
+#### 3.2 工作流 (`flowspec_workflow.yml:54-180`)
 
 ```yaml
 workflows:
@@ -168,14 +168,14 @@ workflows:
     output_state: "Assessed"
 ```
 
-6 core workflows: assess, specify, plan, implement, validate, submit-n-watch-pr
+6 个核心工作流：assess, specify, plan, implement, validate, submit-n-watch-pr
 
-- **Definition**: `flowspec_workflow.yml` workflows map
-- **Required fields**: command, agents, input_states, output_state
-- **Lifecycle**: Invoked by slash command → dispatches to agents → produces artifacts → transitions state
-- **Classification**: **Fact object** — static workflow definition
+- **定义**：`flowspec_workflow.yml` workflows map
+- **必填字段**：command, agents, input_states, output_state
+- **生命周期**：由斜杠命令调用 → 分发给 agents → 产出产物 → 转换状态
+- **分类**：**Fact object** — 静态工作流定义
 
-#### 3.3 Transition (`transition.py:1-624`)
+#### 3.3 转换 (`transition.py:1-624`)
 
 ```python
 WORKFLOW_TRANSITIONS = [
@@ -185,14 +185,14 @@ WORKFLOW_TRANSITIONS = [
 ]
 ```
 
-- **Definition**: Hardcoded in `transition.py` with artifact requirements
-- **Artifacts**: Input/output artifact definitions with path patterns (`{feature}`, `{NNN}`)
-- **Validation modes**: NONE, KEYWORD, PULL_REQUEST
-- **Classification**: **Evidence object** — enforces artifact existence at transition boundaries
+- **定义**：在 `transition.py` 中硬编码，带有产物要求
+- **产物**：输入/输出产物定义，含路径模式（`{feature}`、`{NNN}`）
+- **校验模式**：NONE, KEYWORD, PULL_REQUEST
+- **分类**：**Evidence object** — 在转换边界强制验证产物存在性
 
-#### 3.4 Agent Persona (`.agents/*.md`, `.claude/agents-config.json`)
+#### 3.4 Agent 人设 (`.agents/*.md`, `.claude/agents-config.json`)
 
-15 agent personas mapped to workflows:
+15 个 agent 人设映射到工作流：
 
 | Agent | Loop | Workflows |
 |-------|------|-----------|
@@ -207,46 +207,46 @@ WORKFLOW_TRANSITIONS = [
 | Release Manager | outer | validate |
 | SRE Agent | outer | operate |
 
-- **Definition**: Markdown files in `.agents/` with expertise, methodology, output formats
-- **Routing**: `agents-config.json` maps agent name → workflow list
-- **Classification**: **Fact object** — static persona definitions
+- **定义**：`.agents/` 中的 Markdown 文件，包含专长、方法论、输出格式
+- **路由**：`agents-config.json` 将 agent 名称映射到工作流列表
+- **分类**：**Fact object** — 静态人设定义
 
-#### 3.5 Task Memory (`src/flowspec_cli/memory/store.py`)
+#### 3.5 任务记忆 (`src/flowspec_cli/memory/store.py`)
 
 ```
 backlog/memory/task-XXX.md  (active)
 backlog/memory/archive/task-XXX.md  (archived)
 ```
 
-- **Definition**: Markdown files with YAML frontmatter
-- **Lifecycle**: Created on `To Do → In Progress` → updated during work → archived on `→ Done` → deleted on `→ Archive`
-- **Required content**: What, Why, Constraints, AC Status, Key Decisions (≤500 words)
-- **Token-aware**: Injector (`injector.py`) truncates to ~2000 tokens, preserving recent context
-- **Classification**: **Judgment object** — records decisions and progress
+- **定义**：带有 YAML frontmatter 的 Markdown 文件
+- **生命周期**：在 `To Do → In Progress` 时创建 → 工作期间更新 → 在 `→ Done` 时归档 → 在 `→ Archive` 时删除
+- **必含内容**：What, Why, Constraints, AC Status, Key Decisions（≤500 字）
+- **Token 感知**：注入器（`injector.py`）截断至约 2000 tokens，保留近期上下文
+- **分类**：**Judgment object** — 记录决策和进度
 
-#### 3.6 Constitution (`memory/constitution.md`, `templates/constitutions/`)
+#### 3.6 宪章 (`memory/constitution.md`, `templates/constitutions/`)
 
-3 tiers: Light / Medium / Heavy — project governance principles
+3 个层级：Light / Medium / Heavy — 项目治理原则
 
-- **Definition**: Generated at `/flow:init` based on complexity scoring
-- **Content**: Core principles, coding standards, quality gates, workflow rules
-- **Lifecycle**: Created once → referenced throughout all workflows → updated via `/flow:reset`
-- **Classification**: **Fact object** — project-level governance
+- **定义**：在 `/flow:init` 时根据复杂度评分生成
+- **内容**：核心原则、编码标准、质量门禁、工作流规则
+- **生命周期**：创建一次 → 在所有工作流中被引用 → 通过 `/flow:reset` 更新
+- **分类**：**Fact object** — 项目级治理
 
-#### 3.7 Rigor Rules (`.claude/rules/rigor.md`)
+#### 3.7 严格度规则 (`.claude/rules/rigor.md`)
 
-4 phases × N rules with enforcement modes (strict/warn/off):
+4 个阶段 × N 条规则，带强制执行模式（strict/warn/off）：
 
 | Phase | Rules |
 |-------|-------|
-| SETUP | SETUP-001 (clear plan), SETUP-002 (deps), SETUP-003 (testable ACs) |
-| EXEC | EXEC-001 (worktree), EXEC-002 (branch naming), EXEC-003 (decision log), EXEC-004 (backlog link), EXEC-006 (state tracking) |
-| VALID | VALID-002 (lint/SAST), VALID-004 (no conflicts), VALID-005 (ACs met), VALID-007 (local CI) |
-| PR | PR-001 (DCO sign-off) |
+| SETUP | SETUP-001（明确计划）, SETUP-002（依赖项）, SETUP-003（可测试的 AC） |
+| EXEC | EXEC-001（worktree）, EXEC-002（分支命名）, EXEC-003（决策日志）, EXEC-004（backlog 关联）, EXEC-006（状态跟踪） |
+| VALID | VALID-002（lint/SAST）, VALID-004（无冲突）, VALID-005（AC 达成）, VALID-007（本地 CI） |
+| PR | PR-001（DCO 签名） |
 
-- **Classification**: **Fact object** — but enforcement varies (see Phase 4)
+- **分类**：**Fact object** — 但强制执行力度各异（见第 4 节）
 
-### Context Flow Strategy
+### 上下文流转策略
 
 ```
                     ┌─────────────────────────┐
@@ -270,17 +270,17 @@ backlog/memory/archive/task-XXX.md  (archived)
                     └──────────────────────────┘
 ```
 
-**Context isolation**: Agent personas receive only their domain-relevant context. Security reviewer is **read-only** — reports findings, cannot modify code (`.claude/rules/agents.md`).
+**上下文隔离**：Agent 人设仅接收其领域相关的上下文。Security reviewer 为**只读**——报告发现，不可修改代码（`.claude/rules/agents.md`）。
 
-**Context compression**: Token-aware truncation (`injector.py`) preserves recent context + key decisions, trims oldest notes first. Hard limit at ~2000 tokens per task memory.
+**上下文压缩**：Token 感知截断（`injector.py`）保留近期上下文和关键决策，优先裁剪最旧的笔记。每个任务记忆硬限制约 2000 tokens。
 
-**Persistence**: Constitution and rules persist in files. Task memory persists in `backlog/memory/`. Decisions logged to `.flowspec/logs/decisions/`. Events logged to `.flowspec/logs/events/`.
+**持久化**：宪章和规则持久化于文件中。任务记忆持久化于 `backlog/memory/`。决策记录至 `.flowspec/logs/decisions/`。事件记录至 `.flowspec/logs/events/`。
 
 ---
 
-## 4. Flow & State Machine
+## 4. 流程与状态机
 
-### Happy Path
+### 正常路径
 
 ```
 User Request
@@ -316,7 +316,7 @@ User Request
   Done
 ```
 
-**State transitions** (`flowspec_workflow.yml:182-260`):
+**状态转换** (`flowspec_workflow.yml:182-260`)：
 
 | Transition | From | To | Required Artifacts |
 |------------|------|----|--------------------|
@@ -328,7 +328,7 @@ User Request
 | operate | Validated | Done | qa_report → (none) |
 | complete | Done | Done | (terminal) |
 
-### Failure Path 1: Rigor Rule Violation
+### 失败路径 1：严格度规则违规
 
 ```
 /flow:implement
@@ -346,7 +346,7 @@ User Request
            (Hard enforcement — script blocks PR creation)
 ```
 
-### Failure Path 2: Spec Quality Gate Failure
+### 失败路径 2：规格质量门禁失败
 
 ```
 /flow:specify
@@ -362,430 +362,430 @@ User Request
         (Soft escape hatch — documented as "not recommended")
 ```
 
-### Parallelism Model
+### 并行模型
 
 | Phase | Parallel Agents | Sequential Dependencies |
 |-------|-----------------|------------------------|
-| plan | Architect ∥ Platform Engineer | Both complete before implement |
-| implement | Frontend ∥ Backend ∥ AI-ML | All complete before validate |
-| validate | QA ∥ Security ∥ Tech Writer ∥ Release Mgr | All complete before PR |
+| plan | Architect ∥ Platform Engineer | 两者均需完成才能进入 implement |
+| implement | Frontend ∥ Backend ∥ AI-ML | 全部完成才能进入 validate |
+| validate | QA ∥ Security ∥ Tech Writer ∥ Release Mgr | 全部完成才能创建 PR |
 
-Parallel execution coordinated via `backlog task edit <id> -l "parallel-work:frontend,backend"` labels (`.claude/rules/agents.md`).
+并行执行通过 `backlog task edit <id> -l "parallel-work:frontend,backend"` 标签协调（`.claude/rules/agents.md`）。
 
-### Custom Workflows (`flowspec_workflow.yml:262-340`)
+### 自定义工作流 (`flowspec_workflow.yml:262-340`)
 
-3 predefined custom sequences:
+3 个预定义的自定义序列：
 
 | Name | Steps | Description |
 |------|-------|-------------|
-| `quick_build` | assess → implement | Skip specify/plan for small tasks |
-| `full_design` | assess → specify → plan | Full design, stop before implement |
-| `ship_it` | assess → specify → plan → implement → validate | End-to-end |
+| `quick_build` | assess → implement | 小任务跳过 specify/plan |
+| `full_design` | assess → specify → plan | 完整设计，在 implement 前停止 |
+| `ship_it` | assess → specify → plan → implement → validate | 端到端 |
 
-Custom workflows support: conditions (`complexity >= 7`), checkpoints (pause for approval in "spec-ing" mode), and rigor enforcement per step.
+自定义工作流支持：条件（`complexity >= 7`）、检查点（在 "spec-ing" 模式下暂停等待批准）、每步的严格度强制执行。
 
 ---
 
-## 5. Enforcement Audit
+## 5. 强制执行审计
 
-### Enforcement Matrix
+### 强制执行矩阵
 
 | # | Constraint | Declared In | Enforcement Level | Mechanism | Evidence |
 |---|-----------|-------------|-------------------|-----------|----------|
-| E1 | Never delete tests | `rules/critical.md` | **Soft** | Prompt instruction only | No hook or pre-commit check prevents test deletion. Rule cites PR #545 as cautionary tale but no code enforces it. |
-| E2 | Pre-PR validation (lint+format+tests) | `rules/critical.md`, `scripts/bash/pre-pr-check.sh` | **Hard** (partial) | Script checks 4 items; Claude hooks run auto-format on PostToolUse | `pre-pr-check.sh` returns exit code 1 on failure. But no git hook forces running it — agent must voluntarily invoke. |
-| E3 | No direct commits to main | `rules/git-workflow.md`, `rules/critical.md` | **Soft** | Prompt instruction only | No branch protection hook in `.claude/settings.json`. Relies on GitHub branch protection (external). |
-| E4 | DCO sign-off | `rules/critical.md`, `rules/git-workflow.md` | **Hard** (partial) | `pre-pr-check.sh` checks DCO; `settings.json` PreToolUse hook for git safety | Script checks sign-off. But no pre-commit hook forces `-s` flag. |
-| E5 | Ruff lint/format | `.pre-commit-config.yaml`, `settings.json` PostToolUse hook | **Hard** | Pre-commit hook runs ruff on staged files; PostToolUse auto-formats Python | `pre-commit-config.yaml:3-11` configures ruff v0.8.2. `settings.json` PostToolUse hook runs auto-format. |
-| E6 | Workflow state DAG (no cycles) | `validator.py:400-520` | **Hard** | Code: DFS cycle detection + BFS reachability analysis | `validator.py` raises ValidationError on cycles. Runs on config load. |
-| E7 | Artifact-gated transitions | `transition.py:1-624` | **Hard** | Code: TransitionSchema requires input/output artifacts | `transition.py` WORKFLOW_TRANSITIONS defines required artifacts per transition. |
-| E8 | Task memory ≤500 words | `rules/critical.md`, `memory/constitution.md` | **Soft** | Prompt instruction. Injector truncates at ~2000 tokens but doesn't enforce 500-word limit at write time. | `injector.py` truncates on read. No write-time validation. |
-| E9 | Git worktree for implementation | `rules/rigor.md` EXEC-001 | **Soft** | Prompt instruction only | No hook checks for worktree presence before allowing code changes. |
-| E10 | Branch naming convention | `rules/rigor.md` EXEC-002, `rules/git-workflow.md` | **Soft** | Prompt instruction only | No validation script checks branch name format. |
-| E11 | Hook timeout enforcement | `hooks/runner.py` | **Hard** | Code: SIGTERM → SIGKILL with configurable timeout (max 10 min) | `runner.py` implements hard timeout with signal-based kill. |
-| E12 | Hook script path restriction | `hooks/config.py` | **Hard** | Code: Blocks `..` and absolute paths in script paths; validates env vars for metacharacters | `config.py` raises HooksSecurityError on path traversal or shell metacharacters. |
-| E13 | Sensitive file access denial | `settings.json` deny list | **Hard** | Claude Code permission system denies reads of secrets, constitution, lock files | `settings.json` deny rules for `Read(secrets/*)`, `Read(memory/constitution.md)`, etc. |
-| E14 | Security reviewer read-only | `rules/agents.md` | **Soft** | Prompt instruction: "reports findings only, implementation agents address them" | No code prevents security-reviewer agent from writing files. |
-| E15 | Backlog.md edit via CLI only | `rules/critical.md` | **Soft** | Prompt instruction: "Never edit backlog.md directly — use CLI commands only" | No file-write hook blocks direct backlog.md edits. |
-| E16 | >80% test coverage | `rules/testing.md` | **Soft** | Prompt instruction. No coverage gate in pre-commit or pre-PR script. | `pre-pr-check.sh` runs pytest but doesn't check coverage percentage. |
+| E1 | 禁止删除测试 | `rules/critical.md` | **Soft** | 仅 prompt 指令 | 无 hook 或 pre-commit 检查阻止测试删除。规则引用 PR #545 作为警示但无代码强制执行。 |
+| E2 | PR 前校验（lint+format+tests） | `rules/critical.md`, `scripts/bash/pre-pr-check.sh` | **Hard**（部分） | 脚本检查 4 项；Claude hooks 在 PostToolUse 时自动格式化 | `pre-pr-check.sh` 失败时返回退出码 1。但无 git hook 强制运行此脚本——agent 需自愿调用。 |
+| E3 | 禁止直接提交到 main | `rules/git-workflow.md`, `rules/critical.md` | **Soft** | 仅 prompt 指令 | `.claude/settings.json` 中无分支保护 hook。依赖 GitHub 分支保护（外部）。 |
+| E4 | DCO 签名 | `rules/critical.md`, `rules/git-workflow.md` | **Hard**（部分） | `pre-pr-check.sh` 检查 DCO；`settings.json` PreToolUse hook 检查 git 安全性 | 脚本检查签名。但无 pre-commit hook 强制使用 `-s` 标志。 |
+| E5 | Ruff lint/format | `.pre-commit-config.yaml`, `settings.json` PostToolUse hook | **Hard** | Pre-commit hook 对暂存文件运行 ruff；PostToolUse 自动格式化 Python | `pre-commit-config.yaml:3-11` 配置 ruff v0.8.2。`settings.json` PostToolUse hook 运行自动格式化。 |
+| E6 | 工作流状态 DAG（无环路） | `validator.py:400-520` | **Hard** | 代码：DFS 环路检测 + BFS 可达性分析 | `validator.py` 在检测到环路时抛出 ValidationError。在配置加载时运行。 |
+| E7 | 产物门控转换 | `transition.py:1-624` | **Hard** | 代码：TransitionSchema 要求输入/输出产物 | `transition.py` WORKFLOW_TRANSITIONS 定义了每次转换所需的产物。 |
+| E8 | 任务记忆 ≤500 字 | `rules/critical.md`, `memory/constitution.md` | **Soft** | Prompt 指令。注入器在约 2000 tokens 处截断，但写入时不强制 500 字限制。 | `injector.py` 在读取时截断。无写入时校验。 |
+| E9 | 实现阶段使用 git worktree | `rules/rigor.md` EXEC-001 | **Soft** | 仅 prompt 指令 | 无 hook 在允许代码修改前检查是否处于 worktree 中。 |
+| E10 | 分支命名规范 | `rules/rigor.md` EXEC-002, `rules/git-workflow.md` | **Soft** | 仅 prompt 指令 | 无校验脚本检查分支名格式。 |
+| E11 | Hook 超时强制执行 | `hooks/runner.py` | **Hard** | 代码：SIGTERM → SIGKILL，可配置超时（最长 10 分钟） | `runner.py` 实现了基于信号的硬超时终止。 |
+| E12 | Hook 脚本路径限制 | `hooks/config.py` | **Hard** | 代码：在脚本路径中阻止 `..` 和绝对路径；校验环境变量中的元字符 | `config.py` 在路径穿越或 shell 元字符时抛出 HooksSecurityError。 |
+| E13 | 敏感文件访问拒绝 | `settings.json` 拒绝列表 | **Hard** | Claude Code 权限系统拒绝读取 secrets、constitution、lock 文件 | `settings.json` 拒绝规则覆盖 `Read(secrets/*)`、`Read(memory/constitution.md)` 等。 |
+| E14 | Security reviewer 只读 | `rules/agents.md` | **Soft** | Prompt 指令："reports findings only, implementation agents address them" | 无代码阻止 security-reviewer agent 写入文件。 |
+| E15 | Backlog.md 仅通过 CLI 编辑 | `rules/critical.md` | **Soft** | Prompt 指令："Never edit backlog.md directly — use CLI commands only" | 无文件写入 hook 阻止直接编辑 backlog.md。 |
+| E16 | >80% 测试覆盖率 | `rules/testing.md` | **Soft** | Prompt 指令。pre-commit 或 pre-PR 脚本中无覆盖率门禁。 | `pre-pr-check.sh` 运行 pytest 但不检查覆盖率百分比。 |
 
-### Enforcement Summary
+### 强制执行汇总
 
 | Level | Count | Percentage |
 |-------|-------|-----------|
-| Hard | 6 (E2 partial, E4 partial, E5, E6, E7, E11, E12, E13) | ~50% |
-| Soft | 8 (E1, E3, E8, E9, E10, E14, E15, E16) | ~50% |
+| Hard | 6（E2 部分, E4 部分, E5, E6, E7, E11, E12, E13） | ~50% |
+| Soft | 8（E1, E3, E8, E9, E10, E14, E15, E16） | ~50% |
 | Unenforced | 0 | 0% |
 
-### Gap Analysis
+### 差距分析
 
-**Critical gaps**:
+**关键差距**：
 
-1. **Test deletion protection (E1)**: Despite being called "non-negotiable", nothing prevents `rm tests/*.py`. The PR #545 incident is cited but no hook was added afterward. **Severity: High** — the very thing the rule was created to prevent can still happen.
+1. **测试删除保护（E1）**：尽管被标记为"不可违反"，但没有任何机制阻止 `rm tests/*.py`。PR #545 事件被引用但此后并未添加 hook。**严重度：High** — 该规则正是为了防止此类情况而创建的，但它仍然可能发生。
 
-2. **Pre-PR script voluntary (E2)**: The script exists but must be manually invoked. No git pre-push hook or CI gate ensures it runs. **Severity: Medium** — Claude hooks partially mitigate this by auto-formatting.
+2. **PR 前脚本需自愿执行（E2）**：脚本存在但必须手动调用。没有 git pre-push hook 或 CI 门禁确保其运行。**严重度：Medium** — Claude hooks 通过自动格式化部分缓解了此问题。
 
-3. **Coverage target unverified (E16)**: 80% target stated but never checked by any script. **Severity: Low** — aspirational, not blocking.
+3. **覆盖率目标未验证（E16）**：声明了 80% 目标但无任何脚本检查。**严重度：Low** — 属于愿景性目标，非阻断性。
 
-4. **Backlog.md direct edit (E15)**: Critical rule with zero enforcement mechanism. **Severity: Medium** — could corrupt task state.
+4. **Backlog.md 直接编辑（E15）**：关键规则但强制执行机制为零。**严重度：Medium** — 可能破坏任务状态。
 
 ---
 
-## 6. Prompt Catalog
+## 6. Prompt 目录
 
-### 6.1 Key Prompts
+### 6.1 关键 Prompt
 
 #### P1: Software Architect Enhanced
 
 | Field | Value |
 |-------|-------|
-| **role** | Architecture planner |
+| **role** | 架构规划者 |
 | **repo_path** | `.agents/software-architect-enhanced.md` |
 | **quote_excerpt** | "Uses Gregor Hohpe's principles (Software Architect Elevator, Enterprise Integration Patterns, Cloud Strategy, Platform Strategy)" |
 | **stage** | plan |
-| **design_intent** | Ground architecture decisions in established enterprise patterns (Hohpe framework) rather than ad hoc reasoning |
-| **hidden_assumption** | Agent is familiar with Hohpe's books and can apply EIP terminology correctly |
-| **likely_failure_mode** | Over-engineering for small projects; EIP patterns are enterprise-scale and may not fit simple apps |
+| **design_intent** | 将架构决策根植于成熟的企业模式（Hohpe 框架），而非临时推理 |
+| **hidden_assumption** | Agent 熟悉 Hohpe 的著作并能正确应用 EIP 术语 |
+| **likely_failure_mode** | 对小型项目过度工程化；EIP 模式适用于企业级场景，可能不适合简单应用 |
 
 #### P2: Quality Guardian
 
 | Field | Value |
 |-------|-------|
-| **role** | Constructive skeptic / QA reviewer |
+| **role** | 建设性质疑者 / QA 审查者 |
 | **repo_path** | `.agents/quality-guardian.md` |
 | **quote_excerpt** | "Three-Layer Critique: Acknowledge Value → Identify Risk → Suggest Mitigation" |
 | **stage** | validate |
-| **design_intent** | Prevent "rubber stamp" reviews by structuring critique as value-then-risk |
-| **hidden_assumption** | Agent will follow three-layer structure rather than defaulting to surface-level approval |
-| **likely_failure_mode** | AI agents tend toward agreement; the "Acknowledge Value" step may dominate, weakening the risk identification |
+| **design_intent** | 通过将批评结构化为"先肯定后指风险"来防止"橡皮图章式"审查 |
+| **hidden_assumption** | Agent 会遵循三层结构，而非默认为浅层认同 |
+| **likely_failure_mode** | AI agent 倾向于附和；"Acknowledge Value"步骤可能占主导地位，削弱风险识别 |
 
-#### P3: PM Planner (via `/flow:specify`)
+#### P3: PM Planner（通过 `/flow:specify`）
 
 | Field | Value |
 |-------|-------|
-| **role** | Product requirements creator |
+| **role** | 产品需求创建者 |
 | **repo_path** | `.claude/commands/flow/specify.md` |
 | **quote_excerpt** | "10 sections: Executive Summary, User Stories, DVF+V Risk Assessment, Functional Requirements, Non-Functional Requirements, Task Breakdown, Discovery/Validation Plan, Acceptance Criteria/Testing, Dependencies/Constraints, Success Metrics" |
 | **stage** | specify |
-| **design_intent** | Force comprehensive requirements thinking before implementation via structured PRD template |
-| **hidden_assumption** | PRD sections will be filled with genuine product insight, not boilerplate |
-| **likely_failure_mode** | AI may generate plausible-sounding but generic content for sections like "Success Metrics" without real product knowledge |
+| **design_intent** | 通过结构化 PRD 模板在实现前强制进行全面的需求思考 |
+| **hidden_assumption** | PRD 各节将填充真实的产品洞察，而非模板化内容 |
+| **likely_failure_mode** | AI 可能为"Success Metrics"等章节生成看似合理但实质空洞的通用内容，缺乏真正的产品知识 |
 
 #### P4: Assess Command
 
 | Field | Value |
 |-------|-------|
-| **role** | Complexity/risk evaluator |
+| **role** | 复杂度/风险评估者 |
 | **repo_path** | `.claude/commands/flow/assess.md` |
 | **quote_excerpt** | "Scores each dimension 1-10. Full SDD if any score ≥7 or total ≥18, Spec-Light if any ≥4 or total ≥10, else Skip SDD" |
 | **stage** | assess |
-| **design_intent** | Adaptive workflow — skip ceremony for simple tasks, enforce full process for complex ones |
-| **hidden_assumption** | 1-10 scoring by an AI agent produces meaningful, calibrated results |
-| **likely_failure_mode** | Score inflation (AI defaults to moderate-high scores) or inconsistent calibration across sessions |
+| **design_intent** | 自适应工作流——简单任务跳过仪式，复杂任务强制完整流程 |
+| **hidden_assumption** | AI agent 的 1-10 评分能产生有意义的、校准过的结果 |
+| **likely_failure_mode** | 分数膨胀（AI 在模糊维度上默认给出中偏高分数）或跨会话校准不一致 |
 
 #### P5: Secure-by-Design Engineer
 
 | Field | Value |
 |-------|-------|
-| **role** | Security reviewer |
+| **role** | 安全审查者 |
 | **repo_path** | `.agents/secure-by-design-engineer.md` |
 | **quote_excerpt** | "Risk Assessment → Apply Security-First Principles → Comprehensive Reviews (threat modeling, architecture, code, config, access control, data flow, dependencies, monitoring)" |
 | **stage** | validate |
-| **design_intent** | Bake security into every review cycle, not bolt-on afterward |
-| **hidden_assumption** | AI agent can perform meaningful threat modeling with project context alone |
-| **likely_failure_mode** | Generic security advice that doesn't account for actual deployment environment or threat model |
+| **design_intent** | 将安全融入每个审查周期，而非事后补充 |
+| **hidden_assumption** | AI agent 仅凭项目上下文就能进行有意义的威胁建模 |
+| **likely_failure_mode** | 给出不考虑实际部署环境或威胁模型的通用安全建议 |
 
 #### P6: Workflow Executor Skill
 
 | Field | Value |
 |-------|-------|
-| **role** | Automated workflow step invoker |
+| **role** | 自动化工作流步骤调用者 |
 | **repo_path** | `.claude/skills/workflow-executor/SKILL.md` |
 | **quote_excerpt** | "Load config → Get execution plan → Invoke each command → Update backlog via MCP" |
-| **stage** | Any (meta-orchestrator) |
-| **design_intent** | Enable autonomous multi-step workflow execution without manual command invocation |
-| **hidden_assumption** | MCP backlog server is running and accessible; Skill tool available in agent context |
-| **likely_failure_mode** | MCP connection failure mid-workflow leaves state inconsistent; no rollback mechanism |
+| **stage** | Any（元编排器） |
+| **design_intent** | 实现无需手动命令调用的自主多步骤工作流执行 |
+| **hidden_assumption** | MCP backlog 服务器正在运行且可访问；Skill tool 在 agent 上下文中可用 |
+| **likely_failure_mode** | 工作流执行中 MCP 连接失败导致状态不一致；无回滚机制 |
 
-### 6.2 Design Highlights — Micro
+### 6.2 设计亮点 — 微观
 
-#### M1: Complexity-Adaptive Workflow Selection
+#### M1: 复杂度自适应工作流选择
 
-**Observation**: `/flow:assess` scores tasks on 8 dimensions (effort, components, integration, risk, security, compliance, data sensitivity, architecture impact) and routes to different ceremony levels.
+**观察**：`/flow:assess` 在 8 个维度上评分（effort、components、integration、risk、security、compliance、data sensitivity、architecture impact），并路由到不同的仪式级别。
 
-**Evidence**: `commands/flow/assess.md` — "Full SDD if any score ≥7 or total ≥18, Spec-Light if any ≥4 or total ≥10, else Skip SDD"
+**证据**：`commands/flow/assess.md` — "Full SDD if any score ≥7 or total ≥18, Spec-Light if any ≥4 or total ≥10, else Skip SDD"
 
-**Why it matters**: Prevents over-engineering small tasks while ensuring complex tasks get proper specification. The three-tier system (Full/Light/Skip) is the framework's core value proposition.
+**重要性**：防止对小任务过度工程化，同时确保复杂任务获得适当的规格说明。三层体系（Full/Light/Skip）是该框架的核心价值主张。
 
-**Transferability**: **Direct** — Complexity scoring → workflow tier selection is a clean, portable pattern. The specific thresholds (≥7/≥18/≥4/≥10) need calibration per project.
+**可迁移性**：**Direct** — 复杂度评分 → 工作流层级选择是一个清晰、可移植的模式。具体阈值（≥7/≥18/≥4/≥10）需要按项目校准。
 
-#### M2: Artifact-Gated State Transitions
+#### M2: 产物门控状态转换
 
-**Observation**: Each state transition requires specific input artifacts and produces output artifacts. Transitions are validated by code (`transition.py` TransitionSchema).
+**观察**：每次状态转换都需要特定的输入产物并产生输出产物。转换由代码校验（`transition.py` TransitionSchema）。
 
-**Evidence**: `transition.py:WORKFLOW_TRANSITIONS` — 7 transitions with Artifact objects specifying path patterns like `docs/assess/{feature}-assessment.md`
+**证据**：`transition.py:WORKFLOW_TRANSITIONS` — 7 个转换，含 Artifact 对象指定路径模式如 `docs/assess/{feature}-assessment.md`
 
-**Why it matters**: Prevents "empty" transitions where state advances without actual work products. This is a hard enforcement of "show your work."
+**重要性**：防止"空转换"——即状态推进但实际上没有工作产出。这是对"展示你的成果"的 Hard 强制执行。
 
-**Transferability**: **Inspired** — The artifact concept is good but tightly coupled to flowspec's file path conventions. Would need redesign for different directory structures.
+**可迁移性**：**Inspired** — 产物概念很好，但与 flowspec 的文件路径约定紧密耦合。若目录结构不同则需重新设计。
 
-#### M3: Inner/Outer Loop Agent Classification
+#### M3: Inner/Outer Loop Agent 分类
 
-**Observation**: Agents are classified as "inner loop" (fast iteration: engineers, reviewers) vs "outer loop" (governance: architects, planners, QA).
+**观察**：Agent 被分为 "inner loop"（快速迭代：工程师、审查者）和 "outer loop"（治理：架构师、规划者、QA）。
 
-**Evidence**: `flowspec_workflow.yml:340-380` — `agent_loops: { inner: [frontend-engineer, backend-engineer, ...], outer: [software-architect, platform-engineer, ...] }`
+**证据**：`flowspec_workflow.yml:340-380` — `agent_loops: { inner: [frontend-engineer, backend-engineer, ...], outer: [software-architect, platform-engineer, ...] }`
 
-**Why it matters**: Separates velocity concerns from governance concerns. Inner loop agents don't make architectural decisions; outer loop agents don't write implementation code.
+**重要性**：将速度关注与治理关注分离。Inner loop agent 不做架构决策；outer loop agent 不写实现代码。
 
-**Transferability**: **Direct** — Clean conceptual separation applicable to any multi-agent workflow.
+**可迁移性**：**Direct** — 清晰的概念分离，适用于任何多 agent 工作流。
 
-#### M4: Token-Aware Memory Injection
+#### M4: Token 感知记忆注入
 
-**Observation**: Task memory is truncated to ~2000 tokens before injection into agent context. Truncation preserves recent context and key decisions, trims oldest notes first.
+**观察**：任务记忆在注入 agent 上下文前被截断至约 2000 tokens。截断保留近期上下文和关键决策，优先裁剪最旧的笔记。
 
-**Evidence**: `src/flowspec_cli/memory/injector.py` — `truncate_memory_content()` with section-aware truncation strategy
+**证据**：`src/flowspec_cli/memory/injector.py` — `truncate_memory_content()` 含章节感知截断策略
 
-**Why it matters**: Prevents context window bloat while maintaining decision continuity across sessions.
+**重要性**：防止上下文窗口膨胀，同时维持跨会话的决策连续性。
 
-**Transferability**: **Direct** — Token-aware truncation with priority sections is a universally applicable pattern.
+**可迁移性**：**Direct** — 带优先级章节的 Token 感知截断是一个普遍适用的模式。
 
-#### M5: Three-Layer Critique Pattern
+#### M5: 三层批评模式
 
-**Observation**: Quality Guardian uses structured critique: Acknowledge Value → Identify Risk → Suggest Mitigation.
+**观察**：Quality Guardian 使用结构化批评：Acknowledge Value → Identify Risk → Suggest Mitigation。
 
-**Evidence**: `.agents/quality-guardian.md` — "Three-Layer Critique framework"
+**证据**：`.agents/quality-guardian.md` — "Three-Layer Critique framework"
 
-**Why it matters**: Counteracts AI tendency toward agreement bias. By mandating "identify risk" as a middle step (not first), reviews feel constructive rather than adversarial.
+**重要性**：对抗 AI 的附和偏见。通过将"identify risk"设为中间步骤（而非第一步），审查显得建设性而非对抗性。
 
-**Transferability**: **Direct** — Can be used in any code review prompt.
+**可迁移性**：**Direct** — 可用于任何代码审查 prompt。
 
-#### M6: Constitution Tier System
+#### M6: 宪章层级体系
 
-**Observation**: Project governance scales with complexity: Light (minimal rules), Medium (standard), Heavy (full ceremony).
+**观察**：项目治理随复杂度缩放：Light（最小规则）、Medium（标准）、Heavy（完整仪式）。
 
-**Evidence**: `templates/constitutions/` — three separate template files; `/flow:init` auto-selects based on complexity score
+**证据**：`templates/constitutions/` — 三个独立模板文件；`/flow:init` 根据复杂度评分自动选择
 
-**Why it matters**: One-size-fits-all governance fails. A CLI tool doesn't need the same process as a distributed microservice.
+**重要性**：一刀切的治理必然失败。CLI 工具不需要与分布式微服务相同的流程。
 
-**Transferability**: **Inspired** — The concept of tiered governance is excellent. The specific constitution templates are flowspec-specific.
+**可迁移性**：**Inspired** — 分层治理的概念非常优秀。具体的宪章模板是 flowspec 特有的。
 
-### 6.3 Design Highlights — Macro
+### 6.3 设计亮点 — 宏观
 
-#### X1: Spec-Driven Development as Methodology
+#### X1: Spec-Driven Development 作为方法论
 
-**Observation**: Flowspec's core thesis is that formal specifications (PRD → ADR → Implementation) improve AI-assisted development outcomes. This is not TDD or BDD but "spec-first" — write what you want before writing how to build it.
+**观察**：Flowspec 的核心论点是正式规格（PRD → ADR → 实现）能改善 AI 辅助开发的成果。这不是 TDD 或 BDD，而是 "spec-first"——先写你想要什么，再写如何构建。
 
-**Evidence**: README, `skills/sdd-methodology/SKILL.md`, constitution tiers all center on the assess→specify→plan→implement→validate pipeline
+**证据**：README、`skills/sdd-methodology/SKILL.md`、宪章层级全部围绕 assess→specify→plan→implement→validate 管线
 
-**Enforcement level**: **Soft** — The workflow is recommended and tracked, but nothing prevents `/flow:implement` without prior `/flow:specify`. State transitions are defined but custom workflows like `quick_build` skip steps.
+**强制执行级别**：**Soft** — 工作流被推荐和跟踪，但没有任何机制阻止未经 `/flow:specify` 就执行 `/flow:implement`。状态转换已定义，但像 `quick_build` 这样的自定义工作流会跳过步骤。
 
-**Why it matters**: Positions specification as the primary quality lever, not testing. Testing validates specs; specs define what to build.
+**重要性**：将规格说明定位为首要质量杠杆，而非测试。测试验证规格；规格定义要构建什么。
 
-#### X2: Process-as-Code (Partial)
+#### X2: 流程即代码（部分实现）
 
-**Observation**: Workflow state machine is defined in YAML (`flowspec_workflow.yml`) and validated by Python code (`validator.py`). Transitions have artifact requirements. Custom workflows are composable.
+**观察**：工作流状态机在 YAML（`flowspec_workflow.yml`）中定义，由 Python 代码（`validator.py`）校验。转换有产物要求。自定义工作流可组合。
 
-**Evidence**: `validator.py` (718 SLOC) runs DAG validation, cycle detection, reachability analysis. `orchestrator.py` (441 SLOC) executes custom workflow sequences.
+**证据**：`validator.py`（718 SLOC）运行 DAG 校验、环路检测、可达性分析。`orchestrator.py`（441 SLOC）执行自定义工作流序列。
 
-**Enforcement level**: **Hard** for workflow config validity, **Soft** for actual workflow execution order.
+**强制执行级别**：工作流配置有效性为 **Hard**，实际工作流执行顺序为 **Soft**。
 
-**Why it matters**: The config is validated, but workflow execution relies on agents voluntarily invoking the right commands in order. There's no runtime orchestrator that blocks out-of-order execution.
+**重要性**：配置经过校验，但工作流执行依赖 agent 自愿按正确顺序调用命令。没有运行时编排器阻止乱序执行。
 
-#### X3: Evaluator Separation — Partial
+#### X3: 评审者分离 — 部分实现
 
-**Observation**: Code reviewers are separate agents from implementers. Security reviewer is read-only. But review outcomes are not gated by code — they're prompt-enforced.
+**观察**：代码审查者与实现者是独立的 agent。Security reviewer 为只读。但审查结果并非由代码门控——而是通过 prompt 强制执行。
 
-**Evidence**: `.claude/rules/agents.md` — "Security reviewer: read-only access, reports findings only" | `.claude/agents/security-reviewer.md` — separate agent file
+**证据**：`.claude/rules/agents.md` — "Security reviewer: read-only access, reports findings only" | `.claude/agents/security-reviewer.md` — 独立的 agent 文件
 
-**Enforcement level**: **Soft** — No code prevents security-reviewer from writing. No gate blocks merging if security review fails.
+**强制执行级别**：**Soft** — 无代码阻止 security-reviewer 写入。无门禁在安全审查失败时阻止合并。
 
-**Why it matters**: True evaluator separation requires the reviewer's output to gate progression. Here, review is advisory.
+**重要性**：真正的评审者分离要求审查者的输出作为进展门禁。此处审查仅为建议性的。
 
-#### X4: Verification-Over-Self-Report — Mixed
+#### X4: 验证优于自我报告 — 混合实现
 
-**Observation**: Pre-PR script (`pre-pr-check.sh`) verifies lint/format/tests independently. But many rigor rules (worktree, branch naming, backlog linkage) trust agent self-reporting.
+**观察**：PR 前脚本（`pre-pr-check.sh`）独立验证 lint/format/tests。但许多严格度规则（worktree、分支命名、backlog 关联）信任 agent 自我报告。
 
-**Evidence**: `pre-pr-check.sh` hard-checks 4 items. `rigor.md` defines 12+ rules but most have no verification mechanism.
+**证据**：`pre-pr-check.sh` 硬检查 4 项。`rigor.md` 定义了 12+ 条规则，但大多数无验证机制。
 
-**Enforcement level**: 4 rules **Hard**, 8+ rules **Soft**
+**强制执行级别**：4 条规则为 **Hard**，8+ 条规则为 **Soft**
 
-**Why it matters**: The framework has the right instinct (verify, don't trust) but applies it inconsistently. The hard-enforced items (lint, format, tests) are the easiest to automate; the harder-to-verify items (worktree usage, decision logging) remain trust-based.
+**重要性**：该框架有正确的直觉（验证，而非信任）但应用不一致。Hard 强制执行的项目（lint、format、tests）是最容易自动化的；更难验证的项目（worktree 使用、决策记录）仍然基于信任。
 
-#### X5: Human Approval Checkpoints
+#### X5: 人工审批检查点
 
-**Observation**: Custom workflows support "spec-ing" mode with checkpoints that pause for user approval. The assess command's `--mode` override flag gives humans control over workflow routing.
+**观察**：自定义工作流支持 "spec-ing" 模式，含暂停等待用户批准的检查点。assess 命令的 `--mode` 覆盖标志赋予人类对工作流路由的控制权。
 
-**Evidence**: `commands/flow/custom.md` — "supports checkpoints (spec-ing mode)"; `commands/flow/assess.md` — "`--mode full|light|skip` override"
+**证据**：`commands/flow/custom.md` — "supports checkpoints (spec-ing mode)"；`commands/flow/assess.md` — "`--mode full|light|skip` override"
 
-**Why it matters**: Maintains human agency in an otherwise autonomous pipeline. Users can override AI complexity scores and pause at any step.
+**重要性**：在一个否则高度自主的管线中维持人类主导权。用户可以覆盖 AI 复杂度评分并在任何步骤暂停。
 
-### 6.4 Cross-Cutting Interconnections
+### 6.4 交叉关联分析
 
 | Dimension | Analysis |
 |-----------|----------|
-| **Prompt ↔ Skill** | Commands (`.claude/commands/flow/`) invoke skills (`.claude/skills/`) via Skill tool. Skills don't chain directly — orchestrator sequences them. |
-| **Gate ↔ Flow** | Quality gates sit between specify→plan (`/flow:gate` checks spec quality ≥70/100) and implement→validate (pre-PR checks). No gate between plan→implement. |
-| **Review ↔ Test** | Reviews are agent-based (advisory). Tests gate via `pre-pr-check.sh` (hard). No automated review gate. |
-| **Context ↔ Scope** | Three levels: constitution (project) → rules (session) → task memory (task). Token budget: ~2000 tokens per task. Rules auto-loaded. |
-| **Error ↔ Recovery** | Hook failures are fail-safe (logged, don't crash workflow). Workflow failures require manual `/flow:reset`. No automatic retry. |
+| **Prompt ↔ Skill** | 命令（`.claude/commands/flow/`）通过 Skill tool 调用 skills（`.claude/skills/`）。Skills 之间不直接链式调用——由编排器编排顺序。 |
+| **Gate ↔ Flow** | 质量门禁位于 specify→plan 之间（`/flow:gate` 检查规格质量 ≥70/100）和 implement→validate 之间（pre-PR 检查）。plan→implement 之间无门禁。 |
+| **Review ↔ Test** | 审查基于 agent（建议性）。测试通过 `pre-pr-check.sh` 门控（Hard）。无自动化审查门禁。 |
+| **Context ↔ Scope** | 三层：constitution（项目级）→ rules（会话级）→ task memory（任务级）。Token 预算：每任务约 2000 tokens。规则自动加载。 |
+| **Error ↔ Recovery** | Hook 故障为 fail-safe（记录日志，不崩溃工作流）。工作流故障需手动 `/flow:reset`。无自动重试。 |
 
 ---
 
-## 7. Failure Modes
+## 7. 失败模式
 
-### F1: Specification Theatre
+### F1: 规格表演
 
-**Symptom**: PRDs and ADRs are generated with plausible but generic content. Each section is filled but lacks genuine product insight.
+**症状**：PRD 和 ADR 生成内容看似合理但实质通用。每个章节都被填充，但缺乏真正的产品洞察。
 
-**Evidence**: `/flow:specify` mandates 10 PRD sections including "Success Metrics" and "Discovery/Validation Plan". AI agents can generate structurally valid but substantively empty content for these sections.
+**证据**：`/flow:specify` 要求 10 个 PRD 章节，包括"Success Metrics"和"Discovery/Validation Plan"。AI agent 可以为这些章节生成结构上有效但实质空洞的内容。
 
-**Root cause**: No quality gate validates semantic quality of specifications — only structural completeness. `/flow:gate` scores to 70/100 but scoring criteria are not visible in source.
+**根因**：没有质量门禁校验规格说明的语义质量——仅校验结构完整性。`/flow:gate` 以 70/100 评分但评分标准在源码中不可见。
 
-**Impact**: False sense of readiness. Team proceeds to implementation with specs that look complete but don't constrain design space.
+**影响**：虚假的就绪感。团队带着看似完整但未约束设计空间的规格进入实现阶段。
 
-**Framework mitigation**: Constitution tiers (Light tier skips heavy spec sections). Override mode (`--mode skip`) lets users bypass.
+**框架缓解**：宪章层级（Light 层级跳过重量级规格章节）。覆盖模式（`--mode skip`）允许用户绕过。
 
-**Migration implication**: If porting spec-driven workflow, must build semantic quality checks, not just structural ones.
+**迁移启示**：如果移植 spec-driven 工作流，必须构建语义质量检查，而非仅结构检查。
 
-### F2: Score Inflation in Assessment
+### F2: 评估中的分数膨胀
 
-**Symptom**: `/flow:assess` consistently routes tasks to Full SDD or Spec-Light because AI agents default to moderate-high scores on ambiguous dimensions.
+**症状**：`/flow:assess` 持续将任务路由到 Full SDD 或 Spec-Light，因为 AI agent 在模糊维度上默认给出中偏高分数。
 
-**Evidence**: Assessment scoring uses 8 dimensions scored 1-10. Thresholds: any single ≥7 → Full SDD, any ≥4 → Spec-Light. With 8 dimensions, scoring even one at 4+ (which is below midpoint) triggers Spec-Light.
+**证据**：评估评分使用 8 个维度，每个 1-10 分。阈值：任意单项 ≥7 → Full SDD，任意单项 ≥4 → Spec-Light。在 8 个维度中，即使只有一个评 4+（低于中位数），就触发 Spec-Light。
 
-**Root cause**: Low threshold combined with AI tendency toward moderate scores. A task where every dimension scores 3 (low complexity) would total 24, well above the ≥10 threshold for Spec-Light. In practice, Skip SDD requires all dimensions below 4 AND total below 10.
+**根因**：低阈值与 AI 倾向于中等分数的组合。一个所有维度评 3（低复杂度）的任务总分为 24，远超 ≥10 的 Spec-Light 阈值。实际上，Skip SDD 要求所有维度低于 4 且总分低于 10。
 
-**Impact**: The "Skip SDD" path is nearly unreachable through normal AI scoring, defeating the adaptive workflow purpose.
+**影响**："Skip SDD"路径在正常 AI 评分下几乎不可达，违背了自适应工作流的初衷。
 
-**Framework mitigation**: `--mode` override lets users force skip. But this defeats automatic adaptation.
+**框架缓解**：`--mode` 覆盖允许用户强制跳过。但这破坏了自动适应。
 
-**Migration implication**: Calibrate scoring thresholds based on actual task distribution, not theoretical ranges.
+**迁移启示**：基于实际任务分布校准评分阈值，而非理论范围。
 
-### F3: Soft Enforcement of Critical Rules
+### F3: 关键规则的 Soft 强制执行
 
-**Symptom**: Rules labeled "non-negotiable" (test deletion, backlog.md edits, worktree usage) are violated because enforcement is prompt-only.
+**症状**：标记为"不可违反"的规则（测试删除、backlog.md 编辑、worktree 使用）被违反，因为强制执行仅通过 prompt。
 
-**Evidence**: `rules/critical.md` states "Never delete tests — no exceptions except with explicit human approval" but no hook, pre-commit check, or file-write guard prevents `rm tests/*.py`. Similarly, "Never edit backlog.md directly" has no write-protection mechanism.
+**证据**：`rules/critical.md` 声明"Never delete tests — no exceptions except with explicit human approval"，但无 hook、pre-commit 检查或文件写入保护阻止 `rm tests/*.py`。同样，"Never edit backlog.md directly"也无写入保护机制。
 
-**Root cause**: Gap between rule declaration and enforcement implementation. The framework invested heavily in prompt-based rules but didn't close the loop with code-level gates for its most critical constraints.
+**根因**：规则声明与强制执行实现之间的差距。该框架在基于 prompt 的规则上投入很大，但未对其最关键的约束闭合代码级门控。
 
-**Impact**: In high-velocity or multi-agent scenarios, prompt instructions can be ignored or forgotten. The very rules that need the strongest enforcement have the weakest.
+**影响**：在高速度或多 agent 场景下，prompt 指令可能被忽略或遗忘。最需要最强强制执行的规则却拥有最弱的强制执行。
 
-**Framework mitigation**: Constitution and rules are auto-loaded into every session. Claude Code hooks run on PreToolUse and PostToolUse. But hooks don't check for test deletion or direct backlog edits.
+**框架缓解**：宪章和规则在每个会话中自动加载。Claude Code hooks 在 PreToolUse 和 PostToolUse 时运行。但 hooks 不检查测试删除或直接编辑 backlog。
 
-**Migration implication**: For critical rules, always build code-level enforcement (hooks, validators, CI gates) — prompt instructions are necessary but not sufficient.
+**迁移启示**：对关键规则，始终构建代码级强制执行（hooks、校验器、CI 门禁）——prompt 指令是必要的但不充分。
 
-### F4: MCP Dependency for State Management
+### F4: 状态管理的 MCP 依赖
 
-**Symptom**: Workflow state updates fail when MCP backlog server is unavailable, leaving tasks in inconsistent state.
+**症状**：当 MCP backlog 服务器不可用时工作流状态更新失败，导致任务处于不一致状态。
 
-**Evidence**: `executor.py` updates backlog tasks via MCP. `.mcp.json` configures 9 MCP servers. If backlog MCP is down, task state diverges from actual work state.
+**证据**：`executor.py` 通过 MCP 更新 backlog 任务。`.mcp.json` 配置了 9 个 MCP 服务器。如果 backlog MCP 宕机，任务状态与实际工作状态产生分歧。
 
-**Root cause**: State management depends on an external service (MCP) rather than local file operations. No fallback or offline mode for state tracking.
+**根因**：状态管理依赖外部服务（MCP）而非本地文件操作。无回退或离线模式用于状态跟踪。
 
-**Impact**: Workflow breaks silently when MCP is unavailable. Agent continues working but state isn't tracked.
+**影响**：MCP 不可用时工作流静默中断。Agent 继续工作但状态未被跟踪。
 
-**Framework mitigation**: Backlog CLI provides local file operations as alternative (`backlog task edit`). But workflow executor specifically uses MCP.
+**框架缓解**：Backlog CLI 提供本地文件操作作为替代（`backlog task edit`）。但工作流执行器专门使用 MCP。
 
-**Migration implication**: State management should have local-first fallback. Don't depend on network services for core workflow state.
+**迁移启示**：状态管理应具备本地优先回退。不要依赖网络服务来管理核心工作流状态。
 
-### F5: Context Loss Across Agent Handoffs
+### F5: Agent 交接中的上下文丢失
 
-**Symptom**: When parallel agents (e.g., Frontend + Backend in implement phase) complete work, their individual contexts don't merge. Subsequent phases may miss inter-agent decisions.
+**症状**：当并行 agent（如 implement 阶段的 Frontend + Backend）完成工作后，它们各自的上下文不合并。后续阶段可能遗漏跨 agent 的决策。
 
-**Evidence**: `rules/agents.md` describes parallel execution via labels. Each agent gets its own context. Task memory (≤500 words, ≤2000 tokens) is the only shared state.
+**证据**：`rules/agents.md` 描述通过标签进行并行执行。每个 agent 获得自己的上下文。任务记忆（≤500 字、≤2000 tokens）是唯一的共享状态。
 
-**Root cause**: Token budget constraint (≤2000 tokens per task) limits what can be preserved across agent boundaries. Key decisions from one agent may not fit in shared memory.
+**根因**：Token 预算约束（每任务 ≤2000 tokens）限制了跨 agent 边界可保留的内容。一个 agent 的关键决策可能无法放入共享记忆。
 
-**Impact**: Architectural decisions made by backend agent may conflict with frontend agent's assumptions. The validate phase may not see the full picture.
+**影响**：后端 agent 做出的架构决策可能与前端 agent 的假设冲突。validate 阶段可能无法看到完整画面。
 
-**Framework mitigation**: Decision logging to `.flowspec/logs/decisions/` provides audit trail. But this isn't injected into agent context automatically.
+**框架缓解**：决策记录至 `.flowspec/logs/decisions/` 提供审计线索。但这不会自动注入 agent 上下文。
 
-**Migration implication**: Multi-agent workflows need explicit decision aggregation between parallel phases, not just shared memory files.
+**迁移启示**：多 agent 工作流需要在并行阶段之间进行显式的决策聚合，而非仅依赖共享记忆文件。
 
 ---
 
-## 8. Migration Assessment
+## 8. 迁移评估
 
-### Candidates
+### 候选机制
 
 | # | Mechanism | Transferability | Effort | Prerequisite | Risk |
 |---|-----------|----------------|--------|-------------|------|
-| M1 | Complexity-adaptive workflow routing | **Direct** | S | Scoring rubric definition | Score inflation without calibration |
-| M2 | Artifact-gated state transitions | **Inspired** | M | Define artifact types and path conventions | Over-constraining for simple tasks |
-| M3 | Inner/outer loop agent classification | **Direct** | S | Agent definition mechanism | Boundary violations in practice |
-| M4 | Token-aware memory injection | **Direct** | M | Memory store + truncation algorithm | Losing critical context during truncation |
-| M5 | Three-layer critique pattern | **Direct** | S | Review prompt template | AI still gravitating toward agreement |
-| M6 | Constitution tier system | **Inspired** | L | Template system + init workflow | Tier selection accuracy |
-| M7 | Pre-PR validation script | **Direct** | S | Linter + test runner configured | Voluntary invocation (not enforced) |
-| M8 | Custom workflow composition | **Inspired** | L | Workflow engine + YAML schema | Complexity of orchestration code |
-| M9 | Decision/event logging | **Direct** | S | Log directory + format convention | Log review discipline |
-| M10 | Fail-safe hook execution | **Direct** | M | Hook runner with timeout + signal handling | Missing critical events if hooks fail silently |
+| M1 | 复杂度自适应工作流路由 | **Direct** | S | 评分标准定义 | 未校准时的分数膨胀 |
+| M2 | 产物门控状态转换 | **Inspired** | M | 定义产物类型和路径约定 | 对简单任务过度约束 |
+| M3 | Inner/outer loop agent 分类 | **Direct** | S | Agent 定义机制 | 实践中的边界违反 |
+| M4 | Token 感知记忆注入 | **Direct** | M | 记忆存储 + 截断算法 | 截断时丢失关键上下文 |
+| M5 | 三层批评模式 | **Direct** | S | 审查 prompt 模板 | AI 仍然倾向附和 |
+| M6 | 宪章层级体系 | **Inspired** | L | 模板系统 + 初始化工作流 | 层级选择准确度 |
+| M7 | PR 前校验脚本 | **Direct** | S | Linter + 测试运行器已配置 | 自愿调用（非强制） |
+| M8 | 自定义工作流组合 | **Inspired** | L | 工作流引擎 + YAML schema | 编排代码的复杂度 |
+| M9 | 决策/事件日志 | **Direct** | S | 日志目录 + 格式约定 | 日志审查纪律 |
+| M10 | Fail-safe hook 执行 | **Direct** | M | Hook 运行器 + 超时 + 信号处理 | Hook 静默失败时遗漏关键事件 |
 
-### Recommended Adoption Order
+### 建议采纳顺序
 
-1. **M5 Three-layer critique** (S, zero prereqs, immediate review quality improvement)
-2. **M3 Inner/outer loop classification** (S, conceptual, improves agent design discipline)
-3. **M7 Pre-PR validation script** (S, concrete, immediate quality gate)
-4. **M9 Decision/event logging** (S, lightweight, improves auditability)
-5. **M4 Token-aware memory injection** (M, requires memory infra, high long-term value)
-6. **M1 Complexity-adaptive routing** (S conceptually, but needs calibration work)
-7. **M2 Artifact-gated transitions** (M, requires artifact schema design)
-8. **M10 Fail-safe hooks** (M, requires hook infrastructure)
-9. **M6 Constitution tiers** (L, requires template system + init workflow)
-10. **M8 Custom workflow composition** (L, requires workflow engine)
+1. **M5 三层批评模式**（S，零前置条件，立即提升审查质量）
+2. **M3 Inner/outer loop 分类**（S，概念性，改善 agent 设计纪律）
+3. **M7 PR 前校验脚本**（S，具体可操作，立即获得质量门禁）
+4. **M9 决策/事件日志**（S，轻量级，提升可审计性）
+5. **M4 Token 感知记忆注入**（M，需要记忆基础设施，长期价值高）
+6. **M1 复杂度自适应路由**（概念上 S，但需要校准工作）
+7. **M2 产物门控转换**（M，需要产物 schema 设计）
+8. **M10 Fail-safe hooks**（M，需要 hook 基础设施）
+9. **M6 宪章层级**（L，需要模板系统 + 初始化工作流）
+10. **M8 自定义工作流组合**（L，需要工作流引擎）
 
-### Must-Build Enforcement
+### 必须构建的强制执行机制
 
-If porting flowspec patterns, these **code-level enforcement mechanisms** are required (flowspec itself lacks them):
+如果移植 flowspec 模式，以下**代码级强制执行机制**是必需的（flowspec 本身缺少这些）：
 
 | Mechanism | What It Protects | Implementation |
 |-----------|-----------------|----------------|
-| Test deletion guard | Prevent `rm tests/*` | PreToolUse hook checking file paths |
-| Backlog write guard | Prevent direct edits to `backlog.md` | PreToolUse hook on Write/Edit tool |
-| Coverage gate | Enforce >80% threshold | Post-test hook checking coverage output |
-| Review gate | Block merge without review completion | CI check or pre-merge hook |
-| Branch protection | Enforce no direct main commits | Git hook or GitHub branch protection |
+| 测试删除保护 | 防止 `rm tests/*` | PreToolUse hook 检查文件路径 |
+| Backlog 写入保护 | 防止直接编辑 `backlog.md` | PreToolUse hook 拦截 Write/Edit tool |
+| 覆盖率门禁 | 强制 >80% 阈值 | 测试后 hook 检查覆盖率输出 |
+| 审查门禁 | 无审查完成则阻止合并 | CI 检查或 pre-merge hook |
+| 分支保护 | 强制禁止直接提交到 main | Git hook 或 GitHub 分支保护 |
 
 ---
 
-## 9. Open Questions
+## 9. 待解问题
 
-1. **Spec quality scoring algorithm**: `/flow:gate` checks spec quality (target 70/100) but the scoring rubric is not visible in source. How are the 100 points distributed? Is it structural or semantic?
+1. **规格质量评分算法**：`/flow:gate` 检查规格质量（目标 70/100），但评分标准在源码中不可见。100 分如何分配？是结构性的还是语义性的？
 
-2. **Outer loop implementation**: README references "Promote/Observe/Operate/Feedback" outer loop but states it's "handled by falcondev." How does this integrate with the inner loop state machine?
+2. **Outer loop 实现**：README 提到"Promote/Observe/Operate/Feedback" outer loop，但指出该部分"handled by falcondev。"它如何与 inner loop 状态机集成？
 
-3. **MCP backlog server implementation**: The backlog MCP server is referenced but its source isn't in the repository. Is it a separate package? What happens to workflow state if it's unavailable?
+3. **MCP backlog 服务器实现**：Backlog MCP 服务器被引用但其源码不在仓库中。它是单独的包吗？如果不可用，工作流状态会怎样？
 
-4. **Agent persona effectiveness**: Are the 15 specialized agent personas measurably better than a single well-prompted general agent? The framework assumes specialization improves quality but provides no evaluation data.
+4. **Agent 人设效果**：15 个专业化 agent 人设是否比一个精心提示的通用 agent 效果可衡量地更好？该框架假定专业化能提升质量，但未提供评估数据。
 
-5. **Custom workflow adoption**: The 3 predefined custom workflows (quick_build, full_design, ship_it) — are they actually used in practice, or does everyone default to the standard sequence?
+5. **自定义工作流采纳情况**：3 个预定义的自定义工作流（quick_build、full_design、ship_it）——实践中是否真正被使用，还是所有人都默认使用标准序列？
 
 ---
 
-## Appendix: Source Traceability
+## 附录：来源可追溯性
 
 | Claim | Source | Line/Section |
 |-------|--------|-------------|
-| 7 workflow states | `flowspec_workflow.yml` | states array (lines 1-52) |
-| 6 core workflows | `flowspec_workflow.yml` | workflows map (lines 54-180) |
-| DAG cycle detection | `validator.py` | lines 400-520 (DFS algorithm) |
-| Artifact-gated transitions | `transition.py` | WORKFLOW_TRANSITIONS constant (lines 1-624) |
-| 15 agent personas | `.agents/*.md` | 15 markdown files |
-| Agent→workflow routing | `.claude/agents-config.json` | 13 agents × 6 workflows |
-| 22 slash commands | `.claude/commands/flow/*.md` | 22 markdown files |
-| 20 internal skills | `.claude/skills/*/SKILL.md` | 20 directories |
-| 8 auto-loaded rules | `.claude/rules/*.md` | 8 markdown files |
+| 7 个工作流状态 | `flowspec_workflow.yml` | states array (lines 1-52) |
+| 6 个核心工作流 | `flowspec_workflow.yml` | workflows map (lines 54-180) |
+| DAG 环路检测 | `validator.py` | lines 400-520 (DFS algorithm) |
+| 产物门控转换 | `transition.py` | WORKFLOW_TRANSITIONS constant (lines 1-624) |
+| 15 个 agent 人设 | `.agents/*.md` | 15 markdown files |
+| Agent→workflow 路由 | `.claude/agents-config.json` | 13 agents × 6 workflows |
+| 22 个斜杠命令 | `.claude/commands/flow/*.md` | 22 markdown files |
+| 20 个内部 skills | `.claude/skills/*/SKILL.md` | 20 directories |
+| 8 个自动加载规则 | `.claude/rules/*.md` | 8 markdown files |
 | Pre-commit hooks | `.pre-commit-config.yaml` | ruff v0.8.2 lint + format |
-| Pre-PR script | `scripts/bash/pre-pr-check.sh` | 4-item check (DCO, lint, format, tests) |
+| PR 前脚本 | `scripts/bash/pre-pr-check.sh` | 4-item check (DCO, lint, format, tests) |
 | Claude Code hooks | `.claude/settings.json` | SessionStart, PreToolUse, PostToolUse, Stop |
-| Hook security (path traversal) | `hooks/config.py` | HooksSecurityError on `..` or absolute paths |
-| Hook timeout enforcement | `hooks/runner.py` | SIGTERM → SIGKILL with configurable limit |
-| Task memory truncation | `memory/injector.py` | ~2000 token limit, section-aware truncation |
-| Task memory lifecycle | `memory/lifecycle.py` | State-driven create/archive/restore/delete |
-| Constitution tiers | `templates/constitutions/` | light.md, medium.md, heavy.md |
-| Token-aware context injection | `memory/injector.py` | @import directive in CLAUDE.md |
-| Three-layer critique | `.agents/quality-guardian.md` | Acknowledge → Risk → Mitigate |
-| Score inflation risk | `commands/flow/assess.md` | any ≥4 → Spec-Light, total ≥10 → Spec-Light |
-| Test deletion non-enforcement | `.claude/rules/critical.md` + settings.json | Rule exists, no hook implements it |
-| Security reviewer read-only claim | `.claude/rules/agents.md` | Prompt-only, no code enforcement |
+| Hook 安全性（路径穿越） | `hooks/config.py` | HooksSecurityError on `..` or absolute paths |
+| Hook 超时强制执行 | `hooks/runner.py` | SIGTERM → SIGKILL with configurable limit |
+| 任务记忆截断 | `memory/injector.py` | ~2000 token limit, section-aware truncation |
+| 任务记忆生命周期 | `memory/lifecycle.py` | State-driven create/archive/restore/delete |
+| 宪章层级 | `templates/constitutions/` | light.md, medium.md, heavy.md |
+| Token 感知上下文注入 | `memory/injector.py` | @import directive in CLAUDE.md |
+| 三层批评模式 | `.agents/quality-guardian.md` | Acknowledge → Risk → Mitigate |
+| 分数膨胀风险 | `commands/flow/assess.md` | any ≥4 → Spec-Light, total ≥10 → Spec-Light |
+| 测试删除未强制执行 | `.claude/rules/critical.md` + settings.json | Rule exists, no hook implements it |
+| Security reviewer 只读声明 | `.claude/rules/agents.md` | Prompt-only, no code enforcement |
