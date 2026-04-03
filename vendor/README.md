@@ -116,7 +116,7 @@ The summary below focuses on three things for each project:
 #### `yoyo-evolve`
 
 - `Focus`: Build a coding agent that autonomously improves itself by reading its own source and committing working changes.
-- `Traits`: 31k+ lines of self-written Rust, ~3 evolution sessions/day via GitHub Actions cron, community-directed via GitHub Issues voting, two-layer memory (append-only JSONL + synthesized daily context), and 11-provider multi-model support.
+- `Traits`: 31k+ lines of self-written Rust, ~3 evolution sessions/day via GitHub Actions cron, community-directed via GitHub Issues voting, two-layer memory (append-only JSONL + synthesized daily context), and 12-provider multi-model support.
 - `Flow`: install via `cargo install yoyo-agent` -> run `yoyo` in REPL or `-p` one-shot -> open a GitHub Issue with `agent-input` label to direct future evolution -> agent reads issues, plans, implements, tests, commits or reverts automatically.
 
 ### Workflow Systems and Spec-Driven Development
