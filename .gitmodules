@@ -128,3 +128,7 @@
 	path = vendor/yao-meta-skill
 	url = https://github.com/yaojingang/yao-meta-skill
 	shallow = true
+[submodule "vendor/everything-claude-code-mobile"]
+	path = vendor/everything-claude-code-mobile
+	url = https://github.com/ahmed3elshaer/everything-claude-code-mobile
+	shallow = true
