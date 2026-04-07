@@ -60,6 +60,7 @@ The summary below focuses on three things for each project:
 | `dotclaude` | 15-plugin marketplace covering git, gitflow, github, refactoring, SwiftUI, shadcn, Next.js, office docs, and plugin optimization. |
 | `superpowers` | Official cross-platform skills system centered on automatic workflow activation, TDD discipline, and subagent execution. |
 | `claude-plugins-official` | Anthropic's official plugin directory with internal and community plugins covering LSP, MCP, code review, and dev workflows. |
+| `yao-meta-skill` | Rigorous skill engineering system for creating, evaluating, packaging, and governing reusable agent skills with a full toolchain and eval suite. |
 
 ## Detailed Summaries
 
@@ -257,6 +258,12 @@ The summary below focuses on three things for each project:
 - `Traits`: Anthropic-maintained, split into internal and external plugin directories, covers LSP integrations (12 languages), MCP server dev, code review, feature dev, skill creation, and output style presets.
 - `Flow`: browse `plugins/` and `external_plugins/` -> study `plugin.json` and skill structure -> install via `/plugin install <name>@claude-plugins-official` -> adapt patterns for your own plugins.
 
+#### `yao-meta-skill`
+
+- `Focus`: Turn rough workflows, prompts, and runbooks into governed, reusable skill packages with rigorous trigger quality and portability guarantees.
+- `Traits`: Unified `yao.py` CLI, train/dev/holdout/blind/adversarial eval loop, judge-backed blind eval, promotion policy with lifecycle states, cross-platform packaging (openai/claude/generic), governance maturity scoring, and context budget tracking.
+- `Flow`: `yao.py init my-skill` -> `yao.py validate` -> `yao.py workspace-flow` -> `yao.py review` -> `yao.py release-snapshot` -> `yao.py package --platform claude --zip`.
+
 ## Patterns Across the Collection
 
 ### Most common workflow shapes
@@ -266,6 +273,7 @@ The summary below focuses on three things for each project:
 - `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`
 - `Self-evolution first`: `yoyo-evolve`
 - `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`, `claude-plugins-official`
+- `Skill engineering and governance first`: `yao-meta-skill`
 
 ### Key differentiators worth watching
 
@@ -285,6 +293,6 @@ If the goal is to compare approaches quickly, read in this order:
 1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`, `yoyo-evolve`
 2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `flowspec`
 3. `planning-with-files`, `Trellis`, `claude-reflect`
-4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`, `superpowers`, `claude-plugins-official`
+4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `dotclaude`, `superpowers`, `claude-plugins-official`, `yao-meta-skill`
 
 That sequence moves from execution systems, to specification systems, to memory systems, to setup and distribution layers.

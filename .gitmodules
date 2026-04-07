@@ -124,3 +124,7 @@
 	path = vendor/yoyo-evolve
 	url = https://github.com/yologdev/yoyo-evolve
 	shallow = true
+[submodule "vendor/yao-meta-skill"]
+	path = vendor/yao-meta-skill
+	url = https://github.com/yaojingang/yao-meta-skill
+	shallow = true
