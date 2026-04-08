@@ -1,5 +1,6 @@
 {
   "enabledPlugins": {
+    "code-context@1st-cc-plugin": true,
     "workflow-research@1st-cc-plugin": true
   }
 }
