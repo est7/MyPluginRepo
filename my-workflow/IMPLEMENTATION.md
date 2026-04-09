@@ -279,6 +279,12 @@ TDD 做法：写 schema + fixture → 测试锁死预期 → 实现通过测试 
 | `revision_count` | number | 当前 gate 的 revision 次数 | 07-cross-cutting |
 | `context_usage_pct` | number | 上下文使用率估算 | 16§6.2 (PAUL 50%/70% 阈值) |
 
+**语义澄清**（来自 codex 追加裁决）：
+- `phase` 只表示工作流阶段，**BLOCKED 和 DELTA 不是 phase**
+- `BLOCKED` 是 `status`/`completion_status` 的值，不是状态机节点
+- `delta` 不是 phase，而是经由 G6 判定后触发的重入动作（回到 SPEC_PLAN 或 EXECUTE）
+- `allowed_transitions` 格式为 `"{FROM_PHASE}->{TO_PHASE}"`，不包含 BLOCKED/DELTA
+
 #### triage-result.json（来自 17§8）
 
 路由层的结构化输出。不再只输出 profile，而是输出完整路由决策。
@@ -501,7 +507,7 @@ SETTLE → DONE (无 reconcile)          ❌ 缺失 closure artifact
 
 ### P0 验收
 
-- [ ] 12 个 JSON Schema 文件全部创建
+- [ ] 14 个 JSON Schema 文件全部创建（含 delta-log + event-log）
 - [ ] 5 个 profile 的 fixture 目录完整（含 standard-semi-auto 的 continuation 子目录）
 - [ ] 所有 fixture 通过 schema 校验
 - [ ] transition validator 拒绝所有非法路径
@@ -584,8 +590,11 @@ task 有 verify-evidence + exit_code=0          → 允许标记 passed
 task 无 verify-evidence                        → 阻断，不允许完成
 task 有 verify-evidence + exit_code=1          → 标记 failed，触发 build-fix
 
-# Quick/Simple
-不要求 evidence                                → 放行
+# Quick
+不要求 verify_cmd，不要求 evidence             → 放行
+
+# Simple
+要求 verify_cmd，evidence 可选（非 hard gate） → 放行（G8 Ralph Loop 不生效）
 ```
 
 ### P1.5 Stall Detection Tests
@@ -647,7 +656,7 @@ Scenario: Simple — add utility function
   When triage routes to simple
   Then phase sequence is TRIAGE → DISCOVER → EXECUTE → VERIFY → SETTLE → DONE
   And tasks.json has id + goal + verify_cmd (minimal fields)
-  And verify-evidence is collected after VERIFY
+  And verify_cmd is executed but verify-evidence is optional (not hard gate)
   And reconcile-settlement has minimum + concerns
 ```
 
@@ -662,7 +671,8 @@ Scenario: Standard semi-auto — new API endpoint with iterative refinement
   And phase sequence is TRIAGE → DISCOVER → SPEC_PLAN → EXECUTE → VERIFY → SETTLE → DONE
   And tasks.json has id + goal + covers_ac + verify_cmd
   And verify-evidence is collected
-  And verify-review contains spec_fit
+  And verify-review contains only quality_fit (light gate, no full spec_fit AC analysis)
+  And AC coverage is checked via reconcile-settlement.ac_results instead
   And reconcile-settlement has planned_vs_actual + ac_results
 
 Scenario: Standard semi-auto — continuation delta
@@ -1548,3 +1558,67 @@ Hard = 违反即阻断（abort）。Soft = 违反即警告 + 记录到 event-log
 5. 出现 BLOCKED / DONE_WITH_CONCERNS
 
 P2.5 BDD scenario 应逐条覆盖这 5 个触发条件。
+
+### A38. 路由层三层接口分层
+
+来源：17§7, codex 追加裁决
+
+路由层实现时分 3 层，每层可独立替换：
+
+```
+1. Signals（信号采集）
+   - explicit: 用户显式指定 lane
+   - scenario: 命中已知场景模板
+   - continuation: 检测已有 baseline/delta
+   - score: 复杂度打分
+
+2. Policy（决策策略）
+   - 路由优先级: hard > continuation > explicit > scenario > score
+   - 升级触发器: new_dependency / cross_module / contract_change / ac_change / understanding_overturned
+   - 降级/退出条件: semi-auto 5 退出条件（见 A20）
+   - fallback: 无信号匹配时走 score route
+
+3. Lane Templates（执行模板）
+   - simple/patch
+   - standard/semi-auto
+   - standard/full
+   - complex/full
+   - orchestrated
+```
+
+`triage-result.json` 只承载路由结果，不内联 policy 逻辑。
+
+### A39. verify-evidence 按 Profile 要求层级
+
+来源：codex 追加裁决，消除 P1.4 / P2.2 冲突
+
+```
+quick       = 不要求 verify_cmd，不要求 evidence
+simple      = 要求 verify_cmd，evidence 可选（G8 Ralph Loop 不生效）
+standard+   = 要求 verify_cmd，evidence 必须（G8 Ralph Loop 强制）
+```
+
+### A40. 实施版本分层
+
+来源：codex 追加裁决
+
+```
+v1 core（P0-P3 必须完成）
+  - state.json / transitions.json
+  - 14 个 schema + fixture
+  - G0-G9 gate tests
+  - event-log.jsonl（runtime core，不是可选项）
+  - resume / handoff
+  - routing core（triage-result 输出）
+
+v1.1（P3 完成后立即补）
+  - Deliver Gate（A31）
+  - Config 三层优先级（A32）
+  - Confidence-gated review pipeline（A34）
+  - StatusLine 格式
+
+reserved（成熟期扩展）
+  - 多层 prompt injection 防御
+  - 多 reviewer 自动分流
+  - pass@k reliability metric
+```
