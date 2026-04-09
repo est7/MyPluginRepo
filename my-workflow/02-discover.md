@@ -32,6 +32,11 @@
     │   Research gate: 未解决问题必须标记 (C1)
     │
     ▼
+[Step 1.3b] context.jsonl 产出 (Complex+ only)
+    │   基于探索结果声明 worker 上下文边界
+    │   输出：context.jsonl (schema 见 09-schemas.md)
+    │
+    ▼
 [Step 1.4] 代码理解摘要 ← 关键产物
     │   输出结构化摘要（非自由文本）
     │
@@ -51,15 +56,32 @@
 | triage-result (profile, score, evidence) | Phase 0 | YES |
 | 用户请求文本 | 用户 | YES |
 | Durable docs | Phase 0 加载 | 如果存在 |
-| 最小实现上下文 (入口+锚点) | 用户提供 | Moderate+ |
+| 最小实现上下文 (入口+锚点) | 用户提供 | Standard+ |
 
 ## 输出产物
 
-| 产物 | 类型 | Schema |
-|------|------|--------|
-| `code-understanding.md` | Transient | 见下方模板 |
-| `clarification-log` | Transient (内存) | Q&A pairs |
-| `open-questions.md` | Transient | 未解决问题列表 |
+| 产物 | 类型 | Schema | Profile |
+|------|------|--------|---------|
+| `code-understanding.md` | Transient | 见下方模板 | Standard+ |
+| `clarification-log` | Transient (内存) | Q&A pairs | Standard+ |
+| `open-questions.md` | Transient | 未解决问题列表 | Standard+ |
+| `context.jsonl` | Transient | 见 [09-schemas.md](./09-schemas.md) §4 | Complex+ |
+
+### context.jsonl 产出规则（Complex+）
+
+Complex 及以上 profile 在代码探索完成后，产出 `context.jsonl` 声明 worker agent 的上下文边界。
+
+**何时产出**：Step 1.3 代码探索完成后，Step 1.4 理解摘要之前。
+
+**产出方式**：基于探索过程中实际访问的文件列表，过滤为影响范围内的文件，标注 `read-write` 或 `read-only` 模式。
+
+```jsonl
+{"file": "src/auth/middleware.ts", "reason": "Main modification target", "mode": "read-write"}
+{"file": "src/auth/types.ts", "reason": "Type definitions to update", "mode": "read-write"}
+{"file": "docs/interfaces.md", "reason": "API contract reference", "mode": "read-only"}
+```
+
+**Standard 以下**不产出 context.jsonl，靠 durable docs + code-understanding.md 做粗粒度上下文注入。
 
 ### code-understanding.md 模板
 
@@ -96,7 +118,7 @@
 
 | 属性 | 值 |
 |------|-----|
-| 类型 | Hard (Moderate+), Skip (Trivial/Simple) |
+| 类型 | Hard (Standard+), Skip (Quick/Simple) |
 | 触发 | code-understanding.md 产出后 |
 | 行为 | 人类审查"理解是否正确"，不是审查"方案是否合理" |
 | 通过 | 进入 Phase 2 |
@@ -107,21 +129,22 @@
 
 | 属性 | 值 |
 |------|-----|
-| 类型 | Soft (Moderate), Hard (Complex+) |
+| 类型 | Soft (Standard), Hard (Complex+) |
 | 触发 | Step 1.3 结束时 |
 | 行为 | 检查 open-questions.md 是否有未解决问题 |
 | Complex+ | 存在未解决问题 → **阻断**，不允许进入 Phase 2 |
-| Moderate | 存在未解决问题 → **警告**，用户决定是否继续 |
+| Standard | 存在未解决问题 → **警告**，用户决定是否继续 |
 
 ---
 
 ## Profile 行为矩阵
 
-| Step | Trivial | Simple | Moderate | Complex | Harness |
+| Step | Quick | Simple | Standard | Complex | Orchestrated |
 |------|---------|--------|----------|---------|---------|
 | 1.1 需求澄清 | 跳过 | 1句话确认 | 标准 Q&A | 全量 + scope 确认 | 全量 + BDD 场景草案 |
 | 1.2 上下文获取 | 跳过 | 跳过 | 用户提供入口 | 用户提供入口+模块 | 全量 |
 | 1.3 代码探索 | 跳过 | 快速 grep | 定向探索 | 深度探索 + 外部研究 | 深度 + 多源 (C2) |
+| 1.3b context.jsonl | 跳过 | 跳过 | 跳过 | ✅ 产出 | ✅ 产出 |
 | 1.4 理解摘要 | 跳过 | 跳过 | 标准模板 | 标准 + 假设清单 | 标准 + 影响图 |
 | G1 人类确认 | 跳过 | 跳过 | ✅ 必须 | ✅ 必须 | ✅ 必须 |
 
@@ -153,12 +176,12 @@
 
 ## 失败路径
 
-| 场景 | 处理 |
-|------|------|
-| Agent 无法找到代码入口 | → Escalation: 请求用户提供入口文件 |
-| 理解摘要被打回 3 次 | → Escalation: 暂停，用户提供更详细的上下文包 |
-| 外部研究源不可用 (Context7/Exa) | → 降级: 仅用本地代码探索 |
-| 上下文窗口 DEGRADING | → 将已收集信息写入 code-understanding.md，重启 fresh subagent 继续 |
+| 场景 | Gate Taxonomy | 处理 |
+|------|--------------|------|
+| Agent 无法找到代码入口 | `escalation` | 请求用户提供入口文件 |
+| 理解摘要被打回 3 次 | `escalation` | 暂停，用户提供更详细的上下文包 |
+| 外部研究源不可用 (Context7/Exa) | `revision` (降级) | 仅用本地代码探索 |
+| 上下文窗口 DEGRADING | `revision` | 将已收集信息写入 code-understanding.md，重启 fresh subagent 继续 |
 
 ---
 
@@ -166,4 +189,4 @@
 
 1. **代码理解摘要是否应该用 subagent 生成？** 如果主 agent 做探索，它的上下文会被代码内容填满。用 subagent 探索 → 返回摘要 → 主 agent 继续，可以保持主 agent 上下文干净。但增加了编排复杂度。
 2. **clarification Q&A 是否持久化？** 当前设计：内存中，不写文件。但跨会话恢复时可能需要。
-3. **Moderate 任务的理解摘要是否过重？** 如果大部分 moderate 任务用户已经很清楚入口，理解摘要可能是多余的 ceremony。考虑加 `--skip-understanding` flag？
+3. **Standard 任务的理解摘要是否过重？** 如果大部分 standard 任务用户已经很清楚入口，理解摘要可能是多余的 ceremony。考虑加 `--skip-understanding` flag？

@@ -1,17 +1,180 @@
-# My Workflow
+# My Workflow — 冻结骨架 v2
 
-这组文档用于沉淀一个覆盖 `trivial -> harness` 的可拔插工作流骨架。
+这组文档定义一个覆盖 `quick → orchestrated` 的可拔插 6 阶段工作流骨架。
 
-## 入口
+---
 
-- `00-overview.md`: 冻结骨架总览
-- `01-triage.md` 到 `06-settle.md`: 分阶段设计
-- `07-cross-cutting.md`: 横切机制
-- `08-reference-map.md`: 机制与研究报告映射
+## 全景图
 
-## 输入材料
+### 状态机：6 阶段 × 5 Profile
 
-- `input-01-real-world-scenario.md`: 真实半自动开发场景
-- `input-02-review-brief.md`: 第三方评审任务简报
-- `input-03-discussion-notes.md`: 设计讨论纪要
-- `input-04-design-proposal.md`: 汇总后的设计方案
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         WORKFLOW STATE MACHINE                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  PHASE         STATE            ARTIFACTS PRODUCED                           │
+│  ─────         ─────            ─────────────────                            │
+│                                                                              │
+│             ┌──────────┐                                                     │
+│  Phase 0    │  TRIAGE  │       triage-result (profile + lane)                │
+│             └────┬─────┘                                                     │
+│                  │                                                           │
+│                  ▼                                                           │
+│             ┌──────────┐       code-understanding.md                         │
+│  Phase 1    │ DISCOVER │       context.jsonl (complex+)                      │
+│             └────┬─────┘       background-alignment.md                       │
+│                  │                                                           │
+│                  ▼                                                           │
+│             ┌──────────┐       spec.md, tasks.json                           │
+│  Phase 2    │SPEC&PLAN │       ADR (conditional), slice.md (complex+)        │
+│             └────┬─────┘       wave.json (orchestrated)                      │
+│                  │                                                           │
+│                  ▼                                                           │
+│             ┌──────────┐       code changes, delta-log.jsonl                 │
+│  Phase 3    │ EXECUTE  │◄──┐   effective-plan.md, handoff.md (complex+)      │
+│             └────┬─────┘   │                                                 │
+│                  │         │  delta re-entry (G6)                             │
+│                  ▼         │                                                  │
+│             ┌──────────┐   │   verify-evidence.json                          │
+│  Phase 4    │  VERIFY  │───┘   verify-review.json                            │
+│             └────┬─────┘                                                     │
+│                  │                                                           │
+│                  ▼                                                           │
+│             ┌──────────┐       reconcile-settlement.json                     │
+│  Phase 5    │  SETTLE  │       durable backflow patches                      │
+│             └────┬─────┘       .archive/{task-id}/                           │
+│                  │                                                           │
+│                  ▼                                                           │
+│             ┌──────────┐                                                     │
+│             │   DONE   │                                                     │
+│             └──────────┘                                                     │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Profile 选择：5 级复杂度
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         PROFILE SELECTION                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────────┐  │
+│  │  QUICK   │  │  SIMPLE  │  │ STANDARD │  │ COMPLEX  │  │ ORCHESTRATED │  │
+│  │          │  │          │  │          │  │          │  │              │  │
+│  │ one-line │  │ single   │  │ normal   │  │ cross-   │  │ parallel     │  │
+│  │ fix      │  │ entry    │  │ dev flow │  │ module   │  │ workers      │  │
+│  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘  └──────┬───────┘  │
+│       │             │             │             │               │           │
+│       ▼             ▼             ▼             ▼               ▼           │
+│  Skip most    Light closure  Full workflow  Spec-first     Worktree        │
+│  Just code    Minimal spec   Complete but   TDD + ADR      isolation       │
+│  Min closure  verify_cmd     not heavy      Slice/handoff  Wave/DAG        │
+│                                                                              │
+│  Examples:    Examples:      Examples:      Examples:      Examples:        │
+│  • Typo fix   • Add util fn  • New endpoint • Auth system  • Epic feature  │
+│  • Config     • Bug fix      • UI component • Major refac  • Multi-team    │
+│  • Doc tweak  • Small tweak  • CRUD feature • New service  • Platform mig  │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Profile × Phase 裁剪矩阵
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    PROFILE × PHASE SUBTRACTION MATRIX                        │
+├──────────┬──────────┬──────────┬──────────┬──────────┬──────────────────────┤
+│  PHASE   │  QUICK   │  SIMPLE  │ STANDARD │ COMPLEX  │    ORCHESTRATED      │
+├──────────┼──────────┼──────────┼──────────┼──────────┼──────────────────────┤
+│ TRIAGE   │ auto     │ auto     │ auto     │ human ✋  │ human ✋              │
+│ DISCOVER │ skip ⏭   │ 1-line ⬇ │ full ✅  │ full+ctx │ full + multi-source  │
+│ SPEC&PLAN│ skip ⏭   │ skip ⏭   │ BDD+task │ SDD+BDD  │ + architect review   │
+│ EXECUTE  │ direct   │ single   │ sequent  │ DAG+slice│ worktree isolation   │
+│ VERIFY   │ lint ⬇   │ unit ✅  │ full ✅  │ +review  │ + human UAT          │
+│ SETTLE   │ min ⬇    │ min+note │ reconcile│ full AC  │ full retrospective   │
+├──────────┼──────────┼──────────┼──────────┼──────────┼──────────────────────┤
+│ Gates    │ G0       │ G0,G5,G7 │ G0-G8    │ G0-G11   │ G0-G11 + custom      │
+│ Session  │ single   │ single   │ single*  │ fresh/   │ fresh/slice +        │
+│          │          │          │          │ slice    │ worker/task           │
+└──────────┴──────────┴──────────┴──────────┴──────────┴──────────────────────┘
+
+  ⏭ = skip (pass-through)   ⬇ = downgraded   ✅ = full   ✋ = human required
+  * standard: fresh session on delta re-entry or context degradation
+```
+
+### 核心主链（Machine-Checkable）
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         CORE TRACEABILITY CHAIN                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│   AC (Acceptance Criteria)                                                   │
+│    │                                                                         │
+│    ▼                                                                         │
+│   tasks.json ── task binds: AC + verify_cmd + allowed_paths                  │
+│    │                                                                         │
+│    ▼                                                                         │
+│   verify-evidence.json ── exit_code + stdout_excerpt + timestamp             │
+│    │                                                                         │
+│    ▼                                                                         │
+│   reconcile-settlement.json ── planned-vs-actual + per-AC accounting         │
+│    │                                                                         │
+│    ▼                                                                         │
+│   durable backflow ── architecture / interfaces / invariants / lessons       │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 文档结构
+
+```
+my-workflow/
+├── 00-overview.md          ← 冻结骨架 + 主链 + 产物模型 + Gate 模型
+├── 01-triage.md            ← Phase 0: 复杂度评估与路由
+├── 02-discover.md          ← Phase 1: 需求澄清 + 代码理解 + context.jsonl(Complex+)
+├── 03-spec-and-plan.md     ← Phase 2: SDD→BDD→TDD + tasks.json + ADR + slice/wave
+├── 04-execute.md           ← Phase 3: 编码 + Scope Guard + Orchestrator/Worker + Delta
+├── 05-verify.md            ← Phase 4: spec-fit/quality-fit + Ralph Loop + Stall Detection
+├── 06-settle.md            ← Phase 5: reconcile-settlement + AC 对账 + Backflow
+├── 07-cross-cutting.md     ← 跨阶段: Gate Taxonomy / Resume-Bootstrap / hooks / config
+├── 08-reference-map.md     ← 机制 ↔ 来源 ↔ 研究报告引用索引
+├── 09-schemas.md           ← 协议 Schema 集中定义（权威参考）
+└── evolution-archive/      ← 进化意见稿 + 输入材料（已归档）
+```
+
+## 核心主链
+
+```
+AC (验收条件)
+  → tasks.json (每个 task 绑定 AC + verify_cmd + allowed_paths)
+    → verify-evidence.json (结构化执行证据)
+      → reconcile-settlement.json (planned-vs-actual 对账)
+        → durable backflow (architecture / interfaces / invariants / lessons)
+```
+
+## 设计原则
+
+1. **双入口**：模糊请求走打分路由；显式命令直接跳过打分
+2. **先冻结再裁剪**：Profile 只做减法，不做加法
+3. **协议驱动**：tasks.json + verify-evidence.json，不是自由文本
+4. **产物驱动**：phase 转换的唯一凭证是结构化产物
+5. **Enforcement 保障**：每条规则必须有 hook/schema/gate 三者之一
+6. **Spec 是 transient**，Acceptance Settlement 是 durable
+7. **状态机是真相源**，hooks 是 enforcement adapter
+
+## 进化档案
+
+进化过程中的意见稿和输入材料已归档到 `evolution-archive/`：
+
+- `input-01` ~ `input-04`: 真实场景、评审简报、讨论纪要、设计方案
+- `09-codex` ~ `13-gemini`: 四份进化意见审查稿
+- `14-thatall.md`: 最终进化方案定稿
+- `15-hooks-state-machine-and-fresh-session.md`: 控制面讨论
+- `16-real-world-scenario-fit-optimization.md`: 面向半自动真实场景的贴合优化
+- `17-pluggable-routing-layer.md`: 可拔插路由层设计，统一评分、显式命令、场景模板和 continuation
+- `18-implementation-reference-guide.md`: 实施参考指南，按子系统拆分“优先参考谁、借什么、不借什么”

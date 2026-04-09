@@ -6,7 +6,7 @@
 
 两条路径并存：
 - **默认路径**：模糊请求 → 打分评估 → 推荐 profile → 用户确认
-- **快通道**：显式命令（`/simple`, `/moderate`, `/complex`, `/harness`）→ 跳过打分 → 直入
+- **快通道**：显式命令（`/simple`, `/standard`, `/complex`, `/orchestrated`）→ 跳过打分 → 直入
 
 ---
 
@@ -15,7 +15,7 @@
 ```
 用户输入
     │
-    ├── 命中显式命令？ (/trivial, /simple, /moderate, /complex, /harness)
+    ├── 命中显式命令？ (/quick, /simple, /standard, /complex, /orchestrated)
     │       │
     │       └─ YES → 设置 profile → 加载 durable docs → 进入 Phase 1
     │
@@ -61,7 +61,7 @@
 | 产物 | 类型 | 消费者 |
 |------|------|--------|
 | `triage-result` | Transient (内存) | Phase 1 |
-| — profile: trivial\|simple\|moderate\|complex\|harness | | |
+| — profile: quick\|simple\|standard\|complex\|orchestrated | | |
 | — score: {scope, novelty, risk, reversibility, total} | | |
 | — evidence: [file list, dependency changes, sensitive areas] | | |
 | — user_override: boolean | | |
@@ -83,18 +83,18 @@
 
 | 总分 | Profile |
 |------|---------|
-| 0 | trivial |
+| 0 | quick |
 | 1-2 | simple |
-| 3-5 | moderate |
+| 3-5 | standard |
 | 6-9 | complex |
-| 10-12 | harness |
+| 10-12 | orchestrated |
 
 ### 关键约束
 
 - **打分必须基于实际代码扫描**（Glob/Grep/Read），不是凭空猜测
 - 打分输出**必须包含证据列表**（涉及的文件、模块、依赖变化）
 - 打分不自动推进，**必须呈现给用户确认**
-- 用户可以覆盖推荐（例如打分推荐 moderate 但用户说"这个我很熟，走 simple"）
+- 用户可以覆盖推荐（例如打分推荐 standard 但用户说"这个我很熟，走 simple"）
 
 ---
 
@@ -104,11 +104,11 @@
 
 | 属性 | 值 |
 |------|-----|
-| 类型 | Soft (trivial/simple), Hard (complex/harness) |
+| 类型 | Soft (quick/simple), Hard (complex/orchestrated) |
 | 触发 | 打分完成后 |
 | 行为 | 呈现 {score, evidence, recommendation}，等用户确认或覆盖 |
-| trivial/simple | 自动定级，用户可覆盖但不强制确认 |
-| complex/harness | **强制人工确认**，不允许自动通过 |
+| quick/simple | 自动定级，用户可覆盖但不强制确认 |
+| complex/orchestrated | **强制人工确认**，不允许自动通过 |
 
 ### G10: Prompt Injection Scan
 
@@ -123,7 +123,7 @@
 
 ## Profile 行为矩阵
 
-| Step | Trivial | Simple | Moderate | Complex | Harness |
+| Step | Quick | Simple | Standard | Complex | Orchestrated |
 |------|---------|--------|----------|---------|---------|
 | Durable docs 加载 | 跳过 | 最小 | 标准 | 全量 | 全量 |
 | Prompt injection scan | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -157,11 +157,11 @@
 
 ## 失败路径
 
-| 场景 | 处理 |
-|------|------|
-| 打分器无法判断复杂度 | 默认推荐 **moderate**（最安全的中间层） |
-| 用户不确认也不覆盖 | 提示一次后按推荐执行（但记录 `user_override: false`） |
-| Prompt injection 检出 | 标记内容，**不阻断任务**，但在后续 phase 中高亮警告 |
+| 场景 | Gate Taxonomy | 处理 |
+|------|--------------|------|
+| 打分器无法判断复杂度 | `revision` | 默认推荐 **standard**（最安全的中间层） |
+| 用户不确认也不覆盖 | `escalation` | 提示一次后按推荐执行（但记录 `user_override: false`） |
+| Prompt injection 检出 | `escalation` | 标记内容，**不阻断任务**，但在后续 phase 中高亮警告 |
 
 ---
 
