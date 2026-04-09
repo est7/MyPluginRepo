@@ -132,3 +132,7 @@
 	path = vendor/everything-claude-code-mobile
 	url = https://github.com/ahmed3elshaer/everything-claude-code-mobile
 	shallow = true
+[submodule "vendor/claude-code-best-practice"]
+	path = vendor/claude-code-best-practice
+	url = https://github.com/shanraisshan/claude-code-best-practice
+	shallow = true
