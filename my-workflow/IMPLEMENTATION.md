@@ -230,7 +230,9 @@ TDD 做法：写 schema + fixture → 测试锁死预期 → 实现通过测试 
 ├── triage-result.schema.json          ← 新增（来自 17§8）
 ├── state.schema.json                  ← 新增（来自 15§4.1）
 ├── resume-pack.schema.json            ← 新增（来自 16§6）
-└── background-alignment.schema.json   ← 新增（来自 16§4）
+├── background-alignment.schema.json   ← 新增（来自 16§4）
+├── delta-log.schema.json              ← 新增（来自 04-execute Delta 处理模型）
+└── event-log.schema.json              ← 新增（来自 07-cross-cutting §4.1）
 ```
 
 **新增 schema 说明**：
@@ -1487,3 +1489,62 @@ Complex+ review 的 findings 必须带 confidence score：
 - 低于阈值的 finding → 排除出报告
 - 4 级 severity：P0 (critical) / P1 (major) / P2 (moderate) / P3 (minor)
 - 4 级 autofix：safe_auto / gated_auto / manual / human
+
+### A35. delta-log.jsonl 条目 Schema
+
+来源：04-execute Delta 处理模型
+
+P0.1 应产出 `delta-log.schema.json`。每条 delta 记录：
+
+```jsonl
+{"delta_id": "D-001", "type": "scope_expansion | requirement_change | bug_fix | design_decision", "reason": "string", "impact": "string", "decision": "append | replan | re_triage", "task_patch": {"add": [], "modify": [], "remove": []}, "status": "accepted | rejected | pending"}
+```
+
+| 字段 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `delta_id` | string | ✅ | 格式 `D-NNN` |
+| `type` | enum | ✅ | scope_expansion / requirement_change / bug_fix / design_decision |
+| `reason` | string | ✅ | 变更原因 |
+| `impact` | string | ✅ | 影响范围 |
+| `decision` | enum | ✅ | append（只追加）/ replan（重入 Plan Gate）/ re_triage（重新 triage）|
+| `task_patch` | object | Standard+ | 受影响的 task 变更 |
+| `status` | enum | ✅ | accepted / rejected / pending |
+
+**Delta 决策规则**：
+- 不改主路径/验收标准/依赖 → `decision: "append"`
+- 改了主路径/影响范围/依赖/验收 → `decision: "replan"` + 生成新 Effective View
+- 需求范围变化/架构层决策变化 → `decision: "re_triage"`
+
+### A36. Protected Files 列表 + Phase 写入规则
+
+来源：07-cross-cutting §5.2
+
+PreToolUse hook (G11) 必须按此表检查写入权限：
+
+| 文件/路径 | 保护级别 | 允许写入的条件 |
+|-----------|---------|---------------|
+| `.workflow/state.json` | Hard | 仅通过 transition validator 脚本 |
+| `.workflow/event-log.jsonl` | Hard | 仅通过 hook 自动追加 |
+| `tasks.json` | Hard | Phase 2 锁定后禁写；仅 delta 流程可修改 |
+| `verify-evidence.json` | Hard | 仅 VERIFY phase 可写 |
+| `reconcile-settlement.json` | Hard | 仅 SETTLE phase 可写 |
+| `docs/architecture.md` | Soft | 仅 Phase 5 backflow 更新（警告但不阻断）|
+| `docs/invariants.md` | Soft | 仅 Phase 5 backflow 更新 |
+| `docs/interfaces.md` | Soft | 仅 Phase 5 backflow 更新 |
+| `spec.md` | Soft | Phase 2 产出，Phase 3 只读消费 |
+
+Hard = 违反即阻断（abort）。Soft = 违反即警告 + 记录到 event-log。
+
+### A37. Slice Handoff 5 项触发条件
+
+来源：04-execute, 09-schemas slice.md
+
+满足**任一**条件即结束当前 slice，触发 handoff：
+
+1. 完成了一个独立 AC 集合
+2. 修改文件超出 allowed_paths
+3. 引入新设计决策（需回 Plan Gate）
+4. context_usage_pct > 70%（DEGRADING 阈值）
+5. 出现 BLOCKED / DONE_WITH_CONCERNS
+
+P2.5 BDD scenario 应逐条覆盖这 5 个触发条件。
