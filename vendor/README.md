@@ -62,7 +62,6 @@ The summary below focuses on three things for each project:
 | `claude-plugins-official` | Anthropic's official plugin directory with internal and community plugins covering LSP, MCP, code review, and dev workflows. |
 | `yao-meta-skill` | Rigorous skill engineering system for creating, evaluating, packaging, and governing reusable agent skills with a full toolchain and eval suite. |
 | `everything-claude-code-mobile` | Mobile-focused skill pack with 27 agents, 48 skills, and 35 commands for Android, iOS, and KMP development with end-to-end feature builder. |
-| `claude-code-best-practice` | Curated best-practice encyclopedia with 69 tips, workflow comparisons, orchestration examples, and community-sourced patterns for Claude Code. |
 
 ## Detailed Summaries
 
@@ -272,12 +271,6 @@ The summary below focuses on three things for each project:
 - `Traits`: 27 agents across 7 roles (review, build, architecture, UI, implementation, testing, learning), 7-phase feature builder with DAG-ordered layer agents, platform-specific MCP memory servers, continuous learning with instinct extraction, Material 3 Expressive and Liquid Glass design system support, and strict TDD enforcement with 80% coverage gates.
 - `Flow`: `/feature-build <description>` -> planner + architect -> layer agents (architecture -> network + UI -> data -> wiring) -> test writers -> build fix -> quality gate (review + security + perf) -> verify -> learn.
 
-#### `claude-code-best-practice`
-
-- `Focus`: Aggregate and curate Claude Code configuration best practices, community tips, and workflow patterns into a single reference.
-- `Traits`: 69 tips from Boris Cherny and community, 10+ workflow comparisons table, Command->Agent->Skill orchestration demo, best-practice docs per feature, cross-model workflow guides, and hook/sound notification system.
-- `Flow`: read CONCEPTS table -> study `best-practice/` docs -> clone and run `/weather-orchestrator` demo -> apply patterns to your own project.
-
 ## Patterns Across the Collection
 
 ### Most common workflow shapes
@@ -286,7 +279,7 @@ The summary below focuses on three things for each project:
 - `Role-orchestration first`: `gstack`, `oh-my-claudecode`, `Claude-Code-Workflow`, `ccg-workflow`, `BMAD-METHOD`
 - `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`
 - `Self-evolution first`: `yoyo-evolve`
-- `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `everything-claude-code-mobile`, `dotclaude`, `claude-plugins-official`, `claude-code-best-practice`
+- `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `everything-claude-code-mobile`, `dotclaude`, `claude-plugins-official`
 - `Skill engineering and governance first`: `yao-meta-skill`
 
 ### Key differentiators worth watching
@@ -307,6 +300,6 @@ If the goal is to compare approaches quickly, read in this order:
 1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`, `yoyo-evolve`
 2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `flowspec`
 3. `planning-with-files`, `Trellis`, `claude-reflect`
-4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `everything-claude-code-mobile`, `dotclaude`, `superpowers`, `claude-plugins-official`, `yao-meta-skill`, `claude-code-best-practice`
+4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `everything-claude-code-mobile`, `dotclaude`, `superpowers`, `claude-plugins-official`, `yao-meta-skill`
 
 That sequence moves from execution systems, to specification systems, to memory systems, to setup and distribution layers.
