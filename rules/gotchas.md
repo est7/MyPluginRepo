@@ -8,3 +8,7 @@
 ## 2026-04-08
 
 - When collapsing an alternate workflow draft into a diff document, preserve the draft's concrete mechanisms, schemas, and phase-level implementation snippets. Do not replace a concrete design with only abstract summaries of “what changed”; the diff document must still be implementation-useful.
+
+## 2026-04-09
+
+- When judging whether a legacy docs directory can be deleted, verify semantic absorption, not just filename alignment. First confirm the new docs carry the old directory's concrete mechanisms and only block deletion for real unmatched content or live references.
