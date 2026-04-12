@@ -136,3 +136,15 @@
 	path = vendor/claude-code-best-practice
 	url = https://github.com/shanraisshan/claude-code-best-practice
 	shallow = true
+[submodule "vendor/ralph-orchestrator"]
+	path = vendor/ralph-orchestrator
+	url = https://github.com/mikeyobrien/ralph-orchestrator
+	shallow = true
+[submodule "vendor/ralph"]
+	path = vendor/ralph
+	url = https://github.com/snarktank/ralph
+	shallow = true
+[submodule "vendor/recursive-mode"]
+	path = vendor/recursive-mode
+	url = https://github.com/try-works/recursive-mode
+	shallow = true

@@ -23,6 +23,8 @@ The summary below focuses on three things for each project:
 | `claude-reflect` | Learns from user corrections and turns repeated behavior into durable memory and reusable commands. |
 | `skill-router` | Low-presence runtime for reducing skill-selection waste in crowded skill environments. |
 | `yoyo-evolve` | Self-evolving Rust CLI agent that autonomously reads its own source, implements improvements, and commits if tests pass — running 24/7 on GitHub Actions. |
+| `ralph-orchestrator` | Hat-based orchestration framework that loops AI agents until done, with backpressure gates, parallel worktrees, wave parallelism, and Telegram HITL. |
+| `ralph` | Minimal bash implementation of the Ralph pattern — PRD.json drives a fresh-context agent loop until all user stories pass quality checks. |
 
 ### Workflow systems and spec-driven development
 
@@ -38,6 +40,7 @@ The summary below focuses on three things for each project:
 | `claude-code-specs-generator` | Context and documentation generator that builds steering plus spec documents for Claude Code. |
 | `spec-based-claude-code` | Implementation guide for building a custom slash-command-based SDD workflow yourself. |
 | `flowspec` | SDD CLI with complexity scoring, specialized AI subagents, and backlog integration via backlog.md + beads. |
+| `recursive-mode` | Audited, file-backed development workflow with draft→audit→lock phase gates, subskills for TDD/worktrees/review, and a durable memory layer. |
 
 ### Project memory, planning, and team structure
 
@@ -122,6 +125,18 @@ The summary below focuses on three things for each project:
 - `Traits`: 31k+ lines of self-written Rust, ~3 evolution sessions/day via GitHub Actions cron, community-directed via GitHub Issues voting, two-layer memory (append-only JSONL + synthesized daily context), and 12-provider multi-model support.
 - `Flow`: install via `cargo install yoyo-agent` -> run `yoyo` in REPL or `-p` one-shot -> open a GitHub Issue with `agent-input` label to direct future evolution -> agent reads issues, plans, implements, tests, commits or reverts automatically.
 
+#### `ralph-orchestrator`
+
+- `Focus`: Keep AI agents looping until a task is provably complete, using backpressure gates instead of prescriptive steps.
+- `Traits`: Hat system for specialized personas, multi-backend support (Claude/Kiro/Gemini/Codex/Amp/Copilot), wave parallelism for intra-loop fan-out, parallel worktree loops, Telegram HITL via RObot, PDD planning integration, and web dashboard.
+- `Flow`: `ralph init --backend claude` -> `ralph plan "<feature>"` -> `ralph run -p "Implement the feature"` -> agent iterates until `LOOP_COMPLETE`; monitor with `ralph loops` or `ralph web`.
+
+#### `ralph`
+
+- `Focus`: Implement the Ralph fresh-context loop in the simplest possible form — a bash script and a JSON task list.
+- `Traits`: Zero-framework approach, PRD.json as the task contract, `progress.txt` for accumulated learnings, quality-check gate before each commit, Amp and Claude Code backend support, and Claude Code marketplace installable.
+- `Flow`: `/prd` skill -> `/ralph` skill to produce `prd.json` -> `./ralph.sh [--tool claude]` -> agent loop picks next failing story, implements, checks, commits, and updates `prd.json` until `<promise>COMPLETE</promise>`.
+
 ### Workflow Systems and Spec-Driven Development
 
 #### `cc-sdd`
@@ -183,6 +198,12 @@ The summary below focuses on three things for each project:
 - `Focus`: Give every feature the right level of spec rigor by scoring complexity first and scaling the SDD process accordingly.
 - `Traits`: `flowspec-cli` Python package, 8-dimension complexity scoring, three workflow tiers (Simple/Medium/Full SDD), specialized backend/frontend/QA/security subagents, backlog.md + beads task tracking, and rigorous quality gates enforced per phase.
 - `Flow`: `flowspec init` -> `/flow:assess` to score complexity -> `/flow:specify` -> `/flow:plan` (Full SDD only) -> `/flow:implement` -> `/flow:validate`.
+
+#### `recursive-mode`
+
+- `Focus`: Replace chat-only context with durable, file-backed phase artifacts that survive sessions and accumulate project knowledge.
+- `Traits`: 9-phase run lifecycle (requirements → AS-IS → plan → implementation → review → test → QA → decisions → closeout), draft→audit→repair→lock progression, installable subskills (worktrees, TDD, review bundles, subagent verification), and file-based memory layer separated from run-local state.
+- `Flow`: `npx skills add try-works/recursive-mode` -> invoke "Implement the run" -> agent bootstraps `/.recursive/` scaffold -> phases advance through audited locks -> closeout promotes learnings to `/.recursive/memory/`.
 
 ### Project Memory, Planning, and Team Structure
 
@@ -282,9 +303,10 @@ The summary below focuses on three things for each project:
 
 ### Most common workflow shapes
 
-- `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`, `flowspec`
+- `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`, `flowspec`, `recursive-mode`
 - `Role-orchestration first`: `gstack`, `oh-my-claudecode`, `Claude-Code-Workflow`, `ccg-workflow`, `BMAD-METHOD`
-- `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`
+- `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`, `recursive-mode`
+- `Backpressure-loop first`: `ralph-orchestrator`, `ralph`
 - `Self-evolution first`: `yoyo-evolve`
 - `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `everything-claude-code-mobile`, `dotclaude`, `claude-plugins-official`, `claude-code-best-practice`
 - `Skill engineering and governance first`: `yao-meta-skill`
@@ -298,14 +320,17 @@ The summary below focuses on three things for each project:
 - `spec-workflow-mcp` and `claude-code-spec-workflow` both add dashboard visibility, but the former is MCP-first while the latter is Claude-Code-first.
 - `planning-with-files` and `Trellis` both treat files as durable memory, but `planning-with-files` is planning-centric while `Trellis` is broader team structure plus multi-platform wiring.
 - `claude-reflect` stands out because it improves the agent itself from corrections, not just the project.
+- `ralph-orchestrator` stands out because it treats the loop itself as the reliability mechanism: fresh context every iteration, gates instead of prescriptions, and disk as the handoff medium.
+- `ralph` stands out as the minimal-viable implementation of the same pattern: a single bash script, a JSON task list, and nothing else.
+- `recursive-mode` stands out because every phase is both file-recorded and audit-locked, making the agent's work explicitly verifiable rather than trust-based.
 - `superpowers` stands out because it treats skills as mandatory runtime policy, not optional slash-command helpers.
 
 ## Suggested Reading Order
 
 If the goal is to compare approaches quickly, read in this order:
 
-1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`, `yoyo-evolve`
-2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `flowspec`
+1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`, `yoyo-evolve`, `ralph-orchestrator`, `ralph`
+2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `flowspec`, `recursive-mode`
 3. `planning-with-files`, `Trellis`, `claude-reflect`
 4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `everything-claude-code-mobile`, `dotclaude`, `superpowers`, `claude-plugins-official`, `yao-meta-skill`, `claude-code-best-practice`
 
