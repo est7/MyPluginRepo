@@ -144,3 +144,7 @@
 	path = vendor/recursive-mode
 	url = https://github.com/try-works/recursive-mode
 	shallow = true
+[submodule "vendor/agent-spec"]
+	path = vendor/agent-spec
+	url = https://github.com/ZhangHanDong/agent-spec
+	shallow = true

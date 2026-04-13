@@ -41,6 +41,7 @@ The summary below focuses on three things for each project:
 | `spec-based-claude-code` | Implementation guide for building a custom slash-command-based SDD workflow yourself. |
 | `flowspec` | SDD CLI with complexity scoring, specialized AI subagents, and backlog integration via backlog.md + beads. |
 | `recursive-mode` | Audited, file-backed development workflow with draft→audit→lock phase gates, subskills for TDD/worktrees/review, and a durable memory layer. |
+| `agent-spec` | Contract-first BDD/spec verification CLI that turns task contracts into executable planning, lifecycle gates, and acceptance evidence. |
 
 ### Project memory, planning, and team structure
 
@@ -205,6 +206,12 @@ The summary below focuses on three things for each project:
 - `Traits`: 9-phase run lifecycle (requirements → AS-IS → plan → implementation → review → test → QA → decisions → closeout), draft→audit→repair→lock progression, installable subskills (worktrees, TDD, review bundles, subagent verification), and file-based memory layer separated from run-local state.
 - `Flow`: `npx skills add try-works/recursive-mode` -> invoke "Implement the run" -> agent bootstraps `/.recursive/` scaffold -> phases advance through audited locks -> closeout promotes learnings to `/.recursive/memory/`.
 
+#### `agent-spec`
+
+- `Focus`: Turn task specifications into executable contracts that agents implement against and machines verify.
+- `Traits`: Task Contract DSL, BDD completion criteria with explicit test selectors, contract/plan/lifecycle/guard CLI, AI-agent skill pack, and contract acceptance in place of code review.
+- `Flow`: `agent-spec init` -> write Task Contract (`Intent`/`Decisions`/`Boundaries`/`Completion Criteria`) -> `agent-spec contract` or `plan` -> implement -> `agent-spec lifecycle` -> `agent-spec guard` -> `agent-spec explain`.
+
 ### Project Memory, Planning, and Team Structure
 
 #### `planning-with-files`
@@ -303,7 +310,7 @@ The summary below focuses on three things for each project:
 
 ### Most common workflow shapes
 
-- `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`, `flowspec`, `recursive-mode`
+- `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`, `flowspec`, `recursive-mode`, `agent-spec`
 - `Role-orchestration first`: `gstack`, `oh-my-claudecode`, `Claude-Code-Workflow`, `ccg-workflow`, `BMAD-METHOD`
 - `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`, `recursive-mode`
 - `Backpressure-loop first`: `ralph-orchestrator`, `ralph`
@@ -323,6 +330,7 @@ The summary below focuses on three things for each project:
 - `ralph-orchestrator` stands out because it treats the loop itself as the reliability mechanism: fresh context every iteration, gates instead of prescriptions, and disk as the handoff medium.
 - `ralph` stands out as the minimal-viable implementation of the same pattern: a single bash script, a JSON task list, and nothing else.
 - `recursive-mode` stands out because every phase is both file-recorded and audit-locked, making the agent's work explicitly verifiable rather than trust-based.
+- `agent-spec` stands out because it treats the spec itself as the task contract, then replaces subjective code review with contract acceptance backed by explicit verification.
 - `superpowers` stands out because it treats skills as mandatory runtime policy, not optional slash-command helpers.
 
 ## Suggested Reading Order
@@ -330,7 +338,7 @@ The summary below focuses on three things for each project:
 If the goal is to compare approaches quickly, read in this order:
 
 1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`, `yoyo-evolve`, `ralph-orchestrator`, `ralph`
-2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `flowspec`, `recursive-mode`
+2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `flowspec`, `recursive-mode`, `agent-spec`
 3. `planning-with-files`, `Trellis`, `claude-reflect`
 4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `everything-claude-code-mobile`, `dotclaude`, `superpowers`, `claude-plugins-official`, `yao-meta-skill`, `claude-code-best-practice`
 
