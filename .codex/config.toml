@@ -1,0 +1,5 @@
+
+# BEGIN tooling/bin/agents managed 1mcp
+[mcp_servers.1mcp]
+url = "http://127.0.0.1:3050/mcp"
+# END tooling/bin/agents managed 1mcp

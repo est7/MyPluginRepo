@@ -1,0 +1,10 @@
+{
+  "context": {
+    "fileName": ["AGENTS.md", "GEMINI.md"]
+  },
+  "mcpServers": {
+    "1mcp": {
+      "httpUrl": "http://127.0.0.1:3050/mcp"
+    }
+  }
+}

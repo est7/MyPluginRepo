@@ -2,6 +2,5 @@
   "enabledPlugins": {
     "code-context@1st-cc-plugin": true,
     "workflow-research@1st-cc-plugin": true
-  },
-  "outputStyle": "技术导师模式"
+  }
 }
