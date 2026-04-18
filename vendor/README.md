@@ -25,6 +25,11 @@ The summary below focuses on three things for each project:
 | `yoyo-evolve` | Self-evolving Rust CLI agent that autonomously reads its own source, implements improvements, and commits if tests pass — running 24/7 on GitHub Actions. |
 | `ralph-orchestrator` | Hat-based orchestration framework that loops AI agents until done, with backpressure gates, parallel worktrees, wave parallelism, and Telegram HITL. |
 | `ralph` | Minimal bash implementation of the Ralph pattern — PRD.json drives a fresh-context agent loop until all user stories pass quality checks. |
+| `agents` | Massive plugin marketplace with 184 agents, 150 skills, 98 commands across 78 focused Claude Code plugins. |
+| `gastown` | Multi-agent workspace orchestrator coordinating 20-30 AI agents with persistent git-backed work state and Beads integration. |
+| `claude-code-workflows` | Curated code review, security review, and design review workflows for Claude Code with GitHub Actions integration. |
+| `Hephaestus` | Semi-structured agentic framework where AI agents dynamically create tasks across phases as they discover new work. |
+| `claude-code-riper-5` | RIPER workflow enforcing Research→Innovate→Plan→Execute→Review phases with memory bank and subagent architecture. |
 
 ### Workflow systems and spec-driven development
 
@@ -42,6 +47,10 @@ The summary below focuses on three things for each project:
 | `flowspec` | SDD CLI with complexity scoring, specialized AI subagents, and backlog integration via backlog.md + beads. |
 | `recursive-mode` | Audited, file-backed development workflow with draft→audit→lock phase gates, subskills for TDD/worktrees/review, and a durable memory layer. |
 | `agent-spec` | Contract-first BDD/spec verification CLI that turns task contracts into executable planning, lifecycle gates, and acceptance evidence. |
+| `claude-task-master` | AI-driven task management system for structured development with MCP server, CLI, and multi-model support. |
+| `aegisFlow` | Multi-agent CLI orchestrator turning ideas into structured delivery via PRD, design, review, and roundtable stages. |
+| `human-in-loop` | Specification-driven Claude Code plugin enforcing human review gates from idea through plan, tasks, and implementation. |
+| `spec-orch` | Seven-plane control plane for spec-driven software delivery with gate enforcement, evidence collection, and self-evolution. |
 
 ### Project memory, planning, and team structure
 
@@ -49,6 +58,7 @@ The summary below focuses on three things for each project:
 | --- | --- |
 | `planning-with-files` | Persistent Markdown planning workflow modeled after Manus-style working memory on disk. |
 | `Trellis` | Multi-platform framework built around repo-shared specs, tasks, journals, and worktree-based parallelism. |
+| `beads` | Dolt-powered distributed graph issue tracker designed for AI agent workflows with dependency-aware task graphs. |
 
 ### Setup tools and skill packs
 
@@ -67,6 +77,10 @@ The summary below focuses on three things for each project:
 | `yao-meta-skill` | Rigorous skill engineering system for creating, evaluating, packaging, and governing reusable agent skills with a full toolchain and eval suite. |
 | `everything-claude-code-mobile` | Mobile-focused skill pack with 27 agents, 48 skills, and 35 commands for Android, iOS, and KMP development with end-to-end feature builder. |
 | `claude-code-best-practice` | Curated best-practice encyclopedia with 69 tips, workflow comparisons, orchestration examples, and community-sourced patterns for Claude Code. |
+| `Agent-Skills-for-Context-Engineering` | Platform-agnostic collection of 14 skills teaching context engineering principles for production AI agent systems. |
+| `zcf` | Zero-config CLI for one-click Claude Code and Codex setup with bilingual support and API provider presets. |
+| `spec-first` | Bilingual CLI installing governed workflow assets (skills, agents, commands) into Claude Code and Codex projects. |
+| `claude-skills` | Curated skill collection featuring multi-agent TDD orchestration with context-isolated subagents, plus 40+ utility skills. |
 
 ## Detailed Summaries
 
@@ -137,6 +151,36 @@ The summary below focuses on three things for each project:
 - `Focus`: Implement the Ralph fresh-context loop in the simplest possible form — a bash script and a JSON task list.
 - `Traits`: Zero-framework approach, PRD.json as the task contract, `progress.txt` for accumulated learnings, quality-check gate before each commit, Amp and Claude Code backend support, and Claude Code marketplace installable.
 - `Flow`: `/prd` skill -> `/ralph` skill to produce `prd.json` -> `./ralph.sh [--tool claude]` -> agent loop picks next failing story, implements, checks, commits, and updates `prd.json` until `<promise>COMPLETE</promise>`.
+
+#### `agents`
+
+- `Focus`: Provide a comprehensive, composable agent marketplace with progressive disclosure and minimal token overhead.
+- `Traits`: 78 granular plugins, 184 agents, 150 skills, 98 commands, multi-agent orchestration, skill-based progressive disclosure, model-tier strategy.
+- `Flow`: Add marketplace -> browse plugins -> install needed plugins -> agents/skills auto-load on trigger.
+
+#### `gastown`
+
+- `Focus`: Scale multi-agent coordination beyond 4-10 agents with persistent identity, mailboxes, and crash-resilient state.
+- `Traits`: Mayor coordinator, Rigs/Polecats/Hooks model, git worktree persistence, convoy tracking, three-tier watchdog, merge queue, federation.
+- `Flow`: Mayor assigns work -> Rigs dispatch Polecats -> Hooks persist state -> Refinery merges -> Deacon monitors health.
+
+#### `claude-code-workflows`
+
+- `Focus`: Automate the blocking-and-tackling of PR reviews — code, security, and design — so humans focus on strategy.
+- `Traits`: Dual-loop review architecture, GitHub Actions CI integration, Playwright-based design review, OWASP Top 10 security checks.
+- `Flow`: PR opened -> slash command or GH Action triggers -> automated review (code/security/design) -> findings report.
+
+#### `Hephaestus`
+
+- `Focus`: Let agent workflows branch themselves — agents spawn new investigation/implementation/validation tasks based on runtime discoveries.
+- `Traits`: Self-branching task tree, 3-phase model (analyze/implement/validate), Guardian coherence monitoring, PRD-to-software pipeline.
+- `Flow`: Define phase types -> agents execute tasks -> discover new work -> spawn cross-phase tasks -> tree grows organically.
+
+#### `claude-code-riper-5`
+
+- `Focus`: Prevent premature implementation by separating research, planning, and execution into mode-restricted phases.
+- `Traits`: 5-phase RIPER protocol, strict mode enforcement, memory bank persistence, 3 consolidated agents, per-branch memory isolation.
+- `Flow`: `/riper:strict` -> Research (read-only) -> Innovate -> Plan (write to memory) -> Execute (full access) -> Review (validate).
 
 ### Workflow Systems and Spec-Driven Development
 
@@ -212,6 +256,30 @@ The summary below focuses on three things for each project:
 - `Traits`: Task Contract DSL, BDD completion criteria with explicit test selectors, contract/plan/lifecycle/guard CLI, AI-agent skill pack, and contract acceptance in place of code review.
 - `Flow`: `agent-spec init` -> write Task Contract (`Intent`/`Decisions`/`Boundaries`/`Completion Criteria`) -> `agent-spec contract` or `plan` -> implement -> `agent-spec lifecycle` -> `agent-spec guard` -> `agent-spec explain`.
 
+#### `claude-task-master`
+
+- `Focus`: Break down PRDs into granular tasks with dependency tracking and AI-powered decomposition for iterative development.
+- `Traits`: MCP server, multi-LLM provider support, task dependency DAG, PRD-to-tasks pipeline, Cursor/Claude Code integration.
+- `Flow`: PRD input -> task decomposition -> dependency ordering -> iterative implementation -> task completion tracking.
+
+#### `aegisFlow`
+
+- `Focus`: Automate the full idea-to-delivery pipeline with multi-agent review consensus and roundtable decision-making.
+- `Traits`: 8-stage pipeline, multi-engine support (codex/claude/gemini), independent review + roundtable, session persistence, resumable stages.
+- `Flow`: Idea intake -> requirement gate -> PRD -> tech design -> multi-agent reviews -> roundtable -> task plan -> execution -> integration.
+
+#### `human-in-loop`
+
+- `Focus`: Ensure architectural decisions are made by humans before AI writes code, via DAG-based deterministic workflow infrastructure.
+- `Traits`: DAG-based workflow engine, 6-stage pipeline, human review checkpoints, constitution-governed, Pydantic entity models, MCP write gate.
+- `Flow`: Setup constitution -> Specify requirements -> Plan architecture -> Generate tasks -> Audit artifacts -> Implement with tracking.
+
+#### `spec-orch`
+
+- `Focus`: Make AI-driven software delivery orchestratable, verifiable, and self-improving through spec-first gate-first methodology.
+- `Traits`: Seven-plane architecture, spec freeze, task DAG with waves, context contracts, gate evaluation, evidence-driven, evolution plane.
+- `Flow`: Discuss & freeze spec -> generate plan DAG -> harness execution -> collect evidence at gates -> evolve policies from learnings.
+
 ### Project Memory, Planning, and Team Structure
 
 #### `planning-with-files`
@@ -225,6 +293,12 @@ The summary below focuses on three things for each project:
 - `Focus`: Standardize AI workflow structure across many platforms with shared specs, task context, and personal memory.
 - `Traits`: `.trellis/` as the canonical workspace, auto-injected specs, git worktree parallelism, and per-user journals alongside team-shared process.
 - `Flow`: `trellis init` -> define rules in `.trellis/spec/` -> manage work from `.trellis/tasks/` -> use journals and worktrees to execute in parallel.
+
+#### `beads`
+
+- `Focus`: Give coding agents a persistent, structured, version-controlled memory for long-horizon task tracking.
+- `Traits`: Dolt SQL backend, hash-based IDs, dependency graph, semantic compaction, hierarchical epics, stealth mode, messaging.
+- `Flow`: `bd init` -> `bd create` tasks -> `bd dep add` links -> `bd ready` finds unblocked work -> `bd close`.
 
 ### Setup Tools and Skill Packs
 
@@ -306,17 +380,41 @@ The summary below focuses on three things for each project:
 - `Traits`: 69 tips from Boris Cherny and community, 10+ workflow comparisons table, Command->Agent->Skill orchestration demo, best-practice docs per feature, cross-model workflow guides, and hook/sound notification system.
 - `Flow`: read CONCEPTS table -> study `best-practice/` docs -> clone and run `/weather-orchestrator` demo -> apply patterns to your own project.
 
+#### `Agent-Skills-for-Context-Engineering`
+
+- `Focus`: Teach the discipline of curating context windows — compression, degradation patterns, memory systems, tool design.
+- `Traits`: Platform-agnostic, progressive disclosure, academic citations, foundational/architectural/operational skill tiers, BDI cognitive models.
+- `Flow`: Load skill names -> activate relevant skill -> apply principles (compression, memory, evaluation) -> optimize context.
+
+#### `zcf`
+
+- `Focus`: Eliminate manual configuration friction for Claude Code environments — workflows, MCP, API keys, and IDE detection.
+- `Traits`: Zero-config, bilingual i18n, API provider presets, interactive menu, multi-platform (incl. Termux), consolidated template architecture.
+- `Flow`: `npx zcf i` -> detect environment -> install workflows + API config + MCP -> ready to code.
+
+#### `spec-first`
+
+- `Focus`: Package AI-assisted development into an installable, governed system with explicit artifacts, structured review, and knowledge compounding.
+- `Traits`: npm CLI, bilingual (zh/en), doctor diagnostics, asset sync to .claude/.codex, language policy injection, developer profiles.
+- `Flow`: `spec-first init` -> doctor check -> bootstrap assets -> ideate -> clarify -> plan -> execute -> review -> compound knowledge.
+
+#### `claude-skills`
+
+- `Focus`: Provide ready-to-install specialized skills — especially a deeply engineered TDD workflow with context-isolated subagents.
+- `Traits`: Multi-agent TDD with context isolation, RED/GREEN/REFACTOR gates, 7 framework support, Google Workspace skill, 40+ utility skills.
+- `Flow`: Copy skill to `~/.claude/skills/` -> invoke via `/tdd` or `/gws` -> agent orchestration handles phases automatically.
+
 ## Patterns Across the Collection
 
 ### Most common workflow shapes
 
-- `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`, `flowspec`, `recursive-mode`, `agent-spec`
-- `Role-orchestration first`: `gstack`, `oh-my-claudecode`, `Claude-Code-Workflow`, `ccg-workflow`, `BMAD-METHOD`
-- `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`, `recursive-mode`
-- `Backpressure-loop first`: `ralph-orchestrator`, `ralph`
-- `Self-evolution first`: `yoyo-evolve`
-- `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `everything-claude-code-mobile`, `dotclaude`, `claude-plugins-official`, `claude-code-best-practice`
-- `Skill engineering and governance first`: `yao-meta-skill`
+- `Spec-first`: `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `spec-workflow-mcp`, `claude-code-spec-workflow`, `ouroboros`, `flowspec`, `recursive-mode`, `agent-spec`, `claude-task-master`, `aegisFlow`, `human-in-loop`, `spec-orch`, `spec-first`
+- `Role-orchestration first`: `gstack`, `oh-my-claudecode`, `Claude-Code-Workflow`, `ccg-workflow`, `BMAD-METHOD`, `agents`, `gastown`, `claude-code-workflows`, `Hephaestus`, `aegisFlow`
+- `Context/memory first`: `claude-reflect`, `planning-with-files`, `Trellis`, `claude-code-specs-generator`, `recursive-mode`, `beads`, `claude-task-master`, `claude-code-riper-5`, `Agent-Skills-for-Context-Engineering`
+- `Backpressure-loop first`: `ralph-orchestrator`, `ralph`, `claude-code-workflows`, `human-in-loop`, `spec-orch`, `claude-skills`, `claude-code-riper-5`
+- `Self-evolution first`: `yoyo-evolve`, `gastown`, `Hephaestus`, `spec-orch`
+- `Environment/bootstrap first`: `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `everything-claude-code-mobile`, `dotclaude`, `claude-plugins-official`, `claude-code-best-practice`, `zcf`, `spec-first`
+- `Skill engineering and governance first`: `yao-meta-skill`, `agents`, `Agent-Skills-for-Context-Engineering`, `claude-skills`
 
 ### Key differentiators worth watching
 
@@ -337,9 +435,9 @@ The summary below focuses on three things for each project:
 
 If the goal is to compare approaches quickly, read in this order:
 
-1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`, `yoyo-evolve`, `ralph-orchestrator`, `ralph`
-2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `flowspec`, `recursive-mode`, `agent-spec`
-3. `planning-with-files`, `Trellis`, `claude-reflect`
-4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `everything-claude-code-mobile`, `dotclaude`, `superpowers`, `claude-plugins-official`, `yao-meta-skill`, `claude-code-best-practice`
+1. `gstack`, `get-shit-done`, `oh-my-claudecode`, `ccg-workflow`, `yoyo-evolve`, `ralph-orchestrator`, `ralph`, `agents`, `gastown`, `claude-code-workflows`, `Hephaestus`, `claude-code-riper-5`
+2. `cc-sdd`, `spec-kit`, `OpenSpec`, `LeanSpec`, `flowspec`, `recursive-mode`, `agent-spec`, `claude-task-master`, `aegisFlow`, `human-in-loop`, `spec-orch`
+3. `planning-with-files`, `Trellis`, `claude-reflect`, `beads`
+4. `claude-code-quickstart`, `happy-skills`, `CaludeSkills-Web-Gstack`, `BMAD-METHOD`, `claude-code-cookbook`, `compound-engineering-plugin`, `everything-claude-code`, `everything-claude-code-mobile`, `dotclaude`, `superpowers`, `claude-plugins-official`, `yao-meta-skill`, `claude-code-best-practice`, `Agent-Skills-for-Context-Engineering`, `zcf`, `spec-first`, `claude-skills`
 
 That sequence moves from execution systems, to specification systems, to memory systems, to setup and distribution layers.

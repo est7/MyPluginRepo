@@ -148,3 +148,59 @@
 	path = vendor/agent-spec
 	url = https://github.com/ZhangHanDong/agent-spec
 	shallow = true
+[submodule "vendor/aegisFlow"]
+	path = vendor/aegisFlow
+	url = https://github.com/williamnie/aegisFlow
+	shallow = true
+[submodule "vendor/agents"]
+	path = vendor/agents
+	url = https://github.com/wshobson/agents
+	shallow = true
+[submodule "vendor/zcf"]
+	path = vendor/zcf
+	url = https://github.com/UfoMiao/zcf
+	shallow = true
+[submodule "vendor/claude-task-master"]
+	path = vendor/claude-task-master
+	url = https://github.com/eyaltoledano/claude-task-master
+	shallow = true
+[submodule "vendor/beads"]
+	path = vendor/beads
+	url = https://github.com/steveyegge/beads
+	shallow = true
+[submodule "vendor/gastown"]
+	path = vendor/gastown
+	url = https://github.com/steveyegge/gastown
+	shallow = true
+[submodule "vendor/Agent-Skills-for-Context-Engineering"]
+	path = vendor/Agent-Skills-for-Context-Engineering
+	url = https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering
+	shallow = true
+[submodule "vendor/claude-code-workflows"]
+	path = vendor/claude-code-workflows
+	url = https://github.com/OneRedOak/claude-code-workflows
+	shallow = true
+[submodule "vendor/Hephaestus"]
+	path = vendor/Hephaestus
+	url = https://github.com/Ido-Levi/Hephaestus
+	shallow = true
+[submodule "vendor/human-in-loop"]
+	path = vendor/human-in-loop
+	url = https://github.com/deepeshBodh/human-in-loop
+	shallow = true
+[submodule "vendor/spec-orch"]
+	path = vendor/spec-orch
+	url = https://github.com/fakechris/spec-orch
+	shallow = true
+[submodule "vendor/spec-first"]
+	path = vendor/spec-first
+	url = https://github.com/sunrain520/spec-first
+	shallow = true
+[submodule "vendor/claude-skills"]
+	path = vendor/claude-skills
+	url = https://github.com/glebis/claude-skills
+	shallow = true
+[submodule "vendor/claude-code-riper-5"]
+	path = vendor/claude-code-riper-5
+	url = https://github.com/tony/claude-code-riper-5
+	shallow = true
