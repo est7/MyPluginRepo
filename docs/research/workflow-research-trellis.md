@@ -852,3 +852,37 @@ AI 永远不应该执行 `git commit`。唯一的 commit 路径是 `create_pr.py
 **现有缓解**：`session-start.py:59`（`timeout=5`），`settings.json` 中 `inject-subagent-context` 的 `timeout: 30`。失败时 `run_script` 返回 "No context available"（`session-start.py:63`）。
 
 **残余风险**：中。大型 monorepo 中 spec 文件多时，5 秒可能不够。注入失败是静默的（返回 fallback 文本），agent 不知道自己缺少 context。
+
+---
+
+## 附录：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-trellis.md`
+> 补充内容：Session 上下文组装流的详细步骤、Monorepo 发现机制。
+
+### A.1 `/trellis:start` 上下文组装流程
+
+Deepdive 详细追踪了 session 启动时的上下文注入链路（主报告仅提及 scripts）：
+
+1. `session-start.py` 被 hook 触发
+2. 读取 `config.yaml` 获取项目配置（spec 路径、journal 设置）
+3. 调用 `get_developer()` 读取 `.trellis/.developer`（开发者身份信息）
+4. 查询最近的 journal 条目（`add_session.py` 记录的历史）
+5. 组装 context blob（developer + recent sessions + active specs + project config）
+6. 注入到 agent 的初始 prompt 中
+
+### A.2 Journal 轮转机制的实现
+
+主报告提及 2000 行限制，Deepdive 补充了轮转细节：
+- `add_session.py` 在每次追加前检查行数
+- 超过 `max_journal_lines`（默认 2000）时：
+  - 旧内容归档到 `.trellis/workspace/journal-archive/journal-{date}.md`
+  - 当前 journal 截断为最近 500 行（保留近期上下文）
+  - 归档文件不自动删除，但不在常规 context 注入中使用
+
+### A.3 Monorepo 包发现
+
+Deepdive 提到了 `packages_context` 机制：
+- 在 monorepo 中，trellis 自动扫描 `packages/` 或 `apps/` 目录
+- 为每个包生成简要描述（package name + main entry + dependency count）
+- 将包列表作为 context 注入，使 agent 了解 monorepo 的整体结构而无需遍历所有文件

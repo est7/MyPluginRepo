@@ -364,3 +364,29 @@ DAG 维护包括：circular detection（`findCycles`）、cross-tag dependencies
 4. 36+ tools 的 token 消耗（~21K）在深度对话中是否显著挤压可用 context window？
 5. `packages/claude-code-plugin/` 与 1st-cc-plugin 的 skill 模型有何结构差异？是否可直接对接？
 6. Cross-tag dependencies 的实际使用频率和表现如何？是否有数据一致性问题？
+
+---
+
+## 附录：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-claude-task-master.md`
+> 补充内容：主报告已较完整覆盖，以下为少量补充的 framing 和行为细节。
+
+### A.1 Anti-Hallucination 设计模式
+
+Deepdive 强调了一个主报告未显式提取的设计哲学：**MCP 工具的严格 ID 输入机制本身就是 anti-hallucination 措施**。
+
+- 所有 MCP 工具要求传入精确的 task ID（如 `task_42`），而非自然语言描述
+- LLM 无法通过编造 ID 来"假装完成"任务——ID 不存在则工具调用失败
+- 这将 task completion 的验证从 prompt-level（"请诚实报告"）提升到 protocol-level（API 拒绝无效 ID）
+
+### A.2 `autopilot_next` 的拓扑排序细节
+
+Deepdive 揭示了 `autopilot_next` 返回策略的关键约束：
+- 内部使用拓扑排序遍历依赖图
+- **仅返回**所有 dependencies 状态为 `done` 的任务
+- 任务状态矩阵强制：`pending` → `in-progress` → `done`，不允许跳跃
+
+### A.3 "Evidence-Before-Claims" 纪律
+
+Deepdive 引入了 "Evidence-Before-Claims" 的概念框架来描述 task-master 的设计：agent 必须先提供可验证的证据（代码变更、测试结果），然后才能声称任务完成。这与 `1st-cc-plugin/quality/testing` 的 TDD 理念高度互补。

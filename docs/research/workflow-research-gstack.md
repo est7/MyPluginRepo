@@ -457,3 +457,49 @@ gstack 的核心设计哲学是"Boil the Lake"——在 AI 时代，完成一件
 | 6 | Garry Tan 本人的使用模式？ | Low | 作为 YC CEO，日常使用哪些 specialist 频率最高？ |
 | 7 | touchfiles 自动生成可能性？ | Medium | 是否可以从代码 import graph 自动推断依赖而非手工声明？ |
 | 8 | `/cso` 安全审查的覆盖范围？ | Medium | OWASP + STRIDE 框架是完整实现还是部分覆盖？ |
+
+---
+
+## 附录：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-gstack.md`
+> 补充内容：Hook 脚本的具体实现、permissionDecision JSON 协议、advisory vs hard block 区分。
+
+### A.1 `check-careful.sh` 实现细节
+
+该脚本作为 Claude Code hook 拦截危险操作：
+
+1. **输入**：从 stdin 读取 JSON（包含 `tool_name` 和 `tool_input`）
+2. **解析**：使用 `grep`/`sed` 提取 `tool_input`，失败时 fallback 到 `python3 -c 'import json...'`
+3. **检测模式**：匹配破坏性命令模式（`rm -rf`、`git reset --hard`、`git push --force`、`drop table` 等）
+4. **输出**：
+   ```json
+   {"permissionDecision": "ask", "message": "⚠️ Detected potentially destructive command: rm -rf"}
+   ```
+   `"ask"` 将自主执行转为交互确认（advisory warning），不阻止操作。
+
+### A.2 `check-freeze.sh` 实现细节
+
+该脚本实现目录级硬性写保护：
+
+1. 读取 `freeze-dir.txt`（一行一个受保护路径）
+2. 从 hook JSON 中提取 `file_path` 参数
+3. 逐行比较，匹配则返回：
+   ```json
+   {"permissionDecision": "deny", "message": "🚫 File is in frozen directory: src/core/"}
+   ```
+   `"deny"` 是硬性阻止，Claude Code 直接拒绝执行，无法绕过。
+
+### A.3 Permission Decision 协议
+
+两种决策的关键区别：
+| Decision | 效果 | 用户体验 |
+|----------|------|----------|
+| `"ask"` | 自主模式 → 交互模式（需人工确认） | Advisory warning，用户可选择继续 |
+| `"deny"` | 硬性拒绝 | 操作被阻止，无法执行 |
+
+### A.4 `.tmpl` 模板注册机制
+
+Hook 脚本通过 `.tmpl` 模板文件注册到 Claude Code 的 `settings.json`：
+- 模板包含 hook 触发事件（`PreToolUse`）、脚本路径、匹配条件
+- `gstack init` 从模板生成实际配置，确保格式与 Claude Code 期望一致

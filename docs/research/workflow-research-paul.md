@@ -385,3 +385,45 @@ PAUL 是一个**纯 prompt engineering 的流程框架**，通过以下手段在
 **工程价值最高的可迁移部分**是**反合理化 prompt 模式**（Execute/Qualify、Diagnostic routing、evidence-before-claims 表格、anti-optimism 状态枚举）。这些模式针对 LLM 的具体失败模式而设计，比抽象的"要仔细"有效得多，且与任何流程框架正交，可无损嫁接。
 
 **工程价值最低的可迁移部分**是完整的 PAUL loop 替代方案——与 `1st-cc-plugin/workflow/*` 现有插件严重重叠，应做合流而非复制。
+
+---
+
+## 附录：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-paul.md`
+> 补充内容：Token 预算启发式、Lean Injection 原则、两级 Continuity 区分、Session 命令流。
+
+### A.1 显式 Token Budget 启发式
+
+Deepdive 给出了 PAUL 各阶段的参考 token 消耗（主报告未量化）：
+
+| 阶段 | 估算 Token |
+|------|-----------|
+| PLAN.md 读取 | ~3-5k |
+| 源码上下文读取 | ~1-3k |
+| 任务执行 | ~5-15k |
+| 验证 | ~2-5k |
+| SUMMARY.md 更新 | ~2-3k |
+
+总计单次循环约 13-30k tokens，留出余量确保不超出 context window。
+
+### A.2 Lean Injection 原则
+
+主报告提到了 context 管理但未提取出这组设计原则：
+- **渐进式详细度**：STATE.md（最简摘要）→ SUMMARY.md（结构化状态）→ 源文件（按需读取）
+- **"Summaries Over Plans"**：agent 应优先读取结果摘要而非原始 plan——plan 是写给人的，摘要是优化给 LLM 的
+- **避免反射式链接**：不自动加载所有相关文件，仅按当前任务需求精确加载
+
+### A.3 两级 Continuity 机制
+
+| 级别 | 文件 | 适用场景 | 内容 |
+|------|------|----------|------|
+| Light | `STATE.md` | 同天恢复 | 最小化当前任务状态 |
+| Full | `HANDOFF-{date}.md` | 零上下文恢复（跨天/跨人） | 完整项目状态 + 决策历史 + 下一步 |
+
+### A.4 Session 命令流的细节
+
+- `/paul:pause`：agent 写入 STATE.md 后停止
+- `/paul:handoff`：agent 生成 HANDOFF-{date}.md（完整上下文快照）
+- `/paul:resume`：读取最新 STATE 或 HANDOFF，**建议唯一一个下一步行动**（非列表）
+- `/paul:progress`：mid-session 路由——检查当前 bracket，决定是继续、切换任务还是 handoff

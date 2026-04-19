@@ -255,3 +255,41 @@ Message ──replies-to──> Message       (线程)
 1. Dolt server 模式在多 agent 场景下的性能基准数据？
 2. 语义压缩的质量评估 — 压缩后是否丢失关键决策上下文？
 3. `bd sync` 的跨仓库同步在网络中断时的恢复机制？
+
+---
+
+## 附录：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-beads.md`
+> 补充内容：依赖查询优化、cycle 检测算法、层级 ID 解析和 tree 渲染的实现级细节。
+
+### A.1 Dependency 数据结构与 SQL 批量查询
+
+Dependency struct（`internal/models/dependency.go`）的完整字段：
+- `IssueID`, `DependsOnID`: 两个 Bead 引用
+- `Type` 枚举：`blocks` | `parent-child` | `conditional-blocks` | `tracks` | `related`
+
+批量查询优化（`internal/storage/issueops/dependency_queries.go`）：
+- `GetBlockingInfoForIssuesInTx(tx, issueIDs)`：接受 ID 数组，单次 SQL 查询返回所有阻塞关系
+- 构建三个内存 map：`blockedByMap`、`blocksMap`、`parentMap`
+- 使用 `queryBatchSize` 常量分批 IN 查询，避免 SQLite 参数上限（默认 999）
+
+### A.2 Cycle 检测算法
+
+`DetectCycles` 函数（`internal/dependency/cycle.go`）实现 DFS cycle detection：
+- 输入：依赖图的邻接表
+- 维护 visited + recursion-stack 双 set
+- 检测到 cycle 时返回完整路径（`[]IssueID`），供 CLI 展示给用户
+
+### A.3 层级 ID 解析
+
+`ParseHierarchicalID`（`internal/models/issue.go`）解析 `owner/repo#123` 格式：
+- 支持短格式（`#123`，当前仓库隐含）和完整格式（`org/repo#456`）
+- 返回 `HierarchicalIssueID{Owner, Repo, Number}`
+
+### A.4 Tree 渲染器
+
+`bd dep tree` 命令（`internal/cli/dep_tree.go`）使用 `treeRenderer` 状态结构体：
+- 维护 indent 栈和"是否是最后子节点"标志
+- 输出 Unicode box-drawing 字符（`├──`、`└──`、`│`）
+- 递归渲染依赖子树，处理已访问节点避免无限循环

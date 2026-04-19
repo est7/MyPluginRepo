@@ -671,3 +671,51 @@ ECC 将 prompt 指令（agents、skills、rules）作为"期望行为"，将 hoo
 | F | Micro + Macro design highlights | PASS — Section 6B (4 micro) + 6C (4 macro) |
 | G | 3+ failure modes with evidence | PASS — Appendix A (6 failure modes) |
 | H | Migration candidates with ratings | PASS — Section 7.1 (6 candidates) |
+
+---
+
+## 附录 D：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-everything-claude-code.md`
+> 补充内容：ECC 多 Agent 编排的具体实现机制，主报告中未覆盖。
+
+### D.1 Git Worktree + tmux 多 Agent 编排架构
+
+ECC 通过 `scripts/orchestrate-worktrees.js` 实现并行 agent 隔离。该脚本：
+
+1. 解析 `plan.json`（定义 session name、base branch、launcher command 和 workers 数组）
+2. 为每个 worker 创建独立的 `git worktree`（`.orchestration/<session>/`）
+3. 生成 `task.md`、`handoff.md`、`status.md` 文件用于 file-based 通信
+4. 启动隔离的 `tmux` session，每个 worker 一个 pane
+
+**关键数据结构** — `plan.json`：
+```json
+{
+  "session": "feature-auth",
+  "base_branch": "main",
+  "launcher": "claude",
+  "workers": [
+    { "name": "backend", "task": "Implement auth API" },
+    { "name": "frontend", "task": "Build login UI" }
+  ]
+}
+```
+
+### D.2 Prompt-Level Security Injection
+
+`scripts/orchestrate-codex-worker.sh` 作为 tmux pane 内的入口脚本，在 agent 看到任务前注入安全规则：
+
+- "Work only in the current git worktree."
+- "Do not touch sibling worktrees or the parent repo checkout."
+- "Do not spawn subagents or external agents for this task."
+- "Report progress and final results in stdout only."
+
+该 wrapper 将 LLM 的 stdout 重定向到 `handoff.md` 文件，并附加 `git status` 信息。
+
+### D.3 Confidence-Based Review 的完整流程
+
+Deepdive 揭示了 review agent 的完整工作模式：不仅是 `>80%` 置信度过滤（主报告已提及），还要求输出严格格式化为 **Summary → Files Changed → Validation → Remaining Risks** 四段结构，使得解析脚本或人工审查者可快速做出 gatekeeping 决策。
+
+### D.4 File-Based State Machine 的可调试性
+
+ECC 的 `.orchestration/<session>/<worker>/` 目录结构（`task.md` + `handoff.md` + `status.md`）构成了高度可调试、可重启的状态机。如果 agent 崩溃或 `handoff.md` 未被正确写入，orchestrator 直接注册失败。这比基于内存或数据库的状态管理更透明。

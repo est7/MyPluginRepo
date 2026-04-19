@@ -217,3 +217,40 @@ Phase 6: 知识沉淀 (Compound)
 3. **闭环度量**：Phase 6 知识沉淀的效果如何度量？团队知识是否真正在迭代中增长？
 4. **社区扩展**：网站和文档已就绪，但社区贡献的 skill/persona 如何质量把关？
 5. **Token 预算**：47 个 persona + 43 个 skill 的 prompt 总量是否超出 context window 限制？
+
+---
+
+## 附录：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-spec-first.md`
+> 补充内容：动态生成机制和语言策略注入的具体实现，主报告中未覆盖。
+
+### A.1 动态 Command & Skill 生成机制
+
+`spec-first` 的核心不是静态文件拷贝，而是**动态转换管线**：
+
+1. **Asset 同步**：CLI `init.js` 调用 `syncBundledAssets()`，按 manifest 逐一处理 bundled assets。
+2. **Adapter 转换**（`adapters/base.js` 接口）：
+   - **Claude adapter** (`claude.js`)：Claude Code 要求扁平 agent 命名空间，adapter 去除 `spec-first:category:name` 前缀，重写为裸 `name` 标识符。
+   - **Codex adapter** (`codex.js`)：skills 放置到 `.agents/skills`，agents 放置到 `.codex/agents`，动态重写模板中的路径引用，并通过 `rewriteSkillName` 设置 skill 名称。
+3. **State 管理**（`state.js`）：在 `.claude/spec-first/` 或 `.codex/spec-first/` 下维护 `state.json`，追踪生成的 asset 路径，使 `spec-first clean` 能安全移除 managed 文件而不影响用户文件。
+
+### A.2 语言策略注入（`lang-policy.js`）
+
+Language Policy 通过**幂等 marker 注入**实现，无需覆盖整个 system prompt：
+
+- **Magic markers**：`<!-- spec-first:lang:start -->` 和 `<!-- spec-first:lang:end -->`
+- **`applyManagedBlock(existing, block)`**：
+  - 若两个 marker 都存在 → 原地替换（in-place substring replacement）
+  - 若 marker 缺失或损坏 → 安全追加到文件末尾
+- **策略内容**：
+  - 强制所有自然语言输出（状态更新、文档、review 评论）使用指定语言（如 `zh`）
+  - 禁止翻译技术标识符（变量名、函数名、API 名、命令）
+  - 附加 Changelog Governance Iron Law
+
+### A.3 Cross-Harness Adapter 模式的迁移价值
+
+`spec-first` 的 `HarnessAdapter` 模式（`ClaudeAdapter` / `CodexAdapter`）证明了**"一次编写、多平台部署"**的可行路径。关键设计决策：
+- 每个 adapter 实现 `transformSkillContent` 和 `transformAgentContent` 接口
+- 转换在文件写入前执行，确保目标平台看到的始终是原生格式
+- 这为 `1st-cc-plugin` 未来支持多平台提供了直接可参考的架构

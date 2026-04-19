@@ -232,3 +232,44 @@ Evolution Plane 不只是"回顾"，而是**自动分析 evidence 模式**并生
 3. **Evidence 验证深度**：Evidence 来自 AI agent 自报告，如何防止 LLM 幻觉导致的虚假 evidence？是否有 evidence 交叉验证机制？
 4. **Performance 影响**：Gate 评估 + Evidence 收集 + Evolution 分析的累积开销对 CI/CD 流水线的影响有多大？
 5. **与现有工具集成**：spec-orch 与 GitHub Issues / Jira / Linear 的集成策略？Spec 是否可以从 issue 自动导入？
+
+---
+
+## 附录：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-spec-orch.md`
+> 补充内容：Evolution Pipeline、Context Assembler、Human Gate 的具体实现机制，主报告中未覆盖到的代码级细节。
+
+### A.1 Evolution Pipeline 的 4-Phase 生命周期
+
+spec-orch 不仅支持 workflow 执行，还实现了 **workflow 自身的演化管线**：
+
+- **触发器**（`src/spec_orch/services/evolution/evolution_trigger.py`）：使用确定性的、锁保护的运行计数器（`.spec_orch_evolution/run_counter.json`），达到 `trigger_after_n_runs` 阈值时触发演化。
+- **生命周期协议**（`src/spec_orch/domain/protocols.py`）：Nodes 实现 `LifecycleEvolver`，遵循严格的 4-phase 状态机：`observe` → `propose` → `validate` → `promote`。
+- **专业化 Evolvers**：`PromptEvolver`、`PlanStrategyEvolver`、`ConfigEvolver`、`IntentEvolver`、`SkillEvolver`。
+- **数据结构**（`src/spec_orch/domain/evolution.py`）：
+  - `EvolutionProposal`：`change_type`（如 `prompt_variant`、`scoper_hint`）、evidence、confidence
+  - `EvolutionOutcome`：result、validation method（`A_B_COMPARE` / `RULE_VALIDATOR` / `EVAL_RUNNER`）、metrics
+- **PromotionRegistry**：评估 promotion gates，记录 lineage 后才允许提议变更激活。
+
+### A.2 Context Assembler 的动态上下文管理
+
+不同于全局统一 prompt，spec-orch 为每个 node 动态组装定制化上下文：
+
+- **`ContextAssembler.assemble()`**（`src/spec_orch/services/context/context_assembler.py`）：构建 `ContextBundle`。
+- **`NodeContextSpec`**（`src/spec_orch/domain/context.py`）：定义 node 所需的上下文维度（`required_task_fields`、`max_tokens_budget`）。
+- **`ContextBundle`** 包含四个上下文层：
+  - **Task**：Spec 快照、架构笔记、验收标准
+  - **Execution**：文件树、`git diff`、builder 工具事件
+  - **Learning**：episodic/procedural memory（`MemoryService`）、匹配 skills、相似失败样本
+  - **Evidence**：已收集的证据
+- **Token 预算与过滤**（`ContextRanker`）：按 `max_tokens_budget` 截断，附加 `truncation_metadata`（`retained_chars` vs `original_chars`），并过滤内部框架事件（`_filter_framework_events`）。
+
+### A.3 Human Gate / Approval 的策略引擎
+
+- **`GateService`**（`src/spec_orch/services/gate_service.py`）：通过 `GateSkillRegistry` 中注册的 skills 评估条件。
+- **`GatePolicy` + `gate.policy.yaml`**：定义 `spec_exists`、`spec_approved`、`human_acceptance`、`within_boundaries` 等条件。Profiles 允许 daemon 模式禁用 `human_acceptance` 而 CI 模式强制更严格规则。
+- **Demotion / Promotion 逻辑**：
+  - 检查 `claimed_flow`（如 `hotfix` vs `standard` vs `full`）
+  - 分析 `git_diff` 大小（`demotion_diff_threshold`）：若 "hotfix" 过大 → 建议降级为 "standard"；若 "standard" 意外触碰非代码文件 → 建议升级为 "full"
+- **事件发射**：向 `EventBus`（`EventTopic.GATE_RESULT`）发射 `GateVerdict`，记录失败条件和回退原因。

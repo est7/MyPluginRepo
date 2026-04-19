@@ -282,3 +282,53 @@ recursive-mode 建立在一个关键洞察之上：**LLM 的 context window 是 
 3. **Memory.md 的消费者**: `.workflow/memory.md` 由谁、在什么时候读取？是否有自动注入下一 session 的机制？
 4. **Artifact 模板**: `.workflow/` 文件是否有标准化模板？还是完全由 agent 自由发挥？
 5. **与 recursive-spec 的关系**: recursive-spec 的 spec 格式与 human-in-loop 的 .spec/ 目录有何异同？
+
+---
+
+## 附录：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-recursive-mode.md`
+> 补充内容：TDD Compliance Log、LockHash 防篡改、Review Bundle 脚本和证据日志结构的实现细节。
+
+### A.1 TDD Compliance Log 详细结构
+
+TDD Compliance Log 不仅记录测试结果，还强制执行 TDD 纪律：
+
+- **模式声明**：`TDD Mode: strict` 或 `TDD Mode: pragmatic`
+  - `strict`：RED phase 中测试**必须**失败，若测试立即通过则违规
+  - `pragmatic`：允许对已有功能跳过 RED phase，但需要记录 exception rationale
+- **Evidence log 目录结构**：
+  ```
+  /.recursive/run/<run-id>/evidence/logs/
+  ├── red/
+  │   └── <test-file>.log    # RED phase 输出（测试失败证据）
+  └── green/
+      └── <test-file>.log    # GREEN phase 输出（测试通过证据）
+  ```
+- **RED Phase 强制**（strict 模式）：若新写的测试立即通过，agent 必须停止并报告——这意味着测试没有测到新行为
+
+### A.2 `recursive-lock.py` LockHash 防篡改
+
+`scripts/recursive-lock.py` 实现工件完整性验证：
+- 对 `.recursive/run/<run-id>/` 下的所有 artifact 计算 SHA-256 content hash
+- 生成 `LockHash`（所有 hash 的聚合摘要）
+- 用途：检测 agent 是否在 review 后偷偷修改了已提交的工件
+- 时间线：在 review bundle 生成前锁定，review 后再次验证
+
+### A.3 Review Bundle 完整结构
+
+`scripts/recursive-review-bundle.py` 生成结构化的 review 包：
+- **Diff Basis**：`baseline` 和 `comparison` commit SHA，确保 reviewer 看到精确的变更范围
+- **Changed Files**：过滤掉 transient 文件（`.log`、`.tmp`、lock 文件）
+- **Upstream Artifacts**：从 `.recursive/run/` 拉取 spec、plan、evidence
+- **Addenda**：附加上下文（设计决策记录、已知限制）
+- **Prior Evidence**：前次 review 的结论（如有）
+- **Audit Questions**：自动生成的审查焦点问题
+- **Artifact Content Hash**：每个 artifact 的 SHA-256，供 reviewer 验证完整性
+
+### A.4 Subagent Action Logger
+
+`scripts/recursive-subagent-action.py` 记录 subagent 的操作日志：
+- 追踪 subagent 何时被启动、执行了什么任务、输出了什么
+- 日志存储在 `.recursive/run/<run-id>/subagent-actions.log`
+- 为 review 提供 subagent 行为的审计轨迹

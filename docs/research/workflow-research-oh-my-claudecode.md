@@ -784,3 +784,43 @@ function isSessionMatch(state, sessionId) {
 3. **状态管理路径碎片化**: Session-scoped + legacy path + global path 三层 fallback，加上 OMC_STATE_DIR 集中存储选项，使状态查找逻辑异常复杂。
 
 4. **Self-scoring 无交叉验证**: Deep Interview 的歧义分数和 Verifier 的批准决策都由 LLM 自评，缺乏独立验证机制。
+
+---
+
+## 附录：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-omc.md`
+> 补充内容：统一 CLI 引擎、状态管理原子性、扩展性机制的具体实现，主报告中未覆盖到的代码级细节。
+
+### A.1 Unified CLI Engine 实现
+
+OMC 通过 `src/cli/index.ts` + `commander` 框架实现统一 CLI 入口：
+
+- **子命令模块化**：每个子命令（`setup`, `team`, `doctor`, `autoresearch`）委托给 `src/cli/commands/` 下的独立文件
+- **Fallback / Pass-through**：`defaultAction` 中，若无命令匹配，解析所有参数传递给 `launchCommand`，使 `omc --madmax` 等同 `claude --madmax`
+- **Option 验证**：Handler 将 CLI flags（`options.json`、`options.force`）解析为强类型对象后才调用业务逻辑
+
+### A.2 状态管理的原子性保障
+
+OMC 通过精细的状态隔离防止并发损坏：
+
+- **Session 隔离**：每个 CLI 进程生成唯一 `pid-{PID}-{startTimestamp}` 标识符，数据存储在 `.omc/state/sessions/{sessionId}/`
+- **`_meta` 信封**：所有状态文件使用保护性信封包装：
+  ```json
+  {
+    "iteration": 1,
+    "active": true,
+    "_meta": {
+      "written_at": "2024-05-19T10:00:00Z",
+      "sessionId": "pid-1234-1707350400000"
+    }
+  }
+  ```
+- **原子写入**：`atomicWriteJsonSync` 先写入 `.tmp` 文件，再通过 `fs.renameSync` 替换目标文件，确保进程崩溃时文件不会半写。核心实现在 `src/lib/mode-state-io.ts` 和 `src/lib/worktree-paths.ts`
+
+### A.3 Extensibility 机制
+
+- **Manifest-Driven Skills**：Agent prompts 和 capabilities 作为 Markdown 配置存储在 `skills/` 和 `agents/` 目录
+- **Setup 同步**：`omc setup`（`src/installer/index.ts`）充当安装器，将定义同步到 `~/.claude/skills/`，让 Claude Code 原生发现
+- **Hook 脚本**：OMC 在 `.claude/hooks/` 中放置 `.mjs` 文件（如 `pre-tool-use.mjs`、`session-start.mjs`），修改 `settings.json` 使 Claude Code 在触发事件时执行
+- **Plugin 目录模式**：检测 `CLAUDE_PLUGIN_ROOT` 环境变量时，OMC 作为 Claude Code 插件运行，跳过文件复制，直接接入宿主运行时上下文

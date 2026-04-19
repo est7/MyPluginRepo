@@ -741,3 +741,25 @@ Phase 3 (长期):
 ---
 
 *报告生成于 2026-04-07，基于 `vendor/yoyo-evolve` HEAD (Day 38) 的完整源码分析。*
+
+---
+
+## 附录：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-yoyo-evolve.md`
+> 补充内容：主报告已非常详尽，以下为少量补充的 framing 和视角差异。
+
+### A.1 "Double Agent" 隔离模式
+
+Deepdive 使用 "Double Agent" 术语描述 yoyo 的评审模式——Implementation Agent 和 Evaluator Agent 完全独立，各自拥有独立的 context window。这不是主报告的遗漏，而是一个有用的概念标签：
+- Evaluator 有 **3 分钟** 硬性超时（`180s`）
+- 最多 **9 次** fix 尝试（主报告已记录为 `9x`）
+- Evaluator 只能看到 `git diff` + task description，不能看到 Implementation Agent 的内部推理
+
+### A.2 Journal 的 Persona 风格
+
+Deepdive 指出 yoyo 的 journal 条目不是干巴巴的日志，而是以**第一人称叙事**风格写作（"Today I decided to..."）。这是 IDENTITY.md + PERSONALITY.md 的延伸——agent 在反思时维持其 persona。主报告在 Prompt Catalog 中已提及 personality，但未将 journal 风格与 persona 显式关联。
+
+### A.3 Social Learning 的 Octopus 类比
+
+Deepdive 引用了 yoyo 文档中的 "Octopus" 隐喻——社交学习像章鱼的触手，从外部世界（GitHub Issues、其他 repos、community feedback）收集信息并整合到内部知识库。`social_learnings.jsonl` 是这些触手带回的"战利品"。

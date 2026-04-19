@@ -495,3 +495,28 @@ Builder 提交代码 → Critic 发现 bug → 发布 `review.rejected` → Buil
 3. **Critic rejection 循环上限**: `max_iterations: 100` 是全局上限，但 review rejection 循环内无独立上限。是否存在实践中 Critic 永远拒绝的案例？ — 影响 migration candidate #7 (Evaluator Separation)
 4. **Mutation testing 的 ROI**: 55% 阈值 + critical path no-MISS 的设定依据是什么？mutation test 运行时长对开发体验的影响？ — 影响 migration candidate #10
 5. **Wave 系统的稳定性**: Wave 于 v2.9.0 (2026-04) 引入，是否已有足够生产使用数据验证其可靠性？ — 了解即可，不影响迁移
+
+---
+
+## 附录：Gemini Deepdive 补充信息
+
+> 来源：`1st-cc-plugin/workflows/loaf/docs/gemini-roadmap-review/deepdive-ralph-orchestrator.md`
+> 补充内容：Fresh Context 的具体实现细节、Worktree WIP 同步、反模式文档。
+
+### A.1 Scratchpad 清理与 Fresh Context
+
+主报告已描述 fresh context 理念，Deepdive 揭示了具体实现：
+- 在非 `!resume` 路径中，`event_loop` 在每次 iteration 开始时**删除 scratchpad 文件**
+- `event_loop.build_prompt(&hat_id)` 从零构建 prompt——不复用前次 prompt 内容
+- 这确保每次 agent 调用看到的是"当前状态快照"而非"历史累积"
+
+### A.2 Worktree 自动创建与 WIP 同步
+
+`worktree.rs` 的关键机制（主报告未详述）：
+- 当 agent 尝试获取 worktree 锁但遭遇 `EWOULDBLOCK` 时，自动创建新 worktree
+- **WIP 同步**：使用 `rsync` 将主 worktree 中未提交的文件同步到新 worktree，确保 agent 在最新状态上工作
+- `flock()` advisory locking：防止多个 agent 同时修改同一 worktree
+
+### A.3 显式反模式文档
+
+Deepdive 指出 Ralph 的 `AGENTS.md` 中记录了一个显式反模式：**"Scoping work at task selection time"**——即不在 task 被选中时决定 scope，而是在每次 loop iteration 时重新评估。这确保 agent 始终基于最新代码状态（而非过时的 plan）做决策。
