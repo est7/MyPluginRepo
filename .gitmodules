@@ -10,6 +10,10 @@
 	path = vendor/cc-sdd
 	url = git@github.com:gotalab/cc-sdd.git
 	shallow = true
+[submodule "vendor/ccg-workflow"]
+	path = vendor/ccg-workflow
+	url = https://github.com/MonkeyDGarp06/CCG.git
+	shallow = true
 [submodule "vendor/claude-code-quickstart"]
 	path = vendor/claude-code-quickstart
 	url = git@github.com:MrNine-666/claude-code-quickstart.git
