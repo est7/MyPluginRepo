@@ -119,7 +119,6 @@ git submodule update --remote vendor/<name>
 | `quality/ai-hygiene` | ai-hygiene | Detect and remove AI-generated code slop — defensive overreach, noise comments, duplicate boilerplate, and style inconsistencies |
 | `quality/clarify` | clarify | Clarify ambiguous prompts and incomplete spec documents through structured interviews |
 | `quality/codex-review` | codex-review | Code review via Codex CLI — auto-collects changes and task context for AI-powered review |
-| `quality/meeseeks-vetted` | meeseeks-vetted | Enforces task clarity before execution and requires verified work before exit |
 | `quality/project-health` | project-health | Quantitative project health analysis with multi-role debate — tech debt scoring, improvement priorities, and roadmap generation |
 | `quality/refactor` | refactor | Refactor files or modules — simplify logic, remove dead code, improve cross-file consistency |
 | `quality/testing` | testing | TDD workflow and testing strategy with Red-Green-Refactor gates and implementation quality checks |
