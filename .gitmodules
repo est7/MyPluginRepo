@@ -12,7 +12,7 @@
 	shallow = true
 [submodule "vendor/ccg-workflow"]
 	path = vendor/ccg-workflow
-	url = https://github.com/MonkeyDGarp06/CCG.git
+	url = https://github.com/fengshao1227/ccg-workflow.git
 	shallow = true
 [submodule "vendor/claude-code-quickstart"]
 	path = vendor/claude-code-quickstart

@@ -21,7 +21,7 @@
 
 - **分支策略：** `develop` → `main`（merge commits）
 
-- **Commit scopes：** `git`, `gitflow`, `github`, `refactor`, `review`, `doc-gen`, `swiftui`, `po`, `project-init`, `sp`, `nd`, `issue-flow`, `simple-task`, `complex-task`, `code-context`, `shadcn`, `acpx`, `docs`, `ci`, `release`, `testing`, `ai-hygiene`, `clarify`, `android`, `plan`, `catchup`, `skill-dev`
+- **Commit scopes：** `git`, `gitflow`, `github`, `refactor`, `review`, `doc-tools`, `swiftui`, `frontend`, `po`, `project-init`, `sp`, `issue-flow`, `simple-task`, `complex-task`, `code-context`, `acpx`, `docs`, `ci`, `release`, `testing`, `ai-hygiene`, `clarify`, `android`, `plan`, `catchup`, `skill-dev`
 
 ## 架构
 
@@ -113,7 +113,7 @@ git submodule update --remote vendor/<name>
 | `vcs/gitflow` | gitflow | GitFlow workflow automation for feature, hotfix, and release branches |
 | `vcs/github` | github | GitHub project operations with quality gates |
 | `workflows/issue-driven-dev` | issue-flow | GitLab Issue type-aware workflow for Android teams — Bug (3-stage) and Feature (4-stage) lifecycle |
-| `workflows/superpower` | superpowers | Advanced development superpowers for orchestrating complex workflows with Superpower Loop integration |
+| `workflows/superpowers` | superpowers | Advanced development workflow orchestration — brainstorming, plan writing/execution, BDD, systematic debugging, and retrospective self-improvement |
 | `integrations/catchup` | catchup | Context gathering and handoff tools for catching up on branch changes and generating structured work summaries |
 | `workflows/deep-plan` | deep-plan | Planning workflow tools — Plan/Code mode switching for moderate-complex tasks and deep analysis with review gates |
 | `quality/ai-hygiene` | ai-hygiene | Detect and remove AI-generated code slop — defensive overreach, noise comments, duplicate boilerplate, and style inconsistencies |
@@ -124,14 +124,13 @@ git submodule update --remote vendor/<name>
 | `quality/testing` | testing | TDD workflow and testing strategy with Red-Green-Refactor gates and implementation quality checks |
 | `integrations/async-agent` | async-agent | Run Claude, Codex, or Gemini tasks asynchronously via the packaged async-agent-backend binary |
 | `integrations/code-context` | code-context | 5 methods to retrieve code context: DeepWiki, Context7, Exa, git clone, and web search+fetch |
-| `integrations/doc-gen` | doc-gen | Office productivity skills for patent applications, PRD generation, Feishu document creation, and browser automation |
+| `integrations/doc-tools` | doc-tools | Document generation and maintenance skills — PRD/patent drafting, browser automation, README/CHANGELOG upkeep, and conversation-to-document rewriting |
 | `integrations/jetbrains` | jetbrains | JetBrains IDE MCP integration — code navigation, refactoring, inspections, and run configurations via IDE indexes |
 | `integrations/mcp-services` | mcp-services | MCP service usage guides and multi-tool collaboration patterns for Context7, GitHub, Google Developer Knowledge, and more |
 | `integrations/project-init` | project-init | Initialize project configuration — environment detection, AI assistant setup, TDD options, and multi-file sync |
 | `integrations/utils` | utils | General-purpose utility skills for documentation, writing, and project maintenance |
 | `platforms/android` | android | Android development toolkit — MVI feature development, design-to-XML UI generation, and Kotlin code review |
-| `platforms/next-devtools` | next-devtools | Next.js development tools integration via MCP server |
-| `platforms/shadcn` | shadcn | Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI |
+| `platforms/frontend` | frontend | Web frontend toolkit — shadcn/ui, Next.js DevTools, React best practices, Supabase, DESIGN.md design system, and impeccable design skills |
 | `platforms/swiftui` | swiftui | SwiftUI code review with modern API best practices |
 | `meta/acpx` | acpx | Knowledge base for acpx — a headless ACP CLI for agent-to-agent communication |
 | `meta/plugin-optimizer` | plugin-optimizer | Validates and optimizes Claude Code plugins against official best practices and file patterns |

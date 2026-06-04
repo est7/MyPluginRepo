@@ -44,11 +44,18 @@ All file edits, validation commands, and documentation updates must target `"$TA
 
 Compare the two upstream forks to identify all changes.
 
-1. Fetch the compare diff:
+1. Get the COMPLETE changed-file set. **Do NOT rely on the compare API alone — it
+   caps `files` at 300 and silently truncates** (a real sync can be 700+ files;
+   the truncated tail also returns bogus `+0/-0` stats). Use recursive git trees
+   and diff the blob SHAs:
    ```bash
-   gh api repos/est7/dotclaude/compare/main...FradSer:main \
-     --jq '.files | unique_by(.filename) | map({filename, status, additions, deletions, changes})'
+   gh api "repos/est7/dotclaude/git/trees/main?recursive=1" --jq '.tree[]|select(.type=="blob")|[.path,.sha]|@tsv' > /tmp/est7.tsv
+   gh api "repos/FradSer/dotclaude/git/trees/main?recursive=1" --jq '.tree[]|select(.type=="blob")|[.path,.sha]|@tsv' > /tmp/frad.tsv
+   # verify .truncated == false for both, then diff: added (in frad not est7),
+   # removed (in est7 not frad), modified (same path, different sha)
    ```
+   The compare API is fine for a quick top-line summary
+   (`--jq '{total_commits, ahead_by}'`) but never for the file list.
 
 2. Categorize each changed file into one of these buckets:
    - **Port** — content improvements to existing plugins
@@ -77,11 +84,11 @@ For each file to port:
 When porting content, apply these adaptations:
 
 **Always change:**
-- `author` -> `{"name": "est7", "email": "t4here@gmail.com"}`
-- `version` -> keep the existing `1st-cc-plugin` version; do not adopt FradSer's version blindly
-- installation commands: `@frad-dotclaude` -> `@1st-cc-plugin`
+- `author` -> `{"name": "est7", "email": "t4here@gmail.com"}` (also per-plugin `LICENSE` copyright holder)
+- `version` -> default: keep target's. On an explicit "全盘接受上游" (wholesale-accept) for a plugin, adopt upstream's version AND sync it into BOTH marketplace files (see Phase 6). Never leave plugin.json and marketplace versions out of sync.
+- installation commands: `<name>@frad-dotclaude` -> `<name>@1st-cc-plugin` — use the TARGET plugin name (e.g. `project-init@1st-cc-plugin`, not the upstream `claude-config@...`)
 - homepage URLs: `FradSer/dotclaude/tree/main/<plugin>` -> `est7/1st-cc-plugin/tree/main/<group>/<plugin>`
-- flat example paths: `plugin-optimizer/scripts/` -> `1st-cc-plugin/authoring/plugin-optimizer/scripts/` when showing executable paths from the parent repo
+- flat example paths: the validator lives at `meta/plugin-optimizer/scripts/` (NOT `authoring/`)
 
 **Never change:**
 - skill logic, workflow steps, and reference content unless the target repo already diverged intentionally
@@ -100,30 +107,31 @@ Batch the work deliberately:
 2. **Description improvements** — trigger phrase and discovery improvements
 3. **plugin.json updates** — keywords, descriptions, metadata changes
 4. **Skill content updates** — logic improvements, workflow changes, new sections
-5. **New plugins** — create structure, adapt content, register in marketplace
+5. **New plugins** — create structure, adapt content, register in BOTH marketplace files (see Phase 6)
 6. **Deletions** — only after explicit user confirmation
-7. **Documentation** — update `README.md`, `README.zh-CN.md`, `CLAUDE.md`, and `.claude-plugin/marketplace.json`
+7. **Documentation** — update `README.md`, `README.zh-CN.md`, `CLAUDE.md`, and BOTH `.claude-plugin/marketplace.json` AND `.agents/plugins/marketplace.json` (see Phase 6)
 
 For each batch:
 - edit files under `"$TARGET_REPO"`
-- prefer `Edit` for existing files
-- validate each affected plugin:
+- prefer `Edit` for existing files; for large/new plugins use the sparse-clone bulk-copy in `references/directory-mapping.md`
+- validate each affected plugin (exit 0 = pass):
   ```bash
-  python3 "$TARGET_REPO/authoring/plugin-optimizer/scripts/validate-plugin.py" "$TARGET_REPO/<plugin-path>"
+  python3 "$TARGET_REPO/meta/plugin-optimizer/scripts/validate-plugin.py" "$TARGET_REPO/<plugin-path>"
   ```
+- **Registration gate:** a skill path must appear in EXACTLY ONE of `commands` (user-invocable slash command, frontmatter `user-invocable: true`) or `skills` (internal auto-load, `user-invocable: false`) — never both. Upstream sometimes dual-registers the same path; that is invalid here (CLAUDE.md contract) and will fail review. Pick one to match intent, and keep the SKILL.md `user-invocable` flag consistent with it.
 
 ## Phase 5: New Plugin Creation
 
 When porting a new plugin from upstream:
 
-1. Determine the target group:
-   - version control -> `version-control/`
+1. Determine the target group (the repo's ACTUAL 7 groups):
+   - version control -> `vcs/`
    - workflows -> `workflows/`
    - code quality -> `quality/`
    - integrations -> `integrations/`
    - platform-specific -> `platforms/`
-   - plugin authoring -> `authoring/`
-   - delivery -> `delivery/`
+   - plugin authoring / meta tooling -> `meta/`
+   - CI/CD / delivery -> `cicd/`
 
 2. Create the target structure under `"$TARGET_REPO"`:
    ```bash
@@ -145,36 +153,73 @@ When porting a new plugin from upstream:
    chmod +x "$TARGET_REPO/<script-path>"
    ```
 
-## Phase 6: Update Documentation
+## Phase 6: Update Documentation & Registries
 
-After all changes are applied inside `1st-cc-plugin/`:
+Marketplace + docs sync discipline. Every version bump / add / delete touches
+MULTIPLE files that must stay consistent.
 
-1. `.claude-plugin/marketplace.json`
-2. `CLAUDE.md`
-3. `README.md`
-4. `README.zh-CN.md`
+**Two marketplace files (keep in lock-step):**
+1. `$TARGET_REPO/.claude-plugin/marketplace.json` — Claude Code reads this (has `description`, `homepage`)
+2. `$TARGET_REPO/.agents/plugins/marketplace.json` — Codex reads this (minimal: name/version/source/category)
 
-All four live under `"$TARGET_REPO"`.
+A version lives in THREE places that must match: the plugin's `plugin.json`,
+its `.claude-plugin/marketplace.json` entry, and its `.agents/plugins/marketplace.json`
+entry. Bump all three together.
+
+**Docs in `$TARGET_REPO`:**
+3. `CLAUDE.md` — group table, commit-scope list, plugin COUNT ("contains N plugins"), and any hook/example references that point at a plugin you changed
+4. `README.md` + `README.zh-CN.md` — per-plugin entry blocks AND the plugin COUNT line ("collection of N plugins"); keep EN/ZH in sync
+
+**Parent repo `$REPO_ROOT/CLAUDE.md`** (MyPluginRepo, not the submodule):
+5. has its own commit-scope list AND a "skill-porting SOP" table that references
+   plugin paths/names — sync these when you add/rename/remove a plugin.
+
+**Count math:** when adding N and removing M plugins, update the count by `+N-M`
+in CLAUDE.md + both READMEs. Reconcile at the end:
+```bash
+# disk plugin.json count must equal marketplace entry count
+find "$TARGET_REPO" -name plugin.json -path '*/.claude-plugin/*' | wc -l
+python3 -c "import json;print(len(json.load(open('$TARGET_REPO/.claude-plugin/marketplace.json'))['plugins']))"
+```
+A mismatch means a registered plugin has no manifest (or vice-versa) — investigate.
+
+**Preserving est7-unique validator checks:** the validator (`meta/plugin-optimizer/
+scripts/validate-plugin.py`) is itself a sync target. If you wholesale-accept the
+upstream one, it may DROP est7-added checks (e.g. `check_descriptions` / the CSO
+description-length gate). After porting it, diff old-vs-new for est7-only
+`check_*` functions and graft them back (they register via `CHECKS` dict +
+`CHECK_ORDER` list). Then re-run the grafted validator across ALL synced plugins.
 
 ## Phase 7: Verification
 
-1. Run validation on all modified plugins:
+1. Run validation on all modified plugins (exit 0 = pass):
    ```bash
    for p in <modified-plugin-paths>; do
-     python3 "$TARGET_REPO/authoring/plugin-optimizer/scripts/validate-plugin.py" "$TARGET_REPO/$p"
+     python3 "$TARGET_REPO/meta/plugin-optimizer/scripts/validate-plugin.py" "$TARGET_REPO/$p"
    done
    ```
 
-2. Review the resulting diff:
+2. Run the cross-cutting gates (all must be clean):
+   ```bash
+   # a. identity leakage — must be empty
+   grep -rIl -e 'Frad LEE' -e 'fradser@' -e 'frad-dotclaude' -e 'FradSer/dotclaude' "$TARGET_REPO/<changed-paths>"
+   # b. duplicate registration — same path in commands AND skills (must be empty)
+   for pj in $(find "$TARGET_REPO" -name plugin.json -path '*/.claude-plugin/*'); do
+     python3 -c "import json;d=json.load(open('$pj'));[print('DUP $pj',x) for x in set(d.get('commands',[]))&set(d.get('skills',[]))]"
+   done
+   # c. count reconciliation — disk plugin.json count == marketplace entries (see Phase 6)
+   ```
+
+3. Review the resulting diff:
    ```bash
    git -C "$TARGET_REPO" status --short
    git -C "$TARGET_REPO" diff --stat
    ```
 
-3. Report back with:
+4. Report back with:
    - plugins affected
    - files modified / created / deleted
-   - validation results
+   - validation + gate results
    - recommended next commit split
 
 ## References
