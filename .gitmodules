@@ -208,3 +208,6 @@
 	path = vendor/claude-code-riper-5
 	url = https://github.com/tony/claude-code-riper-5
 	shallow = true
+[submodule "loaf-cli"]
+	path = loaf-cli
+	url = git@github.com:est7/loaf.git
