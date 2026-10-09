@@ -21,7 +21,7 @@
 
 - **分支策略：** `main` 是唯一的长期分支；小改动直接提交到 `main`，较大的工作在 `feat/`、`fix/` 分支完成后合并回 `main`。
 
-- **Commit scopes：** 插件名（简写 `po` = plugin-optimizer、`cc` = Claude 配置），跨插件用 `docs`、`ci`、`release`、`marketplace`。当前插件：`enhance-prompt`, `heads-up`, `mermaid-view`, `prompt-queue`, `should-know`, `side-chat`, `tidy-chat`, `whats-next`, `plugin-optimizer`, `skill-dev`, `android`, `frontend`, `modern-android`, `swiftui`, `clarify`, `cli-design`, `github`, `jj-workflow`
+- **Commit scopes：** 插件名（简写 `po` = plugin-optimizer、`cc` = Claude 配置），跨插件用 `docs`、`ci`、`release`、`marketplace`。当前插件：`heads-up`, `mermaid-view`, `prompt-queue`, `should-know`, `side-chat`, `tidy-chat`, `whats-next`, `plugin-optimizer`, `skill-dev`, `android`, `frontend`, `modern-android`, `swiftui`, `clarify`, `cli-design`, `github`, `jj-workflow`
 
 ## 架构
 
@@ -109,7 +109,6 @@ git submodule update --remote vendor/<name>
 
 | 路径 | 插件 | 描述 |
 |------|------|------|
-| `integrations/enhance-prompt` | enhance-prompt | Rewrite rough user requests into clearer, implementation-ready prompts using targeted built-in codebase exploration |
 | `integrations/heads-up` | heads-up | Claude Code mod: after Claude edits code, a side look at the task and the change offers one plain-language structural note above the prompt, under ⚠ 你注意到了吗？; it never enters Claude's context. |
 | `integrations/mermaid-view` | mermaid-view | Claude Code mod: every ```mermaid block Claude writes is drawn as coloured box art inline in the transcript; /mermaid sets ascii, colour and sideways layout. |
 | `integrations/prompt-queue` | prompt-queue | Claude Code mod: /q <text> while Claude works holds the prompt in a stack above the prompt box and sends it when the turn ends; reorder, edit, steer into the turn, or flush. |
