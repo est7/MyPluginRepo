@@ -109,11 +109,11 @@ git submodule update --remote vendor/<name>
 
 | 路径 | 插件 | 描述 |
 |------|------|------|
-| `integrations/heads-up` | heads-up | Claude Code mod: after Claude edits code, a side look at the task and the change offers one plain-language structural note above the prompt, under ⚠ 你注意到了吗？; it never enters Claude's context. |
+| `integrations/heads-up` | heads-up | Claude Code mod: after Claude edits code, a side look at the task and the change offers one plain-language structural note above the prompt, under ⚠ 你注意到了吗？; 追问 asks about it in side-chat; it never enters Claude's context. |
 | `integrations/mermaid-view` | mermaid-view | Claude Code mod: every ```mermaid block Claude writes is drawn as coloured box art inline in the transcript; /mermaid sets ascii, colour and sideways layout. |
 | `integrations/prompt-queue` | prompt-queue | Claude Code mod: /q <text> while Claude works holds the prompt in a stack above the prompt box and sends it when the turn ends; reorder, edit, steer into the turn, or flush. |
-| `integrations/should-know` | should-know | Claude Code mod: after each answered turn, a side look at the session offers one thing you should understand, explained in plain words for the reader you describe; open it, ask for simpler or deeper, or mark it known. |
-| `integrations/side-chat` | side-chat | Claude Code mod: /side-chat opens a read-only side-chat pane to ask about the session so far, answered by haiku from the transcript by default (or a main-model fork); nothing goes back to the main thread. |
+| `integrations/should-know` | should-know | Claude Code mod: after each answered turn, a side look at the session offers one thing you should understand, explained in plain words for the reader you describe; open it, ask for simpler or deeper, follow up in side-chat, or mark it known. |
+| `integrations/side-chat` | side-chat | Claude Code mod: /side-chat opens a read-only side-chat pane to ask about the session so far, answered by haiku from the transcript by default (or a main-model fork); other mods hand it questions via $.sideChat.ask; nothing goes back to the main thread. |
 | `integrations/tidy-chat` | tidy-chat | Claude Code mod: draws each tool call as one compact line, keeps errors and edit diffs open, and opens a /tidy-chat pane with every call in full, a failures list, and subagents as a tree on a timeline with their prompts and answers. |
 | `integrations/whats-next` | whats-next | Claude Code mod: after each reply, suggest up to 6 next steps above the prompt; tick several and Fill composes them into one detailed draft in the prompt box. |
 | `meta/plugin-optimizer` | plugin-optimizer | Plugin validation and optimization — check structure, token budgets, and best practices compliance |
