@@ -19,9 +19,9 @@
   ```
   退出码：0 = 通过，1 = MUST 级违规，2 = token 预算超限。
 
-- **分支策略：** `develop` → `main`（merge commits）
+- **分支策略：** `main` 是唯一的长期分支；小改动直接提交到 `main`，较大的工作在 `feat/`、`fix/` 分支完成后合并回 `main`。
 
-- **Commit scopes：** `git`, `gitflow`, `github`, `refactor`, `review`, `doc-tools`, `swiftui`, `frontend`, `po`, `project-init`, `sp`, `issue-flow`, `simple-task`, `complex-task`, `code-context`, `acpx`, `docs`, `ci`, `release`, `testing`, `ai-hygiene`, `clarify`, `android`, `plan`, `catchup`, `skill-dev`
+- **Commit scopes：** 插件名（简写 `po` = plugin-optimizer、`cc` = Claude 配置），跨插件用 `docs`、`ci`、`release`、`marketplace`。当前插件：`enhance-prompt`, `heads-up`, `mermaid-view`, `prompt-queue`, `should-know`, `side-chat`, `tidy-chat`, `whats-next`, `plugin-optimizer`, `skill-dev`, `android`, `frontend`, `modern-android`, `swiftui`, `clarify`, `cli-design`, `github`, `jj-workflow`
 
 ## 架构
 
@@ -109,33 +109,24 @@ git submodule update --remote vendor/<name>
 
 | 路径 | 插件 | 描述 |
 |------|------|------|
-| `vcs/git` | git | Conventional Git automation and advanced repository management |
-| `vcs/gitflow` | gitflow | GitFlow workflow automation for feature, hotfix, and release branches |
-| `vcs/github` | github | GitHub project operations with quality gates |
-| `workflows/issue-driven-dev` | issue-flow | GitLab Issue type-aware workflow for Android teams — Bug (3-stage) and Feature (4-stage) lifecycle |
-| `workflows/superpowers` | superpowers | Advanced development workflow orchestration — brainstorming, plan writing/execution, BDD, systematic debugging, and retrospective self-improvement |
-| `integrations/catchup` | catchup | Context gathering and handoff tools for catching up on branch changes and generating structured work summaries |
-| `workflows/deep-plan` | deep-plan | Planning workflow tools — Plan/Code mode switching for moderate-complex tasks and deep analysis with review gates |
-| `quality/ai-hygiene` | ai-hygiene | Detect and remove AI-generated code slop — defensive overreach, noise comments, duplicate boilerplate, and style inconsistencies |
-| `quality/clarify` | clarify | Clarify ambiguous prompts and incomplete spec documents through structured interviews |
-| `quality/codex-review` | codex-review | Code review via Codex CLI — auto-collects changes and task context for AI-powered review |
-| `quality/project-health` | project-health | Quantitative project health analysis with multi-role debate — tech debt scoring, improvement priorities, and roadmap generation |
-| `quality/refactor` | refactor | Refactor files or modules — simplify logic, remove dead code, improve cross-file consistency |
-| `quality/testing` | testing | TDD workflow and testing strategy with Red-Green-Refactor gates and implementation quality checks |
-| `integrations/async-agent` | async-agent | Run Claude, Codex, or Gemini tasks asynchronously via the packaged async-agent-backend binary |
-| `integrations/code-context` | code-context | 5 methods to retrieve code context: DeepWiki, Context7, Exa, git clone, and web search+fetch |
-| `integrations/doc-tools` | doc-tools | Document generation and maintenance skills — PRD/patent drafting, browser automation, README/CHANGELOG upkeep, and conversation-to-document rewriting |
-| `integrations/jetbrains` | jetbrains | JetBrains IDE MCP integration — code navigation, refactoring, inspections, and run configurations via IDE indexes |
-| `integrations/mcp-services` | mcp-services | MCP service usage guides and multi-tool collaboration patterns for Context7, GitHub, Google Developer Knowledge, and more |
-| `integrations/project-init` | project-init | Initialize project configuration — environment detection, AI assistant setup, TDD options, and multi-file sync |
-| `integrations/utils` | utils | General-purpose utility skills for documentation, writing, and project maintenance |
-| `platforms/android` | android | Android development toolkit — MVI feature development, design-to-XML UI generation, and Kotlin code review |
-| `platforms/frontend` | frontend | Web frontend toolkit — shadcn/ui, Next.js DevTools, React best practices, Supabase, DESIGN.md design system, and impeccable design skills |
-| `platforms/swiftui` | swiftui | SwiftUI code review with modern API best practices |
-| `meta/acpx` | acpx | Knowledge base for acpx — a headless ACP CLI for agent-to-agent communication |
-| `meta/plugin-optimizer` | plugin-optimizer | Validates and optimizes Claude Code plugins against official best practices and file patterns |
-| `meta/skill-dev` | skill-dev | Skill development toolkit for creating, optimizing, and testing Claude Code skills, commands, and MCP servers |
-| `cicd/release` | release | Release management and version control automation for GitHub releases and semantic versioning |
+| `integrations/enhance-prompt` | enhance-prompt | Rewrite rough user requests into clearer, implementation-ready prompts using targeted built-in codebase exploration |
+| `integrations/heads-up` | heads-up | Claude Code mod: after Claude edits code, a side look at the task and the change offers one plain-language structural note above the prompt, under ⚠ 你注意到了吗？; it never enters Claude's context. |
+| `integrations/mermaid-view` | mermaid-view | Claude Code mod: every ```mermaid block Claude writes is drawn as coloured box art inline in the transcript; /mermaid sets ascii, colour and sideways layout. |
+| `integrations/prompt-queue` | prompt-queue | Claude Code mod: /q <text> while Claude works holds the prompt in a stack above the prompt box and sends it when the turn ends; reorder, edit, steer into the turn, or flush. |
+| `integrations/should-know` | should-know | Claude Code mod: after each answered turn, a side look at the session offers one thing you should understand, explained in plain words for the reader you describe; open it, ask for simpler or deeper, or mark it known. |
+| `integrations/side-chat` | side-chat | Claude Code mod: /side-chat opens a read-only side-chat pane to ask about the session so far, answered by haiku from the transcript by default (or a main-model fork); nothing goes back to the main thread. |
+| `integrations/tidy-chat` | tidy-chat | Claude Code mod: draws each tool call as one compact line, keeps errors and edit diffs open, and opens a /tidy-chat pane with every call in full, a failures list, and subagents as a tree on a timeline with their prompts and answers. |
+| `integrations/whats-next` | whats-next | Claude Code mod: after each reply, suggest up to 6 next steps above the prompt; tick several and Fill composes them into one detailed draft in the prompt box. |
+| `meta/plugin-optimizer` | plugin-optimizer | Plugin validation and optimization — check structure, token budgets, and best practices compliance |
+| `meta/skill-dev` | skill-dev | Skill/command/subagent/MCP authoring toolkit — create, optimize, test, and benchmark Claude Code extensions |
+| `platforms/android` | android | Android development toolkit — Paper design-to-XML UI generation, MVI feature development, and Kotlin code review |
+| `platforms/frontend` | frontend | Web frontend development toolkit — shadcn/ui, Next.js DevTools, React best practices, Supabase, DESIGN.md design system spec, and impeccable design skills |
+| `platforms/modern-android` | modern-android | Modern Android & Kotlin Multiplatform skills — Compose UI, MVI presentation, data layer, Koin DI, navigation, module structure, error handling, and testing |
+| `platforms/swiftui` | swiftui | SwiftUI Clean Architecture review — MVVM patterns, view composition, and iOS best practices |
+| `quality/clarify` | clarify | Resolve ambiguous prompts and multi-decision specs — chat-style interviews or a brutalist HTML decision sheet |
+| `quality/cli-design` | cli-design | Audit, optimize, or design shell CLI tools against clig.dev — 9 philosophy principles and 24 concrete sections covering flags, output, errors, config, interactivity, subcommands, and distribution |
+| `vcs/github` | github | GitHub PR and Issue operations — create PRs with quality gates, manage issues, and run checks via gh CLI |
+| `vcs/jj-workflow` | jj-workflow | Jujutsu (jj) workflow plugin — LLM-aided stack editing for jj-colocated worktrees: file-level split, multi-mode rewrite, intelligent squash, full-stack ship, op-log restore |
 
 - 若 skill 契合某个现有插件的领域，直接添加到该插件中。
 - 若开辟了全新领域且无合适归属，新建插件目录并创建 `plugin.json` 和 `SKILL.md`。
