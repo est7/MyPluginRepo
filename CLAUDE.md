@@ -21,7 +21,7 @@
 
 - **分支策略：** `main` 是唯一的长期分支；小改动直接提交到 `main`，较大的工作在 `feat/`、`fix/` 分支完成后合并回 `main`。
 
-- **Commit scopes：** 插件名（简写 `po` = plugin-optimizer、`cc` = Claude 配置），跨插件用 `docs`、`ci`、`release`、`marketplace`。当前插件：`heads-up`, `mermaid-view`, `prompt-queue`, `should-know`, `side-chat`, `tidy-chat`, `whats-next`, `plugin-optimizer`, `skill-dev`, `android`, `frontend`, `modern-android`, `swiftui`, `clarify`, `cli-design`, `github`, `jj-workflow`
+- **Commit scopes：** 插件名（简写 `po` = plugin-optimizer、`cc` = Claude 配置），跨插件用 `docs`、`ci`、`release`、`marketplace`。当前插件：`side-notes`, `mermaid-view`, `prompt-queue`, `side-chat`, `tidy-chat`, `bash-guard`, `bark-notify`, `plugin-optimizer`, `skill-dev`, `android`, `frontend`, `modern-android`, `swiftui`, `clarify`, `cli-design`, `github`, `jj-workflow`
 
 ## 架构
 
@@ -109,13 +109,12 @@ git submodule update --remote vendor/<name>
 
 | 路径 | 插件 | 描述 |
 |------|------|------|
-| `integrations/heads-up` | heads-up | Claude Code mod: after Claude edits code, a side look at the task and the change offers one plain-language structural note above the prompt, under ⚠ 你注意到了吗？; 追问 asks about it in side-chat; it never enters Claude's context. |
 | `integrations/mermaid-view` | mermaid-view | Claude Code mod: every ```mermaid block Claude writes is drawn as coloured box art inline in the transcript; /mermaid sets ascii, colour and sideways layout. |
 | `integrations/prompt-queue` | prompt-queue | Claude Code mod: /q <text> while Claude works holds the prompt in a stack above the prompt box and sends it when the turn ends; reorder, edit, steer into the turn, or flush. |
-| `integrations/should-know` | should-know | Claude Code mod: after each answered turn, a side look at the session offers one thing you should understand, explained in plain words for the reader you describe; open it, ask for simpler or deeper, follow up in side-chat, or mark it known. |
-| `integrations/side-chat` | side-chat | Claude Code mod: /side-chat opens a read-only side-chat pane to ask about the session so far, answered by haiku from the transcript by default (or a main-model fork); other mods hand it questions via $.sideChat.ask; nothing goes back to the main thread. |
+| `integrations/side-chat` | side-chat | Claude Code mod: /side-chat opens a read-only side-chat pane to ask about the session so far, answered by haiku from the transcript by default (or a main-model fork); side-notes hands it questions via $.sideChat.ask; nothing goes back to the main thread. |
 | `integrations/tidy-chat` | tidy-chat | Claude Code mod: draws each tool call as one compact line, keeps errors and edit diffs open, and opens a /tidy-chat pane with every call in full, a failures list, and subagents as a tree on a timeline with their prompts and answers. |
-| `integrations/whats-next` | whats-next | Claude Code mod: after each reply, suggest up to 6 next steps above the prompt; tick several and Fill composes them into one detailed draft in the prompt box. |
+| `integrations/bash-guard` | bash-guard | Claude Code mod, off until turned on in /config: before a Bash command that loses work for good (force-push, reset --hard, checkout -- ., restore, clean -f, stash drop, rm -rf outside scratch, --no-verify, history rewrites) it asks you first, even under bypass permissions; no answer means it does not run. |
+| `integrations/side-notes` | side-notes | Claude Code mod: after each answered turn, up to three rows above the prompt in one layout and one top-down digit keymap — ➜ What's next? next steps to tick and fill, ⚠ 你注意到了吗？ a structural note on the edits, ✦ 你知道吗？ one thing worth understanding; 追问 asks in side-chat; nothing enters Claude's context. |
 | `meta/plugin-optimizer` | plugin-optimizer | Plugin validation and optimization — check structure, token budgets, and best practices compliance |
 | `meta/skill-dev` | skill-dev | Skill/command/subagent/MCP authoring toolkit — create, optimize, test, and benchmark Claude Code extensions |
 | `platforms/android` | android | Android development toolkit — Paper design-to-XML UI generation, MVI feature development, and Kotlin code review |
